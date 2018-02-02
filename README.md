@@ -1,14 +1,12 @@
 # Non-verbal communication fullstack capstone
 
-Link to live application: https://define-statement-of-purpose.herokuapp.com/
+Link to live application: https://non-verbal-communication.herokuapp.com/
 
 # Goal & Use Case
 
-This app should do three things, help one develop a Statement of Purpose, define personal values and beliefs and set goals that will help maintain focus in daily life and relationships.
+This is a simple communication app for someone suffering from ataxia or other language impairment. There are other apps for this condition but they typically require that the user know what words they are looking for in order to create a sentence.
 
-The Statement of Purpose is to help you focus on who you are as a person. It should typically be brief, something you would want to review on a regular basis. This is not a statement to lay out a plan or set goals for business or even goals for personal growth. Writing this statement is an assignment to discover and create a verbal representation of who you are and what is important to you. It is an idea to aspire to,  it is a direction to go.
-
-Defining your values and beliefs will help you create this statement and then you may set goals that are in line with your statement. For example, you may say “I will be more aware of my families needs and encourage them often.” In your goals, you can outline what that might look like.
+My mother is a stroke survivor. She can read and she understands what people are saying but has difficulty finding words and knowing what word she wants. It is much easier for her to communicate with pictures. It is also difficult for her to respond to a question like, "Do you want eggs or cereal for breakfast?" She will nod her head yes to both but if she sees a picture, she will point to the one she wants and if there is a phrase under the picture, she can read it.
 
 
 
@@ -35,45 +33,41 @@ Defining your values and beliefs will help you create this statement and then yo
 # User Stories & Initial UX
 
 **Landing Page**
-Initial landing page has login and register option. It also has an explanation of what the app is for, user will login or register and then login and then click "Let's get started." Also, at the top of this page in the nav bar are links to Reflect, Create and Review. See more info on Reflect, Create, Review page below.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/landing-page-image.png)
+Step 1. Initial landing page has login and register option.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/landing-page.png)
 
-**Answer Questions Page**
-Step 1 User will answer all questions on page. Step 2 user lists values and beliefs. User will then click "Save and continue."
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/answer-questions-image.png)
 
-**Instructions for creating SOP Page**
-Step 3 User can choose to create SOP free-style by clicking "Create free-style" or use a template by clicking "Create with template." The template will be filled in with their answers from questions page. User can edit if desired.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/instructions-create-sop.png)
+**Register Page**
+Step 2. User registers for account.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/register-page.png)
 
-**Create Free-style Page**
-Step 4 User can review answers from question section and create SOP in textarea, then clicks "Save"
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/create-free-style-image.png)
+**Add New Category Page**
+Step 3. User clicks "New" to create a new category. Once a new category has been created, it will be added to the navigation list.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-page.png)
 
-**Template Page**
-Alternatively, Step 4 Users answers from the questions page will be inserted in input fields where user can alter text. User clicks "Save" to continue
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/template-image.png)
+**Add New Subcategory Page**
+Step 4. After creating a new category, input displays where user can create a new subcategory.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcategory-page.png)
 
-**Completed Statement of Purpose and Add Goals Page**
-This page will have the users SOP displayed, along with a section to create goals. Once goals are created, user clicks "Save" to continue.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/set-goals-page.png)
+**Add New Card Page**
+Step 5. User can add a new card.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-card-page.png)
 
-**SOP, Values, Beliefs, Goals Page**
-Users SOP is displayed along with their Values, Beliefs and Goals. They have the option to click the edit button on Values and Beliefs which will direct them back to the Answer Questions Page where they can update their answers, values and beliefs. User may also click the edit button for Goals which will direct them back to Completed Statement of Purpose and Add Goals Page.
+**Add Icon Page**
+Step 6. User can add an icon to card.
 ![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/sop-values-beliefs-goals-final-page.png)
 
-**Reflect, Create, Review, Revise Page**
-Reflect: Directs user to their existing SOP, Values, Beliefs and Goals.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/sop-values-beliefs-goals-final-page.png)
+**Select Icon Page**
+Step 7. Icons are displayed. Search at top allows user do word search to find an appropriate icon
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-icon-page.png)
 
-Create: After creating SOP initially, "Create" Directs user to Instructions for creating SOP Page where they can alter their SOP, either by clicking "Create free-style" where their SOP will be displayed in the textarea or clicking "Create with template" where their answers from the questionaire will be displayed in the input fields. Create nav-option will be hidden after initial logout.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/instructions-create-sop.png)
+**Update Delete Page**
+Step 8. User can update icon or text. User can delete card.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/tree/master/wireframe-images)
 
-Review: Directs user to Create free-style page if they want to review their answers and change their SOP. Answers are hidden after initial logout.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/create-free-style-image.png)
-
-Revise: Directs uer to Create page where they can alter their SOP.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/login-create-free-style-image.png)
+**Home Page**
+Step 9. Displays all categories as clickable buttons to enter that category.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/tree/master/wireframe-images)
 
 
 # Technical stack
@@ -104,7 +98,4 @@ Revise: Directs uer to Create page where they can alter their SOP.
 # Development Roadmap
 
 ### Version 1.1
- * Include additional questions in questionnaire
- * Let user update Values, Beliefs and Goals
- * Allow user to save multiple SOPs over time so they can look back at the changes
- * Allow user to add steps to their goals and check them off as they complete them
+ *Allow users to capture their own images and add to app
