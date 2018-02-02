@@ -1,0 +1,44 @@
+{
+    "name": "non-verbal-communication-fullstack-capstone",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "mocha",
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone.git"
+    },
+    "author": "Kimberly Kearney",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/issues"
+    },
+    "homepage": "https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone#readme",
+    "dependencies": {
+        "axios": "^0.16.2",
+        "bcrypt": "^1.0.3",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.2",
+        "circular-json": "^0.3.3",
+        "express": "^4.16.2",
+        "lorem-ipsum": "^1.0.4",
+        "moment": "^2.19.3",
+        "mongodb": "^2.2.9",
+        "mongoose": "^4.12.1",
+        "morgan": "^1.9.0",
+        "node-lipsum": "^1.0.1",
+        "nodemon": "^1.12.5",
+        "passport": "^0.4.0",
+        "passport-http": "^0.3.0",
+        "travis": "^0.1.1"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "chai-http": "^3.0.0",
+        "faker": "^3.1.0",
+        "mocha": "^3.5.3"
+    }
+}

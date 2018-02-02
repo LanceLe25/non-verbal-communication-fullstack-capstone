@@ -1,0 +1,538 @@
+/*
+The CSS code gets to executed from top to bottom and left ro right
+Basic rules to write CSS
+- write GENERAL rules first (for all the paragraph tags in the website for example) and only after that write CSS for SPECIFIC tags (for example the paragraph tags inside the footer)
+- write the css styles to define for the parent (outside) container and THEN the children (inside containers) of that parent and THEN the children (inside containers) of the child above
+*/
+
+/* -------------------------------------
+CSS reset
+Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+    /*reset Firefox user agent styles*/
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+    /*reset Internet Explorer user agent styles*/
+    -ms-margin-before: 0px;
+    -ms-margin-after: 0px;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+    -ms-padding-before: 0px;
+    -ms-padding-after: 0px;
+    -ms-padding-start: 0px;
+    -ms-padding-end: 0px;
+    /*reset Opera user agent styles*/
+    -o-margin-before: 0px;
+    -o-margin-after: 0px;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+    -o-padding-before: 0px;
+    -o-padding-after: 0px;
+    -o-padding-start: 0px;
+    -o-padding-end: 0px;
+}
+
+
+/* -------------------------------------
+General styles (General Module, wrapping around the modules below)
+(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
+*/
+
+body {
+    font-size: 13px;
+    color: rgb(241, 241, 241);
+    background-color: #d5dada;
+}
+
+body,
+.nav-options,
+nav ul li,
+.create-sop,
+.purpose h2,
+#values-beliefs-goals h2,
+footer {
+    text-align: center;
+}
+
+header,
+.image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+header,
+main,
+textarea,
+footer {
+    width: 100%;
+}
+
+h1,
+h2,
+.account-options,
+.register-user,
+footer {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h2 {
+    font-size: 1.75rem;
+    padding-bottom: 2rem;
+}
+
+h3,
+h5,
+p,
+.js-connect-answer5,
+.js-connect-answer6 {
+    font-size: 1.25rem;
+}
+
+p,
+ul,
+h3 {
+    text-align: left;
+}
+
+h3,
+section,
+div,
+button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h4,
+.account-options,
+.register-user,
+button,
+footer p {
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+h5,
+nav ul li,
+#login-sop,
+#register-new-user,
+.account-options,
+.register-user,
+footer p {
+    display: inline-block;
+}
+
+h5 {
+    margin-top: .2rem;
+    margin-left: .5rem;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* -------------------------------------
+Header styles (Main Module)
+(all the styles inside the < header > or < nav > tags)
+*/
+
+h1 {
+    font-size: 2.5rem;
+    padding: 2rem 0;
+}
+
+header {
+    background-image: url("/images/header.jpeg");
+}
+
+nav {
+    padding-bottom: 1rem;
+}
+
+nav ul li {
+    width: 15%;
+    font-size: 1.2rem;
+}
+
+nav a,
+.login-account,
+.logout-account,
+.go-register-account,
+.register-account,
+.set-goals {
+    text-decoration: none;
+}
+
+nav a {
+    color: rgb(204, 197, 197);
+}
+
+nav a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+
+.login-account,
+.logout-account,
+.go-register-account,
+.register-account {
+    color: #9dcde8;
+}
+
+.logout-account:hover,
+.login-account:hover,
+.go-register-account:hover,
+.register-account:hover {
+    color: white;
+}
+
+.logout-account {
+    color: rgb(204, 197, 197);
+}
+
+.logout-account h4 {
+    float: right;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+    padding-top: 0;
+}
+
+.account-options,
+.register-user {
+    padding-left: 1rem;
+}
+
+/* -------------------------------------
+Content styles (Main Module)
+(all the styles inside the < sections > or < aside > tags)
+*/
+
+main {
+    margin: .15rem 0;
+}
+
+.why-sop,
+.assignment,
+.guided,
+.questions-wrapper,
+.review-answers,
+.questions-review,
+.template-sop,
+.purpose {
+    padding: 2rem;
+}
+
+.get-started-instructions {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+    margin-bottom: 1rem;
+}
+
+.review-section {
+    text-indent: 3mm;
+    margin: .5rem 0;
+}
+
+.complete-sentence {
+    margin-top: .8rem;
+}
+
+.js-connect-answer5,
+.js-connect-answer6 {
+    font-family: 'Julee', cursive;
+}
+
+.create-sop {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 3rem;
+}
+
+.list-goals {
+    padding: 2rem 5rem;
+}
+
+input,
+textarea,
+.review-section,
+.purpose {
+    font-family: 'Julee', cursive;
+}
+
+input,
+textarea {
+    letter-spacing: 2px;
+    border-radius: 5px;
+    padding: .5rem .5rem;
+    margin: .25rem 0;
+}
+
+.login input,
+.register input {
+    width: 150px;
+}
+
+#sop-description-info,
+#questions,
+#review,
+#create,
+#create-with-template,
+.save-sop,
+.purpose {
+    background-color: rgb(14, 136, 136);
+}
+
+.get-started-page,
+#login-sop,
+#register-new-user,
+#create-goals,
+#values-beliefs-goals {
+    background-color: rgb(86, 139, 86);
+}
+
+#questions h3 {
+    margin-bottom: .5rem;
+}
+
+.value-belief-questions-margin {
+    margin-top: 1rem;
+}
+
+.answer {
+    margin-bottom: 1rem;
+}
+
+.purpose {
+    border: 1rem solid white;
+}
+
+strong {
+    font-size: 2rem;
+}
+
+button {
+    padding: .25rem .5rem;
+    margin-top: 1.5rem;
+    text-shadow: .25px .25px grey;
+    color: rgb(14, 136, 136);
+    border-radius: 5px;
+}
+
+.create-sop-button,
+.use-template-button,
+.save-completed-button,
+.save-completed-template-button,
+.save-goals-button {
+    width: 225px;
+}
+
+textarea {
+    padding: .5rem 1rem;
+    font-size: 1.14rem;
+    margin-bottom: 1rem;
+}
+
+.answer-text,
+.input-sop {
+    height: 100px;
+}
+
+.input-sop {
+    width: 500px;
+}
+
+#values-beliefs-goals {
+    padding: 1rem 10rem;
+}
+
+.values,
+.beliefs,
+.goals {
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.beliefs {
+    margin: 0 8rem;
+}
+
+
+/*******************all image styles apart from header*********************/
+
+.sop-description-image {
+    background-image: url("/images/description-info.jpg");
+}
+
+.questions-image {
+    background-image: url("/images/questions.jpg");
+}
+
+.create-sop-image {
+    background-image: url("/images/create-sop.jpeg");
+}
+
+.create-goals-image {
+    background-image: url("/images/create-goals-image.jpg");
+}
+
+.completed-sop-image {
+    background-image: url("/images/completed-sop-image.jpeg");
+}
+
+
+
+/* -------------------------------------
+Footer styles (Main Module)
+(all the styles inside the < footer > tag)
+*/
+
+footer {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    background-color: rgb(42, 87, 113);
+    font-size: 2rem;
+}
+
+footer a {
+    color: rgb(86, 139, 86);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: rgb(208, 177, 152);
+}
+
+/* -------------------------------------
+place all the desktop styles above this line
+Responsive styles
+(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
+place all the mobile tables styles below this line
+*/
+
+@media only screen and (max-width: 1450px) {
+    .create-sop,
+    #values-beliefs-goals {
+        padding: 1rem 2rem;
+    }
+    .beliefs {
+        margin: 0 4rem;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    div .beliefs ul,
+    body,
+    main,
+    h3,
+    h4,
+    input {
+        font-size: 1rem;
+    }
+
+    h5 {
+        text-align: center;
+    }
+
+    h5,
+    nav ul li {
+        display: block;
+        width: 100%;
+        margin: .5rem auto;
+    }
+
+    .account-options,
+    .register-user {
+        padding-left: 0;
+    }
+
+
+    .logout-account h4 {
+        float: none;
+        margin-right: 0;
+        margin-bottom: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    div {
+        padding: .75rem;
+    }
+
+    #values-beliefs-goals {
+        padding: 0 8rem;
+    }
+
+    .values,
+    .beliefs,
+    .goals {
+        padding: 1rem 1rem;
+    }
+
+    .beliefs {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #values-beliefs-goals {
+        padding: 0 1rem;
+    }
+
+    .input-sop {
+        width: 300px;
+    }
+
+    .list-goals {
+        padding: 2rem 3rem;
+    }
+
+    .purpose {
+        border: .3rem solid white;
+    }
+
+}

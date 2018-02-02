@@ -1,0 +1,120 @@
+/*Styles for grid layout*/
+
+main {
+    display: inline-flex;
+}
+
+
+.header,
+.get-started-page,
+.review-answers,
+.save-sop,
+#create-goals {
+    width: 100%;
+}
+
+.sop-description-image,
+.create-sop-image {
+    width: 20%;
+}
+
+.why-sop,
+.assignment,
+.guided,
+.get-started-image,
+.questions-review {
+    width: 30%;
+}
+
+.questions-image,
+.questions-wrapper {
+    display: inline-block;
+}
+
+.questions-image,
+.save-sop {
+    width: 40%;
+}
+
+
+.answers-image {
+    width: 25%;
+}
+
+.completed-sop-image {
+    width: 40%;
+}
+
+.values,
+.beliefs,
+.goals {
+    width: 33%;
+}
+
+.create-sop,
+.template-sop,
+.list-goals,
+.create-goals-image {
+    width: 50%;
+}
+
+.answers-two-image {
+    width: 65%;
+}
+
+.purpose,
+.questions-wrapper {
+    width: 60%;
+}
+
+/*************media queries below*************/
+
+@media only screen and (max-width: 1000px) {
+    .sop-description-info,
+    .sop-description-image,
+    .why-sop,
+    .assignment,
+    .guided,
+    #create,
+    .create-sop-image,
+    .create-sop,
+    .template-sop,
+    .questions-review {
+        display: block;
+        width: 100%;
+    }
+
+    .values,
+    .beliefs {
+        padding-left: .25rem;
+    }
+    .beliefs {
+        padding-right: .25rem;
+    }
+    .goals {
+        padding-right: 1.5rem;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    body,
+    main,
+    section,
+    .questions-wrapper,
+    .image,
+    .purpose,
+    .list-goals,
+    .values,
+    .beliefs,
+    .goals {
+        display: block;
+        width: 100%;
+    }
+
+    .wrapper {
+        display: block;
+    }
+
+}

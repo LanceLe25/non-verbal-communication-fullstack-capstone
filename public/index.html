@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Statement of Purpose</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/float-grid.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+
+
+    <main>
+        <header>
+            <h1>Statement of Purpose</h1>
+            <nav class="hide-everything navigate-options">
+                <ul class="nav-options">
+                    <li class="nav-reflect"><a href="#">Reflect</a></li>
+                    <li class="hide-nav-create nav-create"><a href="#">Create</a></li>
+                    <li class="hide-nav-review nav-review"><a href="#">Review</a></li>
+                    <li class="hide-nav-revise nav-revise"><a href="#">Revise</a></li>
+                </ul>
+            </nav>
+
+            <a href="#" class="hide-everything logout-account">
+                <h4>Logout</h4>
+            </a>
+        </header>
+    </main>
+
+    <!--    *****User log-in or create a new account in order to save their SOP*****  -->
+    <main class="hide-everything" id="login-sop">
+        <form action="login" class="account-options">
+
+            <label class="login" for="login">
+                <h5>username:</h5>
+                <input class="signin-username" type="text" name="text" required>
+            </label>
+
+            <label class="login" for="login">
+                <h5>password:</h5>
+                <input class="signin-password" type="password" name="text" required>
+            </label>
+
+            <a href="#" class="login-account">
+                <h5>Login</h5>
+            </a>
+
+            <a href="#" class="go-register-account">
+                <h5>Register</h5>
+            </a>
+
+        </form>
+    </main>
+
+
+    <!--  **********User registers here**********  -->
+    <main class="hide-everything" id="register-new-user">
+        <form action="register" class="register-user">
+
+            <label class="register" for="register">
+                <h5>create username:</h5>
+                <input class="register-username" type="text" name="text" required>
+            </label>
+
+            <label class="register" for="register">
+                <h5>create password:</h5>
+                <input class="register-password" type="password" name="text" required>
+            </label>
+
+            <label class="register" for="register">
+                <h5>re-enter password:</h5>
+                <input class="register-confirm-password" type="password" name="text" required>
+            </label>
+
+            <a href="#" class="register-account">
+                <h5>Register</h5>
+            </a>
+
+        </form>
+    </main>
+
+
+    <!--  **********Explaination of what site is about, gives brief instructions**********  -->
+    <main role="main" class="hide-everything" id="sop-description-info">
+        <section class="image sop-description-image">
+        </section>
+
+        <section class="why-sop">
+            <h2>Why create a Statement of Purpose?</h2>
+            <h2> It helps to...</h2>
+            <p><strong>F</strong>ind your focus</p>
+            <p><strong>D</strong>iscover and define your values and beliefs</p>
+            <p><strong>S</strong>ee who you are in relation to others</p>
+            <p><strong>D</strong>etermine how you can use your strengths to serve others</p>
+        </section>
+
+
+        <section class="assignment">
+            <h2>Your assignment...</h2>
+            <p>
+                Define your purpose. It doesn't have to be lengthy. It will be something you want to review often.
+            </p>
+            <br>
+            <p>
+                This is an idea to aspire to, it is fluid, and malleable. You can revisit it often and revise it as your path evolves.
+            </p>
+        </section>
+
+
+        <section class="guided">
+            <h2>You will be guided through the following...</h2>
+            <p><strong>1 </strong>Think through what is important to you</p>
+            <p><strong>2 </strong>Define your values and beliefs</p>
+            <p><strong>3 </strong>Create a Statement of Purpose</p>
+            <p><strong>4 </strong>Set some goals that are in line with your statement</p>
+
+            <button class="start-button">Let's get started</button>
+        </section>
+    </main>
+
+
+    <!-- **********User answers some questions to create SOP in this section********** -->
+    <main class="hide-everything" id="questions">
+        <section class="image questions-image">
+        </section>
+        <form class="questions-wrapper">
+            <section class="hide-everything get-started-instructions">
+                <h2>
+                    <strong>Step 1</strong>
+                </h2>
+
+                <h3>Here are some questions to get you thinking about who you are and what direction you want to go, then you can create a Statement of Purpose in your own words or use a template. <i>Your answers will autofill into the provided template and then you may alter it if desired.</i></h3>
+                <br>
+
+                <h3>Instructions: Read the question and then complete the sentence.</h3>
+            </section>
+
+            <section class="hide-everything answer-questions">
+
+                <div class="questions">
+                    <h3>What do I want to have accomplished in my lifetime for myself and for others?</h3>
+                    <h3>It is my purpose to...</h3>
+                    <textarea name="create-sop" class="answer-text js-answer1" cols="30" rows="10"></textarea>
+                    <input type="hidden" class="logged-in-username" value="">
+                </div>
+
+                <div class="questions">
+                    <h3>What strengths and talents do I posses?</h3>
+                    <h3>I will grow and develop my...</h3>
+                    <textarea name="create-sop" class="answer-text js-answer2" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="questions">
+                    <h3>Who are the people that I value most?</h3>
+                    <h3>The people that are most important to me are...</h3>
+                    <textarea name="create-sop" class="answer-text js-answer3" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="questions">
+                    <h3>What are some ways I can enrich my life and the lives of those that I love?</h3>
+                    <h3>I will strive to...</h3>
+                    <textarea name="create-sop" class="answer-text  js-answer4" cols="30" rows="10"></textarea>
+                </div>
+
+            </section>
+
+            <section class="hide-everything enter-value-belief">
+                <h2 class="value-belief-questions-margin">
+                    <strong>Step 2.</strong>
+                </h2>
+                <h3>Separate each value and belief with a comma to create a list.</h3>
+
+                <div class="questions">
+                    <h3>What are my core values?</h3>
+                    <h4>Values: a person's principles or standards of behavior; one's judgment of what is important in life.</h4>
+                    <textarea name="create-sop" class="answer-text js-answer5" cols="30" rows="10"></textarea>
+                </div>
+                <div class="questions">
+                    <h3>What are my beliefs?</h3>
+                    <h4>Belief: trust, faith, or confidence in someone or something.</h4>
+                    <textarea name="create-sop" class="answer-text js-answer6" cols="30" rows="10"></textarea>
+                </div>
+            </section>
+            <button class="save-answers-button">Save and continue</button>
+        </form>
+    </main>
+
+
+    <!--   **********User can reference questions/answers while creating SOP********** -->
+    <main class="hide-everything" id="review">
+        <section class="hide-review-answers review-answers">
+
+            <h2><strong>Step 3.</strong><br>Review Your Answers and create your Statement of Purpose</h2>
+
+            <p>As you think about your answers, pick 3-4 main themes or ideas over all. Then begin to craft your Statment of Purpose. You can combine several ideas into one sentence if you would like.</p>
+            <br>
+
+            <p>
+                You can create your own SOP free-style or use the template that is provided. If using the template, once complete, feel free to alter it to fit your needs.
+            </p>
+            <br>
+
+            <p>Once you are finished, write or print it out your Statement of Purpose and place it where you can see it everyday. Your values and beliefs will be listed below. If desired, you can make a list of goals that are in line with your SOP. It will also be displayed below.</p>
+
+            <button class="create-sop-button">Create free-style</button>
+            <button class="hide-template-button use-template-button">Create with template</button>
+
+        </section>
+
+    </main>
+
+
+
+
+    <!--  **********User creates SOP using their own words**********  -->
+    <main class="hide-everything" id="create">
+
+        <section class="image create-sop-image"></section>
+
+        <section class="hide-questions questions-review">
+            <h2>My Answers</h2>
+
+            <div class="questions">
+                <h3>What do I want to have accomplished in my lifetime for myself and for others?</h3>
+                <p class="complete-sentence">It is my purpose to...</p>
+                <h3 class="review-section js-connect-answer1"></h3>
+            </div>
+
+            <div class="questions">
+                <h3>What strengths and talents do I posses?</h3>
+                <p class="complete-sentence">I will grow and develop my...</p>
+                <h3 class="review-section js-connect-answer2"></h3>
+            </div>
+
+            <div class="questions">
+                <h3>Who are the people that I value most?</h3>
+                <p class="complete-sentence">The people that are most important to me are...</p>
+                <h3 class="review-section js-connect-answer3"></h3>
+            </div>
+
+            <div class="questions">
+                <h3>What are some ways I can enrich the lives of those that I love?</h3>
+                <p class="complete-sentence">I will strive to...</p>
+                <h3 class="review-section js-connect-answer4"></h3>
+            </div>
+
+            <div class="questions">
+                <h3>What are my core values?</h3>
+                <h3 class="review-section js-connect-answer5"></h3>
+            </div>
+
+            <div class="questions">
+                <h3>What are my beliefs?</h3>
+                <h3 class="review-section js-connect-answer6"></h3>
+            </div>
+
+        </section>
+
+        <section class="create-sop">
+            <h2>Create your Statement of Purpose</h2>
+            <textarea name="create-sop" class="create-text" cols="30" rows="10"></textarea>
+            <input type="hidden" class="updated-sop-id" value="">
+            <button class="save-completed-button">Save</button>
+        </section>
+    </main>
+
+
+
+
+    <!--  **********Users answers from questionnaire autofill into template. User may alter template********** -->
+    <main class="hide-everything" id="create-with-template">
+        <section class="image create-sop-image"></section>
+
+        <section class="template-sop">
+            <h2>Template</h2>
+
+            <p>It is my purpose to
+                <!--                <input class="input-sop js-completed-sop1" value="" type="text">.-->
+                <textarea name="input-sop" class="input-sop js-completed-sop1" cols="30" rows="10"></textarea>
+            </p>
+            <br>
+
+            <p>I will grow and develop my
+                <!--                <input class="input-sop js-completed-sop2" value="" type="text">.-->
+                <textarea name="input-sop" class="input-sop js-completed-sop2" cols="30" rows="10"></textarea>
+            </p>
+            <br>
+
+            <p>The people that are most important to me are
+                <!--                <input class="input-sop js-completed-sop3" value="" type="text">.-->
+                <textarea name="input-sop" class="input-sop js-completed-sop3" cols="30" rows="10"></textarea>
+
+            </p>
+            <br>
+
+            <p>I will strive to
+                <!--                <input class="input-sop js-completed-sop4" value="" type="text">.-->
+                <textarea name="input-sop" class="input-sop js-completed-sop4" cols="30" rows="10"></textarea>
+            </p>
+
+
+            <p>
+                <button class="save-completed-template-button">Save</button>
+        </section>
+    </main>
+
+
+
+
+    <!--  **********Completed-sop is displayed for user to see**********  -->
+    <main class="hide-everything" id="completed-sop">
+        <section class="image completed-sop-image"></section>
+
+        <section class="purpose">
+            <h2>Statement of Purpose</h2>
+            <p>
+            </p>
+
+        </section>
+    </main>
+
+
+
+
+    <!-- **********User creates goals that align with their SOP**********  -->
+    <main class="hide-everything" id="create-goals">
+
+        <section class="list-goals">
+            <h2><strong>Step 4.</strong><br>Set goals</h2>
+            <p>What are some things I would like to accomplish that are in line with my SOP. Separate each goal with a comma to create a list.</p>
+
+            <input type="hidden" id="finalLoggedinUser" value="">
+            <input type="hidden" id="finalSopBody" value="">
+            <input type="hidden" id="finalValues" value="">
+            <input type="hidden" id="finalBeliefs" value="">
+
+            <textarea name="create-goals" class="my-goals" cols="30" rows="10"></textarea>
+            <button class="save-goals-button">Save</button>
+
+        </section>
+
+        <section class="image create-goals-image"></section>
+    </main>
+
+
+
+
+    <!-- *****Values, beliefs and goals displayed for user to see (values and beliefs are obtained in the question section)*****  -->
+    <main class="hide-everything" id="values-beliefs-goals">
+
+        <section class="values">
+
+            <!--           ***functionality to add in next version***-->
+            <!--
+            <form class="edit-values-form">
+<input type="hidden" class="edit-values-input" value="Statement of Purpose">
+<button type="submit" class="edit-values-button" value="">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+</form>
+-->
+            <h2>Values</h2>
+            <ul>
+                <li></li>
+            </ul>
+        </section>
+
+        <section class="beliefs">
+
+            <!--           ***functionality to add in next version***-->
+            <!--
+            <form class="edit-beliefs-form">
+                <input type="hidden" class="edit-beliefs-input" value="Statement of Purpose">
+                <button type="submit" class="edit-beliefs-button" value="">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+            </form>
+-->
+
+            <h2>Beliefs</h2>
+            <ul>
+                <li></li>
+            </ul>
+
+        </section>
+
+        <section class="goals">
+
+            <!--           ***functionality to add in next version***-->
+            <!--
+            <form class="edit-goals-form">
+<input type="hidden" class="edit-goals-input" value="Statement of Purpose">
+<button type="submit" class="edit-goals-button" value="">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+</form>
+-->
+
+            <h2>Goals</h2>
+            <ul>
+                <li></li>
+            </ul>
+
+        </section>
+    </main>
+
+
+    <footer role="content-info">
+        <p>© Kimberly Kearney</p>
+        <p>
+            <a href="https://www.linkedin.com/in/kimberly-kearney" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/kimcheru18" target="_blank">Github</a>
+        </p>
+    </footer>
+
+
+    <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="js/client.js"></script>
+
+</body>
+
+</html>
