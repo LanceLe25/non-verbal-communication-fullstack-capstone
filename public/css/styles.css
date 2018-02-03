@@ -61,6 +61,28 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
+body {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+#account-options-form input,
+#register-user input,
+#sop-description-info input {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
 
 /* -------------------------------------
 Header styles (Main Module)
@@ -70,11 +92,15 @@ Header styles (Main Module)
 #navigation {
     margin: 2rem;
     display: flex;
-    justify-content: space-between
+    flex-direction: column;
 }
 
 #navigation-options {
     list-style: none;
+}
+
+#navigation-options li {
+    padding-bottom: 1rem;
 }
 
 #navigation-options a,
@@ -82,9 +108,12 @@ Header styles (Main Module)
     text-decoration: none;
 }
 
+#logout {
+    padding-bottom: 1rem;
+}
+
 #dropdown-button {
-    padding: 1rem 0;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 /*QUESTION: what does z-index do and do I need it?*/
@@ -101,21 +130,115 @@ Header styles (Main Module)
 }
 
 #dropdown-categories a:hover {
-    background-color: #ddd;
+    color: red;
 }
 
 #dropdown:hover #dropdown-categories {
     display: block;
 }
 
+h1 {
+    font-size: 2rem;
+    margin-top:
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+/***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
+
+#account-options-form,
+#register-user {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 20rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+#login-account {
+    padding-bottom: 1rem;
+}
+
+
+#register-account-here {
+    padding-bottom: .5rem;
+}
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
+#add-content-wrapper,
+#add-cat-subcat-card,
+#icon-selection-wrapper,
+#add-icon-section,
+#icon-and-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+#add-cat-subcat-card input {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+#add-cat-subcat-card input,
+#add-icon-button,
+#icon-search,
+#update-button,
+#delete-button {
+    width: 200px;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
 
 
+#add-icon-button,
+#update-button {
+    background-color: #5bb93c;
+}
+
+#delete-button {
+    background-color: #7095e8;
+}
+
+#update-button {
+    margin-top: 1rem;
+}
+
+#select-icon {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 .1rem;
+}
+
+#select-icon a {
+    width: 100px;
+    height: 100px;
+    margin: .5rem auto;
+    border: 1px solid black;
+    padding: 2rem;
+}
+
+#card-icon-image {
+    margin: 0 auto;
+    border: 1px solid grey;
+    vertical-align: middle;
+}
+
+img {
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 
 

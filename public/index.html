@@ -8,7 +8,6 @@
 <!--    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">-->
 <!--    <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">-->
 
-    <link rel="stylesheet" href="/css/float-grid.css">
     <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
 </head>
 
@@ -16,51 +15,55 @@
 
 
     <main>
-        <header>
 
-            <nav id="navigation">
-                <ul id="navigation-options">
-                    <li class="hide-nav-create nav-home"><a href="#">HOME</a></li>
-                    <li class="hide-nav-review nav-new"><a href="#">NEW</a></li>
-                    <div>
-                       <button id="dropdown-button">CATEGORIES</button>
-                       <div id="dropdown-categories">
-                            <li class="hide-nav-review nav-link1"><a href="#">Link 1</a></li>
-                            <li class="hide-nav-review nav-link2"><a href="#">Link 2</a></li>
-                            <li class="hide-nav-review nav-link3"><a href="#">Link 3</a></li>
-                       </div>
-                    </div>
-                </ul>
-
-                <a href="#" id="logout">
+        <nav id="navigation">
+            <a href="#" id="logout" class="hide-everything">
                     <h4>Logout</h4>
-                </a>
+            </a>
+            <ul id="navigation-options">
+                <li class="nav-home"><a href="#">HOME</a></li>
+                <li class="hide-everything" id="nav-new-category"><a href="#">NEW</a></li>
+                <div id="dropdown" class="hide-everything">
+                    <button id="dropdown-button">    &#x25BC</button>
 
+                    <div id="dropdown-categories">
+                        <li class="hide-nav-review nav-link1">
+                            <a href="#">Link 1</a>
+                        </li>
 
-            </nav>
+                        <li class="hide-nav-review nav-link2">
+                           <a href="#">Link 2</a>
+                        </li>
+
+                        <li class="hide-nav-review nav-link3">
+                            <a href="#">Link 3</a>
+                        </li>
+                    </div>
+
+                </div>
+            </ul>
+        </nav>
+
+        <header>
             <h1>Non-Verbal Communication</h1>
-
         </header>
     </main>
 
     <!--    *****User log-in or create a new account in order to save their SOP*****  -->
     <main class="hide-everything" id="login">
-        <form action="login" id="account-options">
+        <form action="login" id="account-options-form">
 
-            <label class="login" for="login">
+            <label id="login-username" for="login">
                 <input class="signin-username" type="text" name="text" placeholder="username" required>
             </label>
 
-            <label class="login" for="login">
+            <label id="login-password" for="login">
                 <input class="signin-password" type="password" name="text" placeholder="password" required>
             </label>
 
-            <a href="#" class="login-account">
-                <h5>Login</h5>
-            </a>
+            <a href="#" id="login-account">Login</a>
 
-            <a href="#" class="go-register-account">
-                <h5>Register</h5>
+            <a href="#" id="register-account-here">Register
             </a>
 
         </form>
@@ -69,49 +72,84 @@
 
     <!--  **********User registers here**********  -->
     <main class="hide-everything" id="register-new-user">
-        <form action="register" class="register-user">
+        <form action="register" id="register-user">
 
-            <label class="register" for="register">
+            <label id="register" for="register">
                 <input class="register-username" type="text" name="text" placeholder="create username" required>
             </label>
 
-            <label class="register" for="register">
+            <label id="create-password" for="create-password">
                 <input class="register-password" type="password" name="text" placeholder="create password" required>
             </label>
 
-            <label class="register" for="register">
-                <input class="register-confirm-password" type="password" name="text" placeholder="re-enter password" required>
+            <label id="re-enter-password" for="re-enter-password">
+                <input id="register-confirm-password" type="password" name="text" placeholder="re-enter password" required>
             </label>
 
-            <a href="#" class="register-account">
-                <h5>Register</h5>
-            </a>
+            <a href="#" id="register-account">Register</a>
 
         </form>
     </main>
 
 
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
-    <main role="main" class="hide-everything" id="sop-description-info">
-        <section>
-            <input type="text" name="text" placeholder="add category">
-            <h2>CATEGORY</h2>
-            <input type="text" name="text" placeholder="add subcategory">
-            <h3>SUBCATEGORY</h3>
-            <input type="text" name="text" placeholder="add card">
-            <h4>CARD</h4>
-            <button>add icon</button>
-            <ul>
-               <h3 style="color: red">icons will be displayed here - REMOVE WHEN DONE</h3>
-                <li><a href="#">icon one</a></li>
-                <li><a href="#">icon two</a></li>
-                <li><a href="#">icon three</a></li>
-            </ul>
+    <main role="main" class="hide-everything" id="add-new-category">
+
+        <section id="add-content-wrapper">
+
+            <div id="add-cat-subcat-card">
+                <input id="add-category-input" type="text" name="text" placeholder="add category">
+<!--                remove button when you figure out how to make enter the trigger-->
+                <button class="hide-category-button add-category-button" style="border: 1px solid black; padding: .5rem;">Add</button><br>
+
+
+                <input class="hide-input" id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
+                <button class="hide-subcategory-button add-subcategory-button" style="border: 1px solid black; padding: .5rem;">Add</button><br>
+
+                <input class="hide-input" id="add-card-input" type="text" name="text" placeholder="add card">
+            </div>
+
+            <div id="icon-selection-wrapper">
+                <div id="add-icon-section">
+                    <button class="hide-button" id="add-icon-button">add icon</button>
+                    <input class="hide-input" id="icon-search" type="text" name="text" placeholder="search icon">
+                </div>
+            </div>
+
+            <div class="hide-everything">
+                <div id="select-icon">
+                    <a href="#">icon one</a>
+                    <a href="#">icon two</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                    <a href="#">icon three</a>
+                </div>
+            </div>
+
         </section>
 
-        <section>
-            <button>Update</button>
-            <button>Delete</button>
+        <section class="hide-everything">
+           <div>
+                <h2>CATEGORY</h2>
+                <h3>SUBCATEGORY</h3>
+            </div>
+
+            <div id="icon-and-card-wrapper">
+                <div id="card-icon-image">
+                    <img src="/icon-images/household-icons/bed-2.png" alt="">
+                </div>
+                <h4>CARD</h4>
+
+                <div>
+                    <button id="update-button">Update</button>
+                    <button id="delete-button">Delete</button>
+                </div>
+            </div>
+            <input type="text" id="finalLoggedinUser" value="">
         </section>
 
     </main>
@@ -127,10 +165,8 @@
     </footer>
 
 
-<!--
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="js/client.js"></script>
--->
 
 </body>
 
