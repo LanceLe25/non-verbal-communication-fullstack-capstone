@@ -4,12 +4,12 @@
 <head>
     <title>Non-verbal Communication App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">-->
 
     <link rel="stylesheet" href="/css/float-grid.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
 </head>
 
 <body>
@@ -17,24 +17,35 @@
 
     <main>
         <header>
-            <h1>Non-Verbal Communication</h1>
-            <nav class="hide-everything navigate-options">
-                <ul class="nav-options">
+
+            <nav id="navigation">
+                <ul id="navigation-options">
                     <li class="hide-nav-create nav-home"><a href="#">HOME</a></li>
                     <li class="hide-nav-review nav-new"><a href="#">NEW</a></li>
-                    <h3 style="color: red">new categories will be added to navigation bar - REMOVE WHEN DONE</h3>
+                    <div>
+                       <button id="dropdown-button">CATEGORIES</button>
+                       <div id="dropdown-categories">
+                            <li class="hide-nav-review nav-link1"><a href="#">Link 1</a></li>
+                            <li class="hide-nav-review nav-link2"><a href="#">Link 2</a></li>
+                            <li class="hide-nav-review nav-link3"><a href="#">Link 3</a></li>
+                       </div>
+                    </div>
                 </ul>
-            </nav>
 
-            <a href="#" class="hide-everything logout-account">
-                <h4>Logout</h4>
-            </a>
+                <a href="#" id="logout">
+                    <h4>Logout</h4>
+                </a>
+
+
+            </nav>
+            <h1>Non-Verbal Communication</h1>
+
         </header>
     </main>
 
     <!--    *****User log-in or create a new account in order to save their SOP*****  -->
-    <main class="hide-everything" id="login-sop">
-        <form action="login" class="account-options">
+    <main class="hide-everything" id="login">
+        <form action="login" id="account-options">
 
             <label class="login" for="login">
                 <input class="signin-username" type="text" name="text" placeholder="username" required>
@@ -84,8 +95,11 @@
     <main role="main" class="hide-everything" id="sop-description-info">
         <section>
             <input type="text" name="text" placeholder="add category">
+            <h2>CATEGORY</h2>
             <input type="text" name="text" placeholder="add subcategory">
+            <h3>SUBCATEGORY</h3>
             <input type="text" name="text" placeholder="add card">
+            <h4>CARD</h4>
             <button>add icon</button>
             <ul>
                <h3 style="color: red">icons will be displayed here - REMOVE WHEN DONE</h3>
