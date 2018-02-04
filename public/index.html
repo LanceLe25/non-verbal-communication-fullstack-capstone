@@ -97,52 +97,55 @@
 
         <section id="add-content-wrapper">
 
-            <div id="add-cat-subcat-card">
+            <div id="add-category-item">
                 <input id="add-category-input" type="text" name="text" placeholder="add category">
-<!--                remove button when you figure out how to make enter the trigger-->
-                <button class="hide-category-button add-category-button" style="border: 1px solid black; padding: .5rem;">Add</button><br>
+            </div>
 
 
-                <input class="hide-input" id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
-                <button class="hide-subcategory-button add-subcategory-button" style="border: 1px solid black; padding: .5rem;">Add</button><br>
 
-                <input class="hide-input" id="add-card-input" type="text" name="text" placeholder="add card">
+            <div id="add-subcategory-item">
+                <h2 id="category-title">category</h2>
+                <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
+            </div>
+
+
+            <div id="add-card-item">
+                <h2 id="subcategory-title">subcategory</h2>
+                <input id="add-card-input" type="text" name="text" placeholder="add card">
             </div>
 
             <div id="icon-selection-wrapper">
                 <div id="add-icon-section">
-                    <button class="hide-button" id="add-icon-button">add icon</button>
-                    <input class="hide-input" id="icon-search" type="text" name="text" placeholder="search icon">
+<!--                    <button class="hide-button" id="add-icon-button">add icon</button>-->
+                    <input id="icon-search" type="text" name="text" placeholder="search icon">
                 </div>
-            </div>
 
-            <div class="hide-everything">
                 <div id="select-icon">
-                    <a href="#">icon one</a>
-                    <a href="#">icon two</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
-                    <a href="#">icon three</a>
+                    <a href="#">one</a>
+                    <a href="#">two</a>
+                    <a href="#">three</a>
+                    <a href="#">four</a>
+                    <a href="#">five</a>
+                    <a href="#">six</a>
+                    <a href="#">seven</a>
+                    <a href="#">eight</a>
+                    <a href="#">nine</a>
                 </div>
             </div>
 
         </section>
 
-        <section class="hide-everything">
+        <section id="card-added" class="hide-everything">
            <div>
-                <h2>CATEGORY</h2>
-                <h3>SUBCATEGORY</h3>
+                <h2 id="category-title">CATEGORY</h2>
+               <h3 id="subcategory-title">SUBCATEGORY</h3>
             </div>
 
             <div id="icon-and-card-wrapper">
                 <div id="card-icon-image">
                     <img src="/icon-images/household-icons/bed-2.png" alt="">
                 </div>
-                <h4>CARD</h4>
+                <h4 id="card-title">CARD</h4>
 
                 <div>
                     <button id="update-button">Update</button>

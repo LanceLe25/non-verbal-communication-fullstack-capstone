@@ -59,6 +59,8 @@ $(document).ready(function () {
         $('#login').show();
     });
 
+
+
     $('#login-account').click(function () {
         $('.hide-everything').hide();
         $('#logout').show();
@@ -67,52 +69,99 @@ $(document).ready(function () {
         $('#dropdown').show();
     });
 
+
+
+
     $('#nav-new-category').click(function () {
         $('.hide-everything').hide();
         $('#nav-new-category').show();
-        $('.hide-input').hide();
-        $('.hide-button').hide();
         $('#add-new-category').show();
-
-
-        $('.hide-subcategory-button').hide();
+        $('#add-subcategory-item').hide();
+        $('#add-card-item').hide();
+        $('#icon-selection-wrapper').hide();
+        $('#add-category-input').focus();
     });
 
 
 
-    $('.add-category-button').click(function () {
+
+    $('#add-category-input').keypress(function (event) {
         const newCategory = $('#add-category-input').val();
-        if(newCategory == '') {
-            alert('Please enter a category');
-        } else {
 
-        $('.hide-everything').hide();
-        $('.hide-button').hide();
-        $('#nav-new-category').show();
-        $('#add-category-input').hide();
-        $('#add-subcategory-input').show();
+        if (newCategory == '' && event.which == 13) {
+            alert('Please add a new category')
+        } else if(!(newCategory == '') && event.which == 13){
+            $('.hide-everything').hide();
+            $('#nav-new-category').show();
+            $('#add-new-category').show();
+            $('#add-category-item').hide();
+            $('#add-card-item').hide();
+            $('#icon-selection-wrapper').hide();
+            $('#add-subcategory-item').show();
+            $('#add-subcategory-input').focus();
+        }
 
-
-        $('.hide-category-button').hide();
-        $('.hide-subcategory-button').show();
-        };
     });
 
-    $('.add-subcategory-button').click(function () {
-        const subcategory = $('#add-subcategory-input').val();
-        if(subcategory == '') {
-            alert('Please enter a subcategory');
-        } else {
+
+
+    $('#add-subcategory-input').keypress(function (event) {
+        const newCategory = $('#add-category-input').val();
+        const newSubcategory = $('#add-subcategory-input').val();
+
+        if (newSubcategory == '' && event.which == 13) {
+            alert('Please add a new subcategory')
+        } else if(!(newSubcategory == '') && event.which == 13){
+
+            $('#category-title').val(newCategory);
+            $('.hide-everything').hide();
+            $('#nav-new-category').show();
+            $('#add-new-category').show();
+            $('#add-category-item').hide();
+            $('#add-subcategory-item').hide();
+            $('#add-card-item').show();
+            $('#add-card-input').focus();
+        }
+    });
+
+    $('#add-card-input').keypress(function (event) {
+        const newCard = $('#add-card-input').val();
+
+        if (newCard == '' && event.which == 13) {
+            alert('Please add a new card')
+        } else if(!(newCard == '') && event.which == 13){
+            $('.hide-everything').hide();
+            $('#nav-new-category').show();
+            $('#add-new-category').show();
+            $('#add-category-item').hide();
+            $('#add-subcategory-item').hide();
+            $('#add-card-item').hide();
+            $('#icon-selection-wrapper').show();
+            $('#icon-search').focus();
+        }
+    });
+
+    $('#icon-search').keypress(function (event) {
+        let addIcon = $('#icon-search').val();
+        let newCategory = $('#add-category-input').val();
+        let newSubcategory = $('#add-subcategory-input').val();
+        let newCard = $('#add-card-input').val();
+        let updateHtml = $('#category-title').html();
+
+
+        if(!(addIcon == '') && event.which == 13){
+
+            document.getElementById(updateHtml).innerHTML = newCategory;
 
             $('.hide-everything').hide();
             $('#nav-new-category').show();
-            $('.hide-button').hide();
-            $('#add-card-input').show();
-
-            $('.hide-category-button').hide();
-            $('.hide-subcategory-button').show();
-        };
+            $('#add-new-category').show();
+            $('#add-content-wrapper').hide();
+            $('#card-added').show();
+        }
     });
+
+
 
 
 //    $('.login-account').click(function () {

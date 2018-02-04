@@ -172,7 +172,6 @@ Content styles (Main Module)
 */
 
 #add-content-wrapper,
-#add-cat-subcat-card,
 #icon-selection-wrapper,
 #add-icon-section,
 #icon-and-card-wrapper {
@@ -181,12 +180,12 @@ Content styles (Main Module)
     margin: 0 auto;
 }
 
-#add-cat-subcat-card input {
+#add-content-wrapper input {
     text-align: center;
     padding-bottom: 1rem;
 }
 
-#add-cat-subcat-card input,
+#add-content-wrapper input,
 #add-icon-button,
 #icon-search,
 #update-button,
