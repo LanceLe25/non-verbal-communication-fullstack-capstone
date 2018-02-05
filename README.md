@@ -55,7 +55,7 @@ Step 5. User can add a new card.
 
 **Add Icon Page**
 Step 6. User can add an icon to card.
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/wireframe-images/sop-values-beliefs-goals-final-page.png)
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-icon-page.png)
 
 **Select Icon Page**
 Step 7. Icons are displayed. Search at top allows user do word search to find an appropriate icon
