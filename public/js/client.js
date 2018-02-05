@@ -17,42 +17,42 @@
 
 
 var loggedInUser = "";
-var communicationCardTemplate = [
-    {
-    category: 'food',
-    subcategory: 'breakfast',
-    card: 'eggs',
-    image: 'eggs'
-    },
-    {
-        category: 'household',
-        subcategory: 'bedroom',
-        card: 'bed',
-        image: 'bed'
-    }
-];
+//var communicationCardTemplate = [
+//    {
+//    category: 'food',
+//    subcategory: 'breakfast',
+//    card: 'eggs',
+//    image: 'eggs'
+//    },
+//    {
+//        category: 'household',
+//        subcategory: 'bedroom',
+//        card: 'bed',
+//        image: 'bed'
+//    }
+//];
 
 // step 2. Defining functions
 
-function generateCardItemsString(cardList) {
-    console.log('display cards');
-    const newCategory = $('#add-category-input').val();
-
-    return `
-        <section>
-        <h2 id="js-category-title category-title"></h2>
-        <h3 id="js-subcategory-title subcategory-title"></h3>
-        <img id="js-icon-image icon-image" src="/icon-images/household-icons/bed-2.png"     alt="">
-        <h3 id="js-card-title card-title"></h3>
-        </section>
-    `;
-}
-
-function renderCardList() {
-    console.log('`renderCardList` ran');
-    const cardItemsString = generateCardItemsString(communicationCardTemplate);
-    $('#js-card-list').html(cardItemsString);
-}
+//function generateCardItemsString(cardList) {
+//    console.log('display cards');
+//    const newCategory = $('#add-category-input').val();
+//
+//    return `
+//        <section>
+//        <h2 id="js-category-title category-title"></h2>
+//        <h3 id="js-subcategory-title subcategory-title"></h3>
+//        <img id="js-icon-image icon-image" src="/icon-images/household-icons/bed-2.png"     alt="">
+//        <h3 id="js-card-title card-title"></h3>
+//        </section>
+//    `;
+//}
+//
+//function renderCardList() {
+//    console.log('`renderCardList` ran');
+//    const cardItemsString = generateCardItemsString(communicationCardTemplate);
+//    $('#js-card-list').html(cardItemsString);
+//}
 
 //function displayUpdatedStatement(username) {
 //    let retrieveUserSop = {};
