@@ -79,117 +79,147 @@ var loggedInUser = "";
 $(document).ready(function () {
 
     $('.hide-everything').hide();
-    $('#login').show();
+    $('#login-landing-page').show();
+    $('#register-account-landing-page').show();
+    $('#site-info').show();
+    $('#who-is-app-for').show();
+    $('#about-app').show();
+    $('#what-app-does').show();
+
+});
+
+
+$(document).on("click", '#login-landing-page', function () {
+    $('.hide-everything').hide();
     $('#navigation').show();
-
-    $('#register-account-here').click(function () {
-        $('.hide-everything').hide();
-        $('#register-new-user').show();
-    });
+    $('#nav-home').show();
+    $('#login').show();
+});
 
 
-    $('#register-account').click(function () {
-        $('.hide-everything').hide();
-        $('#login').show();
-    });
+$(document).on("click", '#register-account-landing-page', function () {
+    $('.hide-everything').hide();
+    $('#register-new-user').show();
+});
 
 
-    $('#login-account').click(function () {
-        $('.hide-everything').hide();
-        $('#logout').show();
-        $('#navigation-options').show();
-        $('#nav-new-category').show();
-        $('#dropdown').show();
-    });
+$(document).on("click", '#register-account', function () {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#nav-home').show();
+    $('#login').show();
+});
 
 
-    $('#nav-new-category').click(function () {
+$(document).on("click", '#login-account', function () {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#logout').show();
+    $('#navigation-options').show();
+    $('#nav-new-category').show();
+    $('#dropdown').show();
+    $('#add-new-category').show();
+});
+
+
+
+$(document).on("click", '#nav-home', function () {
+    $('.hide-everything').hide();
+    $('#login-landing-page').show();
+    $('#register-account-landing-page').show();
+    $('#site-info').show();
+    $('#who-is-app-for').show();
+    $('#about-app').show();
+    $('#what-app-does').show();
+});
+
+
+$(document).on("click", '#nav-new-category', function () {
+    $('.hide-everything').hide();
+    $('#nav-new-category').show();
+    $('#dropdown').show();
+    $('#add-new-category').show();
+    $('#add-subcategory-item').hide();
+    $('#add-card-item').hide();
+    $('#icon-selection-wrapper').hide();
+    $('#add-category-input').focus();
+});
+
+
+$(document).on("click", '#add-category-input', function () {
+    const newCategory = $('#add-category-input').val();
+
+    if (newCategory == '' && event.which == 13) {
+        alert('Please add a new category')
+    } else if (!(newCategory == '') && event.which == 13) {
+        $('#nav-link').html("");
+        $('#nav-link, #category-title').append(newCategory.toUpperCase());
         $('.hide-everything').hide();
         $('#nav-new-category').show();
         $('#dropdown').show();
         $('#add-new-category').show();
-        $('#add-subcategory-item').hide();
+        $('#add-category-item').hide();
         $('#add-card-item').hide();
         $('#icon-selection-wrapper').hide();
-        $('#add-category-input').focus();
-    });
+        $('#add-subcategory-item').show();
+        $('#add-subcategory-input').focus();
+    }
+});
 
 
-    $('#add-category-input').keypress(function (event) {
-        const newCategory = $('#add-category-input').val();
+$(document).on("click", '#add-subcategory-input', function () {
+    const newSubcategory = $('#add-subcategory-input').val();
 
-        if (newCategory == '' && event.which == 13) {
-            alert('Please add a new category')
-        } else if(!(newCategory == '') && event.which == 13){
-            $('#nav-link').html("");
-            $('#nav-link, #category-title').append(newCategory.toUpperCase());
-            $('.hide-everything').hide();
-            $('#nav-new-category').show();
-            $('#dropdown').show();
-            $('#add-new-category').show();
-            $('#add-category-item').hide();
-            $('#add-card-item').hide();
-            $('#icon-selection-wrapper').hide();
-            $('#add-subcategory-item').show();
-            $('#add-subcategory-input').focus();
-        }
-    });
-
-
-
-    $('#add-subcategory-input').keypress(function (event) {
-        const newSubcategory = $('#add-subcategory-input').val();
-
-        if (newSubcategory == '' && event.which == 13) {
-            alert('Please add a new subcategory')
-        } else if(!(newSubcategory == '') && event.which == 13){
-            $('#subcategory-title').append(newSubcategory.toLowerCase());
-            $('.hide-everything').hide();
-            $('#nav-new-category').show();
-            $('#dropdown').show();
-            $('#add-new-category').show();
-            $('#add-category-item').hide();
-            $('#add-subcategory-item').hide();
-            $('#add-card-item').show();
-            $('#add-card-input').focus();
-        }
-    });
+    if (newSubcategory == '' && event.which == 13) {
+        alert('Please add a new subcategory')
+    } else if (!(newSubcategory == '') && event.which == 13) {
+        $('#subcategory-title').append(newSubcategory.toLowerCase());
+        $('.hide-everything').hide();
+        $('#nav-new-category').show();
+        $('#dropdown').show();
+        $('#add-new-category').show();
+        $('#add-category-item').hide();
+        $('#add-subcategory-item').hide();
+        $('#add-card-item').show();
+        $('#add-card-input').focus();
+    }
+});
 
 
 
-    $('#add-card-input').keypress(function (event) {
-        const newCard = $('#add-card-input').val();
+$(document).on("click", '#add-card-input', function () {
+    const newCard = $('#add-card-input').val();
 
-        if (newCard == '' && event.which == 13) {
-            alert('Please add a new card')
-        } else if(!(newCard == '') && event.which == 13){
-            $('#card-title').append(newCard.toLowerCase());
-            $('.hide-everything').hide();
-            $('#nav-new-category').show();
-            $('#dropdown').show();
-            $('#add-new-category').show();
-            $('#add-category-item').hide();
-            $('#add-subcategory-item').hide();
-            $('#add-card-item').hide();
-            $('#icon-selection-wrapper').show();
-            $('#icon-search').focus();
-        }
-    });
+    if (newCard == '' && event.which == 13) {
+        alert('Please add a new card')
+    } else if (!(newCard == '') && event.which == 13) {
+        $('#card-title').append(newCard.toLowerCase());
+        $('.hide-everything').hide();
+        $('#nav-new-category').show();
+        $('#dropdown').show();
+        $('#add-new-category').show();
+        $('#add-category-item').hide();
+        $('#add-subcategory-item').hide();
+        $('#add-card-item').hide();
+        $('#icon-selection-wrapper').show();
+        $('#icon-search').focus();
+    }
+});
 
-    $('#icon-search').keypress(function (event) {
-
-
-        if(!(addIcon == '') && event.which == 13){
+$('#icon-search').keypress(function (event) {
 
 
-            $('.hide-everything').hide();
-            $('#nav-new-category').show();
-            $('#dropdown').show();
-            $('#add-new-category').show();
-            $('#add-content-wrapper').hide();
-            $('#card-added').show();
-        }
-    });
+    if (!(addIcon == '') && event.which == 13) {
+
+
+        $('.hide-everything').hide();
+        $('#nav-new-category').show();
+        $('#dropdown').show();
+        $('#add-new-category').show();
+        $('#add-content-wrapper').hide();
+        $('#card-added').show();
+    }
+});
 
 
 
@@ -576,7 +606,6 @@ $(document).ready(function () {
 
 
 
-    $('#logout').click(function () {
-        window.location.reload();
-    });
+$('#logout').click(function () {
+    window.location.reload();
 });

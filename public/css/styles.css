@@ -63,6 +63,9 @@ General styles (General Module, wrapping around the modules below)
 
 body {
     text-align: center;
+    background-color: #3b3b44;
+    color: aliceblue;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h2 {
@@ -89,10 +92,14 @@ Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
+#navigation,
+#logout a {
+    display: flex;
+}
+
 #navigation {
     margin: 2rem;
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #navigation-options {
@@ -106,14 +113,22 @@ Header styles (Main Module)
 #navigation-options a,
 #logout {
     text-decoration: none;
+    color: aliceblue;
 }
 
 #logout {
     padding-bottom: 1rem;
 }
 
+#logout ab{
+    justify-content: flex-end;
+}
+
+
 #dropdown-button {
     font-size: 2rem;
+    color: aliceblue;
+    background-color: #3b3b44;
 }
 
 /*QUESTION: what does z-index do and do I need it?*/
@@ -142,9 +157,38 @@ h1 {
     margin-top:
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+    font-family: 'Lora', serif;
 }
 
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
+
+#account-options,
+#login-or-register {
+    display: flex;
+}
+
+#account-options {
+    justify-content: flex-end;
+}
+
+#account-options a,
+#login-or-register a,
+#register-account,
+#nav-home a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#account-options a,
+#login-or-register a,
+#register-account {
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+#login-or-register {
+    flex-direction: column;
+}
 
 #account-options-form,
 #register-user {
@@ -157,20 +201,43 @@ h1 {
     padding-bottom: 1rem;
 }
 
-#login-account {
-    padding-bottom: 1rem;
-}
 
-
-#register-account-here {
-    padding-bottom: .5rem;
-}
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
+#site-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#site-info div {
+    border: 1px solid black;
+    padding: 1rem;
+    width: 300px;
+    margin: 1rem;
+    flex-grow: 1;
+}
+
+#who-toggle,
+#about-toggle,
+#what-toggle,
+#how-toggle {
+/*
+    display: none;font-size: 1.25rem;
+*/
+}
+
+#who-button,
+#about-button,
+#what-button,
+#how-button {
+    color: aliceblue;
+    background-color: #3b3b44;
+    font-size: 1.5rem;
+}
 
 #add-content-wrapper,
 #icon-selection-wrapper,
@@ -181,17 +248,21 @@ Content styles (Main Module)
     margin: 0 auto;
 }
 
+#site-info input,
 #add-content-wrapper input {
     text-align: center;
     padding-bottom: 1rem;
 }
 
+#site-info input,
 #add-content-wrapper input,
 #add-icon-button,
 #icon-search,
+#form-submit,
 #update-button,
 #delete-button {
     width: 200px;
+    margin: 0 auto;
     border: 1px solid black;
     padding: .5rem 1rem;
     margin-bottom: 1rem;
@@ -253,6 +324,7 @@ Content styles (Main Module)
 
 img {
     width: 200px;
+    margin: 0 auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -272,6 +344,7 @@ footer {
 
 footer a {
     text-decoration: none;
+    color: lightgrey;
 }
 
 footer a:hover {

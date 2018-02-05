@@ -4,9 +4,7 @@
 <head>
     <title>Non-verbal Communication App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans" rel="stylesheet">-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
 </head>
@@ -16,15 +14,13 @@
 
     <main>
 
-        <nav id="navigation">
-            <a href="#" id="logout" class="hide-everything">
-                    <h4>Logout</h4>
-            </a>
+        <nav id="navigation" class="hide-everything">
+
             <ul id="navigation-options">
-                <li class="nav-home"><a href="#">HOME</a></li>
+                <li id="nav-home"><a href="#">HOME</a></li>
                 <li class="hide-everything" id="nav-new-category"><a href="#">NEW</a></li>
                 <div id="dropdown" class="hide-everything">
-                    <button id="dropdown-button">    &#x25BC</button>
+                    <button id="dropdown-button">&#9776</button>
 
                     <div id="dropdown-categories">
                         <li>
@@ -34,7 +30,17 @@
 
                 </div>
             </ul>
+            <div id="logout-wrapper">
+                <a href="#" id="logout" class="hide-everything">
+                    <h4>Logout</h4>
+                </a>
+            </div>
         </nav>
+
+        <section id="account-options">
+            <a href="#" id="login-landing-page" class="hide-everything">Login</a>
+            <a href="#" id="register-account-landing-page" class="hide-everything">Register</a>
+        </section>
 
         <header>
             <h1>Non-Verbal Communication</h1>
@@ -53,10 +59,10 @@
                 <input class="signin-password" type="password" name="text" placeholder="password" required>
             </label>
 
-            <a href="#" id="login-account">Login</a>
-
-            <a href="#" id="register-account-here">Register
-            </a>
+            <section id="login-or-register">
+                <a href="#" id="login-account">Login</a>
+                <!--                <a href="#" id="register-account-here">Register</a>-->
+            </section>
 
         </form>
     </main>
@@ -85,17 +91,43 @@
 
 
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
+    <main id="site-info" class="hide-everything">
+
+        <div id="who-is-app-for">
+            <h2 id="who-button">Who should use this app?</h2>
+            <p class="who-toggle">Anyone who has suffered some kind of brain injury and has difficulty communicating, also caregivers and family members who what to communicate with them</p>
+        </div>
+
+        <div id="about-app">
+            <h2 id="about-button">About this app</h2>
+            <p id="about-toggle">This is a very simple site for those who have difficulty finding words and communicating their wants and needs to their families and caregivers</p>
+        </div>
+
+        <div id="what-app-does">
+            <h2 id="what-button">What does it do?</h2>
+            <p id="what-toggle">ThisIt allows you to create cards with images so that you can communicate better without the need to search through long lists of words to find what you want to say</p>
+        </div>
+
+        <div id="how-app-works">
+            <h2 id="how-button">How does it work?</h2>
+            <p id="how-toggle">You will be shown step by step how to create a category, subcategory and item along with an selecting a matching image to display on the card</p>
+        </div>
+    </main>
+
+
+
+
     <main role="main" class="hide-everything" id="add-new-category">
 
 
-        <section>
+        <section class="hide-everything">
             <h2 id="category-title"></h2>
             <h3 id="subcategory-title"></h3>
             <img src="/icon-images/household-icons/bed-2.png" alt="">
             <h3 id="card-title"></h3>
         </section>
 
-        <section id="add-content-wrapper">
+        <form id="add-content-wrapper">
 
             <div id="add-category-item">
                 <input id="add-category-input" type="text" name="text" placeholder="add category">
@@ -114,7 +146,7 @@
                     <input id="icon-search" type="text" name="text" placeholder="search icon">
                 </div>
 
-                <div id="select-icon">
+                <div id="select-icon" class="hide-everything">
                     <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
                     <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
                     <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
@@ -123,13 +155,14 @@
                 </div>
             </div>
 
-        </section>
+            <button id="form-submit">Submit</button>
+        </form>
 
         <section id="card-update-delete" class="hide-everything">
-                <div>
-                    <button id="update-button">Update</button>
-                    <button id="delete-button">Delete</button>
-                </div>
+            <div>
+                <button id="update-button">Update</button>
+                <button id="delete-button">Delete</button>
+            </div>
             <input type="text" id="finalLoggedinUser" value="">
         </section>
 
