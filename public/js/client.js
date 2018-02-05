@@ -17,8 +17,43 @@
 
 
 var loggedInUser = "";
+var communicationCardTemplate = [
+    {
+    category: 'food',
+    subcategory: 'breakfast',
+    card: 'eggs',
+    image: 'eggs'
+    },
+    {
+        category: 'household',
+        subcategory: 'bedroom',
+        card: 'bed',
+        image: 'bed'
+    }
+];
 
 // step 2. Defining functions
+
+function generateCardItemsString(cardList) {
+    console.log('display cards');
+    const newCategory = $('#add-category-input').val();
+
+    return `
+        <section>
+        <h2 id="js-category-title category-title"></h2>
+        <h3 id="js-subcategory-title subcategory-title"></h3>
+        <img id="js-icon-image icon-image" src="/icon-images/household-icons/bed-2.png"     alt="">
+        <h3 id="js-card-title card-title"></h3>
+        </section>
+    `;
+}
+
+function renderCardList() {
+    console.log('`renderCardList` ran');
+    const cardItemsString = generateCardItemsString(communicationCardTemplate);
+    $('#js-card-list').html(cardItemsString);
+}
+
 //function displayUpdatedStatement(username) {
 //    let retrieveUserSop = {};
 //    $.ajax({
@@ -48,17 +83,15 @@ $(document).ready(function () {
     $('#navigation').show();
 
     $('#register-account-here').click(function () {
-
         $('.hide-everything').hide();
         $('#register-new-user').show();
-
     });
+
 
     $('#register-account').click(function () {
         $('.hide-everything').hide();
         $('#login').show();
     });
-
 
 
     $('#login-account').click(function () {
@@ -70,11 +103,10 @@ $(document).ready(function () {
     });
 
 
-
-
     $('#nav-new-category').click(function () {
         $('.hide-everything').hide();
         $('#nav-new-category').show();
+        $('#dropdown').show();
         $('#add-new-category').show();
         $('#add-subcategory-item').hide();
         $('#add-card-item').hide();
@@ -83,16 +115,17 @@ $(document).ready(function () {
     });
 
 
-
-
     $('#add-category-input').keypress(function (event) {
         const newCategory = $('#add-category-input').val();
 
         if (newCategory == '' && event.which == 13) {
             alert('Please add a new category')
         } else if(!(newCategory == '') && event.which == 13){
+            $('#nav-link').html("");
+            $('#nav-link, #category-title').append(newCategory.toUpperCase());
             $('.hide-everything').hide();
             $('#nav-new-category').show();
+            $('#dropdown').show();
             $('#add-new-category').show();
             $('#add-category-item').hide();
             $('#add-card-item').hide();
@@ -100,22 +133,20 @@ $(document).ready(function () {
             $('#add-subcategory-item').show();
             $('#add-subcategory-input').focus();
         }
-
     });
 
 
 
     $('#add-subcategory-input').keypress(function (event) {
-        const newCategory = $('#add-category-input').val();
         const newSubcategory = $('#add-subcategory-input').val();
 
         if (newSubcategory == '' && event.which == 13) {
             alert('Please add a new subcategory')
         } else if(!(newSubcategory == '') && event.which == 13){
-
-            $('#category-title').val(newCategory);
+            $('#subcategory-title').append(newSubcategory.toLowerCase());
             $('.hide-everything').hide();
             $('#nav-new-category').show();
+            $('#dropdown').show();
             $('#add-new-category').show();
             $('#add-category-item').hide();
             $('#add-subcategory-item').hide();
@@ -124,14 +155,18 @@ $(document).ready(function () {
         }
     });
 
+
+
     $('#add-card-input').keypress(function (event) {
         const newCard = $('#add-card-input').val();
 
         if (newCard == '' && event.which == 13) {
             alert('Please add a new card')
         } else if(!(newCard == '') && event.which == 13){
+            $('#card-title').append(newCard.toLowerCase());
             $('.hide-everything').hide();
             $('#nav-new-category').show();
+            $('#dropdown').show();
             $('#add-new-category').show();
             $('#add-category-item').hide();
             $('#add-subcategory-item').hide();
@@ -142,19 +177,14 @@ $(document).ready(function () {
     });
 
     $('#icon-search').keypress(function (event) {
-        let addIcon = $('#icon-search').val();
-        let newCategory = $('#add-category-input').val();
-        let newSubcategory = $('#add-subcategory-input').val();
-        let newCard = $('#add-card-input').val();
-        let updateHtml = $('#category-title').html();
 
 
         if(!(addIcon == '') && event.which == 13){
 
-            document.getElementById(updateHtml).innerHTML = newCategory;
 
             $('.hide-everything').hide();
             $('#nav-new-category').show();
+            $('#dropdown').show();
             $('#add-new-category').show();
             $('#add-content-wrapper').hide();
             $('#card-added').show();

@@ -171,6 +171,7 @@ Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
+
 #add-content-wrapper,
 #icon-selection-wrapper,
 #add-icon-section,
@@ -198,8 +199,21 @@ Content styles (Main Module)
     text-align: center;
 }
 
+#category-title {
+    padding-bottom: .25rem;
+}
 
-#add-icon-button,
+#subcategory-title {
+    padding-bottom: .75rem;
+}
+
+#card-title {
+    padding: .5rem;
+}
+
+
+
+/*#add-icon-button,*/
 #update-button {
     background-color: #5bb93c;
 }
@@ -218,12 +232,17 @@ Content styles (Main Module)
     margin: 0 .1rem;
 }
 
-#select-icon a {
+#select-icon img {
     width: 100px;
     height: 100px;
     margin: .5rem auto;
     border: 1px solid black;
-    padding: 2rem;
+    padding: .2rem;
+    margin-right: .25rem;
+}
+
+#select-icon img:first-child {
+    margin-left: .25rem;
 }
 
 #card-icon-image {
