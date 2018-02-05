@@ -59,7 +59,7 @@ Step 6. User can add an icon to card.
 
 **Select Icon Page**
 Step 7. Icons are displayed. Search at top allows user do word search to find an appropriate icon
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-icon-page.png)
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-icon-page.png)
 
 **Update Delete Page**
 Step 8. User can update icon or text. User can delete card.
