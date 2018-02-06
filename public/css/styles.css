@@ -76,17 +76,7 @@ h3 {
     font-size: 1.25rem;
 }
 
-#account-options-form input,
-#register-user input,
-#sop-description-info input {
-    /*
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid grey;
-    border-radius: 5px;
-*/
-}
+
 
 
 /* -------------------------------------
@@ -94,17 +84,25 @@ Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
-/*delete later*/
+/******NAVIGATION STYLES******/
 
-#logout-wrapper {
-    display: none;
+/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+
+
+
+main,
+nav {
+    border: 2px solid white;
 }
+
+/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+
 
 
 nav section {
     display: inline-block;
     float: left;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 nav a,
@@ -115,7 +113,8 @@ nav a,
 
 #nav-home,
 #dropdown,
-#logout-wrapper {
+#logout-wrapper,
+#account-options {
     padding-top: .5rem;
 }
 
@@ -129,8 +128,12 @@ nav li {
 }
 
 #logout-wrapper,
-#account-options #account-options a {
+#account-options {
     float: right;
+    padding-right: 1rem;
+}
+
+#account-options a:first-child {
     padding-right: 1rem;
 }
 
@@ -159,46 +162,47 @@ nav li {
 
 
 
+/******HEADER STYLES******/
 
-
-
-
-
-
-
-
-
-
-
-
-
-h1 {
+header {
+    margin-top: 5rem;
     font-size: 2rem;
-    margin-top: padding-bottom: 2rem;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
 }
 
+
+
+
+
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
 
-/*#account-options a,*/
+#login-register-wrapper label,
+#login-register a,
+#register-user-wrapper label,
+#register-account a {
+    display: block;
+}
 
-#login-or-register a,
-#register-account,
-#nav-home a {
+#login-register-form input,
+#register-user-form input {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+#login-register a,
+#register-user-form a {
     text-decoration: none;
     color: aliceblue;
 }
 
-/*#account-options a,*/
-
-#login-or-register a,
-#register-account {
+#login-register a,
+#register-account a {
     padding-top: 1rem;
     padding-right: 1rem;
 }
-
-#login-or-register {}
 
 #account-options-form,
 #register-user {
@@ -215,6 +219,16 @@ h1 {
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
+
+/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+#login-register-wrapper,
+#register-user-wrapper,
+/*#logout-wrapper,*/
+#account-options {
+    display: none;
+}
+/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+
 
 #site-info {}
 

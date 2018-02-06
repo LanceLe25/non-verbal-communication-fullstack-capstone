@@ -11,7 +11,7 @@
 
 <body>
 
-    <main role="main" class="hide-everything">
+    <main role="main" id="navigation" class="hide-everything">
         <nav role="navigation">
 
             <section id="nav-home">
@@ -40,6 +40,10 @@
 
         </nav>
 
+
+    </main>
+
+    <main id="header-wrapper">
         <header>
             <h1>Non-Verbal Communication</h1>
         </header>
@@ -47,12 +51,9 @@
 
 
 
-
-
-
-    <!--    *****User log-in or create a new account in order to save their SOP*****  -->
-    <main class="hide-everything" id="login">
-        <form action="login" id="account-options-form">
+    <!--    *****USER LOGIN OR REGISTER*****  -->
+    <main id="login-register-wrapper" class="hide-everything">
+        <form action="login" id="login-register-form">
 
             <label id="login-username" for="login">
                 <input class="signin-username" type="text" name="text" placeholder="username" required>
@@ -62,18 +63,18 @@
                 <input class="signin-password" type="password" name="text" placeholder="password" required>
             </label>
 
-            <section id="login-or-register">
-                <a href="#" id="login-account">Login</a>
-                                <a href="#" id="register-account-here">Register</a>
+            <section id="login-register">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
             </section>
 
         </form>
     </main>
 
 
-    <!--  **********User registers here**********  -->
-    <main class="hide-everything" id="register-new-user">
-        <form action="register" id="register-user">
+    <!--  **********USER REGISTERS HERE**********  -->
+    <main id="register-user-wrapper" class="hide-everything">
+        <form action="register" id="register-user-form">
 
             <label id="register" for="register">
                 <input class="register-username" type="text" name="text" placeholder="create username" required>
@@ -86,9 +87,10 @@
             <label id="re-enter-password" for="re-enter-password">
                 <input id="register-confirm-password" type="password" name="text" placeholder="re-enter password" required>
             </label>
-
-            <a href="#" id="register-account">Register</a>
-
+            <section id="register-account">
+                <a href="#">Register</a>
+                <a href="#">Login</a>
+            </section>
         </form>
     </main>
 
