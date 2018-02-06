@@ -122,54 +122,91 @@
 
 
 
-    <main role="main" class="hide-everything" id="add-new-category">
+    <main role="main" id="add-new-card" class="hide-everything">
 
 
-        <section class="hide-everything">
+        <section id="card-template" class="hide-everything">
             <h2 id="category-title"></h2>
             <h3 id="subcategory-title"></h3>
-            <img src="/icon-images/household-icons/bed-2.png" alt="">
-            <h3 id="card-title"></h3>
+            <!--            <img src="/icon-images/household-icons/bed-2.png" alt="">-->
+            <h3 id="item-title"></h3>
         </section>
 
-        <form id="add-content-wrapper">
 
-            <div id="add-category-item">
-                <input id="add-category-input" type="text" name="text" placeholder="add category">
-            </div>
 
-            <div id="add-subcategory-item">
-                <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
-            </div>
 
-            <div id="add-card-item">
-                <input id="add-card-input" type="text" name="text" placeholder="add card">
-            </div>
+        <form action="" id="new-card-wrapper">
 
-            <div id="icon-selection-wrapper">
-                <div id="add-icon-section">
-                    <input id="icon-search" type="text" name="text" placeholder="search icon">
+            <section id="add-category">
+
+                <div>
+                    <input id="add-category-input" type="text" name="text" placeholder="add category" required>
+                    <a href="">Edit</a>
+                    <a href="">Delete</a>
+
+
+                    <div id="add-subcategory">
+                        <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+
+                        <div id="add-item">
+                            <input id="add-card-input" type="text" name="text" placeholder="add card">
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+
+                            <div id="add-icon">
+                                <input id="icon-search" type="text" name="text" placeholder="search icon" required>
+                                <a href="">Edit</a>
+                                <a href="">Delete</a>
+
+                                <div id="select-icon" class="hide-everything">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+
+                        <div id="add-item">
+                            <input id="add-card-input" type="text" name="text" placeholder="add card">
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+
+                            <div id="add-icon">
+                                <input id="icon-search" type="text" name="text" placeholder="search icon">
+                                <a href="">Edit</a>
+                                <a href="">Delete</a>
+                                <div id="select-icon" class="hide-everything">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
+                                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="select-icon" class="hide-everything">
-                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                <div>
+                    <input id="add-category-input" type="text" name="text" placeholder="add category">
+                    <a href="">Edit</a>
+                    <a href="">Delete</a>
                 </div>
-            </div>
 
-            <button id="form-submit">Submit</button>
+                <button id="submit-button">Submit</button>
+            </section>
+
         </form>
-
-        <section id="card-update-delete" class="hide-everything">
-            <div>
-                <button id="update-button">Update</button>
-                <button id="delete-button">Delete</button>
-            </div>
-            <input type="text" id="finalLoggedinUser" value="">
-        </section>
 
     </main>
 

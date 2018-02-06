@@ -86,16 +86,10 @@ Header styles (Main Module)
 
 /******NAVIGATION STYLES******/
 
-/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
-
-main,
-nav {
-    border: 2px solid white;
-}
-
-/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
-
-nav section {
+#nav-home,
+#dropdown,
+#logout-wrapper,
+#account-options {
     display: inline-block;
     float: left;
     font-size: 1.5rem;
@@ -160,8 +154,8 @@ nav li {
 
 /******HEADER STYLES******/
 
-header {
-    margin-top: 5rem;
+#header-wrapper {
+/*        margin-top: 5rem;*/
     font-size: 2rem;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
@@ -221,12 +215,14 @@ Content styles (Main Module)
 #login-register-wrapper,
 #register-user-wrapper,
 /*#logout-wrapper,*/
-
-#account-options {
-    display: none;
+#account-options,
+#site-info div {
+/*    display: none;*/
 }
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+
+/******SITE INFO******/
 
 #site-info {
     display: block;
@@ -240,92 +236,38 @@ Content styles (Main Module)
     margin: 1rem;
 }
 
-#add-content-wrapper,
-#icon-selection-wrapper,
-#add-icon-section,
-#icon-and-card-wrapper {
-    margin: 0 auto;
-}
 
-#site-info input,
-#add-content-wrapper input {
+
+/******CREATE CARD, EDIT, DELETE, NEW CATEGORY, SUBCATEGORY, ITEM******/
+
+#add-category input,
+#submit-button {
     text-align: center;
-    padding-bottom: 1rem;
-}
-
-#site-info input,
-#add-content-wrapper input,
-#add-icon-button,
-#icon-search,
-#form-submit,
-#update-button,
-#delete-button {
-    width: 200px;
-    margin: 0 auto;
-    border: 1px solid black;
     padding: .5rem 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border-radius: 5px;
-    text-align: center;
 }
 
-#category-title {
-    padding-bottom: .25rem;
-}
-
-#subcategory-title {
-    padding-bottom: .75rem;
-}
-
-#card-title {
-    padding: .5rem;
+#add-category a {
+    color: aliceblue;
 }
 
 
-
-/*#add-icon-button,*/
-
-#update-button {
-    background-color: #5bb93c;
-}
-
-#delete-button {
-    background-color: #7095e8;
-}
-
-#update-button {
-    margin-top: 1rem;
-}
 
 #select-icon {
-    margin: 0 .1rem;
+    /*    margin: 0 .1rem;*/
 }
 
 #select-icon img {
-    width: 100px;
-    height: 100px;
-    margin: .5rem auto;
-    border: 1px solid black;
-    padding: .2rem;
+    width: 70px;
+    height: 70px;
+    padding: .3rem;
     margin-right: .25rem;
+    background: white;
 }
 
 #select-icon img:first-child {
     margin-left: .25rem;
-}
-
-#card-icon-image {
-    margin: 0 auto;
-    border: 1px solid grey;
-    vertical-align: middle;
-}
-
-img {
-    width: 200px;
-    margin: 0 auto;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 
