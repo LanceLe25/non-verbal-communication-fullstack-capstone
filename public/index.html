@@ -11,41 +11,44 @@
 
 <body>
 
+    <main role="main" class="hide-everything">
+        <nav role="navigation">
 
-    <main>
+            <section id="nav-home">
+                <a href="#">Home</a>
+            </section>
 
-        <nav id="navigation" class="hide-everything">
+            <section id="dropdown">
+                <a href="#">&#9776</a>
+                <ul id="dropdown-categories">
+                    <li><a id="nav-link" href="#">this is a longer link 1</a></li>
+                    <li><a id="nav-link" href="#">link 2</a></li>
+                    <li><a id="nav-link" href="#">link 3</a></li>
+                </ul>
+            </section>
 
-            <ul id="navigation-options">
-                <li id="nav-home"><a href="#">HOME</a></li>
-                <li class="hide-everything" id="nav-new-category"><a href="#">NEW</a></li>
-                <div id="dropdown" class="hide-everything">
-                    <button id="dropdown-button">&#9776</button>
-
-                    <div id="dropdown-categories">
-                        <li>
-                            <a id="nav-link" href="#"></a>
-                        </li>
-                    </div>
-
-                </div>
-            </ul>
-            <div id="logout-wrapper">
-                <a href="#" id="logout" class="hide-everything">
+            <section id="logout-wrapper" class="hide-everything">
+                <a href="#" id="logout">
                     <h4>Logout</h4>
                 </a>
-            </div>
-        </nav>
+            </section>
 
-        <section id="account-options">
-            <a href="#" id="login-landing-page" class="hide-everything">Login</a>
-            <a href="#" id="register-account-landing-page" class="hide-everything">Register</a>
-        </section>
+            <section id="account-options">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </section>
+
+        </nav>
 
         <header>
             <h1>Non-Verbal Communication</h1>
         </header>
     </main>
+
+
+
+
+
 
     <!--    *****User log-in or create a new account in order to save their SOP*****  -->
     <main class="hide-everything" id="login">
@@ -61,7 +64,7 @@
 
             <section id="login-or-register">
                 <a href="#" id="login-account">Login</a>
-                <!--                <a href="#" id="register-account-here">Register</a>-->
+                                <a href="#" id="register-account-here">Register</a>
             </section>
 
         </form>
@@ -179,9 +182,11 @@
         </p>
     </footer>
 
-
-    <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="js/client.js"></script>
+    <!--
+<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+</script>
+<script src="js/client.js"></script>
+-->
 
 </body>
 

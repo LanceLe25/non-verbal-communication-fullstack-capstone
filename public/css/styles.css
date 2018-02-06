@@ -79,11 +79,13 @@ h3 {
 #account-options-form input,
 #register-user input,
 #sop-description-info input {
+    /*
     text-align: center;
     padding: 1rem;
     margin: 1rem;
     border: 1px solid grey;
     border-radius: 5px;
+*/
 }
 
 
@@ -92,56 +94,59 @@ Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
-#navigation,
-#logout a {
-    display: flex;
+/*delete later*/
+
+#logout-wrapper {
+    display: none;
 }
 
-#navigation {
-    margin: 2rem;
-    flex-direction: row;
+
+nav section {
+    display: inline-block;
+    float: left;
+    font-size: 1.2rem;
 }
 
-#navigation-options {
+nav a,
+#logout-wrapper {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+#nav-home,
+#dropdown,
+#logout-wrapper {
+    padding-top: .5rem;
+}
+
+#nav-home,
+#dropdown a {
+    padding-left: 1rem;
+}
+
+nav li {
     list-style: none;
 }
 
-#navigation-options li {
-    padding-bottom: 1rem;
-}
-
-#navigation-options a,
-#logout {
-    text-decoration: none;
-    color: aliceblue;
-}
-
-#logout {
-    padding-bottom: 1rem;
-}
-
-#logout ab{
-    justify-content: flex-end;
-}
-
-
-#dropdown-button {
-    font-size: 2rem;
-    color: aliceblue;
-    background-color: #3b3b44;
+#logout-wrapper,
+#account-options #account-options a {
+    float: right;
+    padding-right: 1rem;
 }
 
 /*QUESTION: what does z-index do and do I need it?*/
+
 #dropdown-categories {
     display: none;
-    background-color: #f1f1f1f1;
-    min-width: 10rem;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: .4rem;
+    margin-left: .5rem;
+    float: right;
+    text-align: left;
+    background-color: #4c4c56;
+    border-radius: 2px;
+    min-width: 5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-}
-
-#dropdown-categories li {
-    padding: .5rem;
 }
 
 #dropdown-categories a:hover {
@@ -152,26 +157,32 @@ Header styles (Main Module)
     display: block;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 h1 {
     font-size: 2rem;
-    margin-top:
-    padding-bottom: 2rem;
+    margin-top: padding-bottom: 2rem;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
 }
 
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
 
-#account-options,
-#login-or-register {
-    display: flex;
-}
+/*#account-options a,*/
 
-#account-options {
-    justify-content: flex-end;
-}
-
-#account-options a,
 #login-or-register a,
 #register-account,
 #nav-home a {
@@ -179,21 +190,18 @@ h1 {
     color: aliceblue;
 }
 
-#account-options a,
+/*#account-options a,*/
+
 #login-or-register a,
 #register-account {
     padding-top: 1rem;
     padding-right: 1rem;
 }
 
-#login-or-register {
-    flex-direction: column;
-}
+#login-or-register {}
 
 #account-options-form,
 #register-user {
-    display: flex;
-    flex-direction: column;
     border: 1px solid black;
     border-radius: 5px;
     width: 20rem;
@@ -208,24 +216,20 @@ Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
-#site-info {
-    display: flex;
-    flex-wrap: wrap;
-}
+#site-info {}
 
 #site-info div {
     border: 1px solid black;
     padding: 1rem;
     width: 300px;
     margin: 1rem;
-    flex-grow: 1;
 }
 
 #who-toggle,
 #about-toggle,
 #what-toggle,
 #how-toggle {
-/*
+    /*
     display: none;font-size: 1.25rem;
 */
 }
@@ -243,8 +247,6 @@ Content styles (Main Module)
 #icon-selection-wrapper,
 #add-icon-section,
 #icon-and-card-wrapper {
-    display: flex;
-    flex-direction: column;
     margin: 0 auto;
 }
 
@@ -285,6 +287,7 @@ Content styles (Main Module)
 
 
 /*#add-icon-button,*/
+
 #update-button {
     background-color: #5bb93c;
 }
@@ -298,8 +301,6 @@ Content styles (Main Module)
 }
 
 #select-icon {
-    display: flex;
-    flex-wrap: wrap;
     margin: 0 .1rem;
 }
 
