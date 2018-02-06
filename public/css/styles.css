@@ -88,16 +88,12 @@ Header styles (Main Module)
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
 
-
-
 main,
 nav {
     border: 2px solid white;
 }
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
-
-
 
 nav section {
     display: inline-block;
@@ -221,40 +217,27 @@ Content styles (Main Module)
 */
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
+
 #login-register-wrapper,
 #register-user-wrapper,
 /*#logout-wrapper,*/
+
 #account-options {
     display: none;
 }
+
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
 
-
-#site-info {}
+#site-info {
+    display: block;
+    width: 25rem;
+    margin: 0 auto;
+}
 
 #site-info div {
     border: 1px solid black;
     padding: 1rem;
-    width: 300px;
     margin: 1rem;
-}
-
-#who-toggle,
-#about-toggle,
-#what-toggle,
-#how-toggle {
-    /*
-    display: none;font-size: 1.25rem;
-*/
-}
-
-#who-button,
-#about-button,
-#what-button,
-#how-button {
-    color: aliceblue;
-    background-color: #3b3b44;
-    font-size: 1.5rem;
 }
 
 #add-content-wrapper,
