@@ -104,10 +104,27 @@ nav {
     font-size: 1.5rem;
 }
 
-nav a,
-#logout-wrapper {
+
+#nav-home a {
     color: aliceblue;
     text-decoration: none;
+}
+
+#dropdown a,
+#dropdown-categories a,
+#landing-page-login,
+#landing-page-register,
+#logout {
+    color: #88b4c1;
+    text-decoration: none;
+}
+
+#dropdown a:hover,
+#dropdown-categories a:hover,
+#landing-page-login:hover,
+#landing-page-register:hover,
+#logout:hover {
+    color: aliceblue;
 }
 
 #nav-home,
@@ -158,7 +175,7 @@ nav li {
 }
 
 #dropdown-categories a:hover {
-    color: red;
+    color: aliceblue;
 }
 
 #dropdown:hover #dropdown-categories {
@@ -184,7 +201,8 @@ nav li {
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
 
 #login-register-wrapper label,
-#login-register a,
+#login-register,
+#login-register button,
 #register-user-wrapper label,
 #register-account a {
     display: block;
@@ -201,7 +219,7 @@ nav li {
 #login-register a,
 #register-user-form a {
     text-decoration: none;
-    color: aliceblue;
+    color: #88b4c1;
 }
 
 #login-register a,
@@ -219,6 +237,15 @@ nav li {
     padding-bottom: 1rem;
 }
 
+#login-register button,
+#register-account button {
+    display: block;
+    width: 7rem;
+    margin: .75rem auto;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    background-color: #88b4c1;
+}
 
 
 /* -------------------------------------
@@ -289,7 +316,7 @@ Content styles (Main Module)
 }
 
 #new-card-wrapper a {
-    color: aliceblue;
+    color: #88b4c1;
 }
 
 #new-card-wrapper,
@@ -342,6 +369,12 @@ Content styles (Main Module)
     text-decoration: none:
 }
 
+#add-dropdown-categories a:hover,
+#add-dropdown-subcategories a:hover,
+#add-dropdown-item a:hover {
+    color: aliceblue;
+}
+
 
 #add-category-display-wrapper,
 #add-subcategory-display-wrapper,
@@ -364,7 +397,7 @@ Content styles (Main Module)
 #category-displayed a:hover,
 #subcategory-displayed a:hover,
 #item-displayed a:hover {
-    color: red;
+    color: aliceblue;
 }
 
 #select-icon div {
@@ -409,15 +442,6 @@ Content styles (Main Module)
     border-radius: 5px;
 }
 
-.add-subcategory-button,
-.add-item-button,
-.delete-selected-button {
-    text-align: center;
-    padding: .5rem 1rem;
-    margin: 1rem;
-    border-radius: 5px;
-}
-
 #card-template li input {
     margin-left: 1rem;
 }
@@ -429,17 +453,18 @@ Footer styles (Main Module)
 */
 
 footer {
+    margin-top: 10rem;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
 
 footer a {
     text-decoration: none;
-    color: lightgrey;
+    color: #88b4c1;
 }
 
 footer a:hover {
-    color: rgb(208, 177, 152);
+    color: aliceblue;
 }
 
 /* -------------------------------------

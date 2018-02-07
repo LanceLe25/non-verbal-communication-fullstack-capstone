@@ -3,7 +3,7 @@
 const User = require('./models/user');
 const Statement = require('./models/statement');
 const bodyParser = require('body-parser');
-const config = require('./config');
+//const config = require('./config');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -258,6 +258,5 @@ app.use('*', (req, res) => {
     });
 });
 
-exports.app = app;
-exports.runServer = runServer;
-exports.closeServer = closeServer;
+//exports.app = app;//exports.runServer = runServer;
+//exports.closeServer = closeServer;

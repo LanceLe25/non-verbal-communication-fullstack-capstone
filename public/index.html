@@ -21,9 +21,9 @@
             <section id="dropdown">
                 <a href="#">&#9776</a>
                 <ul id="dropdown-categories">
-                    <li><a id="nav-link" href="#">this is a longer link 1</a></li>
-                    <li><a id="nav-link" href="#">link 2</a></li>
-                    <li><a id="nav-link" href="#">link 3</a></li>
+                    <li><a href="#" id="add-new-card-link">Add a new card</a></li>
+                    <li><a href="#">link 2</a></li>
+                    <li><a href="#">link 3</a></li>
                 </ul>
             </section>
 
@@ -55,16 +55,16 @@
         <form action="login" id="login-register-form">
 
             <label id="login-username" for="login">
-                <input class="signin-username" type="text" name="text" placeholder="username" required>
+                <input class="signin-username" type="text" name="text" placeholder="username" >
             </label>
 
             <label id="login-password" for="login">
-                <input class="signin-password" type="password" name="text" placeholder="password" required>
+                <input class="signin-password" type="password" name="text" placeholder="password" >
             </label>
 
             <section id="login-register">
-                <button id="login-account">Login</button>
-                <button id="go-to-register-page">Register</button>
+                <button id="login-account-button">Login</button>
+                <button id="go-to-register-page-button">Register</button>
             </section>
 
         </form>
@@ -76,19 +76,19 @@
         <form action="register" id="register-user-form">
 
             <label id="register" for="register">
-                <input class="register-username" type="text" name="text" placeholder="create username" required>
+                <input class="register-username" type="text" name="text" placeholder="create username">
             </label>
 
             <label id="create-password" for="create-password">
-                <input class="register-password" type="password" name="text" placeholder="create password" required>
+                <input class="register-password" type="password" name="text" placeholder="create password">
             </label>
 
             <label id="re-enter-password" for="re-enter-password">
-                <input id="register-confirm-password" type="password" name="text" placeholder="re-enter password" required>
+                <input id="register-confirm-password" type="password" name="text" placeholder="re-enter password">
             </label>
             <section id="register-account">
-                <a href="#" id="register-account">Register</a>
-                <a href="#" id="go-to-login-page">Login</a>
+                <button id="register-account-button">Register</button>
+                <button id="go-to-login-page-button">Login</button>
             </section>
         </form>
     </main>
@@ -325,7 +325,6 @@
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
     </script>
     <script src="js/client.js"></script>
-
 </body>
 
 </html>
