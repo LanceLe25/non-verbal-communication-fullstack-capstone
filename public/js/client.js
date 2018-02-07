@@ -79,30 +79,33 @@ var loggedInUser = "";
 $(document).ready(function () {
 
     $('.hide-everything').hide();
-    $('#login-landing-page').show();
-    $('#register-account-landing-page').show();
+    $('#navigation').show();
+    $('#dropdown').hide();
+    $('#logout-wrapper').hide();
+    $('#account-options').show();
     $('#site-info').show();
-    $('#who-is-app-for').show();
-    $('#about-app').show();
-    $('#what-app-does').show();
 
 });
 
 
-$(document).on("click", '#login-landing-page', function () {
+//*****TAKES USER TO LOGIN PAGE FROM LANDING PAGE*****
+$(document).on("click", '#landing-page-login', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#nav-home').show();
-    $('#login').show();
+    $('#account-options').hide();
+    $('#login-register-wrapper').show();
 });
 
 
-$(document).on("click", '#register-account-landing-page', function () {
+//*****TAKES USER TO REGISTER PAGE FROM LANDING PAGE*****
+$(document).on("click", '#landing-page-register', function () {
     $('.hide-everything').hide();
-    $('#register-new-user').show();
+    $('#register-user-wrapper').show();
 });
 
 
+//*****TAKES USER TO LOGIN PAGE AFTER THEY HAVE REGISTERED*****
 $(document).on("click", '#register-account', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
@@ -111,6 +114,17 @@ $(document).on("click", '#register-account', function () {
 });
 
 
+//*****TAKES USER TO LOGIN PAGE FROM REGISTER PAGE*****
+$(document).on("submit", '#go-to-login-page', function () {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#nav-home').show();
+    $('#account-options').hide();
+    $('#login-register-wrapper').show();
+});
+
+
+//*****USER LOGS INTO ACCOUNT HERE*****
 $(document).on("click", '#login-account', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
@@ -122,15 +136,19 @@ $(document).on("click", '#login-account', function () {
 });
 
 
+//*****TAKES USER TO REGISTER PAGE FROM LOGIN PAGE*****
+$(document).on("click", '#go-to-register-page', function () {
+    $('.hide-everything').hide();
+    $('#register-user-wrapper').show();
+    $('#navigation').show();
+    $('#nav-home').show();
+});
+
 
 $(document).on("click", '#nav-home', function () {
     $('.hide-everything').hide();
-    $('#login-landing-page').show();
-    $('#register-account-landing-page').show();
     $('#site-info').show();
     $('#who-is-app-for').show();
-    $('#about-app').show();
-    $('#what-app-does').show();
 });
 
 

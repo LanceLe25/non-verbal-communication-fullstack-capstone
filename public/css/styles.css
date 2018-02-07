@@ -68,12 +68,17 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
 h2 {
     font-size: 1.5rem;
 }
 
 h3 {
     font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1rem;
 }
 
 
@@ -85,6 +90,10 @@ Header styles (Main Module)
 */
 
 /******NAVIGATION STYLES******/
+
+nav {
+    position: relative;
+}
 
 #nav-home,
 #dropdown,
@@ -127,7 +136,13 @@ nav li {
     padding-right: 1rem;
 }
 
-/*QUESTION: what does z-index do and do I need it?*/
+
+
+#dropdown {
+    position: absolute;
+    top: 0;
+    left: 78px;
+}
 
 #dropdown-categories {
     display: none;
@@ -155,8 +170,9 @@ nav li {
 /******HEADER STYLES******/
 
 #header-wrapper {
-/*        margin-top: 5rem;*/
+    clear: both;
     font-size: 2rem;
+    padding-top: 2rem;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
 }
@@ -212,12 +228,15 @@ Content styles (Main Module)
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
 
+/*#subcategory-title,*/
+
+/*#add-new-card,*/
+
 #login-register-wrapper,
 #register-user-wrapper,
-/*#logout-wrapper,*/
-#account-options,
-#site-info div {
-/*    display: none;*/
+#site-info div,
+#account-options {
+    /*    display: none;*/
 }
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
@@ -230,6 +249,10 @@ Content styles (Main Module)
     margin: 0 auto;
 }
 
+#site-info h3 {
+    margin-bottom: .5rem;
+}
+
 #site-info div {
     border: 1px solid black;
     padding: 1rem;
@@ -240,36 +263,164 @@ Content styles (Main Module)
 
 /******CREATE CARD, EDIT, DELETE, NEW CATEGORY, SUBCATEGORY, ITEM******/
 
-#add-category input,
-#submit-button {
+#category-select-add a,
+#subcategory-select-add a,
+#item-select-add a {
+    text-decoration: none;
+}
+
+#new-dropdown-categories,
+#new-dropdown-subcategories {
+    position: relative;
+    width: %;
+    margin: 0 auto;
+}
+
+#new-dropdown-categories div,
+#new-dropdown-subcategories div {
+    display: block;
+}
+
+#new-card-wrapper input {
     text-align: center;
     padding: .5rem 1rem;
     margin: 1rem;
     border-radius: 5px;
 }
 
-#add-category a {
+#new-card-wrapper a {
     color: aliceblue;
 }
 
-
-
-#select-icon {
-    /*    margin: 0 .1rem;*/
+#new-card-wrapper,
+#add-item-wrapper {
+    border: 1px solid white;
+    margin: 0 auto;
 }
 
-#select-icon img {
-    width: 70px;
-    height: 70px;
+#select-category,
+#select-subcategory,
+#select-item {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#add-dropdown-categories,
+#add-dropdown-subcategories,
+#add-dropdown-item {
+    display: none;
+    /*    float: right;*/
+    text-align: left;
+    background-color: #4c4c56;
+    border-radius: 2px;
+    min-width: 5rem;
+    max-width: 50%;
+    margin: 0 auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+
+#new-dropdown-categories:hover #add-dropdown-categories,
+#new-dropdown-subcategories:hover #add-dropdown-subcategories,
+#new-dropdown-item:hover #add-dropdown-item {
+    display: block;
+}
+
+#add-dropdown-categories li,
+#add-dropdown-subcategories li,
+#add-dropdown-item li {
+    list-style: none;
+    padding: .4rem;
+}
+
+#add-dropdown-categories a,
+#add-dropdown-subcategories a,
+#add-dropdown-item a {
+    text-decoration: none:
+}
+
+
+#add-category-display-wrapper,
+#add-subcategory-display-wrapper,
+#add-item-display-wrapper {
+    padding: 3rem 0;
+}
+
+#category-displayed div,
+#subcategory-displayed div,
+#item-displayed div {
+    margin-bottom: .5rem;
+}
+
+#category-displayed a,
+#subcategory-displayed a,
+#item-displayed a {
+    padding: .5rem;
+}
+
+#category-displayed a:hover,
+#subcategory-displayed a:hover,
+#item-displayed a:hover {
+    color: red;
+}
+
+#select-icon div {
+    display: block;
+}
+
+
+#select-icon img,
+#image-selection1 img,
+#image-selection2 img,
+#image-selection3 img,
+#image-selection4 img {
+    width: 100px;
+    height: 100px;
     padding: .3rem;
-    margin-right: .25rem;
     background: white;
+    border-radius: 3px;
 }
 
-#select-icon img:first-child {
-    margin-left: .25rem;
+/******DISPLAY CARD TEMPLATE STYLES******/
+
+#category-title {
+    padding: 2rem;
 }
 
+#subcategory-title li {
+    list-style: none;
+    padding: 1rem;
+    margin: .5rem;
+}
+
+#subcategory-title h3 {
+    padding-bottom: 1rem;
+}
+
+#add-category-button,
+#add-subcategory-button,
+#add-item-button {
+    text-align: center;
+    padding: .5rem 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.add-subcategory-button,
+.add-item-button,
+.delete-selected-button {
+    text-align: center;
+    padding: .5rem 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+#card-template li input {
+    margin-left: 1rem;
+}
 
 
 /* -------------------------------------
@@ -298,4 +449,19 @@ Responsive styles
 place all the mobile tables styles below this line
 */
 
-@media only screen and (max-width: 1450px) {}
+@media only screen and (min-width: 500px) {
+    #subcategory-title li {
+        display: inline-block;
+        margin-top: .5rem;
+    }
+
+
+    #new-card-wrapper {
+        /*        width: 50%;*/
+    }
+
+    #add-subcategory-wrapper,
+    #add-item-wrapper {
+        width: 95%;
+    }
+}

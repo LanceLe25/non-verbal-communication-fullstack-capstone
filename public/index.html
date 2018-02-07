@@ -28,14 +28,13 @@
             </section>
 
             <section id="logout-wrapper" class="hide-everything">
-                <a href="#" id="logout">
-                    <h4>Logout</h4>
+                <a href="#" id="logout">Logout
                 </a>
             </section>
 
             <section id="account-options">
-                <a href="#">Login</a>
-                <a href="#">Register</a>
+                <a href="#" id="landing-page-login">Login</a>
+                <a href="#" id="landing-page-register">Register</a>
             </section>
 
         </nav>
@@ -64,8 +63,8 @@
             </label>
 
             <section id="login-register">
-                <a href="#">Login</a>
-                <a href="#">Register</a>
+                <button id="login-account">Login</button>
+                <button id="go-to-register-page">Register</button>
             </section>
 
         </form>
@@ -88,8 +87,8 @@
                 <input id="register-confirm-password" type="password" name="text" placeholder="re-enter password" required>
             </label>
             <section id="register-account">
-                <a href="#">Register</a>
-                <a href="#">Login</a>
+                <a href="#" id="register-account">Register</a>
+                <a href="#" id="go-to-login-page">Login</a>
             </section>
         </form>
     </main>
@@ -98,23 +97,23 @@
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
     <main id="site-info" class="hide-everything">
 
-        <div id="who-is-app-for">
-            <h2>Who should use this app?</h2>
+        <div>
+            <h3>Who should use this app?</h3>
             <p>Anyone who has suffered some kind of brain injury and has difficulty communicating, also caregivers and family members who what to communicate with them</p>
         </div>
 
-        <div id="about-app">
-            <h2>About this app</h2>
+        <div>
+            <h3>About this app</h3>
             <p>This is a very simple site for those who have difficulty finding words and communicating their wants and needs to their families and caregivers</p>
         </div>
 
-        <div id="what-app-does">
-            <h2>What does it do?</h2>
-            <p>This app allows you to create cards with images so that you can communicate better without the need to search through long lists of words to find what you want to say</p>
+        <div>
+            <h3>What does it do?</h3>
+            <p>This app allows you to create cards with images along with a text description so that you can communicate better without the need to search through long lists of words to find what you want to say</p>
         </div>
 
-        <div id="how-app-works">
-            <h2>How does it work?</h2>
+        <div>
+            <h3>How does it work?</h3>
             <p>You will be shown step by step how to create a category, subcategory and item along with an selecting a matching image to display on the card</p>
         </div>
     </main>
@@ -123,94 +122,195 @@
 
 
     <main role="main" id="add-new-card" class="hide-everything">
-
-
-        <section id="card-template" class="hide-everything">
-            <h2 id="category-title"></h2>
-            <h3 id="subcategory-title"></h3>
-            <!--            <img src="/icon-images/household-icons/bed-2.png" alt="">-->
-            <h3 id="item-title"></h3>
-        </section>
-
-
-
-
         <form action="" id="new-card-wrapper">
 
-            <section id="add-category">
+            <div id="category-select-add">
+
+                <section id="new-dropdown-categories">
+
+                    <div id="select-category">
+                        <h3>Select category</h3>
+                        <a href="#">&#x25BC</a>
+                        <ul id="add-dropdown-categories">
+                            <li><a id="new-category" href="#">New category</a></li>
+                            <li><a id="link1" href="#">Clothing</a></li>
+                            <li><a id="link2" href="#">Home</a></li>
+                            <li><a id="link2" href="#">Food</a></li>
+                        </ul>
+                    </div>
+
+
+                </section>
+
+
+                <section id="add-category-display-wrapper">
+                    <div id="add-category-input">
+                        <input type="text" placeholder="new category">
+                        <button id="add-category-button">Add</button>
+                    </div>
+
+
+                    <div id="category-displayed">
+                        <div>
+                            <h2>Category</h2>
+                        </div>
+
+                        <div>
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div id="subcategory-select-add">
+
+                <section id="new-dropdown-subcategories">
+
+                    <div id="select-subcategory">
+                        <h3>Select subcategory</h3>
+                        <a href="#">&#x25BC</a>
+                        <ul id="add-dropdown-subcategories">
+                            <li><a id="new-subcategory" href="#">New subcategory</a></li>
+                            <li><a id="link1" href="#">Casual</a></li>
+                            <li><a id="link2" href="#">Dress</a></li>
+                            <li><a id="link2" href="#">Accessories</a></li>
+                        </ul>
+                    </div>
+
+
+                </section>
+
+
+                <section id="add-subcategory-display-wrapper">
+                    <div id="add-subcategory-input">
+                        <input type="text" placeholder="new subcategory">
+                        <button id="add-subcategory-button">Add</button>
+                    </div>
+
+
+                    <div id="subcategory-displayed">
+                        <div>
+                            <h2>Subcategory</h2>
+                        </div>
+
+                        <div>
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+            <div id="item-select-add">
+
+
+                <section id="new-dropdown-item">
+                    <div id="select-item">
+                        <h3>Select item</h3>
+                        <a href="#">&#x25BC</a>
+                        <ul id="add-dropdown-item">
+                            <li><a id="new-item" href="#">New item</a></li>
+                            <li><a id="link1" href="#">dress</a></li>
+                            <li><a id="link2" href="#">belt</a></li>
+                            <li><a id="link2" href="#">purse</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+
+
+                <section id="add-item-display-wrapper">
+                    <div id="add-item-input">
+                        <input type="text" placeholder="new item">
+                        <button id="add-item-button">Add</button>
+                    </div>
+
+
+                    <div id="item-displayed">
+                        <div>
+                            <h2>Item</h2>
+                        </div>
+
+                        <div>
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+
+            <div id="select-icon" class="hide-everything">
 
                 <div>
-                    <input id="add-category-input" type="text" name="text" placeholder="add category" required>
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
-
-
-                    <div id="add-subcategory">
-                        <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
-                        <a href="">Edit</a>
-                        <a href="">Delete</a>
-
-                        <div id="add-item">
-                            <input id="add-card-input" type="text" name="text" placeholder="add card">
-                            <a href="">Edit</a>
-                            <a href="">Delete</a>
-
-                            <div id="add-icon">
-                                <input id="icon-search" type="text" name="text" placeholder="search icon" required>
-                                <a href="">Edit</a>
-                                <a href="">Delete</a>
-
-                                <div id="select-icon" class="hide-everything">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <input id="add-subcategory-input" type="text" name="text" placeholder="add subcategory">
-                        <a href="">Edit</a>
-                        <a href="">Delete</a>
-
-                        <div id="add-item">
-                            <input id="add-card-input" type="text" name="text" placeholder="add card">
-                            <a href="">Edit</a>
-                            <a href="">Delete</a>
-
-                            <div id="add-icon">
-                                <input id="icon-search" type="text" name="text" placeholder="search icon">
-                                <a href="">Edit</a>
-                                <a href="">Delete</a>
-                                <div id="select-icon" class="hide-everything">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
-                                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <input type="text" placeholder="Search icon">
                 </div>
 
                 <div>
-                    <input id="add-category-input" type="text" name="text" placeholder="add category">
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
+                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
+                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
                 </div>
 
-                <button id="submit-button">Submit</button>
-            </section>
+            </div>
+
 
         </form>
 
     </main>
 
 
+
+
+    <!--
+    <main id="card-template" class="hide-everything">
+        <h2 id="category-title">Food</h2>
+        <button class="add-subcategory-button">add subcategory</button>
+-->
+
+    <!--
+            <div>
+                <ul id="subcategory-title">
+                    <li id="breakfast">
+                        <h3>Breakfast</h3>
+                        <button class="add-item-button">add item</button>
+
+                        <ul id="image-selection1">
+                            <li>
+
+                                <img src="/icon-images/household-icons/bed-2.png" id="icon-image1" alt="">
+                                <h4 id="item-title1">eggs<input class="checkbox" type="checkbox"></h4>
+                            </li>
+                            <li>
+
+                                <img src="/icon-images/household-icons/bed-2.png" id="icon-image2" alt="">
+                                <h4 id="item-title2">pancakes<input class="checkbox" type="checkbox"></h4>
+                            </li>
+
+                            <li>
+                                <img src="/icon-images/household-icons/bed-2.png" id="icon-image3" alt="">
+                                <h4 id="item-title3">cereal<input class="checkbox" type="checkbox"></h4>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+-->
+    <!--    </main>-->
 
     <!--  *********************************Footer*****************************  -->
     <footer role="content-info">
@@ -221,11 +321,10 @@
         </p>
     </footer>
 
-    <!--
-<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
-</script>
-<script src="js/client.js"></script>
--->
+
+    <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+    </script>
+    <script src="js/client.js"></script>
 
 </body>
 
