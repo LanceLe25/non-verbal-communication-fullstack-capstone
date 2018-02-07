@@ -7,8 +7,7 @@ Basic rules to write CSS
 
 /* -------------------------------------
 CSS reset
-Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
-*/
+Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers */
 
 * {
     margin: 0;
@@ -290,6 +289,10 @@ Content styles (Main Module)
 
 /******CREATE CARD, EDIT, DELETE, NEW CATEGORY, SUBCATEGORY, ITEM******/
 
+#add-new-card-main {
+    padding-bottom: 8rem;
+}
+
 #category-select-add a,
 #subcategory-select-add a,
 #item-select-add a {
@@ -308,20 +311,24 @@ Content styles (Main Module)
     display: block;
 }
 
-#new-card-wrapper input {
+#new-card-wrapper-form {
+    display: block;
+}
+
+#new-card-wrapper-form input {
     text-align: center;
     padding: .5rem 1rem;
     margin: 1rem;
     border-radius: 5px;
 }
 
-#new-card-wrapper a {
+#new-card-wrapper-form a {
     color: #88b4c1;
 }
 
-#new-card-wrapper,
+#new-card-wrapper-form,
 #add-item-wrapper {
-    border: 1px solid white;
+    /*    border: 1px solid white;*/
     margin: 0 auto;
 }
 
@@ -333,6 +340,10 @@ Content styles (Main Module)
     margin: 0 auto;
 }
 
+#select-subcategory h3 {
+    padding-top: 5rem;
+}
+
 #add-dropdown-categories,
 #add-dropdown-subcategories,
 #add-dropdown-item {
@@ -341,8 +352,8 @@ Content styles (Main Module)
     text-align: left;
     background-color: #4c4c56;
     border-radius: 2px;
-    min-width: 5rem;
-    max-width: 50%;
+    min-width: 160px;
+    max-width: 200px;
     margin: 0 auto;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -382,10 +393,21 @@ Content styles (Main Module)
     padding: 3rem 0;
 }
 
+#add-item-display-wrapper {
+    /*    padding-top: 9rem;*/
+}
+
 #category-displayed div,
 #subcategory-displayed div,
 #item-displayed div {
     margin-bottom: .5rem;
+}
+
+
+#category-displayed h2,
+#subcategory-displayed h2,
+#item-displayed h2 {
+    margin-top: 1rem;
 }
 
 #category-displayed a,
@@ -430,12 +452,15 @@ Content styles (Main Module)
 }
 
 #subcategory-title h3 {
-    padding-bottom: 1rem;
+    /*    padding-bottom: 1rem;*/
 }
 
 #add-category-button,
 #add-subcategory-button,
-#add-item-button {
+#add-item-button,
+#category-displayed button,
+#subcategory-displayed button,
+#item-displayed button {
     text-align: center;
     padding: .5rem 1rem;
     margin: 1rem;

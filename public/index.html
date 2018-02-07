@@ -121,18 +121,17 @@
 
 
 
-    <main role="main" id="add-new-card" class="hide-everything">
-        <form action="" id="new-card-wrapper">
+    <main role="main" id="add-new-card-main" class="hide-everything">
+        <form action="" id="new-card-wrapper-form">
 
             <div id="category-select-add">
 
                 <section id="new-dropdown-categories">
-
                     <div id="select-category">
                         <h3>Select category</h3>
                         <a href="#">&#x25BC</a>
                         <ul id="add-dropdown-categories">
-                            <li><a id="new-category" href="#">New category</a></li>
+                            <li><a id="new-category-dropdown" href="#">New category</a></li>
                             <li><a id="link1" href="#">Clothing</a></li>
                             <li><a id="link2" href="#">Home</a></li>
                             <li><a id="link2" href="#">Food</a></li>
@@ -159,6 +158,10 @@
                             <a href="">Edit</a>
                             <a href="">Delete</a>
                         </div>
+
+                        <div>
+                            <button>Next</button>
+                        </div>
                     </div>
                 </section>
 
@@ -167,12 +170,11 @@
             <div id="subcategory-select-add">
 
                 <section id="new-dropdown-subcategories">
-
                     <div id="select-subcategory">
                         <h3>Select subcategory</h3>
                         <a href="#">&#x25BC</a>
                         <ul id="add-dropdown-subcategories">
-                            <li><a id="new-subcategory" href="#">New subcategory</a></li>
+                            <li><a id="new-subcategory-dropdown" href="#">New subcategory</a></li>
                             <li><a id="link1" href="#">Casual</a></li>
                             <li><a id="link2" href="#">Dress</a></li>
                             <li><a id="link2" href="#">Accessories</a></li>
@@ -198,6 +200,10 @@
                         <div>
                             <a href="">Edit</a>
                             <a href="">Delete</a>
+                        </div>
+
+                        <div>
+                            <button>Next</button>
                         </div>
                     </div>
                 </section>
@@ -238,6 +244,10 @@
                         <div>
                             <a href="">Edit</a>
                             <a href="">Delete</a>
+                        </div>
+
+                        <div>
+                            <button>Next</button>
                         </div>
                     </div>
                 </section>
@@ -322,9 +332,11 @@
     </footer>
 
 
+
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
     </script>
     <script src="js/client.js"></script>
+
 </body>
 
 </html>
