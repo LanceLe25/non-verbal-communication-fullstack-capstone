@@ -90,6 +90,16 @@ Header styles (Main Module)
 
 /******NAVIGATION STYLES******/
 
+/****DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE*/
+
+#login-register-wrapper,
+#register-user-wrapper,
+#site-info {
+    display: none;
+}
+
+/****DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE*/
+
 nav {
     position: relative;
 }
@@ -170,16 +180,17 @@ nav li {
 }
 
 #dropdown-categories {
-    display: none;margin-top: .4rem;
-margin-left: .5rem;
-padding: 0 .4rem;
-float: right;
-text-align: left;
-background-color: hsla(0, 2%, 48%, 0.87);
-border-radius: 0.28571429rem;
-min-width: 5rem;
-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-z-index: 1;
+    display: none;
+    margin-top: .4rem;
+    margin-left: .5rem;
+    padding: 0 .4rem;
+    float: right;
+    text-align: left;
+    background-color: hsla(0, 2%, 48%, 0.87);
+    border-radius: 0.28571429rem;
+    min-width: 5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 #dropdown-categories a:hover {
