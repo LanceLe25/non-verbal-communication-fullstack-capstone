@@ -41,8 +41,12 @@ Step 1. Initial landing page has login and register option.
 Step 2. User registers for account.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/register-page.png)
 
-**Add New Category Page**
-Step 3. User clicks "New" to create a new category. Once a new category has been created, it will be added to the navigation list.
+**Add New Card Page** NEED NEW WIREFRAME
+Step 3. User clicks dropdown icon and selects "add new card". Once a new category for card has been created, it will be added to the navigation list.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-page.png)
+
+**Select Category Page**
+Step 4. User selects existing category from dropdown list.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-page.png)
 
 **Add New Subcategory Page**

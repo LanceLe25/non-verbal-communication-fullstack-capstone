@@ -78,13 +78,12 @@ var loggedInUser = "";
 // step 3. dynamically created layout to display home screen
 $(document).ready(function () {
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#dropdown').hide();
-    $('#logout-wrapper').hide();
-    $('#account-options').show();
-    $('#site-info').show();
-
+    $('.ui.dropdown').dropdown();
+//    $('.hide-everything').hide();//    $('#navigation').show();
+//    $('#dropdown').hide();
+//    $('#logout-wrapper').hide();
+//    $('#account-options').show();
+//    $('#site-info').show();
 });
 
 

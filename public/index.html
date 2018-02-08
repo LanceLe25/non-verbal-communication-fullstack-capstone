@@ -4,9 +4,12 @@
 <head>
     <title>Non-verbal Communication App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="css/transitions.css">
 
-    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 </head>
 
 <body>
@@ -19,7 +22,7 @@
             </section>
 
             <section id="dropdown">
-                <a href="#">&#9776</a>
+                <a href="#" id="dropdown-icon">&#9776</a>
                 <ul id="dropdown-categories">
                     <li><a href="#" id="add-new-card-link">Add a new card</a></li>
                     <li><a href="#">link 2</a></li>
@@ -121,11 +124,65 @@
 
 
 
+
+
     <main role="main" id="add-new-card-main" class="hide-everything">
         <form action="" id="new-card-wrapper-form">
 
-            <div id="category-select-add">
+            <div id="add-card-dropdown-menus">
 
+                <section id="category-dropdown-selection">
+                    <div class="ui dropdown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Category</div>
+                        <div class="menu">
+                            <div class="item" data-value="male">Add new category</div>
+                            <div class="item" data-value="female">Female</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="subcategory-dropdown-selection">
+                    <div class="ui dropdown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Subcategory</div>
+                        <div class="menu">
+                            <div class="item" data-value="male">Add new subcategory</div>
+                            <div class="item" data-value="female">Female</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="subcategory-dropdown-selection">
+                    <div class="ui dropdown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Item</div>
+                        <div class="menu">
+                            <div class="item" data-value="male">Add new item</div>
+                            <div class="item" data-value="female">Female</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="subcategory-dropdown-selection">
+                    <div class="ui dropdown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Icon Image</div>
+                        <div class="menu">
+                            <div class="item" data-value="male">icon 1</div>
+                            <div class="item" data-value="female">icon 2</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+<!--
                 <section id="new-dropdown-categories">
                     <div id="select-category">
                         <h3>Select category</h3>
@@ -137,10 +194,12 @@
                             <li><a id="link2" href="#">Food</a></li>
                         </ul>
                     </div>
+-->
 
 
-                </section>
+<!--                </section>-->
 
+<!--
 
                 <section id="add-category-display-wrapper">
                     <div id="add-category-input">
@@ -164,8 +223,10 @@
                         </div>
                     </div>
                 </section>
+-->
 
-            </div>
+
+<!--
 
             <div id="subcategory-select-add">
 
@@ -209,12 +270,13 @@
                 </section>
 
             </div>
+-->
 
 
-            <div id="item-select-add">
+<!--            <div id="item-select-add">-->
 
 
-<!--
+                <!--
                 <section id="new-dropdown-item">
 <div id="select-item">
     <h3>Select item</h3>
@@ -230,6 +292,7 @@
 -->
 
 
+<!--
 
                 <section id="add-item-display-wrapper">
                     <div id="add-item-input">
@@ -255,14 +318,30 @@
                 </section>
 
             </div>
+-->
 
+            <!--*****NEW DROPDOWN******-->
 
+<!--
+            <div class="ui dropdown">
+<input type="hidden" name="gender">
+<i class="dropdown icon"></i>
+<div class="default text">Gender</div>
+<div class="menu">
+    <div class="item" data-value="male">Male</div>
+    <div class="item" data-value="female">Female</div>
+</div>
+</div>-->
+
+            <!--*****NEW DROPDOWN******-->
 
             <div id="select-icon" class="hide-everything">
 
-                <div>
-                    <input type="text" placeholder="Search icon">
-                </div>
+<!--
+<div>
+    <input type="text" placeholder="Search icon">
+</div>
+-->
 
                 <div>
                     <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
@@ -337,6 +416,8 @@
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
     </script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/transitions.js"></script>
     <script src="js/client.js"></script>
 
 </body>
