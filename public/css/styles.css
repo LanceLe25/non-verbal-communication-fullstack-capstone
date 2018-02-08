@@ -341,7 +341,7 @@ Content styles (Main Module)
 }
 
 #select-subcategory h3 {
-    padding-top: 5rem;
+    /*    padding-top: 5rem;*/
 }
 
 #add-dropdown-categories,
@@ -396,6 +396,12 @@ Content styles (Main Module)
 #add-item-display-wrapper {
     /*    padding-top: 9rem;*/
 }
+
+#add-category-input,
+#add-subcategory-input {
+    margin-top: rem;
+}
+
 
 #category-displayed div,
 #subcategory-displayed div,
