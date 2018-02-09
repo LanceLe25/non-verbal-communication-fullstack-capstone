@@ -180,7 +180,7 @@ nav li {
 }
 
 #dropdown-categories {
-    display: none;
+    /*    display: none;*/
     margin-top: .4rem;
     margin-left: .5rem;
     padding: 0 .4rem;
@@ -276,7 +276,7 @@ Content styles (Main Module)
 
 /*#subcategory-title,*/
 
-/*#add-new-card,*/
+/*#add-card,*/
 
 #login-register-wrapper,
 #register-user-wrapper,
@@ -307,9 +307,9 @@ Content styles (Main Module)
 
 
 
-/******CREATE CARD, EDIT, DELETE, NEW CATEGORY, SUBCATEGORY, ITEM******/
+/******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
 
-#add-new-card-main {
+#add-card-main {
     padding-bottom: 8rem;
 }
 
@@ -319,34 +319,34 @@ Content styles (Main Module)
     text-decoration: none;
 }
 
-#new-dropdown-categories,
-#new-dropdown-subcategories {
+.dropdown-category-wrapper,
+#add-dropdown-subcategories {
     position: relative;
     width: %;
     margin: 0 auto;
 }
 
-#new-dropdown-categories div,
-#new-dropdown-subcategories div {
+.dropdown-category-wrapper div,
+#add-dropdown-subcategories div {
     display: block;
 }
 
-#new-card-wrapper-form {
+#add-card-wrapper-form {
     display: block;
 }
 
-#new-card-wrapper-form input {
+#add-card-wrapper-form input {
     text-align: center;
     padding: .5rem 1rem;
-    margin: 1rem;
+    margin: 1rem 0;
     border-radius: 5px;
 }
 
-#new-card-wrapper-form a {
+#add-card-wrapper-form a {
     color: #88b4c1;
 }
 
-#new-card-wrapper-form,
+#add-card-wrapper-form,
 #add-item-wrapper {
     /*    border: 1px solid white;*/
     margin: 0 auto;
@@ -356,15 +356,24 @@ Content styles (Main Module)
 #select-subcategory,
 #select-item {
     position: absolute;
+    text-align: center;
     width: 100%;
     margin: 0 auto;
 }
+
+
+#select-category a,
+#select-subcategory a,
+#select-item a {
+    text-decoration: none:
+}
+
 
 #select-subcategory h3 {
     /*    padding-top: 5rem;*/
 }
 
-#add-dropdown-categories,
+.dropdown-select-category,
 #add-dropdown-subcategories,
 #add-dropdown-item {
     display: none;
@@ -381,26 +390,26 @@ Content styles (Main Module)
 
 
 
-#new-dropdown-categories:hover #add-dropdown-categories,
-#new-dropdown-subcategories:hover #add-dropdown-subcategories,
-#new-dropdown-item:hover #add-dropdown-item {
+.dropdown-select-category :hover .dropdown-select-category,
+#add-dropdown-subcategories:hover #add-dropdown-subcategories,
+#add-dropdown-item:hover #add-dropdown-item {
     display: block;
 }
 
-#add-dropdown-categories li,
+.dropdown-select-category li,
 #add-dropdown-subcategories li,
 #add-dropdown-item li {
     list-style: none;
     padding: .4rem;
 }
 
-#add-dropdown-categories a,
+.dropdown-select-category a,
 #add-dropdown-subcategories a,
 #add-dropdown-item a {
     text-decoration: none:
 }
 
-#add-dropdown-categories a:hover,
+.dropdown-select-category a:hover,
 #add-dropdown-subcategories a:hover,
 #add-dropdown-item a:hover {
     color: aliceblue;
@@ -411,15 +420,11 @@ Content styles (Main Module)
 #add-subcategory-display-wrapper,
 #add-item-display-wrapper {
     padding: 3rem 0;
+    text-align: center;
 }
 
 #add-item-display-wrapper {
     /*    padding-top: 9rem;*/
-}
-
-#add-category-input,
-#add-subcategory-input {
-    margin-top: rem;
 }
 
 
@@ -452,6 +457,15 @@ Content styles (Main Module)
     display: block;
 }
 
+#search-icon-wrapper {
+    width: 200px;
+    margin: 0 auto;
+}
+
+#search-icon-wrapper img {
+    width: 25px;
+    height: 25px;
+}
 
 #select-icon img,
 #image-selection1 img,
@@ -532,7 +546,7 @@ place all the mobile tables styles below this line
     }
 
 
-    #new-card-wrapper {
+    #add-card-wrapper {
         /*        width: 50%;*/
     }
 

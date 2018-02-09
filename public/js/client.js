@@ -79,11 +79,12 @@ var loggedInUser = "";
 $(document).ready(function () {
 
     $('.ui.dropdown').dropdown();
-//    $('.hide-everything').hide();//    $('#navigation').show();
-//    $('#dropdown').hide();
-//    $('#logout-wrapper').hide();
-//    $('#account-options').show();
-//    $('#site-info').show();
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
+    //    $('#dropdown').hide();
+    //    $('#logout-wrapper').hide();
+    //    $('#account-options').show();
+    //    $('#site-info').show();
 });
 
 
@@ -162,13 +163,14 @@ $(document).on("click", '#nav-home', function () {
 
 
 
-$(document).on("click", '#add-new-card-link', function () {
+$(document).on("click", '#add-card-link', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#logout-wrapper').show();
     $('#dropdown').show();
-    $('#add-new-card-main').show();
-    $('#add-category-display-wrapper').hide();
+    $('#add-card-main').show();
+    $('#add-card-dropdown-wrapper').show();
+    $('#add-dropdown-categories').show();
 
     $('#subcategory-select-add').hide();
     $('#item-select-add').hide();

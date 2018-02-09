@@ -24,7 +24,7 @@
             <section id="dropdown">
                 <a href="#" id="dropdown-icon">&#9776</a>
                 <ul id="dropdown-categories">
-                    <li><a href="#" id="add-new-card-link">Add a new card</a></li>
+                    <li><a href="#" id="add-card-link">Add a card</a></li>
                     <li><a href="#">link 2</a></li>
                     <li><a href="#">link 3</a></li>
                 </ul>
@@ -126,238 +126,173 @@
 
 
 
-    <main role="main" id="add-new-card-main" class="hide-everything">
-        <form action="" id="new-card-wrapper-form">
+    <main role="main" id="add-card-main" class="hide-everything">
+        <form action="" id="add-card-wrapper-form">
 
-            <div id="add-card-dropdown-menus">
-
-                <section id="category-dropdown-selection">
-                    <div class="ui dropdown">
-                        <input type="hidden" name="gender">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Category</div>
-                        <div class="menu">
-                            <div class="item" data-value="male">Add new category</div>
-                            <div class="item" data-value="female">Female</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="subcategory-dropdown-selection">
-                    <div class="ui dropdown">
-                        <input type="hidden" name="gender">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Subcategory</div>
-                        <div class="menu">
-                            <div class="item" data-value="male">Add new subcategory</div>
-                            <div class="item" data-value="female">Female</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="subcategory-dropdown-selection">
-                    <div class="ui dropdown">
-                        <input type="hidden" name="gender">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Item</div>
-                        <div class="menu">
-                            <div class="item" data-value="male">Add new item</div>
-                            <div class="item" data-value="female">Female</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="subcategory-dropdown-selection">
-                    <div class="ui dropdown">
-                        <input type="hidden" name="gender">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Icon Image</div>
-                        <div class="menu">
-                            <div class="item" data-value="male">icon 1</div>
-                            <div class="item" data-value="female">icon 2</div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
+            <div id="add-card-dropdown-wrapper">
 
 
-<!--
-                <section id="new-dropdown-categories">
+
+                <section id="add-dropdown-categories" class="dropdown-category-wrapper">
                     <div id="select-category">
+                        <!--
                         <h3>Select category</h3>
-                        <a href="#">&#x25BC</a>
-                        <ul id="add-dropdown-categories">
-                            <li><a id="new-category-dropdown" href="#">New category</a></li>
-                            <li><a id="link1" href="#">Clothing</a></li>
-                            <li><a id="link2" href="#">Home</a></li>
-                            <li><a id="link2" href="#">Food</a></li>
-                        </ul>
-                    </div>
+<a href="#">&#x25BC</a>
+<ul id="add-dropdown-categories" class="dropdown-select-category">
+    <li><a id="add-category-dropdown" href="#">add category</a></li>
+    <li><a id="link1" href="#">Clothing</a></li>
+    <li><a id="link2" href="#">Home</a></li>
+    <li><a id="link2" href="#">Food</a></li>
+</ul>
 -->
 
-
-<!--                </section>-->
-
-<!--
-
-                <section id="add-category-display-wrapper">
-                    <div id="add-category-input">
-                        <input type="text" placeholder="new category">
-                        <button id="add-category-button">Add</button>
+                        <select>
+                            <option value="volvo">select or add category</option>
+                            <option value="saab">add category</option>
+                            <option value="opel">cat 2</option>
+                            <option value="audi">cat 3</option>
+                        </select>
+                        <!---->
                     </div>
 
 
-                    <div id="category-displayed">
-                        <div>
-                            <h2>Category</h2>
+
+                    <section id="add-category-display-wrapper">
+                        <div id="add-category-input">
+                            <input type="text" placeholder="add category">
+                            <button id="add-category-button">Add</button>
                         </div>
 
-                        <div>
-                            <a href="">Edit</a>
-                            <a href="">Delete</a>
-                        </div>
 
-                        <div>
-                            <button>Next</button>
+                        <div id="category-displayed">
+                            <div>
+                                <h2>Category</h2>
+                            </div>
+
+                            <div>
+                                <a href="">Edit</a>
+                                <a href="">Delete</a>
+                            </div>
+
+                            <div>
+                                <button>Next</button>
+                            </div>
                         </div>
+                    </section>
+
+
+
+
+
+                    <div id="subcategory-select-add">
+
+                        <section id="add-dropdown-subcategories">
+                            <div id="select-subcategory">
+                                <h3>Select subcategory</h3>
+                                <a href="#">&#x25BC</a>
+                                <ul id="add-dropdown-subcategories">
+                                    <li><a id="add-subcategory-dropdown" href="#">add subcategory</a></li>
+                                    <li><a id="link1" href="#">Casual</a></li>
+                                    <li><a id="link2" href="#">Dress</a></li>
+                                    <li><a id="link2" href="#">Accessories</a></li>
+                                </ul>
+                            </div>
+
+
+                        </section>
+
+
+                        <section id="add-subcategory-display-wrapper">
+                            <div id="add-subcategory-input">
+                                <input type="text" placeholder="add subcategory">
+                                <button id="add-subcategory-button">Add</button>
+                            </div>
+
+
+                            <div id="subcategory-displayed">
+                                <div>
+                                    <h2>Subcategory</h2>
+                                </div>
+
+                                <div>
+                                    <a href="">Edit</a>
+                                    <a href="">Delete</a>
+                                </div>
+
+                                <div>
+                                    <button>Next</button>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
+
+                    <div id="item-select-add">
+
+                        <section id="add-dropdown-items">
+                            <div id="select-item">
+                                <h3>Select subcategory</h3>
+                                <a href="#">&#x25BC</a>
+                                <ul id="add-dropdown-items">
+                                    <li><a id="add-item-dropdown" href="#">add item</a></li>
+                                    <li><a id="link1" href="#">Casual</a></li>
+                                    <li><a id="link2" href="#">Dress</a></li>
+                                    <li><a id="link2" href="#">Accessories</a></li>
+                                </ul>
+                            </div>
+
+
+                        </section>
+
+
+                        <section id="add-item-display-wrapper">
+                            <div id="add-item-input">
+                                <input type="text" placeholder="add item">
+                                <button id="add-item-button">Add</button>
+                            </div>
+
+
+                            <div id="item-displayed">
+                                <div>
+                                    <h2>Item</h2>
+                                </div>
+
+                                <div>
+                                    <a href="">Edit</a>
+                                    <a href="">Delete</a>
+                                </div>
+
+                                <div>
+                                    <button>Next</button>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+
+                    <section id="search-icon-wrapper">
+                        <div class="ui fluid search selection dropdown">
+                            <input type="hidden" name="country">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Select an image</div>
+                            <div class="menu">
+                                <div class="item" data-value="af"><i class="af flag"><img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt=""></i>purse</div>
+                                <div class="item" data-value="ax"><i class="ax flag"><img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
+                                <div class="item" data-value="al"><i class="al flag"><img id="cap-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>hat</div>
+                                <div class="item" data-value="dz"><i class="dz flag"><img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>jacket</div>
+                                <div class="item" data-value="as"><i class="as flag"><img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt=""></i>dress</div>
+                                <div class="item" data-value="ad"><i class="ad flag"><img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt=""></i>bag</div>
+                                <div class="item" data-value="ao"><i class="ao flag"><img id="strap-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
+                                <div class="item" data-value="ai"><i class="ai flag"><img id="hat-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>cap</div>
+                                <div class="item" data-value="ag"><i class="ag flag"><img id="jacket-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>coat</div>
+                            </div>
+                        </div>
+                    </section>
+
+
                 </section>
--->
-
-
-<!--
-
-            <div id="subcategory-select-add">
-
-                <section id="new-dropdown-subcategories">
-                    <div id="select-subcategory">
-                        <h3>Select subcategory</h3>
-                        <a href="#">&#x25BC</a>
-                        <ul id="add-dropdown-subcategories">
-                            <li><a id="new-subcategory-dropdown" href="#">New subcategory</a></li>
-                            <li><a id="link1" href="#">Casual</a></li>
-                            <li><a id="link2" href="#">Dress</a></li>
-                            <li><a id="link2" href="#">Accessories</a></li>
-                        </ul>
-                    </div>
-
-
-                </section>
-
-
-                <section id="add-subcategory-display-wrapper">
-                    <div id="add-subcategory-input">
-                        <input type="text" placeholder="new subcategory">
-                        <button id="add-subcategory-button">Add</button>
-                    </div>
-
-
-                    <div id="subcategory-displayed">
-                        <div>
-                            <h2>Subcategory</h2>
-                        </div>
-
-                        <div>
-                            <a href="">Edit</a>
-                            <a href="">Delete</a>
-                        </div>
-
-                        <div>
-                            <button>Next</button>
-                        </div>
-                    </div>
-                </section>
-
             </div>
--->
-
-
-<!--            <div id="item-select-add">-->
-
-
-                <!--
-                <section id="new-dropdown-item">
-<div id="select-item">
-    <h3>Select item</h3>
-    <a href="#">&#x25BC</a>
-    <ul id="add-dropdown-item">
-        <li><a id="new-item" href="#">New item</a></li>
-        <li><a id="link1" href="#">dress</a></li>
-        <li><a id="link2" href="#">belt</a></li>
-        <li><a id="link2" href="#">purse</a></li>
-    </ul>
-</div>
-</section>
--->
-
-
-<!--
-
-                <section id="add-item-display-wrapper">
-                    <div id="add-item-input">
-                        <input type="text" placeholder="new item">
-                        <button id="add-item-button">Add</button>
-                    </div>
-
-
-                    <div id="item-displayed">
-                        <div>
-                            <h2>Item</h2>
-                        </div>
-
-                        <div>
-                            <a href="">Edit</a>
-                            <a href="">Delete</a>
-                        </div>
-
-                        <div>
-                            <button>Next</button>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
--->
-
-            <!--*****NEW DROPDOWN******-->
-
-<!--
-            <div class="ui dropdown">
-<input type="hidden" name="gender">
-<i class="dropdown icon"></i>
-<div class="default text">Gender</div>
-<div class="menu">
-    <div class="item" data-value="male">Male</div>
-    <div class="item" data-value="female">Female</div>
-</div>
-</div>-->
-
-            <!--*****NEW DROPDOWN******-->
-
-            <div id="select-icon" class="hide-everything">
-
-<!--
-<div>
-    <input type="text" placeholder="Search icon">
-</div>
--->
-
-                <div>
-                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/bag.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/belt.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/cap.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/blazer.png" alt="">
-                    <img class="icon-image" src="/icon-images/clothing-icons/dress-1.png" alt="">
-                </div>
-
-            </div>
-
 
         </form>
 
@@ -415,9 +350,14 @@
 
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+
+
     </script>
     <script src="js/dropdown.js"></script>
-    <script src="js/transitions.js"></script>
+    <script src="js/transitions.js">
+
+
+    </script>
     <script src="js/client.js"></script>
 
 </body>
