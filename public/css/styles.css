@@ -69,15 +69,15 @@ body {
 
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
 }
 
 h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 
@@ -95,17 +95,16 @@ Header styles (Main Module)
 #login-register-wrapper,
 #register-user-wrapper,
 #site-info {
-    display: none;
+    /*    display: none;*/
 }
 
 /****DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE*/
 
-nav {
+#navigation {
     position: relative;
 }
 
-#nav-options,
-#dropdown,
+#dropdown-options,
 #logout-wrapper,
 #account-options {
     display: inline-block;
@@ -113,20 +112,8 @@ nav {
     font-size: 1.5rem;
 }
 
-
-#nav-options a {
-    color: aliceblue;
-    text-decoration: none;
-}
-
-#dropdown a,
-#nav-options a {
-    color: #88b4c1;
-    text-decoration: none;
-}
-
-
-#dropdown-categories a,
+#add-new-card a,
+#dropdown-options a,
 #landing-page-login,
 #landing-page-register,
 #logout {
@@ -138,7 +125,7 @@ nav {
     font-size: 1.2rem;
 }
 
-#dropdown a:hover,
+
 #dropdown-categories a:hover,
 #landing-page-login:hover,
 #landing-page-register:hover,
@@ -146,15 +133,13 @@ nav {
     color: aliceblue;
 }
 
-#nav-options,
-#dropdown,
+#dropdown-options,
 #logout-wrapper,
 #account-options {
     padding-top: .5rem;
 }
 
-#nav-options,
-#dropdown-icon {
+#dropdown-options {
     padding-left: 1rem;
 }
 
@@ -177,9 +162,10 @@ nav li {
 }
 
 #add-new-card {
+    font-size: 1.5rem;
     position: absolute;
     top: 8px;
-    left: 121px;
+    left: 100px;
 }
 
 #dropdown-categories {
@@ -195,11 +181,12 @@ nav li {
     z-index: 1;
 }
 
-#nav-options a:hover {
+#add-new-card a:hover,
+#dropdown-options a:hover {
     color: aliceblue;
 }
 
-#nav-options:hover #dropdown-categories {
+#dropdown-options:hover #dropdown-categories {
     display: block;
 }
 
@@ -276,11 +263,12 @@ Content styles (Main Module)
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
 
+#card-display-wrapper,
 #login-register-wrapper,
 #register-user-wrapper,
 #site-info div,
 #account-options {
-    display: none;
+    /*    display: none;*/
 }
 
 /*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
@@ -307,24 +295,34 @@ Content styles (Main Module)
 
 /******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
 
+#add-card-main,
+#example-card-display-wrapper {
+    width: 45%;
+    display: inline-block;
+}
+
+
 #add-card-wrapper-form {
     display: block;
 }
 
 #add-item input,
-#add-item button {
-    border-radius: 5px;
-}
-
-#add-item input {
+#add-category input,
+#add-subcategory input {
     text-align: center;
     margin-bottom: 1.5rem;
     padding: .5rem 0;
+    border-radius: 5px;
 }
 
-#add-item button {
+#add-item button,
+#add-category button,
+#add-subcategory button {
     padding: .5rem 1rem;
     margin-left: .5rem;
+    border-radius: 5px;
+    background-color: #f90a0a;
+    box-shadow: 1px 2px 2px grey;
 }
 
 #cat-subcat-select {}
@@ -332,7 +330,7 @@ Content styles (Main Module)
 #select-cat,
 #select-subcat {
     display: block;
-    width: 22%;
+    width: 240px;
     margin: auto;
     margin-bottom: 1rem;
     height: 30px;
@@ -341,25 +339,60 @@ Content styles (Main Module)
 
 
 #search-icon-wrapper {
-    width: 200px;
+    width: 240px;
     margin: 0 auto;
 }
 
 #search-icon-wrapper img {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
 }
 
-#select-icon img,
-#image-selection1 img,
-#image-selection2 img,
-#image-selection3 img,
-#image-selection4 img {
-    width: 100px;
-    height: 100px;
+img {
+    width: 200px;
+    height: 200px;
     padding: .3rem;
     background: white;
     border-radius: 3px;
+}
+
+#clothing-cat,
+#household-cat,
+#clothing-cat h2,
+#household-cat h2 {
+    padding: .5rem 0;
+}
+
+#clothing-cat,
+#household-cat {
+    display: block;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    /*    border: 1px solid white;*/
+}
+
+
+
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6,
+#card7,
+#card8 {
+    display: inline-block;
+    margin: 1rem;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+#bedroom-subcat,
+#living-room-subcat {
+    display: inline-block;
+    margin: 2rem;
 }
 
 

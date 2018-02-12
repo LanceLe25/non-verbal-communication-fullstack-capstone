@@ -18,11 +18,13 @@
         <nav role="navigation">
 
             <section id="nav-options">
-                <a href="#" id="nav-home">HOME</a>
-                <ul id="dropdown-categories">
-                    <li><a href="#" id="add-card-link">CARDS</a></li>
-                    <li><a href="#">CATEGORIES</a></li>
-                </ul>
+                <div id="dropdown-options">
+                    <a href="#" id="nav-home">HOME</a>
+                    <ul id="dropdown-categories">
+                        <li><a href="#" id="add-card-link">CARDS</a></li>
+                        <li><a href="#">CATEGORIES</a></li>
+                    </ul>
+                </div>
 
                 <section id="add-new-card">
                     <a href="#">NEW</a>
@@ -139,9 +141,9 @@
                     <section id="cat-subcat-select">
                         <select id="select-cat">
                                 <option value="volvo">select or add category</option>
-                                <option value="saab">add category</option>
-                                <option value="opel">cat 1</option>
-                                <option value="audi">cat 2</option>
+                                <option value="add-category-dropdown" id="add-category-dropdown">add category</option>
+                                <option value="opel">Clothing</option>
+                                <option value="audi">Household</option>
                         </select>
 
                         <div id="add-category">
@@ -152,8 +154,8 @@
                         <select id="select-subcat">
                             <option value="subcategory">select or add subcategory</option>
                             <option value="subcategory" id="add-subcat">add subcategory</option>
-                            <option value="subcat 1">subcat 1</option>
-                            <option value="subcat 2">subcat 2</option>
+                            <option value="subcat 1">Bedroom</option>
+                            <option value="subcat 2">Living Room</option>
                         </select>
 
                         <div id="add-subcategory">
@@ -184,6 +186,90 @@
                 </section>
             </section>
         </form>
+    </main>
+
+
+    <main id="example-card-display-wrapper" class="hide-everything">
+
+        <h2 id="ex-card-category">Household</h2>
+
+        <section id="ex-card-subcat-wrapper">
+            <h3 id="ex-card-subcat">Bedroom</h3>
+            <div id="ex-card">
+                <img id="ex-image" src="/icon-images/household-icons/bed-1.png" alt="">
+                <h4>bed</h4>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+    <main id="card-display-wrapper" class="hide-everything">
+        <section id="clothing-cat">
+            <h2>Clothing</h2>
+            <div id="card1">
+                <img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt="">
+                <h4>purse</h4>
+            </div>
+
+            <div id="card2">
+                <img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt="">
+                <h4>belt</h4>
+            </div>
+
+            <div id="card3">
+                <img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                <h4>dress</h4>
+            </div>
+
+            <div id="card4">
+                <img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt="">
+                <h4>jacket</h4>
+            </div>
+        </section>
+
+
+        <section id="household-cat">
+            <h2>Household</h2>
+
+            <div id="household-items">
+
+                <section id="bedroom-subcat">
+                    <h3>Bedroom</h3>
+                    <div id="card5">
+                        <img src="/icon-images/household-icons/bed-1.png" alt="">
+                        <h4>bed</h4>
+                    </div>
+
+                    <div id="card6">
+                        <img src="/icon-images/household-icons/chest-of-drawers-1.png" alt="">
+                        <h4>drawers</h4>
+                    </div>
+                </section>
+
+
+
+                <section id="living-room-subcat">
+                    <h3>Living Room</h3>
+
+                    <div id="card7">
+                        <img src="/icon-images/household-icons/armchair-1.png" alt="">
+                        <h4>armchair</h4>
+                    </div>
+
+                    <div id="card8">
+                        <img src="/icon-images/household-icons/couch-1.png" alt="">
+                        <h4>couch</h4>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
     </main>
 
     <!--  *********************************Footer*****************************  -->
