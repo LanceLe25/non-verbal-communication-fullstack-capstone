@@ -112,15 +112,27 @@ Header styles (Main Module)
     font-size: 1.5rem;
 }
 
-#add-new-card a,
-#dropdown-options a,
-#landing-page-login,
-#landing-page-register,
-#logout {
-    color: #88b4c1;
-    text-decoration: none;
+#nav-options,
+#nav-options div {
+    display: inline-block;
+    float: left;
+    padding-top: .3rem;
+    padding-left: .5rem;
+    font-size: 1.3rem;
 }
 
+#nav-options a,
+#landing-page-login,
+#landing-page-register,
+#logout,
+#account-options {
+    color: #88b4c1;
+    text-decoration: none;
+    padding-right: 1rem;
+
+}
+
+#dropdown-cards li,
 #dropdown-categories li {
     font-size: 1.2rem;
 }
@@ -133,7 +145,6 @@ Header styles (Main Module)
     color: aliceblue;
 }
 
-#dropdown-options,
 #logout-wrapper,
 #account-options {
     padding-top: .5rem;
@@ -150,27 +161,20 @@ nav li {
 #logout-wrapper,
 #account-options {
     float: right;
-    padding-right: 1rem;
 }
 
 #account-options a:first-child {
     padding-right: 1rem;
 }
 
-#dropdown-categories {
+#nav-cards,
+#nav-categories {
     position: absolute;
 }
 
-#add-new-card {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 8px;
-    left: 100px;
-}
-
-#dropdown-categories {
+#nav-cards,
+#nav-categories {
     display: none;
-    margin-top: .4rem;
     margin-left: .5rem;
     padding: 0 .4rem;
     text-align: left;
@@ -181,12 +185,13 @@ nav li {
     z-index: 1;
 }
 
-#add-new-card a:hover,
+#nav-options a:hover,
 #dropdown-options a:hover {
     color: aliceblue;
 }
 
-#dropdown-options:hover #dropdown-categories {
+#dropdown-cards:hover #nav-cards,
+#dropdown-categories:hover #nav-categories {
     display: block;
 }
 
@@ -295,12 +300,9 @@ Content styles (Main Module)
 
 /******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
 
-#add-card-main,
 #example-card-display-wrapper {
-    width: 45%;
-    display: inline-block;
+    margin-top: 2rem;
 }
-
 
 #add-card-wrapper-form {
     display: block;
@@ -349,7 +351,12 @@ Content styles (Main Module)
     vertical-align: middle;
 }
 
-img {
+#blank-image {
+    margin: auto;
+}
+
+img,
+#blank-image {
     width: 200px;
     height: 200px;
     padding: .3rem;
@@ -387,6 +394,7 @@ img {
     margin: 1rem;
     border: 1px solid white;
     padding: 1rem;
+    border-radius: 5px;
 }
 
 #bedroom-subcat,

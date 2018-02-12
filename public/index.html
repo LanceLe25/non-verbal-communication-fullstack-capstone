@@ -18,18 +18,35 @@
         <nav role="navigation">
 
             <section id="nav-options">
-                <div id="dropdown-options">
+                <div>
                     <a href="#" id="nav-home">HOME</a>
-                    <ul id="dropdown-categories">
-                        <li><a href="#" id="add-card-link">CARDS</a></li>
-                        <li><a href="#">CATEGORIES</a></li>
+                </div>
+
+                <div id="dropdown-cards">
+                    <a href="#">CARDS</a>
+                    <ul id="nav-cards">
+                        <li><a href="#" id="display-cards">All cards</a></li>
+                        <li><a href="#" id="nav-armchair">armchair</a></li>
+                        <li><a href="#" id="nav-bed">bed</a></li>
+                        <li><a href="#" id="nav-belt">belt</a></li>
+                        <li><a href="#">couch</a></li>
+                        <li><a href="#">chest of drawers</a></li>
+                        <li><a href="#">dress</a></li>
+                        <li><a href="#">jacket</a></li>
+                        <li><a href="#">purse</a></li>
                     </ul>
                 </div>
 
-                <section id="add-new-card">
-                    <a href="#">NEW</a>
-                </section>
-
+                <div id="dropdown-categories">
+                    <a href="#">CATEGORIES</a>
+                    <ul id="nav-categories">
+                        <li><a href="#">Category 1</a></li>
+                        <li><a href="#">Category 2</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a id="add-new-card" href="#">NEW</a>
+                </div>
             </section>
 
             <section id="logout-wrapper" class="hide-everything">
@@ -140,10 +157,10 @@
 
                     <section id="cat-subcat-select">
                         <select id="select-cat">
-                                <option value="volvo">select or add category</option>
-                                <option value="add-category-dropdown" id="add-category-dropdown">add category</option>
-                                <option value="opel">Clothing</option>
-                                <option value="audi">Household</option>
+                                <option value="selectCategory">select or add category</option>
+                                <option value="addCategory" id="add-category-dropdown">add category</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="household">Household</option>
                         </select>
 
                         <div id="add-category">
@@ -156,6 +173,7 @@
                             <option value="subcategory" id="add-subcat">add subcategory</option>
                             <option value="subcat 1">Bedroom</option>
                             <option value="subcat 2">Living Room</option>
+                            <option value="no-subcat">no subcategory</option>
                         </select>
 
                         <div id="add-subcategory">
@@ -191,13 +209,14 @@
 
     <main id="example-card-display-wrapper" class="hide-everything">
 
-        <h2 id="ex-card-category">Household</h2>
+        <h2 id="ex-card-category">Category</h2>
 
         <section id="ex-card-subcat-wrapper">
-            <h3 id="ex-card-subcat">Bedroom</h3>
+            <h3 id="ex-card-subcat">Subcategory</h3>
             <div id="ex-card">
                 <img id="ex-image" src="/icon-images/household-icons/bed-1.png" alt="">
-                <h4>bed</h4>
+                <div id="blank-image"></div>
+                <h4 id="ex-item">item</h4>
             </div>
         </section>
 
@@ -245,7 +264,7 @@
 
                     <div id="card6">
                         <img src="/icon-images/household-icons/chest-of-drawers-1.png" alt="">
-                        <h4>drawers</h4>
+                        <h4>chest of drawers</h4>
                     </div>
                 </section>
 
@@ -270,6 +289,10 @@
 
         </section>
 
+        <div id="create-your-card-here">
+
+        </div>
+
     </main>
 
     <!--  *********************************Footer*****************************  -->
@@ -284,9 +307,13 @@
 
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+
+
     </script>
     <script src="js/dropdown.js"></script>
     <script src="js/transitions.js">
+
+
     </script>
     <script src="js/client.js"></script>
 

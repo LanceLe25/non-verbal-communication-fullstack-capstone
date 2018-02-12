@@ -31,28 +31,93 @@ var loggedInUser = "";
 //        image: 'bed'
 //    }
 //];
+var cardArray = [
+    //Card 1
+    {
+        categoryName: 'Clothing',
+        subcategoryName: '',
+        image: '/icon-images/clothing-icons/bag.png',
+        itemName: 'purse'
+    },
+
+    //Card 2
+    {
+        categoryName: 'Clothing',
+        subcategoryName: '',
+        image: '/icon-images/clothing-icons/belt.png',
+        itemName: 'belt'
+    },
+
+    //Card 3
+    {
+        categoryName: 'Clothing',
+        subcategoryName: '',
+        image: '/icon-images/clothing-icons/dress-1.png',
+        itemName: 'dress'
+    },
+
+    //Card 4
+    {
+        categoryName: 'Clothing',
+        subcategoryName: '',
+        image: '/icon-images/clothing-icons/blazer.png',
+        itemName: 'jacket'
+    },
+
+    //Card 5
+    {
+        categoryName: 'Household',
+        subcategoryName: 'Bedroom',
+        image: '/icon-images/household-icons/bed-1.png',
+        itemName: 'bed'
+    },
+
+    //Card 6
+    {
+        categoryName: 'Household',
+        subcategoryName: 'Bedroom',
+        image: '/icon-images/household-icons/chest-of-drawers-1.png',
+        itemName: 'chest of drawers'
+    },
+
+    //Card 7
+    {
+        categoryName: 'Household',
+        subcategoryName: 'Living Room',
+        image: '/icon-images/household-icons/armchair-1.png',
+        itemName: 'armchair'
+    },
+
+    //Card 8
+    {
+        categoryName: 'Household',
+        subcategoryName: 'Living Room',
+        image: '/icon-images/household-icons/couch-1.png',
+        itemName: 'couch'
+    }
+];
+
 
 // step 2. Defining functions
 
-//function generateCardItemsString(cardList) {
-//    console.log('display cards');
-//    const newCategory = $('#add-category-input').val();
-//
-//    return `
-//        <section>
-//        <h2 id="js-category-title category-title"></h2>
-//        <h3 id="js-subcategory-title subcategory-title"></h3>
-//        <img id="js-icon-image icon-image" src="/icon-images/household-icons/bed-2.png"     alt="">
-//        <h3 id="js-card-title card-title"></h3>
-//        </section>
-//    `;
-//}
-//
-//function renderCardList() {
-//    console.log('`renderCardList` ran');
-//    const cardItemsString = generateCardItemsString(communicationCardTemplate);
-//    $('#js-card-list').html(cardItemsString);
-//}
+function displayCards(cardArray) {
+    buildTheHtmlOutput = "";
+    //    $.each(cardArray, function (cardArrayKey, cardArrayValue) {
+    //        buildTheHtmlOutput += "<div id = "
+    //        display - selected - card " >";
+    //        buildTheHtmlOutput += "<h2 > cardArrayValue.categoryName </h2>";
+    //        buildTheHtmlOutput += "<h3> cardArrayValue.subcategoryName < /h3>";
+    //        buildTheHtmlOutput += "<div id = "
+    //        card - image " > cardArrayValue.image < /div>";
+    //        buildTheHtmlOutput += "<h4> cardArrayValue.itemName </h4>";
+    //        buildTheHtmlOutput += "</div>";
+    //    });
+    //
+    //    $("#create-your-card-here").html(buildTheHtmlOutput);
+}
+
+
+
 
 //function displayUpdatedStatement(username) {
 //    let retrieveUserSop = {};
@@ -161,11 +226,84 @@ $(document).on("click", '#add-new-card', function () {
     $('#add-category').hide();
     $('#select-subcat').show();
     $('#add-subcategory').hide();
+
+    $('#example-card-display-wrapper').show();
+    $('#ex-card-category').show();
+    $('#ex-card-subcat-wrapper').show();
+    $('#ex-card-subcat').show();
+    $('#ex-image').hide();
+    $('#ex-card').show();
+    $('#blank-image').show();
+    $('#ex-item').show();
 });
 
 
 
 
+
+//*****USER CAN SEE ALL CARDS IN ALL CATEGORIES BY CLICKING 'CARDS'*****
+$(document).on("click", '#display-cards', function () {
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').show();
+    $('#household-cat').show();
+    $('#bedroom-subcat').show();
+    $('#living-room-subcat').show();
+});
+
+
+
+//****BELOW - NEED TO BE DELETED, JUST FOR EXAMPLE***
+$(document).on("click", '#nav-armchair', function () {
+
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').hide();
+    $('#bedroom-subcat').hide();
+    $('#living-room-subcat').show();
+    $('#card8').hide();
+});
+
+
+$(document).on("click", '#nav-bed', function () {
+
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').hide();
+    $('#bedroom-subcat').show();
+    $('#living-room-subcat').hide();
+    $('#card6').hide();
+});
+
+$(document).on("click", '#nav-belt', function () {
+
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').show();
+    $('#household-cat').hide();
+    $('#bedroom-subcat').hide();
+    $('#living-room-subcat').hide();
+    $('#card1').hide();
+    $('#card3').hide();
+    $('#card4').hide();
+});
+//****ABOVE - NEED TO BE DELETED, JUST FOR EXAMPLE***
 
 
 $(document).on("click", '#add-item-button', function () {
@@ -178,11 +316,12 @@ $(document).on("click", '#add-item-button', function () {
     $('#add-card-main').show();
 
     $('#example-card-display-wrapper').show();
-    $('#ex-card-category').hide();
+    $('#ex-card-category').show();
     $('#ex-card-subcat-wrapper').show();
-    $('#ex-card-subcat').hide();
-    $('#ex-image').hide();
+    $('#ex-card-subcat').show();
     $('#ex-card').show();
+    $('#ex-image').hide();
+    $('#blank-image').show();
     $('#ex-card h4').html(cardItem);
     $('#cat-subcat-select').show();
     $('#add-category').hide();
@@ -193,27 +332,16 @@ $(document).on("click", '#add-item-button', function () {
 
 
 
-
+//*****HOW DO YOU DO THIS????*****
 $(document).on("click", '#add-category-dropdown', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#logout-wrapper').show();
     $('#dropdown').show();
     $('#add-card-main').show();
-
-
-    $('#add-category').show();
-    $('#example-card-display-wrapper').show();
-    $('#ex-card-category').hide();
-    $('#ex-card-subcat-wrapper').show();
-    $('#ex-card-subcat').hide();
-    $('#ex-image').hide();
-    $('#ex-card').show();
-    $('#ex-card h4').html(cardItem);
+    $('#add-dropdown-categories').show();
     $('#cat-subcat-select').show();
-    $('#add-category').hide();
-    $('#select-subcat').show();
-    $('#add-subcategory').hide();
+    $('#add-category').show();
 });
 
 
