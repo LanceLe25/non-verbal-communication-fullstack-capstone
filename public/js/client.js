@@ -149,6 +149,7 @@ $(document).ready(function () {
     $('#logout-wrapper').hide();
     $('#account-options').show();
     $('#site-info').show();
+    $('#create-card button').hide();
 });
 
 
@@ -159,6 +160,7 @@ $(document).on("click", '#landing-page-login', function () {
     $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
+
 });
 
 
