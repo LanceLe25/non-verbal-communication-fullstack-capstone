@@ -19,7 +19,7 @@
 
             <section id="nav-options">
                 <div>
-                    <a href="#" id="nav-home">HOME</a>
+                    <a href="#" id="nav-about">ABOUT</a>
                 </div>
 
                 <div id="dropdown-cards">
@@ -40,10 +40,11 @@
                 <div id="dropdown-categories">
                     <a href="#">CATEGORIES</a>
                     <ul id="nav-categories">
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 2</a></li>
+                        <li><a href="#" id="display-clothing">Clothing</a></li>
+                        <li><a href="#" id="display-household">Household</a></li>
                     </ul>
                 </div>
+
                 <div>
                     <a id="add-new-card" href="#">NEW</a>
                 </div>
@@ -229,60 +230,113 @@
         <section id="clothing-cat">
             <h2>Clothing</h2>
             <div id="card1">
-                <img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt="">
-                <h4>purse</h4>
+                <div class="edit-delete-card">
+                    <a href="">edit</a>
+                    <a href="">delete</a>
+                </div>
+                <div>
+                    <img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt="">
+                    <h4>purse</h4>
+                </div>
             </div>
 
             <div id="card2">
-                <img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt="">
-                <h4>belt</h4>
+                <div class="edit-delete-card">
+                    <a href="">edit</a>
+                    <a href="">delete</a>
+                </div>
+                <div>
+                    <img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt="">
+                    <h4>belt</h4>
+                </div>
             </div>
 
             <div id="card3">
-                <img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt="">
-                <h4>dress</h4>
+                <div class="edit-delete-card">
+                    <a href="">edit</a>
+                    <a href="">delete</a>
+                </div>
+                <div>
+                    <img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt="">
+                    <h4>dress</h4>
+                </div>
             </div>
 
             <div id="card4">
-                <img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt="">
-                <h4>jacket</h4>
+                <div class="edit-delete-card">
+                    <a href="">edit</a>
+                    <a href="">delete</a>
+                </div>
+                <div>
+                    <img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt="">
+                    <h4>jacket</h4>
+                </div>
             </div>
         </section>
 
 
         <section id="household-cat">
-            <h2>Household</h2>
+            <a href="" id="household-link">
+                <h2>Household</h2>
+            </a>
 
             <div id="household-items">
 
                 <section id="bedroom-subcat">
-                    <h3>Bedroom</h3>
+                   <a href="" id="bedroom-link">
+                       <h3>Bedroom</h3>
+                   </a>
+
                     <div id="card5">
-                        <img src="/icon-images/household-icons/bed-1.png" alt="">
-                        <h4>bed</h4>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img src="/icon-images/household-icons/bed-1.png" alt="">
+                            <h4>bed</h4>
+                        </div>
+
                     </div>
 
                     <div id="card6">
-                        <img src="/icon-images/household-icons/chest-of-drawers-1.png" alt="">
-                        <h4>chest of drawers</h4>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img src="/icon-images/household-icons/chest-of-drawers-1.png" alt="">
+                            <h4>chest of drawers</h4>
+                        </div>
                     </div>
                 </section>
 
 
 
                 <section id="living-room-subcat">
-                    <h3>Living Room</h3>
+                    <a href="" id="living-room-link"><h3>Living Room</h3></a>
 
                     <div id="card7">
-                        <img src="/icon-images/household-icons/armchair-1.png" alt="">
-                        <h4>armchair</h4>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img src="/icon-images/household-icons/armchair-1.png" alt="">
+                            <h4>armchair</h4>
+                        </div>
                     </div>
 
                     <div id="card8">
-                        <img src="/icon-images/household-icons/couch-1.png" alt="">
-                        <h4>couch</h4>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img src="/icon-images/household-icons/couch-1.png" alt="">
+                            <h4>couch</h4>
+                        </div>
                     </div>
-
                 </section>
 
             </div>
@@ -307,13 +361,9 @@
 
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
-
-
     </script>
     <script src="js/dropdown.js"></script>
     <script src="js/transitions.js">
-
-
     </script>
     <script src="js/client.js"></script>
 

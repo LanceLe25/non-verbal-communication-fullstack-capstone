@@ -146,24 +146,22 @@ $(document).ready(function () {
     $('.ui.dropdown').dropdown();
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#dropdown').hide();
     $('#logout-wrapper').hide();
     $('#account-options').show();
     $('#site-info').show();
 });
 
 
-//*****TAKES USER TO LOGIN PAGE FROM LANDING PAGE ** ** *
+//****ALL LOGIN REGISTER PAGES*****
 $(document).on("click", '#landing-page-login', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#nav-home').show();
+    $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
 });
 
 
-//*****TAKES USER TO REGISTER PAGE FROM LANDING PAGE ** ** *
 $(document).on("click", '#landing-page-register', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
@@ -173,26 +171,23 @@ $(document).on("click", '#landing-page-register', function () {
 });
 
 
-//*****TAKES USER TO LOGIN PAGE AFTER THEY HAVE REGISTERED*****
 $(document).on("click", '#register-account', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#nav-home').show();
+    $('#nav-about').show();
     $('#login').show();
 });
 
 
-//*****TAKES USER TO LOGIN PAGE FROM REGISTER PAGE*****
 $(document).on("submit", '#go-to-login-page', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#nav-home').show();
+    $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
 });
 
 
-////*****USER LOGS INTO ACCOUNT HERE*****
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
     $('.hide-everything').hide();
@@ -200,18 +195,68 @@ $(document).on("submit", '#login-account-button', function (event) {
     $('#logout').show();
     $('#navigation-options').show();
     $('#nav-new-category').show();
-    $('#dropdown').show();
     $('#add-new-category').show();
 });
 
 
-//*****TAKES USER TO REGISTER PAGE FROM LOGIN PAGE*****
 $(document).on("submit", '#go-to-register-page-button', function (event) {
     event.preventDefault();
     $('.hide-everything').hide();
     $('#register-user-wrapper').show();
     $('#navigation').show();
-    $('#nav-home').show();
+    $('#nav-about').show();
+});
+
+
+
+//*****ALL NAV OPTION PAGES*****
+
+$(document).on("click", '#nav-about', function (event) {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#logout-wrapper').show();
+    $('#account-options').hide();
+    $('#site-info').show();
+});
+
+
+$(document).on("click", '#display-cards', function () {
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').show();
+    $('#household-cat').show();
+    $('#bedroom-subcat').show();
+    $('#living-room-subcat').show();
+});
+
+
+$(document).on("click", '#display-clothing', function () {
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').show();
+    $('#household-cat').hide();
+    $('#bedroom-subcat').hide();
+    $('#living-room-subcat').hide();
+});
+
+
+$(document).on("click", '#display-household', function () {
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#card-display-wrapper').show();
+    $('#clothing-cat').hide();
+    $('#household-cat').show();
 });
 
 
@@ -241,19 +286,7 @@ $(document).on("click", '#add-new-card', function () {
 
 
 
-//*****USER CAN SEE ALL CARDS IN ALL CATEGORIES BY CLICKING 'CARDS'*****
-$(document).on("click", '#display-cards', function () {
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#household-cat').show();
-    $('#bedroom-subcat').show();
-    $('#living-room-subcat').show();
-});
 
 
 
