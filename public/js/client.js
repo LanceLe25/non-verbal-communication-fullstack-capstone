@@ -19,92 +19,14 @@
 var loggedInUser = "";
 var globalSelectedCategory = "";
 var globalSelectedSubCategory = "";
-var globalItemCategory = "";
-//var communicationCardTemplate = [
-//    {
-//    category: 'food',
-//    subcategory: 'breakfast',
-//    card: 'eggs',
-//    image: 'eggs'
-//    },
-//    {
-//        category: 'household',
-//        subcategory: 'bedroom',
-//        card: 'bed',
-//        image: 'bed'
-//    }
-//];
-var cardArray = [
-    //Card 1
-    {
-        categoryName: 'Clothing',
-        subcategoryName: '',
-        image: '/icon-images/clothing-icons/bag.png',
-        itemName: 'purse'
-    },
-
-    //Card 2
-    {
-        categoryName: 'Clothing',
-        subcategoryName: '',
-        image: '/icon-images/clothing-icons/belt.png',
-        itemName: 'belt'
-    },
-
-    //Card 3
-    {
-        categoryName: 'Clothing',
-        subcategoryName: '',
-        image: '/icon-images/clothing-icons/dress-1.png',
-        itemName: 'dress'
-    },
-
-    //Card 4
-    {
-        categoryName: 'Clothing',
-        subcategoryName: '',
-        image: '/icon-images/clothing-icons/blazer.png',
-        itemName: 'jacket'
-    },
-
-    //Card 5
-    {
-        categoryName: 'Household',
-        subcategoryName: 'Bedroom',
-        image: '/icon-images/household-icons/bed-1.png',
-        itemName: 'bed'
-    },
-
-    //Card 6
-    {
-        categoryName: 'Household',
-        subcategoryName: 'Bedroom',
-        image: '/icon-images/household-icons/chest-of-drawers-1.png',
-        itemName: 'chest of drawers'
-    },
-
-    //Card 7
-    {
-        categoryName: 'Household',
-        subcategoryName: 'Living Room',
-        image: '/icon-images/household-icons/armchair-1.png',
-        itemName: 'armchair'
-    },
-
-    //Card 8
-    {
-        categoryName: 'Household',
-        subcategoryName: 'Living Room',
-        image: '/icon-images/household-icons/couch-1.png',
-        itemName: 'couch'
-    }
-];
+var globalItem = "";
+var globalImage = "";
 
 
 // step 2. Defining functions
 
 function displayCards(cardArray) {
-    buildTheHtmlOutput = "";
+    //    buildTheHtmlOutput = "";
     //    $.each(cardArray, function (cardArrayKey, cardArrayValue) {
     //        buildTheHtmlOutput += "<div id = "
     //        display - selected - card " >";
@@ -118,6 +40,11 @@ function displayCards(cardArray) {
     //
     //    $("#create-your-card-here").html(buildTheHtmlOutput);
 }
+
+function imageDropdownSelection(imageArray) {
+    //    for (let i = 0; i < imageArray.length; i++){}
+}
+
 
 
 
@@ -158,7 +85,7 @@ $(document).ready(function () {
     $('#add-category').hide();
     $('#add-subcategory').hide();
     $('#add-item').hide();
-    $('#search-icon-wrapper').hide();
+    $('#select-image-wrapper').hide();
 });
 
 
@@ -342,6 +269,126 @@ $(document).on("click", '#nav-belt', function () {
 //****ABOVE - NEED TO BE DELETED, JUST FOR EXAMPLE***
 
 
+
+
+
+
+
+//*****HOW DO YOU DO THIS????*****
+$(document).on("change", '#select-cat', function () {
+    let selectCategoryValue = $('#select-cat').val();
+
+    //    alert(selectCategoryValue);
+    if (selectCategoryValue == "addCategory") {
+        $('#add-category').show();
+    } else if (selectCategoryValue == "selectCategory") {
+        alert('Please make a selection');
+    } else {
+        globalSelectedCategory == selectCategoryValue;
+        $('.hide-everything').hide();
+        $('#navigation').show();
+        $('#logout-wrapper').show();
+        $('#dropdown').show();
+        $('#add-card-main').show();
+        $('#add-dropdown-categories').show();
+        $('#cat-subcat-select').show();
+        $('#example-card-display-wrapper').show();
+        $('#ex-card-category').html(selectCategoryValue);
+    }
+});
+
+
+
+
+$(document).on("click", '#add-category-button', function () {
+    let cardCategory = $('#add-category input').val();
+
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#account-options').hide();
+    $('#logout-wrapper').show();
+    $('#add-card-main').show();
+
+    $('#example-card-display-wrapper').show();
+    $('#add-category').hide();
+    $('#ex-card-category').html(cardCategory);
+});
+
+
+
+
+$(document).on("change", '#select-subcat', function () {
+    let selectSubCategoryValue = $('#select-subcat').val();
+
+    alert(selectSubCategoryValue);
+    if (selectSubCategoryValue == "addSubCategory") {
+        $('#add-subcategory').show();
+    } else if (selectSubCategoryValue == "selectSubCategory") {
+        alert('Please make a selection');
+    } else {
+        globalSelectedSubCategory == selectSubCategoryValue;
+        $('.hide-everything').hide();
+        $('#navigation').show();
+        $('#logout-wrapper').show();
+        $('#dropdown').show();
+        $('#add-card-main').show();
+        $('#add-dropdown-categories').show();
+        $('#cat-subcat-select').show();
+    }
+});
+
+$(document).on("click", '#add-subcategory-button', function () {
+    const cardSubCategory = $('#add-subcategory input').val();
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#logout-wrapper').show();
+    $('#dropdown').show();
+    $('#add-card-main').show();
+
+    $('#example-card-display-wrapper').show();
+    $('#add-subcategory-display-wrapper').show();
+    $('#add-subcategory').hide();
+    $('#subcategory-displayed').show();
+    $('#ex-card-subcat').html(cardSubCategory);
+});
+
+
+
+
+
+
+
+$(document).on("change", '#select-item', function () {
+    let selectItemValue = $('#select-item img').val();
+
+    alert(selectItemValue);
+    if (selectItemValue == "addItem") {
+        $('#add-item').show();
+        $('#select-image-wrapper').show();
+    } else if (selectItemValue == "selectItem") {
+        alert('Please make a selection');
+    } else {
+        globalItem == selectItemValue;
+        $('.hide-everything').hide();
+        $('#navigation').show();
+        $('#logout-wrapper').show();
+        $('#add-card-main').show();
+        $('#add-dropdown-categories').show();
+        $('#cat-subcat-select').show();
+        $('#add-item input').show();
+
+        $('#example-card-display-wrapper').show();
+        $('#ex-card-category').show();
+        $('#ex-card-subcat-wrapper').show();
+        $('#ex-card-subcat').show();
+        $('#ex-card').show();
+        $('#ex-image').hide();
+        $('#blank-image').show();
+    }
+});
+
 $(document).on("click", '#add-item-button', function () {
     const cardItem = $('#add-item input').val();
 
@@ -365,108 +412,25 @@ $(document).on("click", '#add-item-button', function () {
 
 
 
+$(document).on("change", '#select-image-wrapper', function () {
+    let selectImageValue = $('#select-image-wrapper').val();
 
-//*****HOW DO YOU DO THIS????*****
-$(document).on("change", '#select-cat', function () {
-    let selectCategoryValue = $('#select-cat').val();
-
-    alert(selectCategoryValue);
-    if (selectCategoryValue == "addCategory") {
-        $('#add-category').show();
-    } else if (selectCategoryValue == "selectCategory") {
+    alert(selectImageValue);
+    if (selectImageValue == ".default") {
         alert('Please make a selection');
     } else {
-        globalSelectedCategory == selectCategoryValue;
+        globalImage == selectImageValue;
         $('.hide-everything').hide();
         $('#navigation').show();
         $('#logout-wrapper').show();
         $('#dropdown').show();
         $('#add-card-main').show();
-        $('#add-dropdown-categories').show();
+        $('#add-dropdown-categories').hide();
         $('#cat-subcat-select').show();
+        $('#add-item input').hide();
     }
 });
 
-
-$(document).on("change", '#select-subcat', function () {
-    let selectSubCategoryValue = $('#select-subcat').val();
-
-    alert(selectSubCategoryValue);
-    if (selectSubCategoryValue == "addSubCategory") {
-        $('#add-subcategory').show();
-    } else if (selectSubCategoryValue == "selectSubCategory") {
-        alert('Please make a selection');
-    } else {
-        globalSelectedSubCategory == selectSubCategoryValue;
-        $('.hide-everything').hide();
-        $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#dropdown').show();
-        $('#add-card-main').show();
-        $('#add-dropdown-categories').show();
-        $('#cat-subcat-select').show();
-    }
-});
-
-
-$(document).on("change", '#select-item', function () {
-    let selectItemValue = $('#select-item').val();
-
-    alert(selectItemValue);
-    if (selectItemValue == "addItem") {
-        $('#add-item').show();
-        $('#search-icon-wrapper').show();
-    } else if (selectItemValue == "selectItem") {
-        alert('Please make a selection');
-    } else {
-        globalItemCategory == selectItemValue;
-        $('.hide-everything').hide();
-        $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#dropdown').show();
-        $('#add-card-main').show();
-        $('#add-dropdown-categories').show();
-        $('#cat-subcat-select').show();
-        $('#add-item input').show();
-    }
-});
-
-
-
-
-$(document).on("click", '#add-category-button', function () {
-    const cardCategory = $('#add-category input').val();
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#add-card-main').show();
-
-    $('#example-card-display-wrapper').show();
-    $('#add-category').hide();
-    $('#ex-card-category').html(cardCategory);
-});
-
-
-
-
-
-$(document).on("click", '#add-subcategory-button', function () {
-    const cardSubcategory = $('#add-subcategory input').val();
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#logout-wrapper').show();
-    $('#dropdown').show();
-    $('#add-card-main').show();
-
-    $('#example-card-display-wrapper').show();
-    $('#add-subcategory-display-wrapper').show();
-    $('#add-subcategory input').hide();
-    $('#subcategory-displayed').show();
-    $('#ex-card-subcat').html(cardSubcategory);
-});
 
 
 

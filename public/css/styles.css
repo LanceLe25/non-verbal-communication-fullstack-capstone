@@ -351,12 +351,12 @@ Content styles (Main Module)
 
 
 
-#search-icon-wrapper {
+#select-image-wrapper {
     width: 262px;
     margin: 0 auto;
 }
 
-#search-icon-wrapper img {
+#select-image-wrapper img {
     width: 40px;
     height: 40px;
     vertical-align: middle;
