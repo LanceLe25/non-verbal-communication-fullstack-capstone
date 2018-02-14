@@ -316,7 +316,7 @@ Content styles (Main Module)
 
 #add-item input,
 #add-category input,
-#add-subcategory input {
+#add-sub-category input {
     text-align: center;
     margin-bottom: 1.5rem;
     padding: .5rem 0;
@@ -325,7 +325,7 @@ Content styles (Main Module)
 
 #add-item button,
 #add-category button,
-#add-subcategory button,
+#add-sub-category button,
 #create-card button {
     padding: .5rem 1rem;
     margin-left: .5rem;
@@ -340,7 +340,7 @@ Content styles (Main Module)
 }
 
 #select-cat,
-#select-subcat,
+#select-sub-cat,
 #select-item {
     display: block;
     width: 262px;

@@ -148,45 +148,40 @@
         <form action="" id="add-card-wrapper-form">
 
             <section id="add-dropdown-categories" class="dropdown-category-wrapper">
-                <div id="select-category">
 
-
-
-                    <section id="cat-subcat-select">
-                        <select id="select-cat">
+                <section id="cat-sub-cat-select">
+                    <select id="select-cat">
                                 <option value="selectCategory">select or add category</option>
                                 <option value="addCategory">add category</option>
                                 <option value=""></option>
-                                <option value="clothing">Clothing</option>
-                                <option value="household">Household</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Household">Household</option>
                         </select>
 
-                        <div id="add-category">
-                            <input type="text" placeholder="add category">
-                            <button id="add-category-button">Add</button>
-                        </div>
+                    <div id="add-category">
+                        <input type="text" placeholder="add category">
+                        <button id="add-category-button">Add</button>
+                    </div>
 
-                        <select id="select-subcat">
-                            <option value="selectSubCategory">select or add subcategory</option>
-                            <option value="addSubCategory">add subcategory</option>
+                    <select id="select-sub-cat">
+                            <option value="selectSubCategory">select or add sub category</option>
+                            <option value="addSubCategory">add sub category</option>
                             <option value=""></option>
-                            <option value="subcat 1">Bedroom</option>
-                            <option value="subcat 2">Living Room</option>
-                            <option value="no-subcat">no subcategory</option>
+                            <option value="Bedroom">Bedroom</option>
+                            <option value="Living Room">Living Room</option>
+                            <option value="noSubCat">no sub category</option>
                         </select>
 
-                        <div id="add-subcategory">
-                            <input type="text" placeholder="add subcategory">
-                            <button id="add-subcategory-button">Add</button>
-                        </div>
+                    <div id="add-sub-category">
+                        <input type="text" placeholder="add sub category">
+                        <button id="add-sub-category-button">Add</button>
+                    </div>
 
-                    </section>
-                </div>
+                </section>
 
                 <section>
                     <select id="select-item">
                         <option value="selectItem">select or add item</option>
-                        <option value=""></option>
                         <option value="addItem">add item</option>
                         <option value="clothing">purse</option>
                         <option value="household">dress</option>
@@ -204,7 +199,10 @@
                         <i class="dropdown icon"></i>
                         <div class="default text">Select an image</div>
                         <div class="menu">
-                            <div class="item" data-value="af"><i class="af flag"><img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt=""></i>purse</div>
+                            <div data-value=""><i class="af flag"><img id="" src="" alt=""></i></div>
+
+
+
                             <div class="item" data-value="ax"><i class="ax flag"><img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
                             <div class="item" data-value="al"><i class="al flag"><img id="cap-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>hat</div>
                             <div class="item" data-value="dz"><i class="dz flag"><img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>jacket</div>
@@ -226,8 +224,8 @@
 
         <h2 id="ex-card-category">Category</h2>
 
-        <section id="ex-card-subcat-wrapper">
-            <h3 id="ex-card-subcat">Subcategory</h3>
+        <section id="example-sub-cat-wrapper">
+            <h3 id="example-card-sub-cat">Subcategory</h3>
             <div id="ex-card">
                 <img id="ex-image" src="/icon-images/household-icons/bed-1.png" alt="">
                 <div id="blank-image"></div>
@@ -423,9 +421,13 @@
 
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+
+
     </script>
     <script src="js/dropdown.js"></script>
     <script src="js/transitions.js">
+
+
     </script>
     <script src="js/client.js"></script>
 
