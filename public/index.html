@@ -151,39 +151,48 @@
                 <div id="select-category">
 
 
-                    <div id="add-item">
-                        <input type="text" placeholder="add item">
-                        <button id="add-item-button">Add</button>
-                    </div>
 
                     <section id="cat-subcat-select">
                         <select id="select-cat">
                                 <option value="selectCategory">select or add category</option>
-                                <option value="addCategory" id="add-category-dropdown">add category</option>
+                                <option value="addCategory">add category</option>
                                 <option value="clothing">Clothing</option>
                                 <option value="household">Household</option>
                         </select>
 
                         <div id="add-category">
-                            <input type="text" placeholder="add item">
+                            <input type="text" placeholder="add category">
                             <button id="add-category-button">Add</button>
                         </div>
 
                         <select id="select-subcat">
-                            <option value="subcategory">select or add subcategory</option>
-                            <option value="subcategory" id="add-subcat">add subcategory</option>
+                            <option value="selectSubCategory">select or add subcategory</option>
+                            <option value="addSubCategory">add subcategory</option>
                             <option value="subcat 1">Bedroom</option>
                             <option value="subcat 2">Living Room</option>
                             <option value="no-subcat">no subcategory</option>
                         </select>
 
                         <div id="add-subcategory">
-                            <input type="text" placeholder="add item">
+                            <input type="text" placeholder="add subcategory">
                             <button id="add-subcategory-button">Add</button>
                         </div>
 
                     </section>
                 </div>
+
+                <section>
+                    <select id="select-item">
+                        <option value="selectItem">select or add item</option>
+                        <option value="addItem">add item</option>
+                        <option value="clothing">purse</option>
+                        <option value="household">dress</option>
+                    </select>
+                    <div id="add-item">
+                        <input type="text" placeholder="add item">
+                        <button id="add-item-button">Add</button>
+                    </div>
+                </section>
 
                 <section id="search-icon-wrapper">
                     <div class="ui fluid search selection dropdown">
@@ -203,6 +212,7 @@
                         </div>
                     </div>
                 </section>
+
             </section>
         </form>
     </main>

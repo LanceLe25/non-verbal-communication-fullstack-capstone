@@ -340,7 +340,8 @@ Content styles (Main Module)
 }
 
 #select-cat,
-#select-subcat {
+#select-subcat,
+#select-item {
     display: block;
     width: 262px;
     margin: auto;
@@ -448,7 +449,7 @@ img,
     /*    border: 1px solid white;*/
     padding: 1rem;
     border-radius: 5px;
-    box-shadow: 4px 3px 8px lightgrey;
+    box-shadow: 0px 0px 8px lightgrey;
 }
 
 .edit-delete-category {
