@@ -1,7 +1,7 @@
 'use strict';
 
 const User = require('./models/user');
-const Statement = require('./models/statement');
+const Icon = require('./models/icon');
 const bodyParser = require('body-parser');
 //const config = require('./config');
 const mongoose = require('mongoose');
@@ -144,9 +144,9 @@ app.post('/users/signin', function (req, res) {
 });
 
 
-// -------------STATEMENT ENDPOINTS------------------------------------------------
+// -------------ICON ENDPOINTS------------------------------------------------
 //*********************POST*************************
-app.post('/statements/create', (req, res) => {
+app.post('/icons/create', (req, res) => {
 
     let user = req.body.user;
     let body = req.body.body;
@@ -178,7 +178,7 @@ app.post('/statements/create', (req, res) => {
     var time = showHours + "-" + showMinutes + "-" + showSeconds;
     var dateTime = date + '-' + time;
 
-    Statement.create({
+    Icon.create({
         user,
         body,
         values,
@@ -191,7 +191,7 @@ app.post('/statements/create', (req, res) => {
                 message: 'Internal Server Error'
             });
             if (item) {
-                console.log(`Statement \`${statement}\` added.`);
+                console.log(`Icon \`${icon}\` added.`);
                 return res.json(item);
             }
         }
@@ -207,8 +207,8 @@ app.post('/statements/create', (req, res) => {
 //*********************GET*************************
 
 
-app.get('/statements/:user', function (req, res) {
-    Statement.find({
+app.get('/icons/:user', function (req, res) {
+    Icon.find({
             user: req.params.user
         },
 
@@ -230,7 +230,7 @@ app.get('/statements/:user', function (req, res) {
 
 
 //*********************PUT*************************
-app.put('/statements/:id', function (req, res) {
+app.put('/icons/:id', function (req, res) {
     let updateSop = {};
     let updateableFields = ['body'];
     updateableFields.forEach(function (field) {
@@ -239,10 +239,10 @@ app.put('/statements/:id', function (req, res) {
         }
     });
 
-    Statement
+    Icon
         .findByIdAndUpdate(req.params.id, {
             $set: updateSop
-        }).exec().then(function (statement) {
+        }).exec().then(function (icon) {
             return res.status(204).end();
         }).catch(function (err) {
             return res.status(500).json({
