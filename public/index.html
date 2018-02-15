@@ -40,6 +40,7 @@
                 <div id="dropdown-categories">
                     <a href="#">CATEGORIES</a>
                     <ul id="nav-categories">
+                        <li><a href="#" id="all-categories">All Categories</a></li>
                         <li><a href="#" id="display-clothing">Clothing</a></li>
                         <li><a href="#" id="display-household">Household</a></li>
                     </ul>
@@ -67,7 +68,8 @@
 
     <main id="header-wrapper">
         <header>
-            <h1>Non-Verbal Communication</h1>
+            <h1><span>B.E.K</span> Lingo</h1>
+            <h4><i>non-verbal communication</i></h3>
         </header>
     </main>
 
@@ -118,26 +120,32 @@
 
 
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
-    <main id="site-info" class="hide-everything">
+    <main id="site-info-wrapper" class="hide-everything">
 
-        <div>
-            <h3>Who should use this app?</h3>
-            <p>Anyone who has suffered some kind of brain injury and has difficulty communicating, also caregivers and family members who what to communicate with them</p>
+        <div id="site-info-para1">
+            <p>This <span>non-verbal communication </span> app is for anyone who has suffered some type of brain injury and has difficulty with verbal communication.</p>
         </div>
 
-        <div>
-            <h3>About this app</h3>
-            <p>This is a very simple site for those who have difficulty finding words and communicating their wants and needs to their families and caregivers</p>
+        <div id="site-info-para2">
+            <p>It is a simple way to communicate without the need to search through long lists of words to find what you want to say.</p>
+            <br>
+            <p>You or your caregiver can create cards with images that include a text description.</p>
+            <br>
         </div>
 
-        <div>
-            <h3>What does it do?</h3>
-            <p>This app allows you to create cards with images along with a text description so that you can communicate better without the need to search through long lists of words to find what you want to say</p>
+        <div id="site-info-para3">
+            <p><span>To get started...</span> select "NEW" from the navigation bar then follow the prompts step by step to create a card.</p>
+            <br>
+            <p>Cards, Categories, Subcategories and Items can be updated or deleted.</p>
         </div>
 
-        <div>
-            <h3>How does it work?</h3>
-            <p>You will be shown step by step how to create a category, subcategory and item along with an selecting a matching image to display on the card</p>
+        <div id="site-info-images">
+            <img src="/icon-images/household-icons/flower.png" alt="">
+            <img src="/icon-images/clothing-icons/sneakers.png" alt="">
+            <img src="/icon-images/household-icons/coffee-machine.png" alt="">
+            <img src="/icon-images/household-icons/armchair-4.png" alt="">
+            <img src="/icon-images/household-icons/bonsai.png" alt="">
+            <img src="/icon-images/clothing-icons/shirt-4.png" alt="">
         </div>
     </main>
 
@@ -193,16 +201,15 @@
                     </div>
                 </section>
 
+
+                <!--               *****linked to dropdown.css plugin*****-->
                 <section id="select-image-wrapper">
                     <div class="ui fluid search selection dropdown">
                         <input type="hidden" name="country">
                         <i class="dropdown icon"></i>
                         <div class="default text">Select an image</div>
                         <div class="menu">
-                            <div data-value=""><i class="af flag"><img id="" src="" alt=""></i></div>
-
-
-
+                            <div data-value="af"><i class="af flag"><img id="" src="/icon-images/clothing-icons/purse.png" alt=""></i>purse</div>
                             <div class="item" data-value="ax"><i class="ax flag"><img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
                             <div class="item" data-value="al"><i class="al flag"><img id="cap-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>hat</div>
                             <div class="item" data-value="dz"><i class="dz flag"><img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>jacket</div>
@@ -360,10 +367,7 @@
                 </section>
 
 
-
                 <section id="living-room-subcat">
-
-
                     <div id="living-room-subcategory-link">
                         <div>
                             <a href="" id="living-room-link">

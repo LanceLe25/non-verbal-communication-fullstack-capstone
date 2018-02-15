@@ -62,7 +62,7 @@ General styles (General Module, wrapping around the modules below)
 
 body {
     text-align: center;
-    background-color: #3b3b44;
+    background-color: #202126;
     color: aliceblue;
     font-family: 'Open Sans', sans-serif;
 }
@@ -80,7 +80,9 @@ h4 {
     font-size: 1.5rem;
 }
 
-
+p {
+    font-size: 1.3rem;
+}
 
 
 /* -------------------------------------
@@ -104,12 +106,11 @@ Header styles (Main Module)
     position: relative;
 }
 
-#dropdown-options,
 #logout-wrapper,
 #account-options {
     display: inline-block;
     float: left;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 #nav-options,
@@ -125,11 +126,19 @@ Header styles (Main Module)
 #landing-page-login,
 #landing-page-register,
 #logout,
-#account-options {
+#account-options,
+#account-options a:first-child {
     color: #88b4c1;
     text-decoration: none;
-    padding-right: 1rem;
+    padding-right: .5rem;
+}
 
+#nav-options a,
+#landing-page-login,
+#landing-page-register,
+#account-options,
+#account-options a:first-child {
+    padding-right: .5rem;
 }
 
 #dropdown-cards li,
@@ -150,8 +159,8 @@ Header styles (Main Module)
     padding-top: .5rem;
 }
 
-#dropdown-options {
-    padding-left: 1rem;
+#logout {
+    padding-right: 1rem;
 }
 
 nav li {
@@ -164,7 +173,7 @@ nav li {
 }
 
 #account-options a:first-child {
-    padding-right: 1rem;
+    /*    padding-right: .5rem;*/
 }
 
 #nav-cards,
@@ -205,6 +214,11 @@ nav li {
     padding-top: 2rem;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
+}
+
+header span {
+    font-size: 2.5rem;
+    color: #e22525;
 }
 
 
@@ -280,20 +294,45 @@ Content styles (Main Module)
 
 /******SITE INFO******/
 
-#site-info {
-    display: block;
-    width: 25rem;
+#site-info-wrapper {
+    width: 400px;
     margin: 0 auto;
+    background: white;
+    color: black;
+    text-align: left;
+    padding: .25rem;
+    border-radius: 5px;
 }
 
-#site-info h3 {
-    margin-bottom: .5rem;
+#site-info-wrapper div {
+    display: block;
+    padding: .5rem;
 }
 
-#site-info div {
-    border: 1px solid black;
-    padding: 1rem;
-    margin: 1rem;
+#site-info-para1 {
+    /*    background-color: aliceblue;*/
+    /*    color: darkslategrey;*/
+    text-align: left;
+}
+
+#site-info-para1 span,
+#site-info-para3 span {
+    color: #e22525;
+    font-weight: bold;
+}
+
+#site-info-images {
+    background: #202126;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+#site-info-images img {
+    width: 55px;
+    height: 55px;
+    margin-top: .30rem;
+    margin-left: .12rem;
+    margin-right: .12rem;
 }
 
 
@@ -380,7 +419,7 @@ img,
 
 #clothing-cat,
 #household-cat {
-    background-color: #3b3b44;
+    background-color: #202126;
 }
 
 #bedroom-subcat,
@@ -443,7 +482,7 @@ img,
 #card6,
 #card7,
 #card8 {
-    background-color: #3b3b44;
+    background-color: #202126;
     display: inline-block;
     margin: 1rem;
     /*    border: 1px solid white;*/
@@ -464,6 +503,12 @@ img,
     text-decoration: none;
 }
 
+.edit-delete-category a:hover,
+.edit-delete-subcategory a:hover,
+.edit-delete-card a:hover {
+    color: aliceblue;
+}
+
 .edit-delete-card {
     float: right;
     padding-bottom: .25rem;
@@ -481,7 +526,7 @@ Footer styles (Main Module)
 */
 
 footer {
-    margin-top: 10rem;
+    margin-top: 5rem;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
