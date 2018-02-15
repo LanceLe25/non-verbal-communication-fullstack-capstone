@@ -80,6 +80,7 @@ $(document).ready(function () {
     $('#account-options').show();
     $('#site-info-wrapper').show();
     $('#create-card button').hide();
+    $('#color-change').hide();
 
     //    hiding new-category, subcategory, item, image input field
     $('#add-category').hide();
@@ -147,6 +148,8 @@ $(document).on("submit", '#go-to-register-page-button', function (event) {
 
 
 
+
+
 //*****ALL NAV OPTION PAGES*****
 
 $(document).on("click", '#nav-about', function (event) {
@@ -164,6 +167,7 @@ $(document).on("click", '#display-cards', function () {
     $('#navigation').show();
     $('#account-options').hide();
     $('#logout-wrapper').show();
+    $('#color-change').show();
     $('#card-display-wrapper').show();
     $('#clothing-cat').show();
     $('#clothing-category-link').hide();
@@ -182,6 +186,7 @@ $(document).on("click", '#all-categories', function () {
     $('#navigation').show();
     $('#account-options').hide();
     $('#logout-wrapper').show();
+    $('#color-change').show();
     $('#card-display-wrapper').show();
     $('#clothing-cat').show();
     $('#household-cat').show();
@@ -263,6 +268,21 @@ $(document).on("click", '#household-link', function () {
     $('#bedroom-subcat').show();
     $('#living-room-subcat').show();
 });
+
+//***I want this function ***
+$(document).on("click", '#blue-green', function (event) {
+    let blueGreenCard = getElementById("card");
+    let redCard = getElementById("card");
+    let blueGreenCard = getElementById("card");
+
+//    $('.hide-everything').hide();//    $('#navigation').show();
+//    $('#logout-wrapper').show();
+//    $('#account-options').hide();
+//    $('#site-info-wrapper').hide();
+//
+//    blueGreenCard.addClass('#blue-green');
+});
+
 
 //****BELOW - NEED TO BE DELETED, JUST FOR EXAMPLE***
 $(document).on("click", '#nav-armchair', function () {

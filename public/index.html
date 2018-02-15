@@ -49,7 +49,15 @@
                 <div>
                     <a id="add-new-card" href="#">NEW</a>
                 </div>
+
+                <div id="color-change">
+                    <div id="blue-green"><a href=""></a></div>
+                    <div id="red"><a href=""></a></div>
+                    <div id="yellow"><a href=""></a></div>
+                </div>
             </section>
+
+
 
             <section id="logout-wrapper" class="hide-everything">
                 <a href="#" id="logout">Logout
@@ -64,16 +72,14 @@
         </nav>
 
 
+        <section id="header-wrapper">
+            <header>
+                <h1><span>B.E.K</span> Lingo</h1>
+                <h4><i>non-verbal communication</i></h4>
+            </header>
+        </section>
+
     </main>
-
-    <main id="header-wrapper">
-        <header>
-            <h1><span>B.E.K</span> Lingo</h1>
-            <h4><i>non-verbal communication</i></h3>
-        </header>
-    </main>
-
-
 
     <!--    *****USER LOGIN OR REGISTER*****  -->
     <main id="login-register-wrapper" class="hide-everything">
@@ -120,38 +126,43 @@
 
 
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
+
+
     <main id="site-info-wrapper" class="hide-everything">
 
         <div id="site-info-para1">
+            <img src="/icon-images/household-icons/flower.png" alt="">
             <p>This <span>non-verbal communication </span> app is for anyone who has suffered some type of brain injury and has difficulty with verbal communication.</p>
         </div>
 
         <div id="site-info-para2">
             <p>It is a simple way to communicate without the need to search through long lists of words to find what you want to say.</p>
+            <div>
+                <!--
+                <img src="/icon-images/clothing-icons/shirt-4.png" alt=""><img src="/icon-images/household-icons/chest-of-drawers-7.png" alt="">
+-->
+            </div>
             <br>
             <p>You or your caregiver can create cards with images that include a text description.</p>
-            <br>
         </div>
 
         <div id="site-info-para3">
             <p><span>To get started...</span> select "NEW" from the navigation bar then follow the prompts step by step to create a card.</p>
             <br>
             <p>Cards, Categories, Subcategories and Items can be updated or deleted.</p>
-        </div>
+            <div id="site-info-images">
+                <img src="/icon-images/clothing-icons/sneakers.png" alt="">
+                <img src="/icon-images/household-icons/bonsai.png" alt="">
+                <img src="/icon-images/household-icons/armchair-1.png" alt="">
+                <img src="/icon-images/household-icons/coffee-machine.png" alt="">
+            </div>
 
-        <div id="site-info-images">
-            <img src="/icon-images/household-icons/flower.png" alt="">
-            <img src="/icon-images/clothing-icons/sneakers.png" alt="">
-            <img src="/icon-images/household-icons/coffee-machine.png" alt="">
-            <img src="/icon-images/household-icons/armchair-4.png" alt="">
-            <img src="/icon-images/household-icons/bonsai.png" alt="">
-            <img src="/icon-images/clothing-icons/shirt-4.png" alt="">
         </div>
     </main>
 
 
 
-
+    <!--  ******ALL CONTENT FOR CREATING A CARD ADDING CATEGORY, SUBCATEGORY, ITEM AND ICON IMAGE******  -->
     <main role="main" id="add-card-main" class="hide-everything">
         <form action="" id="add-card-wrapper-form">
 
@@ -265,7 +276,7 @@
             </div>
 
             <div>
-                <div id="card1">
+                <div id="card1" class="card">
                     <div class="edit-delete-card">
                         <a href="">edit</a>
                         <a href="">delete</a>
@@ -276,7 +287,7 @@
                     </div>
                 </div>
 
-                <div id="card2">
+                <div id="card2" class="card">
                     <div class="edit-delete-card">
                         <a href="">edit</a>
                         <a href="">delete</a>
@@ -287,7 +298,7 @@
                     </div>
                 </div>
 
-                <div id="card3">
+                <div id="card3" class="card">
                     <div class="edit-delete-card">
                         <a href="">edit</a>
                         <a href="">delete</a>
@@ -298,7 +309,7 @@
                     </div>
                 </div>
 
-                <div id="card4">
+                <div id="card4" class="card">
                     <div class="edit-delete-card">
                         <a href="">edit</a>
                         <a href="">delete</a>
@@ -342,7 +353,7 @@
                         </div>
                     </div>
 
-                    <div id="card5">
+                    <div id="card5" class="card">
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -354,7 +365,7 @@
 
                     </div>
 
-                    <div id="card6">
+                    <div id="card6" class="card">
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -380,7 +391,7 @@
                         </div>
                     </div>
 
-                    <div id="card7">
+                    <div id="card7" class="card">
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -391,7 +402,7 @@
                         </div>
                     </div>
 
-                    <div id="card8">
+                    <div id="card8" class="card">
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -425,13 +436,9 @@
 
 
     <script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
-
-
     </script>
     <script src="js/dropdown.js"></script>
     <script src="js/transitions.js">
-
-
     </script>
     <script src="js/client.js"></script>
 

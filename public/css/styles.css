@@ -67,7 +67,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 h2 {
     font-size: 2.5rem;
 }
@@ -106,6 +105,7 @@ Header styles (Main Module)
     position: relative;
 }
 
+
 #logout-wrapper,
 #account-options {
     display: inline-block;
@@ -118,6 +118,7 @@ Header styles (Main Module)
     display: inline-block;
     /*    float: left;*/
     padding-top: .3rem;
+    padding-bottom: .3rem;
     padding-left: .5rem;
     font-size: 1.3rem;
 }
@@ -152,6 +153,28 @@ Header styles (Main Module)
 #landing-page-register:hover,
 #logout:hover {
     color: aliceblue;
+}
+
+#blue-green,
+#red,
+#yellow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 .5rem;
+
+}
+
+#blue-green {
+    background: #076473;
+}
+
+#red {
+    background: #900000;
+}
+
+#yellow {
+    background: #f5f55d;
 }
 
 #logout-wrapper,
@@ -209,11 +232,23 @@ nav li {
 /******HEADER STYLES******/
 
 #header-wrapper {
+    width: 100%;
+    background: #48484f;
     clear: both;
     font-size: 2rem;
-    padding-top: 2rem;
+    padding: 1rem 0;
     margin-bottom: 2rem;
     font-family: 'Lora', serif;
+}
+
+header div {
+    display: inline-block;
+    margin: 0 5rem;
+}
+
+header div img {
+    width: 75px;
+    height: 75px;
 }
 
 header span {
@@ -294,6 +329,11 @@ Content styles (Main Module)
 
 /******SITE INFO******/
 
+#site-info-stuff img {
+    width: 55px;
+    height: 55px;
+}
+
 #site-info-wrapper {
     width: 400px;
     margin: 0 auto;
@@ -306,13 +346,13 @@ Content styles (Main Module)
 
 #site-info-wrapper div {
     display: block;
-    padding: .5rem;
+    padding: .5rem .5rem 0 .5rem;
 }
 
-#site-info-para1 {
-    /*    background-color: aliceblue;*/
-    /*    color: darkslategrey;*/
-    text-align: left;
+
+#site-info-para2 {
+    border-bottom: 2px solid #88b4c1;
+    padding-bottom: .25rem;
 }
 
 #site-info-para1 span,
@@ -321,19 +361,23 @@ Content styles (Main Module)
     font-weight: bold;
 }
 
-#site-info-images {
-    background: #202126;
-    border-radius: 5px;
-    vertical-align: middle;
+#site-info-para1 img,
+#site-info-para3 img {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #48484f;
+    border-radius: 3px;
+    margin: 0 .21rem;
 }
 
-#site-info-images img {
-    width: 55px;
-    height: 55px;
-    margin-top: .30rem;
-    margin-left: .12rem;
-    margin-right: .12rem;
+#site-info-para1 img {
+    float: left;
 }
+
+#site-info-para2 img {
+    float: right;
+}
+
 
 
 
@@ -424,7 +468,7 @@ img,
 
 #bedroom-subcat,
 #living-room-subcat {
-    background-color: #c5c3c23d;
+    background-color: #48484f;
     border-radius: 5px;
     margin-top: 1rem;
 }
@@ -529,6 +573,7 @@ footer {
     margin-top: 5rem;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
+    background-color: #48484f;
 }
 
 footer a {
