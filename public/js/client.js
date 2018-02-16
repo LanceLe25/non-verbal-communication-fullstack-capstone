@@ -275,12 +275,12 @@ $(document).on("click", '#blue-green', function (event) {
     let redCard = getElementById("card");
     let blueGreenCard = getElementById("card");
 
-//    $('.hide-everything').hide();//    $('#navigation').show();
-//    $('#logout-wrapper').show();
-//    $('#account-options').hide();
-//    $('#site-info-wrapper').hide();
-//
-//    blueGreenCard.addClass('#blue-green');
+    //    $('.hide-everything').hide();//    $('#navigation').show();
+    //    $('#logout-wrapper').show();
+    //    $('#account-options').hide();
+    //    $('#site-info-wrapper').hide();
+    //
+    //    blueGreenCard.addClass('#blue-green');
 });
 
 
@@ -363,19 +363,62 @@ $(document).on("change", '#select-cat', function () {
 
 $(document).on("click", '#add-category-button', function () {
     let cardCategory = $('#add-category input').val();
+    console.log(cardCategory);
+    if (cardCategory == "") {
+        alert("Please enter a category");
 
-    populateCategoryDropdown();
+    } else {
+        const newCategoryObject = {
+            name: cardCategory
+        };
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#add-card-main').show();
-
-    $('#example-card-display-wrapper').show();
-    $('#add-category').hide();
-    $('#ex-card-category').html(cardCategory);
+        $.ajax({
+                type: 'POST',
+                url: '/category/create',
+                dataType: 'json',
+                data: JSON.stringify(newCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                displayCategoryDropdown();
+                //                $('.hide-everything').hide();
+                //                $('#navigation').show();
+                //                $('#account-options').hide();
+                //                $('#logout-wrapper').show();
+                //                $('#add-card-main').show();
+                //
+                //                $('#example-card-display-wrapper').show();
+                //                $('#add-category').hide();
+                //                $('#ex-card-category').html(cardCategory);
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
+
+function displayCategoryDropdown() {
+    $.ajax({
+            type: 'GET',
+            url: '/category/get',
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+                //            retrieveUserSop = result;
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
 
 
 $(document).on("change", '#select-sub-cat', function () {

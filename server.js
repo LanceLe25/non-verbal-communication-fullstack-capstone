@@ -2,8 +2,9 @@
 
 const User = require('./models/user');
 const Icon = require('./models/icon');
+const Category = require('./models/category');
 const bodyParser = require('body-parser');
-//const config = require('./config');
+const config = require('./config');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -144,54 +145,21 @@ app.post('/users/signin', function (req, res) {
 });
 
 
-// -------------ICON ENDPOINTS------------------------------------------------
+// -------------category ENDPOINTS------------------------------------------------
 //*********************POST*************************
-app.post('/icons/create', (req, res) => {
+app.post('/category/create', (req, res) => {
 
-    let user = req.body.user;
-    let body = req.body.body;
-    let values = req.body.values;
-    let beliefs = req.body.beliefs;
-    let goals = req.body.goals;
-    var today = new Date();
-    var showMonth = (today.getMonth() + 1);
-    if (showMonth < 10) {
-        showMonth += "0" + showMonth;
-    }
-    var showDate = today.getDate();
-    if (showDate < 10) {
-        showDate = "0" + showDate;
-    }
-    var showHours = today.getHours();
-    if (showHours < 10) {
-        showHours = "0" + showHours;
-    }
-    var showMinutes = today.getMinutes();
-    if (showMinutes < 10) {
-        showMinutes = "0" + showMinutes;
-    }
-    var showSeconds = today.getSeconds();
-    if (showSeconds < 10) {
-        showSeconds = "0" + showSeconds;
-    }
-    var date = today.getFullYear() + '-' + showMonth + '-' + showDate;
-    var time = showHours + "-" + showMinutes + "-" + showSeconds;
-    var dateTime = date + '-' + time;
+    let name = req.body.name;
 
-    Icon.create({
-        user,
-        body,
-        values,
-        beliefs,
-        goals,
-        dateTime
+    Category.create({
+        name
     }, (err, item) => {
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
             if (item) {
-                console.log(`Icon \`${icon}\` added.`);
+                console.log(`Category \`${icon}\` added.`);
                 return res.json(item);
             }
         }
@@ -207,11 +175,8 @@ app.post('/icons/create', (req, res) => {
 //*********************GET*************************
 
 
-app.get('/icons/:user', function (req, res) {
-    Icon.find({
-            user: req.params.user
-        },
-
+app.get('/category/get', function (req, res) {
+    Category.find(
         function (err, item) {
             if (err) {
                 return res.status(500).json({
@@ -219,9 +184,7 @@ app.get('/icons/:user', function (req, res) {
                 });
             }
             if (item.length != 0) {
-
-                let output = (sortByKey(item, 'dateTime'));
-                res.status(200).json(output[(output.length - 1)]);
+                res.status(200).json(item);
             } else {
                 res.status(200).json("");
             }
