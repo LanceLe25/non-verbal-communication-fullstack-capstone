@@ -45,11 +45,11 @@ Step 2. User registers for account.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/register-page.png)
 
 **Add New Card Page**
-Step 3. User clicks "NEW" from navigation section. Once a new category for card has been created, it will be added to the navigation list.
+Step 3. User clicks "NEW" from navigation section.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-card-page.png)
 
 **Select or Add Category Page**
-Step 4. User selects existing category or add category from dropdown list.
+Step 4. User selects existing category or "add category" from dropdown list.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-add-category-page.png)
 
 **Add Category Input Page**
@@ -57,16 +57,24 @@ Step 4. User enters new category into input field and presses "add" to continue.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-input-page.png)
 
 **Select or Add Subcategory Page**
-Step 4. After creating a new category, input displays where user can select or add a new subcategory. User selects existing subcategory or add category from dropdown list.
+Step 4. After selecting or adding a category, user selects existing subcategory or "add category" option from dropdown list.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcat-page.png)
 
 **Add Subcategory Input Page**
 Step 4. User enters new subcategory into input field and presses "add" to continue.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcat-input-page.png)
 
-**Add Icon Page**
-Step 6. User can add an icon to card.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-icon-page.png)
+**Select or Add Item Page**
+Step 4. After selecting or adding a subcategory, user selects existing item or "add item" from dropdown list.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-add-item-page.png)
+
+**Add Item Input / Icon Dropdown Page**
+Step 4. When user selects an item from the dropdown list, the icon dropdown search field is displayed. When user selects "add item" from dropdown, add item input and icon dropdown search field are displayed.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/item-input-icon-dropdown-page.png)
+
+**Search Icon Page**
+Step 6. User can add an icon to card by searching and selecting from the dropdown list or selecting from cards that are displayed.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-icon-page.png)
 
 **Select Icon Page**
 Step 7. Icons are displayed. Search at top allows user do word search to find an appropriate icon
