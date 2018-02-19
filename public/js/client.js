@@ -21,6 +21,7 @@ var globalSelectedCategory = "";
 var globalSelectedSubCategory = "";
 var globalItem = "";
 var globalImage = "";
+var cardCategoryArray = [];
 
 
 // step 2. Defining functions
@@ -372,6 +373,13 @@ $(document).on("click", '#add-category-button', function () {
             name: cardCategory
         };
 
+        $('#example-card-display-wrapper').show();
+        $('#add-category').hide();
+        $('#ex-card-category').html(cardCategory);
+        //how do you make this work. I can add "option" after select-cat
+        //but then it appends the new category to every list item
+        $('#select-cat option').append(cardCategory);
+
         $.ajax({
                 type: 'POST',
                 url: '/category/create',
@@ -382,15 +390,17 @@ $(document).on("click", '#add-category-button', function () {
             .done(function (result) {
                 console.log(result);
                 displayCategoryDropdown();
-                //                $('.hide-everything').hide();
-                //                $('#navigation').show();
-                //                $('#account-options').hide();
-                //                $('#logout-wrapper').show();
-                //                $('#add-card-main').show();
-                //
-                //                $('#example-card-display-wrapper').show();
-                //                $('#add-category').hide();
+                $('.hide-everything').hide();
+                $('#navigation').show();
+                $('#account-options').hide();
+                $('#logout-wrapper').show();
+
+
+                //moved following 3 lines just below the newCategoryObject
+                //                $('#example-card-display-wrapper').show();//                $('#add-category').hide();
                 //                $('#ex-card-category').html(cardCategory);
+
+
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -449,22 +459,67 @@ $(document).on("change", '#select-sub-cat', function () {
 });
 
 $(document).on("click", '#add-sub-category-button', function () {
-    const cardSubCategory = $('#add-sub-category input').val();
+    let cardSubCategory = $('#add-sub-category input').val();
+    console.log(cardSubCategory);
+    if (cardSubCategory == "") {
+        alert("Please enter a sub category");
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#logout-wrapper').show();
-    $('#dropdown').show();
-    $('#add-card-main').show();
+    } else {
+        const newSubCategoryObject = {
+            name: cardSubCategory
+        };
 
-    $('#example-card-display-wrapper').show();
-    $('#add-subcategory-display-wrapper').show();
-    $('#add-sub-category').hide();
-    $('#subcategory-displayed').show();
-    $('#example-card-sub-cat').html(cardSubCategory);
+
+        $.ajax({
+                type: 'POST',
+                url: '/sub-category/create',
+                dataType: 'json',
+                data: JSON.stringify(newSubCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                displaySubCategoryDropdown();
+
+                //    $('.hide-everything').hide();
+                //    $('#navigation').show();
+                //    $('#logout-wrapper').show();
+                //    $('#dropdown').show();
+                //    $('#add-card-main').show();
+                //
+                //    $('#example-card-display-wrapper').show();
+                //    $('#add-subcategory-display-wrapper').show();
+                //    $('#add-sub-category').hide();
+                //    $('#subcategory-displayed').show();
+                $('#example-card-sub-cat').html(cardSubCategory);
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
 
-
+function displaySubCategoryDropdown() {
+    $.ajax({
+            type: 'GET',
+            url: '/sub-category/get',
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+                //            retrieveUserSop = result;
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
 
 
 

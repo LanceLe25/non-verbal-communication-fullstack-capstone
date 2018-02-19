@@ -3,6 +3,7 @@
 const User = require('./models/user');
 const Icon = require('./models/icon');
 const Category = require('./models/category');
+const SubCategory = require('./models/sub-category');
 const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -159,18 +160,12 @@ app.post('/category/create', (req, res) => {
                 message: 'Internal Server Error'
             });
             if (item) {
-                console.log(`Category \`${icon}\` added.`);
+                console.log(`Category \`${category}\` added.`);
                 return res.json(item);
             }
         }
     });
 });
-
-
-
-
-
-
 
 //*********************GET*************************
 
@@ -190,6 +185,45 @@ app.get('/category/get', function (req, res) {
             }
         });
 });
+
+//*****GET AND POST FOR SUBCATEGORY*****
+app.post('/sub-category/create', (req, res) => {
+
+    let name = req.body.name;
+
+    SubCategory.create({
+        name
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+            if (item) {
+                console.log(`Sub Category \`${sub-category}\` added.`);
+                return res.json(item);
+            }
+        }
+    });
+});
+
+
+//*********************GET*************************
+app.get('/sub-category/get', function (req, res) {
+    SubCategory.find(
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            if (item.length != 0) {
+                res.status(200).json(item);
+            } else {
+                res.status(200).json("");
+            }
+        });
+});
+
 
 
 //*********************PUT*************************
