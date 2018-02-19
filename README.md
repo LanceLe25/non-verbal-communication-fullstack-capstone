@@ -73,7 +73,7 @@ Step 10. When user selects an item from the dropdown list, the icon dropdown sea
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/item-input-icon-dropdown-page.png)
 
 **Search Icon Page**
-Step 11. User can add an icon to card by searching and selecting from the dropdown list or selecting from cards that are displayed.
+Step 11. User can add an icon to card by searching and selecting from the dropdown list or selecting from cards that are displayed. Icons that are displayed will update as the user types in search field.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-icon-page.png)
 
 **Card Dropdown/Display All Cards**
@@ -82,15 +82,20 @@ Step 12. User can display all existing cards.
 
 **Card Dropdown/Display Specific Card**
 Step 12. User can display a specific card from the navigation dropdown list.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-all-cards-page.png)
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-individual-card-page.png)
 
 **Category Dropdown/Display All Categories**
-Step 12. User can display all existing cards.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-all-cards-page.png)
+Step 12. User can display all existing categories.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-all-categories-page.png)
 
 **Category Dropdown/Display Specific Category**
 Step 12. User can display a specific category from the navigation dropdown list.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-all-category-page.png)
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-specific-category-page.png)
+
+**Click Subcategory Title To Display Selected Subcategory**
+Step 12. User can display one subcategory by clicking on the subcategory title.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/click-display-subcat-page.png)
+![image2](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/subcat-displayed-page.png)
 
 **Update Delete Page**
 Step 8. User can update icon or text. User can delete card.
