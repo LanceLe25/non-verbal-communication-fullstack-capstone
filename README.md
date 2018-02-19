@@ -36,26 +36,33 @@ My mother is a stroke survivor. She can read and she understands what people are
 Step 1. Initial landing page explains what app is for.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/site-info-page.png)
 
+**Login Page**
+Step 2. User will login to their account here.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/login-page.png)
 
 **Register Page**
 Step 2. User registers for account.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/register-page.png)
 
-**Add New Card Page** NEED NEW WIREFRAME
-Step 3. User clicks dropdown icon and selects "add new card". Once a new category for card has been created, it will be added to the navigation list.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-page.png)
-
-**Select Category Page**
-Step 4. User selects existing category from dropdown list.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-page.png)
-
-**Add New Subcategory Page**
-Step 4. After creating a new category, input displays where user can create a new subcategory.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcategory-page.png)
-
 **Add New Card Page**
-Step 5. User can add a new card.
+Step 3. User clicks "NEW" from navigation section. Once a new category for card has been created, it will be added to the navigation list.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-card-page.png)
+
+**Select or Add Category Page**
+Step 4. User selects existing category or add category from dropdown list.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/select-add-category-page.png)
+
+**Add Category Input Page**
+Step 4. User enters new category into input field and presses "add" to continue.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-category-input-page.png)
+
+**Select or Add Subcategory Page**
+Step 4. After creating a new category, input displays where user can select or add a new subcategory. User selects existing subcategory or add category from dropdown list.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcat-page.png)
+
+**Add Subcategory Input Page**
+Step 4. User enters new subcategory into input field and presses "add" to continue.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-subcat-input-page.png)
 
 **Add Icon Page**
 Step 6. User can add an icon to card.
