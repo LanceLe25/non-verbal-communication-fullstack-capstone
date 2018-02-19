@@ -33,8 +33,8 @@ My mother is a stroke survivor. She can read and she understands what people are
 # User Stories & Initial UX
 
 **Landing Page**
-Step 1. Initial landing page has login and register option.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/landing-page.png)
+Step 1. Initial landing page explains what app is for.
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/site-info-page.png)
 
 
 **Register Page**
