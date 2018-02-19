@@ -62,9 +62,35 @@ General styles (General Module, wrapping around the modules below)
 
 body {
     text-align: center;
-    background-color: #202126;
-    color: aliceblue;
     font-family: 'Open Sans', sans-serif;
+}
+
+body,
+#clothing-cat,
+#household-cat {
+    background-color: #202126;
+}
+
+body,
+#dropdown-categories a:hover,
+#landing-page-login:hover,
+#landing-page-register:hover,
+#logout:hover,
+#nav-options a:hover,
+#dropdown-options a:hover,
+#add-item button,
+#add-category button,
+#add-sub-category button,
+#create-card button,
+#clothing-link:hover,
+#household-link:hover,
+#bedroom-link:hover,
+#living-room-link:hover,
+.edit-delete-category a:hover,
+.edit-delete-subcategory a:hover,
+.edit-delete-card a:hover,
+footer a:hover {
+    color: aliceblue;
 }
 
 h2 {
@@ -83,6 +109,72 @@ p {
     font-size: 1.3rem;
 }
 
+#logout-wrapper,
+#account-options,
+#nav-options,
+#nav-options div,
+header div,
+#clothing-category-link,
+#household-category-link,
+#bedroom-subcat,
+#living-room-subcat,
+.edit-delete-category a,
+.edit-delete-subcategory a,
+.edit-delete-card a {
+    display: inline-block;
+}
+
+#dropdown-cards:hover #nav-cards,
+#dropdown-categories:hover #nav-categories,
+#login-register-wrapper label,
+#login-register,
+#login-register button,
+#register-user-wrapper label,
+#register-account a,
+#login-register button,
+#register-account button,
+#site-info-wrapper div,
+#add-card-wrapper-form,
+#select-cat,
+#select-sub-cat,
+#select-item,
+#clothing-cat,
+#household-cat {
+    display: block;
+}
+
+#nav-options a,
+#landing-page-login,
+#landing-page-register,
+#logout,
+#account-options,
+#account-options a:first-child,
+#login-register a,
+#register-user-form a,
+#clothing-link,
+#household-link,
+#bedroom-link,
+#living-room-link,
+.edit-delete-category a,
+.edit-delete-subcategory a,
+.edit-delete-card a,
+footer a {
+    color: #88b4c1;
+    text-decoration: none;
+}
+
+#example-card-display-wrapper,
+#add-item button,
+#add-category button,
+#add-sub-category button,
+#create-card button,
+#add-item input,
+#add-category input,
+#add-sub-category input,
+img,
+#blank-image {
+    border-radius: 5px;
+}
 
 /* -------------------------------------
 Header styles (Main Module)
@@ -91,16 +183,6 @@ Header styles (Main Module)
 
 /******NAVIGATION STYLES******/
 
-/****DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE*/
-
-#login-register-wrapper,
-#register-user-wrapper,
-#site-info {
-    /*    display: none;*/
-}
-
-/****DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE***DELETE*/
-
 #navigation {
     position: relative;
 }
@@ -108,15 +190,12 @@ Header styles (Main Module)
 
 #logout-wrapper,
 #account-options {
-    display: inline-block;
     float: left;
     font-size: 1.4rem;
 }
 
 #nav-options,
 #nav-options div {
-    display: inline-block;
-    /*    float: left;*/
     padding-top: .3rem;
     padding-bottom: .3rem;
     padding-left: .5rem;
@@ -129,8 +208,6 @@ Header styles (Main Module)
 #logout,
 #account-options,
 #account-options a:first-child {
-    color: #88b4c1;
-    text-decoration: none;
     padding-right: .5rem;
 }
 
@@ -145,36 +222,6 @@ Header styles (Main Module)
 #dropdown-cards li,
 #dropdown-categories li {
     font-size: 1.2rem;
-}
-
-
-#dropdown-categories a:hover,
-#landing-page-login:hover,
-#landing-page-register:hover,
-#logout:hover {
-    color: aliceblue;
-}
-
-#blue-green,
-#red,
-#yellow {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0 .5rem;
-
-}
-
-#blue-green {
-    background: #076473;
-}
-
-#red {
-    background: #900000;
-}
-
-#yellow {
-    background: #f5f55d;
 }
 
 #logout-wrapper,
@@ -195,10 +242,6 @@ nav li {
     float: right;
 }
 
-#account-options a:first-child {
-    /*    padding-right: .5rem;*/
-}
-
 #nav-cards,
 #nav-categories {
     position: absolute;
@@ -217,16 +260,6 @@ nav li {
     z-index: 1;
 }
 
-#nav-options a:hover,
-#dropdown-options a:hover {
-    color: aliceblue;
-}
-
-#dropdown-cards:hover #nav-cards,
-#dropdown-categories:hover #nav-categories {
-    display: block;
-}
-
 
 
 /******HEADER STYLES******/
@@ -242,7 +275,6 @@ nav li {
 }
 
 header div {
-    display: inline-block;
     margin: 0 5rem;
 }
 
@@ -262,12 +294,13 @@ header span {
 
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
 
-#login-register-wrapper label,
-#login-register,
+#login-register-form input,
+#register-user-form input,
+#account-options-form,
+#register-user,
 #login-register button,
-#register-user-wrapper label,
-#register-account a {
-    display: block;
+#register-account button {
+    border-radius: 5px;
 }
 
 #login-register-form input,
@@ -275,13 +308,6 @@ header span {
     text-align: center;
     padding: 1rem;
     margin: 1rem;
-    border-radius: 5px;
-}
-
-#login-register a,
-#register-user-form a {
-    text-decoration: none;
-    color: #88b4c1;
 }
 
 #login-register a,
@@ -293,7 +319,6 @@ header span {
 #account-options-form,
 #register-user {
     border: 1px solid black;
-    border-radius: 5px;
     width: 20rem;
     margin: 0 auto;
     padding-bottom: 1rem;
@@ -301,11 +326,9 @@ header span {
 
 #login-register button,
 #register-account button {
-    display: block;
     width: 7rem;
     margin: .75rem auto;
     padding: .4rem 1rem;
-    border-radius: 5px;
     background-color: #88b4c1;
 }
 
@@ -315,24 +338,7 @@ Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
-/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
-
-#card-display-wrapper,
-#login-register-wrapper,
-#register-user-wrapper,
-#site-info div,
-#account-options {
-    /*    display: none;*/
-}
-
-/*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*DELETE*/
-
 /******SITE INFO******/
-
-#site-info-stuff img {
-    width: 55px;
-    height: 55px;
-}
 
 #site-info-wrapper {
     width: 400px;
@@ -345,7 +351,6 @@ Content styles (Main Module)
 }
 
 #site-info-wrapper div {
-    display: block;
     padding: .5rem .5rem 0 .5rem;
 }
 
@@ -389,12 +394,7 @@ Content styles (Main Module)
     margin-left: auto;
     margin-right: auto;
     border: 3px solid white;
-    border-radius: 5px;
     padding: .5rem;
-}
-
-#add-card-wrapper-form {
-    display: block;
 }
 
 #add-item input,
@@ -403,7 +403,6 @@ Content styles (Main Module)
     text-align: center;
     margin-bottom: 1.5rem;
     padding: .5rem 0;
-    border-radius: 5px;
 }
 
 #add-item button,
@@ -412,10 +411,8 @@ Content styles (Main Module)
 #create-card button {
     padding: .5rem 1rem;
     margin-left: .5rem;
-    border-radius: 5px;
     background-color: #b72727;
     box-shadow: 1px 2px 2px grey;
-    color: aliceblue;
 }
 
 #create-card button {
@@ -425,14 +422,11 @@ Content styles (Main Module)
 #select-cat,
 #select-sub-cat,
 #select-item {
-    display: block;
     width: 262px;
     margin: auto;
     margin-bottom: 1rem;
     height: 30px;
 }
-
-
 
 #select-image-wrapper {
     width: 262px;
@@ -456,28 +450,15 @@ img,
     height: 200px;
     padding: .3rem;
     background: white;
-    border-radius: 3px;
 }
 
 /******STYLES FOR DISPLAYING CARDS******/
-
-#clothing-cat,
-#household-cat {
-    background-color: #202126;
-}
 
 #bedroom-subcat,
 #living-room-subcat {
     background-color: #48484f;
     border-radius: 5px;
     margin-top: 1rem;
-}
-
-#clothing-category-link,
-#household-category-link,
-#bedroom-subcat,
-#living-room-subcat {
-    display: inline-block;
 }
 
 #clothing-cat,
@@ -489,7 +470,6 @@ img,
 
 #clothing-cat,
 #household-cat {
-    display: block;
     margin-bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
@@ -498,25 +478,12 @@ img,
     width: 95%;
 }
 
-#clothing-link,
-#household-link,
-#bedroom-link,
-#living-room-link {
-    color: #88b4c1;
-    text-decoration: none;
-}
-
 #bedroom-link h3,
 #living-room-link h3 {
     margin: .5rem 0;
 }
 
-#clothing-link:hover,
-#household-link:hover,
-#bedroom-link:hover,
-#living-room-link:hover {
-    color: aliceblue;
-}
+/*these should go away once I start creating dynamically*/
 
 #card1,
 #card2,
@@ -529,7 +496,6 @@ img,
     background-color: #202126;
     display: inline-block;
     margin: 1rem;
-    /*    border: 1px solid white;*/
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0px 0px 8px lightgrey;
@@ -537,20 +503,6 @@ img,
 
 .edit-delete-category {
     padding-bottom: .75rem;
-}
-
-.edit-delete-category a,
-.edit-delete-subcategory a,
-.edit-delete-card a {
-    color: #88b4c1;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.edit-delete-category a:hover,
-.edit-delete-subcategory a:hover,
-.edit-delete-card a:hover {
-    color: aliceblue;
 }
 
 .edit-delete-card {
@@ -574,15 +526,6 @@ footer {
     padding-top: 1rem;
     padding-bottom: 1.5rem;
     background-color: #48484f;
-}
-
-footer a {
-    text-decoration: none;
-    color: #88b4c1;
-}
-
-footer a:hover {
-    color: aliceblue;
 }
 
 /* -------------------------------------
