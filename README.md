@@ -93,7 +93,7 @@ Step 12. User can display a specific category from the navigation dropdown list.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/display-specific-category-page.png)
 
 **Click Subcategory Title To Display Selected Subcategory**
-Step 12. User can display one subcategory by clicking on the subcategory title.
+Step 12. User can display one subcategory by clicking on the subcategory title within a category.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/click-display-subcat-page.png)
 ![image2](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/subcat-displayed-page.png)
 

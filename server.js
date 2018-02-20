@@ -159,11 +159,11 @@ app.post('/category/create', (req, res) => {
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
-            if (item) {
-                console.log(`Category \`${category}\` added.`);
-                return res.json(item);
-            }
+        } else if (item) {
+            console.log(`Category \`${item}\` added.`);
+            return res.json(item);
         }
+
     });
 });
 
@@ -177,8 +177,7 @@ app.get('/category/get', function (req, res) {
                 return res.status(500).json({
                     message: 'Internal Server Error'
                 });
-            }
-            if (item.length != 0) {
+            } else if (item.length != 0) {
                 res.status(200).json(item);
             } else {
                 res.status(200).json("");
@@ -190,33 +189,38 @@ app.get('/category/get', function (req, res) {
 app.post('/sub-category/create', (req, res) => {
 
     let name = req.body.name;
+    let categoryId = req.body.categoryId;
 
     SubCategory.create({
+        categoryId,
         name
     }, (err, item) => {
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
-            if (item) {
-                console.log(`Sub Category \`${sub-category}\` added.`);
-                return res.json(item);
-            }
+        } else if (item) {
+            console.log(`Sub Category \`${item}\` added.`);
+            return res.json(item);
         }
+
     });
 });
 
 
 //*********************GET*************************
-app.get('/sub-category/get', function (req, res) {
-    SubCategory.find(
+app.get('/sub-category/get/:categoryId', function (req, res) {
+    //this returns only the SubCategories that are connected with the specific category id
+    SubCategory.find({
+            categoryId: req.params.categoryId
+        },
+
         function (err, item) {
             if (err) {
                 return res.status(500).json({
                     message: 'Internal Server Error'
                 });
-            }
-            if (item.length != 0) {
+            } else if (item.length != 0) {
                 res.status(200).json(item);
             } else {
                 res.status(200).json("");

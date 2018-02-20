@@ -89,6 +89,7 @@ $(document).ready(function () {
     $('#add-item').hide();
     $('#select-image-wrapper').hide();
     $('#ex-image').hide();
+    displayCategoryDropdown();
 });
 
 
@@ -349,7 +350,8 @@ $(document).on("change", '#select-cat', function () {
     } else if (selectCategoryValue == "selectCategory") {
         alert('Please make a selection');
     } else {
-        globalSelectedCategory == selectCategoryValue;
+        globalSelectedCategory = selectCategoryValue;
+        displaySubCategoryDropdown(selectCategoryValue);
         $('.hide-everything').hide();
         $('#navigation').show();
         $('#logout-wrapper').show();
@@ -360,7 +362,40 @@ $(document).on("change", '#select-cat', function () {
         $('#example-card-display-wrapper').show();
         $('#ex-card-category').html(selectCategoryValue);
     }
+    console.log(globalSelectedCategory);
 });
+
+
+function displaySubCategoryDropdown(categoryId) {
+    $.ajax({
+            type: 'GET',
+            url: '/sub-category/get/' + categoryId,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#select-cat").html('');
+                var buildCategoryDropdownOutput = "";
+                buildCategoryDropdownOutput += '<option value="selectCategory">select or add category</option>';
+                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#select-cat").html(buildCategoryDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
 
 $(document).on("click", '#add-category-button', function () {
     let cardCategory = $('#add-category input').val();
@@ -373,13 +408,6 @@ $(document).on("click", '#add-category-button', function () {
             name: cardCategory
         };
 
-        $('#example-card-display-wrapper').show();
-        $('#add-category').hide();
-        $('#ex-card-category').html(cardCategory);
-        //how do you make this work. I can add "option" after select-cat
-        //but then it appends the new category to every list item
-        $('#select-cat option').append(cardCategory);
-
         $.ajax({
                 type: 'POST',
                 url: '/category/create',
@@ -390,16 +418,6 @@ $(document).on("click", '#add-category-button', function () {
             .done(function (result) {
                 console.log(result);
                 displayCategoryDropdown();
-                $('.hide-everything').hide();
-                $('#navigation').show();
-                $('#account-options').hide();
-                $('#logout-wrapper').show();
-
-
-                //moved following 3 lines just below the newCategoryObject
-                //                $('#example-card-display-wrapper').show();//                $('#add-category').hide();
-                //                $('#ex-card-category').html(cardCategory);
-
 
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -420,7 +438,20 @@ function displayCategoryDropdown() {
         .done(function (result) {
             console.log(result);
             if ((!result) || (result != undefined) || (result != "")) {
-                //            retrieveUserSop = result;
+
+                $("#select-cat").html('');
+                var buildCategoryDropdownOutput = "";
+                buildCategoryDropdownOutput += '<option value="selectCategory">select or add category</option>';
+                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#select-cat").html(buildCategoryDropdownOutput);
+
+                //                $('#select-cat option').append(cardCategory);
+
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -459,14 +490,18 @@ $(document).on("change", '#select-sub-cat', function () {
 });
 
 $(document).on("click", '#add-sub-category-button', function () {
+    let cardCategory = $('#add-category input').val();
     let cardSubCategory = $('#add-sub-category input').val();
     console.log(cardSubCategory);
+    console.log(cardCategory);
     if (cardSubCategory == "") {
         alert("Please enter a sub category");
 
     } else {
         const newSubCategoryObject = {
-            name: cardSubCategory
+            name: cardSubCategory,
+            categoryId: cardCategory
+
         };
 
 
