@@ -1,10 +1,6 @@
 // step 1. Defining global variables
 
 //1. User loads page
-//  a. nav options
-//        -Reflect takes user to existing SOP, Values, Beliefs and Goals
-//        -Create takes user to edit page for SOP
-//        -Review takes user to questions that they answered where they can edit answers including values and beliefs
 //2. User has option to sign in, create new account or continue to create SOP
 //3. User selects 'Let's get started'
 //4. User enters answer in answer fields
@@ -24,31 +20,6 @@ var globalImage = "";
 
 
 // step 2. Defining functions
-
-
-
-
-
-//function displayUpdatedStatement(username) {
-//    let retrieveUserSop = {};
-//    $.ajax({
-//            type: 'GET',
-//            url: '/statements/' + username,
-//            dataType: 'json',
-//            contentType: 'application/json'
-//        })
-//        .done(function (result) {
-//            if ((!result) || (result != undefined) || (result != "")) {
-//                retrieveUserSop = result;
-//            }
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//        });
-//    return retrieveUserSop;
-//}
 
 // step 3. dynamically created layout to display home screen
 $(document).ready(function () {
@@ -306,7 +277,6 @@ $(document).on("change", '#select-cat', function () {
     console.log(globalSelectedCategory);
 });
 
-
 function displaySubCategoryDropdown(categoryId) {
 
     //when we make the call, only grab sub-categories that are
@@ -338,7 +308,6 @@ function displaySubCategoryDropdown(categoryId) {
             console.log(errorThrown);
         });
 }
-
 
 $(document).on("click", '#add-category-button', function () {
     let cardCategory = $('#add-category input').val();
@@ -393,8 +362,6 @@ function displayCategoryDropdown() {
                 //use the HTML output to show it in the index.html
                 $("#select-cat").html(buildCategoryDropdownOutput);
                 $("#add-category").hide();
-
-
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -403,7 +370,6 @@ function displayCategoryDropdown() {
             console.log(errorThrown);
         });
 }
-
 
 $(document).on("change", '#select-sub-cat', function () {
     let selectSubCategoryValue = $('#select-sub-cat').val();
@@ -433,6 +399,7 @@ $(document).on("click", '#add-sub-category-button', function () {
     if (cardCategory == "") {
         cardCategory = $('#selectCategoryValue').val();
     }
+
     let cardSubCategory = $('#add-sub-category input').val();
 
     if (cardSubCategory == "") {
@@ -494,7 +461,6 @@ function displayCardItemDropdown(subCategoryId) {
 
                 //use the HTML output to show it in the index.html
                 $("#select-card-item").html(buildCardItemDropdownOutput);
-
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -508,8 +474,16 @@ function displayCardItemDropdown(subCategoryId) {
 
 
 
+
+
+
+
+//modified select-card-item and below
+
 $(document).on("change", '#select-card-item', function () {
     let selectCardItemValue = $('#select-card-item').val();
+    let cardSubCategory = $('#selectSubCategoryValue').val();
+
 
     //    alert("why isn't this working");
     if (selectCardItemValue == "addCardItem") {
@@ -519,10 +493,6 @@ $(document).on("change", '#select-card-item', function () {
         alert('Please make a selection');
     } else {
         globalCardItem == selectCardItemValue;
-        $('.hide-everything').hide();
-        $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#add-card-main').show();
         $('#add-dropdown-categories').show();
         $('#cat-sub-cat-select').show();
         $('#select-image-wrapper').show();
@@ -537,24 +507,62 @@ $(document).on("change", '#select-card-item', function () {
 });
 
 $(document).on("click", '#add-card-item-button', function () {
-    const cardItem = $('#add-card-item input').val();
+    let cardSubCategory = $('#add-sub-category input').val();
+    if (cardSubCategory == "") {
+        cardSubCategory = $('#selectSubCategoryValue').val();
+    }
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#add-card-main').show();
-    $('#add-card-item').hide();
-    $('#example-card-display-wrapper').show();
-    $('#ex-card-category').show();
-    $('#example-sub-cat-wrapper').show();
-    $('#example-card-sub-cat').show();
-    $('#ex-card').show();
-    $('#blank-image').show();
-    $('#ex-card h4').html(cardItem);
-    $('#cat-sub-cat-select').show();
-    $('#select-sub-cat').show();
+    let cardItem = $('#add-card-item input').val();
+
+    if (cardItem == "") {
+        alert("Please enter an item");
+
+    } else {
+        const newCardItemObject = {
+            name: cardItem,
+            categoryId: cardSubCategory
+        }
+
+        $.ajax({
+                type: 'POST',
+                url: '/card-item/create',
+                dataType: 'json',
+                data: JSON.stringify(newCardItemObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                displayCardItemDropdown();
+                $('#add-card-main').show();
+                $('#add-card-item').hide();
+                $('#example-card-display-wrapper').show();
+                $('#ex-card-category').show();
+                $('#example-sub-cat-wrapper').show();
+                $('#example-card-sub-cat').show();
+                $('#ex-card').show();
+                $('#blank-image').show();
+                $('#ex-card h4').html(cardItem);
+                $('#cat-sub-cat-select').show();
+                $('#select-sub-cat').show();
+                $('#ex-card-item').html(cardItem);
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+
+
 });
+
+
+
+
+
+
+
+
 
 //*****how do you do this*****
 $(document).on("change", '#menu url', function () {
@@ -594,35 +602,6 @@ $(document).on("click", '#create-card button', function () {
     $('#ex-card').show();
     $('#ex-image').html(selectImageValue);
 });
-
-
-
-
-
-
-
-
-
-//$(document).on("submit", '#add-category-button', function (event) {
-//    event.preventDefault();
-//    const newCategory = $('#add-category-input').val();
-//
-//    if (newCategory == '' && event.which == 13) {
-//        alert('Please add a new category')
-//    } else if (!(newCategory == '') && event.which == 13) {
-//        $('#nav-link').html("");
-//        $('#nav-link, #category-title').append(newCategory.toUpperCase());
-//        $('.hide-everything').hide();
-//        $('#nav-new-category').show();
-//        $('#dropdown').show();
-//        $('#add-new-category').show();
-//        $('#add-category-item').hide();
-//        $('#add-card-item').hide();
-//        $('#icon-selection-wrapper').hide();
-//        $('#add - subcategory-item').show();
-//        $('#add-subcategory-input').focus();
-//    }
-//});
 
 
 
