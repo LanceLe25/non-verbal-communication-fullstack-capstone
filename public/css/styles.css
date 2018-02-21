@@ -78,7 +78,7 @@ body,
 #logout:hover,
 #nav-options a:hover,
 #dropdown-options a:hover,
-#add-item button,
+#add-card-item button,
 #add-category button,
 #add-sub-category button,
 #create-card button,
@@ -137,7 +137,7 @@ header div,
 #add-card-wrapper-form,
 #select-cat,
 #select-sub-cat,
-#select-item,
+#select-card-item,
 #clothing-cat,
 #household-cat {
     display: block;
@@ -164,11 +164,11 @@ footer a {
 }
 
 #example-card-display-wrapper,
-#add-item button,
+#add-card-item button,
 #add-category button,
 #add-sub-category button,
 #create-card button,
-#add-item input,
+#add-card-item input,
 #add-category input,
 #add-sub-category input,
 img,
@@ -397,7 +397,7 @@ Content styles (Main Module)
     padding: .5rem;
 }
 
-#add-item input,
+#add-card-item input,
 #add-category input,
 #add-sub-category input {
     text-align: center;
@@ -405,7 +405,7 @@ Content styles (Main Module)
     padding: .5rem 0;
 }
 
-#add-item button,
+#add-card-item button,
 #add-category button,
 #add-sub-category button,
 #create-card button {
@@ -421,7 +421,7 @@ Content styles (Main Module)
 
 #select-cat,
 #select-sub-cat,
-#select-item {
+#select-card-item {
     width: 262px;
     margin: auto;
     margin-bottom: 1rem;

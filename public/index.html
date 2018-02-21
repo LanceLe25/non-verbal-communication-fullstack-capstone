@@ -49,14 +49,6 @@
                 <div>
                     <a id="add-new-card" href="#">NEW</a>
                 </div>
-
-                <div id="color-change">
-                    <!--
-                    <div id="blue-green"><a href=""></a></div>
-<div id="red"><a href=""></a></div>
-<div id="yellow"><a href=""></a></div>
--->
-                </div>
             </section>
 
 
@@ -166,7 +158,7 @@
 
 
 
-    <!--  ******ALL CONTENT FOR CREATING A CARD ADDING CATEGORY, SUBCATEGORY, ITEM AND ICON IMAGE******  -->
+    <!--  ******ALL CONTENT FOR CREATING A CARD ADDING CATEGORY, SUBCATEGORY, CARD ITEM AND ICON IMAGE******  -->
     <main role="main" id="add-card-main" class="hide-everything">
         <form action="" id="add-card-wrapper-form">
 
@@ -184,6 +176,7 @@
                         <input type="text" placeholder="add category">
                         <button id="add-category-button">Add</button>
                     </div>
+                    <input type="hidden" id="selectCategoryValue" value="">
 
                     <select id="select-sub-cat">
                             <option value="selectSubCategory">select or add sub category</option>
@@ -198,19 +191,21 @@
                         <button id="add-sub-category-button">Add</button>
                     </div>
 
+                    <input type="hidden" id="selectSubCategoryValue" value="">
+
                 </section>
 
                 <section>
-                    <select id="select-item">
-                        <option value="selectItem">select or add item</option>
-                        <option value="addItem">add item</option>
+                    <select id="select-card-item">
+                        <option value="selectCardItem">select or add item</option>
+                        <option value="addCardItem">add item</option>
                         <option value="clothing">purse</option>
                         <option value="household">dress</option>
                     </select>
 
-                    <div id="add-item">
+                    <div id="add-card-item">
                         <input type="text" placeholder="add item">
-                        <button id="add-item-button">Add</button>
+                        <button id="add-card-item-button">Add</button>
                     </div>
                 </section>
 
@@ -223,14 +218,14 @@
                         <div class="default text">Select an image</div>
                         <div class="menu">
                             <div data-value="af"><i class="af flag"><img id="" src="/icon-images/clothing-icons/purse.png" alt=""></i>purse</div>
-                            <div class="item" data-value="ax"><i class="ax flag"><img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
-                            <div class="item" data-value="al"><i class="al flag"><img id="cap-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>hat</div>
-                            <div class="item" data-value="dz"><i class="dz flag"><img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>jacket</div>
-                            <div class="item" data-value="as"><i class="as flag"><img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt=""></i>dress</div>
-                            <div class="item" data-value="ad"><i class="ad flag"><img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt=""></i>bag</div>
-                            <div class="item" data-value="ao"><i class="ao flag"><img id="strap-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
-                            <div class="item" data-value="ai"><i class="ai flag"><img id="hat-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>cap</div>
-                            <div class="item" data-value="ag"><i class="ag flag"><img id="jacket-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>coat</div>
+                            <div class="card-item" data-value="ax"><i class="ax flag"><img id="belt-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
+                            <div class="card-item" data-value="al"><i class="al flag"><img id="cap-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>hat</div>
+                            <div class="card-item" data-value="dz"><i class="dz flag"><img id="blazer-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>jacket</div>
+                            <div class="card-item" data-value="as"><i class="as flag"><img id="dress-icon" src="/icon-images/clothing-icons/dress-1.png" alt=""></i>dress</div>
+                            <div class="card-item" data-value="ad"><i class="ad flag"><img id="purse-icon" src="/icon-images/clothing-icons/bag.png" alt=""></i>bag</div>
+                            <div class="card-item" data-value="ao"><i class="ao flag"><img id="strap-icon" src="/icon-images/clothing-icons/belt.png" alt=""></i>belt</div>
+                            <div class="card-item" data-value="ai"><i class="ai flag"><img id="hat-icon" src="/icon-images/clothing-icons/cap.png" alt=""></i>cap</div>
+                            <div class="card-item" data-value="ag"><i class="ag flag"><img id="jacket-icon" src="/icon-images/clothing-icons/blazer.png" alt=""></i>coat</div>
                         </div>
                     </div>
                 </section>
@@ -248,7 +243,7 @@
             <h3 id="example-card-sub-cat">Subcategory</h3>
             <div id="ex-card"><img id="ex-image" src="/icon-images/household-icons/bed-1.png" alt="">
                 <div id="blank-image"></div>
-                <h4 id="ex-item">item</h4>
+                <h4 id="ex-card-item">item</h4>
             </div>
         </section>
 
@@ -338,7 +333,7 @@
                 </div>
             </div>
 
-            <div id="household-items">
+            <div id="household-card-items">
 
                 <section id="bedroom-subcat">
 

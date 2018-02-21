@@ -19,32 +19,11 @@
 var loggedInUser = "";
 var globalSelectedCategory = "";
 var globalSelectedSubCategory = "";
-var globalItem = "";
+var globalCardItem = "";
 var globalImage = "";
-var cardCategoryArray = [];
 
 
 // step 2. Defining functions
-
-function displayCards(cardArray) {
-    //    buildTheHtmlOutput = "";
-    //    $.each(cardArray, function (cardArrayKey, cardArrayValue) {
-    //        buildTheHtmlOutput += "<div id = "
-    //        display - selected - card " >";
-    //        buildTheHtmlOutput += "<h2 > cardArrayValue.categoryName </h2>";
-    //        buildTheHtmlOutput += "<h3> cardArrayValue.subcategoryName < /h3>";
-    //        buildTheHtmlOutput += "<div id = "
-    //        card - image " > cardArrayValue.image < /div>";
-    //        buildTheHtmlOutput += "<h4> cardArrayValue.itemName </h4>";
-    //        buildTheHtmlOutput += "</div>";
-    //    });
-    //
-    //    $("#create-your-card-here").html(buildTheHtmlOutput);
-}
-
-function imageDropdownSelection(imageArray) {
-    //    for (let i = 0; i < imageArray.length; i++){}
-}
 
 
 
@@ -77,16 +56,20 @@ $(document).ready(function () {
     $('.ui.dropdown').dropdown();
     $('.hide-everything').hide();
     $('#navigation').show();
+    $('#nav-about').show();
+    $('#dropdown-cards').show();
+    $('#dropdown-categories').show();
+    $('#add-new-card').show();
+    $('#header').show();
     $('#logout-wrapper').hide();
     $('#account-options').show();
     $('#site-info-wrapper').show();
     $('#create-card button').hide();
-    $('#color-change').hide();
 
-    //    hiding new-category, subcategory, item, image input field
+    //    hiding new-category, subcategory, card item, image input field
     $('#add-category').hide();
     $('#add-sub-category').hide();
-    $('#add-item').hide();
+    $('#add-card-item').hide();
     $('#select-image-wrapper').hide();
     $('#ex-image').hide();
     displayCategoryDropdown();
@@ -95,34 +78,35 @@ $(document).ready(function () {
 
 //****ALL LOGIN REGISTER PAGES*****
 $(document).on("click", '#landing-page-login', function () {
-    $('.hide-everything').hide();
-    $('#navigation').show();
     $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
+    $('#site-info-wrapper').hide();
 
 });
 
 
 $(document).on("click", '#landing-page-register', function () {
-    $('.hide-everything').hide();
+    //    $('.hide-everything').hide();
     $('#navigation').show();
     $('#account-options').hide();
+    $('#nav-about').show();
     $('#register-user-wrapper').show();
+    $('#site-info-wrapper').hide();
 });
 
 
 $(document).on("click", '#register-account', function () {
-    $('.hide-everything').hide();
-    $('#navigation').show();
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
     $('#nav-about').show();
     $('#login').show();
 });
 
 
 $(document).on("submit", '#go-to-login-page', function () {
-    $('.hide-everything').hide();
-    $('#navigation').show();
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
     $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
@@ -131,7 +115,7 @@ $(document).on("submit", '#go-to-login-page', function () {
 
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
-    $('.hide-everything').hide();
+    //    $('.hide-everything').hide();
     $('#navigation').show();
     $('#logout').show();
     $('#navigation-options').show();
@@ -142,7 +126,7 @@ $(document).on("submit", '#login-account-button', function (event) {
 
 $(document).on("submit", '#go-to-register-page-button', function (event) {
     event.preventDefault();
-    $('.hide-everything').hide();
+    //    $('.hide-everything').hide();
     $('#register-user-wrapper').show();
     $('#navigation').show();
     $('#nav-about').show();
@@ -155,21 +139,20 @@ $(document).on("submit", '#go-to-register-page-button', function (event) {
 //*****ALL NAV OPTION PAGES*****
 
 $(document).on("click", '#nav-about', function (event) {
-    $('.hide-everything').hide();
-    $('#navigation').show();
+    //if user is not logged in, about page should display login-register options.
+    //if user is logged in, about page should display logout option
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
     $('#logout-wrapper').show();
     $('#account-options').hide();
+    $('#login-register-form').hide();
+    $('#register-user-form').hide();
     $('#site-info-wrapper').show();
 });
 
 
 $(document).on("click", '#display-cards', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#color-change').show();
+    $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-cat').show();
     $('#clothing-category-link').hide();
@@ -183,25 +166,12 @@ $(document).on("click", '#display-cards', function () {
 });
 
 $(document).on("click", '#all-categories', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#color-change').show();
+    $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#household-cat').show();
-    $('#bedroom-subcat').show();
-    $('#living-room-subcat').show();
 });
 
 $(document).on("click", '#display-clothing', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
+    $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-cat').show();
     $('#household-cat').hide();
@@ -211,11 +181,7 @@ $(document).on("click", '#display-clothing', function () {
 
 
 $(document).on("click", '#display-household', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
+    $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-cat').hide();
     $('#household-cat').show();
@@ -238,16 +204,14 @@ $(document).on("click", '#add-new-card', function () {
     $('#example-card-sub-cat').show();
     $('#ex-card').show();
     $('#blank-image').show();
-    $('#ex-item').show();
+    $('#ex-card-item').show();
     $('#create-card button').show();
 });
 
-$(document).on("click", '#clothing-link', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
+//unable to get the following function to work. Do I need to
+//use .on(submit)?
+$(document).on("submit", '#clothing-link', function (event) {
+    event.preventDefault();
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-cat').show();
@@ -258,11 +222,6 @@ $(document).on("click", '#clothing-link', function () {
 
 
 $(document).on("click", '#household-link', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-cat').hide();
@@ -271,19 +230,6 @@ $(document).on("click", '#household-link', function () {
     $('#living-room-subcat').show();
 });
 
-//***I want this function ***
-$(document).on("click", '#blue-green', function (event) {
-    let blueGreenCard = getElementById("card");
-    let redCard = getElementById("card");
-    let blueGreenCard = getElementById("card");
-
-    //    $('.hide-everything').hide();//    $('#navigation').show();
-    //    $('#logout-wrapper').show();
-    //    $('#account-options').hide();
-    //    $('#site-info-wrapper').hide();
-    //
-    //    blueGreenCard.addClass('#blue-green');
-});
 
 
 //****BELOW - NEED TO BE DELETED, JUST FOR EXAMPLE***
@@ -340,33 +286,31 @@ $(document).on("click", '#nav-belt', function () {
 
 
 
-//*****ADD NEW CARD PAGE WITH CAT/SUBCAT/ITEM/IMAGE SELECTIONS*****
+//*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function () {
     let selectCategoryValue = $('#select-cat').val();
 
     //    alert(selectCategoryValue);
     if (selectCategoryValue == "addCategory") {
+        $('#add-category input').val("");
         $('#add-category').show();
     } else if (selectCategoryValue == "selectCategory") {
         alert('Please make a selection');
     } else {
         globalSelectedCategory = selectCategoryValue;
         displaySubCategoryDropdown(selectCategoryValue);
-        $('.hide-everything').hide();
-        $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#dropdown').show();
-        $('#add-card-main').show();
         $('#add-dropdown-categories').show();
-        $('#cat-sub-cat-select').show();
-        $('#example-card-display-wrapper').show();
         $('#ex-card-category').html(selectCategoryValue);
+        $('#selectCategoryValue').val(selectCategoryValue);
     }
     console.log(globalSelectedCategory);
 });
 
 
 function displaySubCategoryDropdown(categoryId) {
+
+    //when we make the call, only grab sub-categories that are
+    //within the specified categoryId
     $.ajax({
             type: 'GET',
             url: '/sub-category/get/' + categoryId,
@@ -377,16 +321,15 @@ function displaySubCategoryDropdown(categoryId) {
             console.log(result);
             if ((!result) || (result != undefined) || (result != "")) {
 
-                $("#select-cat").html('');
-                var buildCategoryDropdownOutput = "";
-                buildCategoryDropdownOutput += '<option value="selectCategory">select or add category</option>';
-                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                $("#select-sub-cat").html('');
+                var buildSubCategoryDropdownOutput = "";
+                buildSubCategoryDropdownOutput += '<option value="selectSubCategory">select or add sub category</option>';
+                buildSubCategoryDropdownOutput += '<option value="addSubCategory">add sub category</option>';
                 $.each(result, function (resultKey, resultValue) {
-                    buildCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
                 });
-
                 //use the HTML output to show it in the index.html
-                $("#select-cat").html(buildCategoryDropdownOutput);
+                $("#select-sub-cat").html(buildSubCategoryDropdownOutput);
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -449,8 +392,8 @@ function displayCategoryDropdown() {
 
                 //use the HTML output to show it in the index.html
                 $("#select-cat").html(buildCategoryDropdownOutput);
+                $("#add-category").hide();
 
-                //                $('#select-cat option').append(cardCategory);
 
             }
         })
@@ -464,6 +407,7 @@ function displayCategoryDropdown() {
 
 $(document).on("change", '#select-sub-cat', function () {
     let selectSubCategoryValue = $('#select-sub-cat').val();
+    let cardCategory = $('#selectCategoryValue').val();
 
     //    alert(selectSubCategoryValue);
     if (selectSubCategoryValue == "addSubCategory") {
@@ -472,28 +416,25 @@ $(document).on("change", '#select-sub-cat', function () {
         alert('Please make a selection');
     } else {
         globalSelectedSubCategory == selectSubCategoryValue;
-        $('.hide-everything').hide();
-        $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#add-card-main').show();
-        $('#add-dropdown-categories').show();
-        $('#cat-sub-cat-select').show();
-
-        $('#example-card-display-wrapper').show();
+        displayCardItemDropdown(selectSubCategoryValue)
         $('#ex-card-category').show();
         $('#example-sub-cat-wrapper').show();
         $('#example-card-sub-cat').show();
         $('#example-card-sub-cat').html(selectSubCategoryValue);
         $('#ex-card').show();
         $('#blank-image').show();
+
+        $('#selectSubCategoryValue').val(selectSubCategoryValue);
     }
 });
 
 $(document).on("click", '#add-sub-category-button', function () {
     let cardCategory = $('#add-category input').val();
+    if (cardCategory == "") {
+        cardCategory = $('#selectCategoryValue').val();
+    }
     let cardSubCategory = $('#add-sub-category input').val();
-    console.log(cardSubCategory);
-    console.log(cardCategory);
+
     if (cardSubCategory == "") {
         alert("Please enter a sub category");
 
@@ -515,12 +456,7 @@ $(document).on("click", '#add-sub-category-button', function () {
             .done(function (result) {
                 console.log(result);
                 displaySubCategoryDropdown();
-
-                //    $('.hide-everything').hide();
-                //    $('#navigation').show();
-                //    $('#logout-wrapper').show();
                 //    $('#dropdown').show();
-                //    $('#add-card-main').show();
                 //
                 //    $('#example-card-display-wrapper').show();
                 //    $('#add-subcategory-display-wrapper').show();
@@ -536,17 +472,29 @@ $(document).on("click", '#add-sub-category-button', function () {
     };
 });
 
-function displaySubCategoryDropdown() {
+//based on how the category post request was written
+function displayCardItemDropdown(subCategoryId) {
     $.ajax({
             type: 'GET',
-            url: '/sub-category/get',
+            url: '/card-item/get/' + subCategoryId,
             dataType: 'json',
             contentType: 'application/json'
         })
         .done(function (result) {
             console.log(result);
             if ((!result) || (result != undefined) || (result != "")) {
-                //            retrieveUserSop = result;
+
+                $("#select-card-item").html('');
+                var buildCardItemDropdownOutput = "";
+                buildCardItemDropdownOutput += '<option value="selectCardItem">select or add item</option>';
+                buildCardItemDropdownOutput += '<option value="addCardItem">add item</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCardItemDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#select-card-item").html(buildCardItemDropdownOutput);
+
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -560,17 +508,17 @@ function displaySubCategoryDropdown() {
 
 
 
-$(document).on("change", '#select-item', function () {
-    let selectItemValue = $('#select-item').val();
+$(document).on("change", '#select-card-item', function () {
+    let selectCardItemValue = $('#select-card-item').val();
 
     //    alert("why isn't this working");
-    if (selectItemValue == "addItem") {
-        $('#add-item').show();
+    if (selectCardItemValue == "addCardItem") {
+        $('#add-card-item').show();
         $('#select-image-wrapper').show();
-    } else if (selectItemValue == "selectItem") {
+    } else if (selectCardItemValue == "selectCardItem") {
         alert('Please make a selection');
     } else {
-        globalItem == selectItemValue;
+        globalCardItem == selectCardItemValue;
         $('.hide-everything').hide();
         $('#navigation').show();
         $('#logout-wrapper').show();
@@ -588,15 +536,15 @@ $(document).on("change", '#select-item', function () {
     }
 });
 
-$(document).on("click", '#add-item-button', function () {
-    const cardItem = $('#add-item input').val();
+$(document).on("click", '#add-card-item-button', function () {
+    const cardItem = $('#add-card-item input').val();
 
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#account-options').hide();
     $('#logout-wrapper').show();
     $('#add-card-main').show();
-    $('#add-item').hide();
+    $('#add-card-item').hide();
     $('#example-card-display-wrapper').show();
     $('#ex-card-category').show();
     $('#example-sub-cat-wrapper').show();
@@ -623,7 +571,7 @@ $(document).on("change", '#menu url', function () {
         $('#add-card-main').show();
         $('#add-dropdown-categories').hide();
         $('#cat-sub-cat-select').show();
-        $('#add-item input').hide();
+        $('#add-card-item input').hide();
 
         $('#example-card-display-wrapper').show();
         $('#ex-card-category').show();
@@ -635,14 +583,9 @@ $(document).on("change", '#menu url', function () {
 });
 
 $(document).on("click", '#create-card button', function () {
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#logout-wrapper').show();
-    $('#add-card-main').hide();
     $('#add-dropdown-categories').hide();
     $('#cat-sub-cat-select').hide();
-    $('#add-item input').hide();
+    $('#add-card-item input').hide();
 
     $('#example-card-display-wrapper').show();
     $('#ex-card-category').show();

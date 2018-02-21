@@ -4,6 +4,7 @@ const User = require('./models/user');
 const Icon = require('./models/icon');
 const Category = require('./models/category');
 const SubCategory = require('./models/sub-category');
+const CardItem = require('./models/card-item');
 const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -147,7 +148,7 @@ app.post('/users/signin', function (req, res) {
 
 
 // -------------category ENDPOINTS------------------------------------------------
-//*********************POST*************************
+//*********************CATEGORY POST AND GET*************************
 app.post('/category/create', (req, res) => {
 
     let name = req.body.name;
@@ -167,8 +168,6 @@ app.post('/category/create', (req, res) => {
     });
 });
 
-//*********************GET*************************
-
 
 app.get('/category/get', function (req, res) {
     Category.find(
@@ -185,15 +184,15 @@ app.get('/category/get', function (req, res) {
         });
 });
 
-//*****GET AND POST FOR SUBCATEGORY*****
+//*********************SUB-CATEGORY POST AND GET*************************
 app.post('/sub-category/create', (req, res) => {
 
     let name = req.body.name;
     let categoryId = req.body.categoryId;
 
     SubCategory.create({
-        categoryId,
-        name
+        name,
+        categoryId
     }, (err, item) => {
         if (err) {
             return res.status(500).json({
@@ -208,7 +207,6 @@ app.post('/sub-category/create', (req, res) => {
 });
 
 
-//*********************GET*************************
 app.get('/sub-category/get/:categoryId', function (req, res) {
     //this returns only the SubCategories that are connected with the specific category id
     SubCategory.find({
@@ -227,6 +225,46 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
             }
         });
 });
+
+//*********************CARD ITEM POST AND GET*************************
+app.post('/card-item/create', (req, res) => {
+
+    let name = req.body.name;
+    let subCategoryId = req.body.subCategoryId;
+
+    CardItem.create({
+        name,
+        subCategoryId
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Card Item \`${item}\` added.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+
+app.get('/card-item/get/:subCategoryId', function (req, res) {
+    //this returns only the SubCategories that are connected with the specific category id
+    CardItem.find({
+            subCategoryId: req.params.subCategoryId
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
+});
+
 
 
 
