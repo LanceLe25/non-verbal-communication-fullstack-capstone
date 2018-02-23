@@ -265,6 +265,18 @@ app.get('/card-item/get/:subCategoryId', function (req, res) {
         });
 });
 
+app.get('/card-icons/get/', function (req, res) {
+    //this returns only the SubCategories that are connected with the specific category id
+    Icon.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
+
 
 
 

@@ -470,6 +470,45 @@ function displayCardItemDropdown(subCategoryId) {
         });
 }
 
+function displayCardIconsDropdown(cardId) {
+    $.ajax({
+            type: 'GET',
+            url: '/card-icons/get/',
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#select-icon-wrapper .menu").html('');
+                var buildCardIconDropdownOutput = "";
+                //                buildCardIconDropdownOutput += '<div class="ui fluid search selection dropdown">';
+                //                buildCardIconDropdownOutput += '<input type="hidden" name="country">';
+                //                buildCardIconDropdownOutput += '<div class="default text">Select an image</div>';
+                //                buildCardIconDropdownOutput += '<div class="menu transition visible" tabindex="-1" style="display: block !important;">';
+
+                $.each(result, function (resultKey, resultValue) {
+                    buildCardIconDropdownOutput += '<div class="card-item" data-value="af">';
+                    buildCardIconDropdownOutput += '<i class="af flag">';
+                    buildCardIconDropdownOutput += '<img id="' + resultValue._id + '" src="/icon-images/' + resultValue.url + '" alt="">';
+                    buildCardIconDropdownOutput += '</i>' + resultValue.name;
+                    buildCardIconDropdownOutput += '</div>';
+                });
+                //                buildCardIconDropdownOutput += '</div>';
+                //                buildCardIconDropdownOutput += '</div>';
+
+                //use the HTML output to show it in the index.html
+                $("#select-icon-wrapper .menu").html(buildCardIconDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
 
 
 
@@ -483,7 +522,7 @@ function displayCardItemDropdown(subCategoryId) {
 $(document).on("change", '#select-card-item', function () {
     let selectCardItemValue = $('#select-card-item').val();
     let cardSubCategory = $('#selectSubCategoryValue').val();
-
+    console.log("selectCardItemValue = ", selectCardItemValue)
 
     //    alert("why isn't this working");
     if (selectCardItemValue == "addCardItem") {
@@ -492,7 +531,9 @@ $(document).on("change", '#select-card-item', function () {
     } else if (selectCardItemValue == "selectCardItem") {
         alert('Please make a selection');
     } else {
+
         globalCardItem == selectCardItemValue;
+        displayCardIconsDropdown(selectCardItemValue)
         $('#add-dropdown-categories').show();
         $('#cat-sub-cat-select').show();
         $('#select-image-wrapper').show();

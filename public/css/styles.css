@@ -428,12 +428,12 @@ Content styles (Main Module)
     height: 30px;
 }
 
-#select-image-wrapper {
+#select-icon-wrapper {
     width: 262px;
     margin: 0 auto;
 }
 
-#select-image-wrapper img {
+#select-icon-wrapper img {
     width: 40px;
     height: 40px;
     vertical-align: middle;
