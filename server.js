@@ -5,6 +5,7 @@ const Icon = require('./models/icon');
 const Category = require('./models/category');
 const SubCategory = require('./models/sub-category');
 const CardItem = require('./models/card-item');
+const SaveCard = require('./models/save-card');
 const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -269,6 +270,53 @@ app.get('/card-item/get/:subCategoryId', function (req, res) {
         });
 });
 
+//*********************CARD SAVE POST AND GET*************************
+app.post('/save-card/create', (req, res) => {
+
+    let categoryId = req.body.categoryId;
+    let subCategoryId = req.body.subCategoryId;
+    let icon = "";
+    let name = req.body.name;
+
+    CardItem.create({
+        icon,
+        categoryId,
+        subCategoryId,
+        name
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Save Card \`${item}\` added.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+
+app.get('/save-card/get/:saveCardId', function (req, res) {
+    SaveCard.find({
+            saveCardId: req.params.saveCardId
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
+});
+
+
+
+
+
+//*********************CARD ICON POST AND GET*************************
 app.get('/card-icons/get/', function (req, res) {
     //this returns only the SubCategories that are connected with the specific category id
     Icon.find(function (err, item) {
