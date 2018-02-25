@@ -2,11 +2,19 @@
 const mongoose = require('mongoose');
 
 const cardItemSchema = new mongoose.Schema({
-    subCategoryId: {
+    name: {
         type: String,
         required: false
     },
-    name: {
+    icon: {
+        type: String,
+        required: false
+    },
+    categoryId: {
+        type: String,
+        required: false
+    },
+    subCategoryId: {
         type: String,
         required: false
     }

@@ -230,10 +230,14 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
 app.post('/card-item/create', (req, res) => {
 
     let name = req.body.name;
+    let categoryId = req.body.categoryId;
     let subCategoryId = req.body.subCategoryId;
+    let icon = "";
 
     CardItem.create({
         name,
+        icon,
+        categoryId,
         subCategoryId
     }, (err, item) => {
         if (err) {

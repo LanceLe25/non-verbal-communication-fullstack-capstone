@@ -259,20 +259,20 @@ $(document).on("click", '#nav-belt', function () {
 
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function () {
-    let selectCategoryValue = $('#select-cat').val();
+    let selectCategoryIDValue = $('#select-cat').val();
 
-    //    alert(selectCategoryValue);
-    if (selectCategoryValue == "addCategory") {
+    //    alert(selectCategoryIDValue);
+    if (selectCategoryIDValue == "addCategory") {
         $('#add-category input').val("");
         $('#add-category').show();
-    } else if (selectCategoryValue == "selectCategory") {
+    } else if (selectCategoryIDValue == "selectCategory") {
         alert('Please make a selection');
     } else {
-        globalSelectedCategory = selectCategoryValue;
-        displaySubCategoryDropdown(selectCategoryValue);
+        globalSelectedCategory = selectCategoryIDValue;
+        displaySubCategoryDropdown(selectCategoryIDValue);
         $('#add-dropdown-categories').show();
-        $('#ex-card-category').html(selectCategoryValue);
-        $('#selectCategoryValue').val(selectCategoryValue);
+        $('#ex-card-category').html(selectCategoryIDValue);
+        $('#selectCategoryIDValue').val(selectCategoryIDValue);
     }
     console.log(globalSelectedCategory);
 });
@@ -372,32 +372,32 @@ function displayCategoryDropdown() {
 }
 
 $(document).on("change", '#select-sub-cat', function () {
-    let selectSubCategoryValue = $('#select-sub-cat').val();
-    let cardCategory = $('#selectCategoryValue').val();
+    let selectSubCategoryIDValue = $('#select-sub-cat').val();
+    let cardCategory = $('#selectCategoryIDValue').val();
 
-    //    alert(selectSubCategoryValue);
-    if (selectSubCategoryValue == "addSubCategory") {
+    //    alert(selectSubCategoryIDValue);
+    if (selectSubCategoryIDValue == "addSubCategory") {
         $('#add-sub-category').show();
-    } else if (selectSubCategoryValue == "selectSubCategory") {
+    } else if (selectSubCategoryIDValue == "selectSubCategory") {
         alert('Please make a selection');
     } else {
-        globalSelectedSubCategory == selectSubCategoryValue;
-        displayCardItemDropdown(selectSubCategoryValue)
+        globalSelectedSubCategory == selectSubCategoryIDValue;
+        displayCardItemDropdown(selectSubCategoryIDValue)
         $('#ex-card-category').show();
         $('#example-sub-cat-wrapper').show();
         $('#example-card-sub-cat').show();
-        $('#example-card-sub-cat').html(selectSubCategoryValue);
+        $('#example-card-sub-cat').html(selectSubCategoryIDValue);
         $('#ex-card').show();
         $('#blank-image').show();
 
-        $('#selectSubCategoryValue').val(selectSubCategoryValue);
+        $('#selectSubCategoryIDValue').val(selectSubCategoryIDValue);
     }
 });
 
 $(document).on("click", '#add-sub-category-button', function () {
     let cardCategory = $('#add-category input').val();
     if (cardCategory == "") {
-        cardCategory = $('#selectCategoryValue').val();
+        cardCategory = $('#selectCategoryIDValue').val();
     }
 
     let cardSubCategory = $('#add-sub-category input').val();
@@ -489,7 +489,7 @@ function displayCardIconsDropdown(cardId) {
                 //                buildCardIconDropdownOutput += '<div class="menu transition visible" tabindex="-1" style="display: block !important;">';
 
                 $.each(result, function (resultKey, resultValue) {
-                    buildCardIconDropdownOutput += '<div class="card-item" data-value="af">';
+                    buildCardIconDropdownOutput += '<div class="item" data-value="' + resultValue._id + '">';
                     buildCardIconDropdownOutput += '<i class="af flag">';
                     buildCardIconDropdownOutput += '<img id="' + resultValue._id + '" src="/icon-images/' + resultValue.url + '" alt="">';
                     buildCardIconDropdownOutput += '</i>' + resultValue.name;
@@ -520,20 +520,20 @@ function displayCardIconsDropdown(cardId) {
 //modified select-card-item and below
 
 $(document).on("change", '#select-card-item', function () {
-    let selectCardItemValue = $('#select-card-item').val();
-    let cardSubCategory = $('#selectSubCategoryValue').val();
-    console.log("selectCardItemValue = ", selectCardItemValue)
+    let selectCardItemNameValue = $('#select-card-item').val();
+    let cardSubCategory = $('#selectSubCategoryIDValue').val();
+    console.log("selectCardItemNameValue = ", selectCardItemNameValue)
 
     //    alert("why isn't this working");
-    if (selectCardItemValue == "addCardItem") {
+    if (selectCardItemNameValue == "addCardItem") {
         $('#add-card-item').show();
         $('#select-image-wrapper').show();
-    } else if (selectCardItemValue == "selectCardItem") {
+    } else if (selectCardItemNameValue == "selectCardItem") {
         alert('Please make a selection');
     } else {
 
-        globalCardItem == selectCardItemValue;
-        displayCardIconsDropdown(selectCardItemValue)
+        globalCardItem == selectCardItemNameValue;
+        displayCardIconsDropdown(selectCardItemNameValue)
         $('#add-dropdown-categories').show();
         $('#cat-sub-cat-select').show();
         $('#select-image-wrapper').show();
@@ -547,10 +547,18 @@ $(document).on("change", '#select-card-item', function () {
     }
 });
 
-$(document).on("click", '#add-card-item-button', function () {
+$(document).on("click", '#add-card-item-button', function (event) {
+    event.preventDefault();
+
+    let cardCategory = $('#add-category input').val();
+    if (cardCategory == "") {
+        cardCategory = $('#selectCategoryIDValue').val();
+    }
+
+
     let cardSubCategory = $('#add-sub-category input').val();
     if (cardSubCategory == "") {
-        cardSubCategory = $('#selectSubCategoryValue').val();
+        cardSubCategory = $('#selectSubCategoryIDValue').val();
     }
 
     let cardItem = $('#add-card-item input').val();
@@ -561,8 +569,11 @@ $(document).on("click", '#add-card-item-button', function () {
     } else {
         const newCardItemObject = {
             name: cardItem,
-            categoryId: cardSubCategory
-        }
+            icon: "",
+            categoryId: cardCategory,
+            subCategoryId: cardSubCategory
+        };
+        console.log(newCardItemObject);
 
         $.ajax({
                 type: 'POST',
@@ -573,7 +584,7 @@ $(document).on("click", '#add-card-item-button', function () {
             })
             .done(function (result) {
                 console.log(result);
-                displayCardItemDropdown();
+                displayCardItemDropdown(cardSubCategory);
                 $('#add-card-main').show();
                 $('#add-card-item').hide();
                 $('#example-card-display-wrapper').show();
