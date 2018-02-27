@@ -296,6 +296,27 @@ app.post('/save-card/create', (req, res) => {
     });
 });
 
+app.put('/save-card/update', (req, res) => {
+
+    let icon = req.body.icon;
+    let cardItemId = req.body.cardItemId;
+    let name = req.body.name;
+
+    CardItem.findByIdAndUpdate(cardItemId, {
+        icon: icon
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated Card \`${item}\` added.`);
+            return res.json(item);
+        }
+
+    });
+});
+
 
 app.get('/save-card/get/:saveCardId', function (req, res) {
     SaveCard.find({

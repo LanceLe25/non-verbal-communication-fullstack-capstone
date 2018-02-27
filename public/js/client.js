@@ -27,10 +27,8 @@ $(document).ready(function () {
     $('.ui.dropdown').dropdown();
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#nav-about').show();
-    $('#dropdown-cards').show();
-    $('#dropdown-categories').show();
-    $('#add-new-card').show();
+    //hide the following once you set up login options
+    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
     $('#header').show();
     $('#logout-wrapper').hide();
     $('#account-options').show();
@@ -49,58 +47,41 @@ $(document).ready(function () {
 
 //****ALL LOGIN REGISTER PAGES*****
 $(document).on("click", '#landing-page-login', function () {
-    $('#nav-about').show();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
     $('#site-info-wrapper').hide();
-
 });
 
 
 $(document).on("click", '#landing-page-register', function () {
-    //    $('.hide-everything').hide();
-    $('#navigation').show();
     $('#account-options').hide();
-    $('#nav-about').show();
     $('#register-user-wrapper').show();
     $('#site-info-wrapper').hide();
 });
 
 
-$(document).on("click", '#register-account', function () {
-    //    $('.hide-everything').hide();
-    //    $('#navigation').show();
-    $('#nav-about').show();
-    $('#login').show();
+$(document).on("submit", '#register-account-button', function (event) {
+    event.preventDefault();
+    $('#login-register-form').show();
 });
 
 
-$(document).on("submit", '#go-to-login-page', function () {
-    //    $('.hide-everything').hide();
-    //    $('#navigation').show();
-    $('#nav-about').show();
-    $('#account-options').hide();
+$(document).on("submit", '#go-to-login-page', function (event) {
+    event.preventDefault();
     $('#login-register-wrapper').show();
 });
 
 
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
-    //    $('.hide-everything').hide();
-    $('#navigation').show();
+    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
     $('#logout').show();
-    $('#navigation-options').show();
-    $('#nav-new-category').show();
-    $('#add-new-category').show();
 });
 
 
 $(document).on("submit", '#go-to-register-page-button', function (event) {
     event.preventDefault();
-    //    $('.hide-everything').hide();
     $('#register-user-wrapper').show();
-    $('#navigation').show();
-    $('#nav-about').show();
 });
 
 
@@ -110,54 +91,61 @@ $(document).on("submit", '#go-to-register-page-button', function (event) {
 //*****ALL NAV OPTION PAGES*****
 
 $(document).on("click", '#nav-about', function (event) {
-    //if user is not logged in, about page should display login-register options.
+    //if user is not logged in, about page should display account options.
     //if user is logged in, about page should display logout option
-    //    $('.hide-everything').hide();
+    //if user is logged in, navigation options should show
+
     //    $('#navigation').show();
-    $('#logout-wrapper').show();
-    $('#account-options').hide();
+    //    $('#logout-wrapper').show();
+    $('#account-options').show();
     $('#login-register-form').hide();
     $('#register-user-form').hide();
     $('#site-info-wrapper').show();
 });
 
-//UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
+$(document).on("click", '#nav-home', function () {
+    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
+    $('#home-page').show();
+    $('#site-info-wrapper').hide();
+});
+
+
 $(document).on("click", '#nav-display-cards', function () {
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#clothing-category-link').hide();
-    $('#household-cat').show();
-    $('#household-category-link').hide();
-    $('#bedroom-subcat').show();
-    $('#bedroom-subcategory-link').hide();
-    $('#living-room-subcat').show();
-    $('#living-room-subcategory-link').hide();
-    $('#create-card').hide();
+    //    $('#clothing-cat').show();
+    //    $('#clothing-category-link').hide();
+    //    $('#household-cat').show();
+    //    $('#household-category-link').hide();
+    //    $('#bedroom-subcat').show();
+    //        $('#bedroom-subcategory-link').hide();
+    //    $('#living-room-subcat').show();
+    //    $('#living-room-subcategory-link').hide();
+    //    $('#create-card').hide();
 });
 
-//UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
+
 $(document).on("click", '#nav-display-categories', function () {
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
+    //    $('#site-info-wrapper').hide();
+    //    $('#card-display-wrapper').show();
 });
 
 //UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
 $(document).on("click", '#display-clothing', function () {
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#household-cat').hide();
-    $('#bedroom-subcat').hide();
-    $('#living-room-subcat').hide();
+    //    $('#site-info-wrapper').hide();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').show();
+    //    $('#household-cat').hide();
+    //    $('#bedroom-subcat').hide();
+    //    $('#living-room-subcat').hide();
 });
 
 //UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
 $(document).on("click", '#display-household', function () {
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').hide();
-    $('#household-cat').show();
+    //    $('#site-info-wrapper').hide();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').hide();
+    //    $('#household-cat').show();
 });
 
 
@@ -184,23 +172,23 @@ $(document).on("click", '#nav-add-new', function () {
 //unable to get the following function to work. Do I need to
 //use .on(submit)?
 $(document).on("submit", '#clothing-link', function (event) {
-    event.preventDefault();
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#household-cat').hide();
-    $('#bedroom-subcat').hide();
-    $('#living-room-subcat').hide();
+    //    event.preventDefault();
+    //    $('#site-info-wrapper').hide();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').show();
+    //    $('#household-cat').hide();
+    //    $('#bedroom-subcat').hide();
+    //    $('#living-room-subcat').hide();
 });
 
 
 $(document).on("click", '#household-link', function () {
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').hide();
-    $('#household-cat').show();
-    $('#bedroom-subcat').show();
-    $('#living-room-subcat').show();
+    //    $('#site-info-wrapper').hide();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').hide();
+    //    $('#household-cat').show();
+    //    $('#bedroom-subcat').show();
+    //    $('#living-room-subcat').show();
 });
 
 
@@ -209,47 +197,47 @@ $(document).on("click", '#household-link', function () {
 $(document).on("click", '#nav-armchair', function () {
 
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').hide();
-    $('#bedroom-subcat').hide();
-    $('#living-room-subcat').show();
-    $('#card8').hide();
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
+    //    $('#account-options').hide();
+    //    $('#logout-wrapper').show();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').hide();
+    //    $('#bedroom-subcat').hide();
+    //    $('#living-room-subcat').show();
+    //    $('#card8').hide();
 });
 
 
 $(document).on("click", '#nav-bed', function () {
 
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').hide();
-    $('#bedroom-subcat').show();
-    $('#living-room-subcat').hide();
-    $('#card6').hide();
+    //
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
+    //    $('#account-options').hide();
+    //    $('#logout-wrapper').show();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').hide();
+    //    $('#bedroom-subcat').show();
+    //    $('#living-room-subcat').hide();
+    //    $('#card6').hide();
 });
 
 $(document).on("click", '#nav-belt', function () {
 
 
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
-    $('#card-display-wrapper').show();
-    $('#clothing-cat').show();
-    $('#household-cat').hide();
-    $('#bedroom-subcat').hide();
-    $('#living-room-subcat').hide();
-    $('#card1').hide();
-    $('#card3').hide();
-    $('#card4').hide();
+    //    $('.hide-everything').hide();
+    //    $('#navigation').show();
+    //    $('#account-options').hide();
+    //    $('#logout-wrapper').show();
+    //    $('#card-display-wrapper').show();
+    //    $('#clothing-cat').show();
+    //    $('#household-cat').hide();
+    //    $('#bedroom-subcat').hide();
+    //    $('#living-room-subcat').hide();
+    //    $('#card1').hide();
+    //    $('#card3').hide();
+    //    $('#card4').hide();
 });
 //****ABOVE - NEED TO BE DELETED, JUST FOR EXAMPLE***
 
@@ -498,9 +486,9 @@ function displayCardIconsDropdown(cardId) {
                 //                buildCardIconDropdownOutput += '<div class="menu transition visible" tabindex="-1" style="display: block !important;">';
 
                 $.each(result, function (resultKey, resultValue) {
-                    buildCardIconDropdownOutput += '<div class="item" data-value="' + resultValue._id + '">';
+                    buildCardIconDropdownOutput += '<div class="item" data-value="' + resultValue.url + '">';
                     buildCardIconDropdownOutput += '<i class="af flag">';
-                    buildCardIconDropdownOutput += '<img id="' + resultValue._id + '" src="/icon-images/' + resultValue.url + '" alt="">';
+                    buildCardIconDropdownOutput += '<img id="' + resultValue.url + '" src="/icon-images/' + resultValue.url + '" alt="">';
                     buildCardIconDropdownOutput += '</i>' + resultValue.name;
                     buildCardIconDropdownOutput += '</div>';
                 });
@@ -542,8 +530,12 @@ $(document).on("change", '#select-card-item', function () {
         alert('Please make a selection');
     } else {
 
+        $('#selectCardItemIDValue').val(selectCardItemNameValue);
+
         globalCardItem == selectCardItemNameValue;
-        displayCardIconsDropdown(selectCardItemNameValue)
+        displayCardIconsDropdown(selectCardItemNameValue);
+
+
         $('#add-dropdown-categories').show();
         $('#cat-sub-cat-select').show();
         $('#select-image-wrapper').show();
@@ -627,41 +619,26 @@ $(document).on("click", '#save-card-button', function (event) {
     //the select variables are for the if else statements that
     ///if option has not been selected
     //, user needs to select an option from the dropdown
-    let selectCategoryNameValue = $('#select-cat').val();
-    let selectSubCategoryNameValue = $('#select-sub-cat').val();
-    let emptyIcon = "";
-    let selectCardItemNameValue = $('#select-card-item').val();
 
-    let cardCategory = $('#add-category input').val();
-    if (cardCategory == "") {
-        cardCategory = $('#selectCategoryIDValue').val();
-    }
 
-    let cardSubCategory = $('#add-sub-category input').val();
-    if (cardSubCategory == "") {
-        cardSubCategory = $('#selectSubCategoryIDValue').val();
-    }
+    let cardItemID = $('#selectCardItemIDValue').val();
+    let cardItemName = $('#selectCardItemNameValue').val();
 
-    let cardItem = $('#add-card-item input').val();
-    if (cardItem == "") {
-        cardItem = $('#selectCardItemIDValue').val();
-    }
-
-    if ((selectCategoryNameValue == "selectCategory") || (selectSubCategoryNameValue == "selectSubCategory") || (selectCardItemNameValue == "selectCardItem")) {
-        alert('Please select category, subcategory and item before continuing')
+    let cardIcon = $('input[name="country"]').val();
+    if (cardIcon == "") {
+        alert('Please select an icon for the item before continuing');
     } else {
         const saveCardObject = {
-            categoryId: cardCategory,
-            subCategoryId: cardSubCategory,
-            icon: "",
-            cardItemId: cardItem,
+            icon: cardIcon,
+            cardItemId: cardItemID,
+            name: cardItemName,
         };
 
         console.log(saveCardObject);
 
         $.ajax({
-                type: 'POST',
-                url: '/save-card/create',
+                type: 'PUT',
+                url: '/save-card/update',
                 dataType: 'json',
                 data: JSON.stringify(saveCardObject),
                 contentType: 'application/json'
@@ -669,18 +646,18 @@ $(document).on("click", '#save-card-button', function (event) {
             .done(function (result) {
                 console.log(result);
                 //                displayCardItemDropdown(cardSubCategory);
-                $('#add-card-main').show();
-                $('#add-card-item').hide();
-                $('#example-card-display-wrapper').show();
-                $('#ex-card-category').show();
-                $('#example-sub-cat-wrapper').show();
-                $('#example-card-sub-cat').show();
-                $('#ex-card').show();
-                $('#blank-image').show();
-                $('#ex-card h4').html(cardItem);
-                $('#cat-sub-cat-select').show();
-                $('#select-sub-cat').show();
-                $('#ex-card-item').html(cardItem);
+                //                        $('#add-card-main').show();
+                //                        $('#add-card-item').hide();
+                //                        $('#example-card-display-wrapper').show();
+                //                        $('#ex-card-category').show();
+                //                        $('#example-sub-cat-wrapper').show();
+                //                        $('#example-card-sub-cat').show();
+                //                        $('#ex-card').show();
+                //                        $('#blank-image').show();
+                //                        $('#ex-card h4').html(cardItem);
+                //                        $('#cat-sub-cat-select').show();
+                //                        $('#select-sub-cat').show();
+                //                        $('#ex-card-item').html(cardItem);
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
