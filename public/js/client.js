@@ -41,6 +41,7 @@ $(document).ready(function () {
     $('#ex-image').hide();
     $('#save-card-button').hide();
 
+    $('#add-card-main').hide();
     $('#clothing-category-link').hide();
     $('#household-category-link').hide();
     $('#bedroom-subcategory-link').hide();
@@ -78,7 +79,7 @@ $(document).on("submit", '#go-to-login-page', function (event) {
 
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
-    $('#nav-home, #nav - display - cards, #nav-display-categories, #nav-add-new').show();
+    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
     $('#logout').show();
 });
 
@@ -106,7 +107,9 @@ $(document).on("click", '#nav-about', function (event) {
 });
 
 $(document).on("click", '#nav-home', function () {
-    $('#nav-home, #nav - display - cards, #nav-display-categories, #nav-add-new').show();
+    $('#navigation').show();
+    $('#nav-login, #nav-register').hide();
+    $('#nav-logout').show();
     $('#home-page').show();
     $('#site-info-wrapper').hide();
 });
@@ -114,7 +117,8 @@ $(document).on("click", '#nav-home', function () {
 
 $(document).on("click", '#nav-display-cards', function () {
     $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
+    //    $('#card-display-wrapper').show();
+    $('#card-display-messing-around').show();
     $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').hide();
 });
 
@@ -123,7 +127,9 @@ $(document).on("click", '#nav-display-categories', function () {
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#clothing-category-link').show();
-    $('#subcat-accessories').show();
+    $('#household-category-link').show();
+    $('#bedroom-subcategory-link').show();
+    $('#living-room-subcategory-link').show();
     $('.card h3, .card h4').hide();
 });
 
@@ -131,25 +137,17 @@ $(document).on("click", '#nav-display-categories', function () {
 $(document).on("click", '#nav-add-new', function () {
     $('.hide-everything').hide();
     $('#navigation').show();
-    $('#account-options').hide();
-    $('#logout-wrapper').show();
+    $('#nav-login, #nav-register').hide();
+    $('#nav-logout').show();
     $('#add-card-main').show();
-
-    $('#cat-sub-cat-select').show();
-    $('#select-sub-cat').show();
-
     $('#example-card-display-wrapper').show();
-    $('#ex-card-category').show();
-    $('#example-sub-cat-wrapper').show();
-    $('#example-card-sub-cat').show();
-    $('#ex-card').show();
-    $('#blank-image').show();
-    $('#ex-card-item').show();
-    $('#create-card button').show();
+    $('#save-card-button').show();
 });
 
 //unable to get the following function to work. Do I need to
 //use .on(submit)?
+//This is when all categories are displayed,
+//user can click on a category title to view that single category
 $(document).on("submit", '#clothing-link', function (event) {
     //    event.preventDefault();
     //    $('#site-info-wrapper').hide();
@@ -172,7 +170,7 @@ $(document).on("click", '#household-link', function () {
 
 
 
-//****BELOW - NEED TO BE DELETED, JUST FOR EXAMPLE***
+//****BELOW - NEED TO BE DELETED. JUST FOR EXAMPLE***
 $(document).on("click", '#nav-armchair', function () {
 
 
@@ -218,7 +216,7 @@ $(document).on("click", '#nav-belt', function () {
     //    $('#card3').hide();
     //    $('#card4').hide();
 });
-//****ABOVE - NEED TO BE DELETED, JUST FOR EXAMPLE***
+//****ABOVE - NEED TO BE DELETED. JUST FOR EXAMPLE***
 
 
 
@@ -229,6 +227,12 @@ $(document).on("click", '#nav-belt', function () {
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function () {
     let selectCategoryIDValue = $('#select-cat').val();
+
+    //how do I get the name value??????
+    let selectCategoryNameValue = $('#select-cat option[value="stuff"]').val();
+
+
+
     let addCategoryShow = $('#add-category').show();
     let addCategoryHide = $('#add-category').hide();
     //    alert(selectCategoryIDValue);
@@ -243,7 +247,7 @@ $(document).on("change", '#select-cat', function () {
         globalSelectedCategory = selectCategoryIDValue
         displaySubCategoryDropdown(selectCategoryIDValue);
         $('#add-dropdown-categories').show();
-        $('#ex-card-category').html(selectCategoryIDValue);
+        $('#ex-card-category').html(selectCategoryNameValue);
         $('#selectCategoryIDValue').val(selectCategoryIDValue);
     }
     console.log(globalSelectedCategory);

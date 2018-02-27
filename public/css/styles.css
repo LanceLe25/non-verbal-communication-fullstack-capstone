@@ -65,10 +65,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-body,
+body {
+    background-color: #8aa3b9;
+}
+
+
 #clothing-cat,
 #household-cat {
-    background-color: #202126;
+    /*    background-color: #202126;*/
 }
 
 #nav-options a:hover,
@@ -85,12 +89,6 @@ body,
 #household-link:hover,
 #bedroom-link:hover,
 #living-room-link:hover,
-/*
-.edit-delete-category a:hover,
-.edit-delete-subcategory a:hover,
-.edit-delete-card a:hover,
-*/
-
 footer a:hover {
     color: aliceblue;
 }
@@ -112,52 +110,23 @@ p {
     font-size: 1.3rem;
 }
 
-
-#bedroom-subcat,
-#living-room-subcat,
-.edit-delete-category a,
-.edit-delete-subcategory a,
-.edit-delete-card a {
-    /*    display: inline-block;*/
-}
-
 #login-register-wrapper label,
 #login-register button,
 #register-user-wrapper label,
-#register-account button {
+#register-account button,
+#cat-sub-cat-select select {
     display: block;
-}
-
-
-#login-register,
-#register-account a,
-#site-info-wrapper div,
-#add-card-wrapper-form,
-#select-cat,
-#select-sub-cat,
-#select-card-item,
-#clothing-cat,
-#household-cat {
-    /*    display: block;*/
 }
 
 #nav-options a,
 #register-user-form a,
 #card-display-wrapper a,
 footer a {
-    color: #88b4c1;
+    color: #1d1d21;
+    /*    color: #88b4c1;*/
     text-decoration: none;
 }
 
-#login-register a,
-#clothing-link,
-#household-link,
-#bedroom-link,
-#living-room-link,
-footer a {
-    /*    color: #88b4c1;*/
-    /*    text-decoration: none;*/
-}
 
 #example-card-display-wrapper,
 #add-card-item button,
@@ -227,7 +196,8 @@ Header styles (Main Module)
 
 header span {
     font-size: 2.5rem;
-    color: #e22525;
+    /*    color: #e22525;*/
+    color: #f58048;
 }
 
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
@@ -400,39 +370,89 @@ img,
 
 #bedroom-subcat,
 #living-room-subcat {
-    background-color: #48484f;
+    /*    background-color: #48484f;*/
+    /*
     border-radius: 5px;
     margin-top: 1rem;
+*/
 }
 
 #clothing-cat,
 #household-cat,
 #clothing-cat h2,
 #household-cat h2 {
-    padding: .5rem 0;
+    /*    padding-top: .5rem;*/
 }
 
 #clothing-cat,
 #household-cat {
+    /*
     margin-bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
+*/
     /*    border: 1px solid white;*/
-    border-radius: 5px;
-    width: 95%;
+    /*    border-radius: 5px;*/
+    /*    width: 95%;*/
 }
 
 #bedroom-link h3,
 #living-room-link h3 {
-    margin: .5rem 0;
+    /*    margin: .5rem 0;*/
 }
 
 
 
 /*these should go away once I start creating dynamically*/
 
+.subcategory {
+    border-top: 1px solid white;
+    margin-bottom: 3rem;
+    padding-top: 3rem;
+}
+
+.category {
+    border-top: 10px solid white;
+    padding-top: 4rem;
+}
+
+.category:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+
+.card h3,
+.card h4,
+.card h5,
+#card-display-wrapper a {
+    color: #fcfdff;
+}
+
 .card {
-    background-color: #202126;
+    background-color: #c35d2c;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.edit-delete-card a {
+    /*    color: #afdc8d;*/
+    color: #3d4046;
+}
+
+.card h3:hover,
+.card h4:hover,
+.card h5:hover,
+#card-display-wrapper a:hover,
+.edit-delete-card a:hover {
+    /*    color: #3d4046;*/
+    color: #afdc8d;
+}
+
+.card {
+    /*    background-color: #202126;*/
     display: inline-block;
     margin: 1rem;
     padding: 1rem;
@@ -465,6 +485,10 @@ footer {
     padding-top: 1rem;
     padding-bottom: 1.5rem;
     background-color: #48484f;
+}
+
+footer a {
+    color: #afdc8d;
 }
 
 /* -------------------------------------
@@ -503,4 +527,18 @@ place all the mobile tables styles below this line
     #account-options {
         float: right;
         margin: 0;
+    }
+
+    .subcategory section {
+        display: inline-block;
+    }
+
+    #accessories-subcategory-link,
+    #going-out-subcategory-link,
+    #business-subcategory-link,
+    #bedroom-subcategory-link,
+    #living-room-subcategory-link {
+        vertical-align: top;
+        margin-top: 8rem;
+        margin-right: 3rem;
     }
