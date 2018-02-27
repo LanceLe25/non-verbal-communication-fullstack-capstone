@@ -77,7 +77,6 @@ body,
 #landing-page-register:hover,
 #logout:hover,
 #nav-options a:hover,
-#dropdown-options a:hover,
 #add-card-item button,
 #add-category button,
 #add-sub-category button,
@@ -111,8 +110,7 @@ p {
 
 #logout-wrapper,
 #account-options,
-#nav-options,
-#nav-options div,
+#nav-options li,
 header div,
 #clothing-category-link,
 #household-category-link,
@@ -124,8 +122,10 @@ header div,
     display: inline-block;
 }
 
-#dropdown-cards:hover #nav-cards,
-#dropdown-categories:hover #nav-categories,
+/*#dropdown-cards:hover #nav-cards,*/
+
+/*#dropdown-categories:hover #nav-categories,*/
+
 #login-register-wrapper label,
 #login-register,
 #login-register button,
@@ -194,34 +194,20 @@ Header styles (Main Module)
     font-size: 1.4rem;
 }
 
-#nav-options,
-#nav-options div {
+#nav-options {
     padding-top: .3rem;
     padding-bottom: .3rem;
     padding-left: .5rem;
     font-size: 1.3rem;
 }
 
-#nav-options a,
+#nav-options li,
 #landing-page-login,
 #landing-page-register,
 #logout,
 #account-options,
 #account-options a:first-child {
     padding-right: .5rem;
-}
-
-#nav-options a,
-#landing-page-login,
-#landing-page-register,
-#account-options,
-#account-options a:first-child {
-    padding-right: .5rem;
-}
-
-#dropdown-cards li,
-#dropdown-categories li {
-    font-size: 1.2rem;
 }
 
 #logout-wrapper,
@@ -233,22 +219,21 @@ Header styles (Main Module)
     padding-right: 1rem;
 }
 
-nav li {
-    list-style: none;
-}
-
 #logout-wrapper,
 #account-options {
     float: right;
 }
 
+/*DELETE DELETE DELETE*/
+
 #nav-cards,
 #nav-categories {
-    position: absolute;
+    /*    position: absolute;*/
 }
 
 #nav-cards,
 #nav-categories {
+    /*
     display: none;
     margin-left: .5rem;
     padding: 0 .4rem;
@@ -258,9 +243,10 @@ nav li {
     min-width: 5rem;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+*/
 }
 
-
+/*DELETE DELETE DELETE*/
 
 /******HEADER STYLES******/
 
@@ -415,7 +401,7 @@ Content styles (Main Module)
     box-shadow: 1px 2px 2px grey;
 }
 
-#create-card button {
+#save-card-button {
     margin-top: .5rem;
 }
 
