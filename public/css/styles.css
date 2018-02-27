@@ -71,13 +71,11 @@ body,
     background-color: #202126;
 }
 
-a: hover,
-body,
-#dropdown-categories a:hover,
-#landing-page-login:hover,
-#landing-page-register:hover,
-#logout:hover,
+
 #nav-options a:hover,
+#account-options a:hover,
+body,
+#logout:hover,
 #add-card-item button,
 #add-category button,
 #add-sub-category button,
@@ -120,12 +118,8 @@ header div,
 .edit-delete-category a,
 .edit-delete-subcategory a,
 .edit-delete-card a {
-    display: inline-block;
+    /*    display: inline-block;*/
 }
-
-/*#dropdown-cards:hover #nav-cards,*/
-
-/*#dropdown-categories:hover #nav-categories,*/
 
 #login-register-wrapper label,
 #login-register,
@@ -192,14 +186,12 @@ Header styles (Main Module)
 
 #logout-wrapper,
 #account-options {
-    float: left;
+    /*    float: left;*/
     font-size: 1.4rem;
 }
 
-#nav-options {
-    padding-top: .3rem;
-    padding-bottom: .3rem;
-    padding-left: .5rem;
+#nav-options li {
+    padding-top: .5rem;
     font-size: 1.3rem;
 }
 
@@ -209,12 +201,21 @@ Header styles (Main Module)
 #logout,
 #account-options,
 #account-options a:first-child {
-    padding-right: .5rem;
+    /*    padding-right: .5rem;*/
+}
+
+#account-options {
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+
+#account-options a {
+    padding: 0 1rem;
 }
 
 #logout-wrapper,
 #account-options {
-    padding-top: .5rem;
+    /*    padding-top: .5rem;*/
 }
 
 #logout {
@@ -223,7 +224,7 @@ Header styles (Main Module)
 
 #logout-wrapper,
 #account-options {
-    float: right;
+    /*    float: right;*/
 }
 
 #home-page {
@@ -297,8 +298,9 @@ header span {
 #register-user {
     border: 1px solid black;
     width: 20rem;
-    margin: 0 auto;
-    padding-bottom: 1rem;
+    /*
+    margin: 0 auto;padding-bottom: 1rem;
+*/
 }
 
 #login-register button,
@@ -513,8 +515,23 @@ place all the mobile tables styles below this line
 */
 
 @media only screen and (min-width: 500px) {
-    #nav-options,
-    #nav-options div {
+    #navigation {
+        margin-top: 1rem;
+    }
+    #nav-options li {
+        display: inline-block;
         float: left;
+    }
+
+    #nav-options li {
+        padding-right: 1rem;
+    }
+
+    #nav-options li:first-child {
+        padding-left: .75rem;
+    }
+    #account-options {
+        float: right;
+        margin: 0;
     }
 }
