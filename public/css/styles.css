@@ -71,11 +71,12 @@ body,
     background-color: #202126;
 }
 
-
 #nav-options a:hover,
-#account-options a:hover,
+#card-display-wrapper a:hover {
+    color: aliceblue;
+}
+
 body,
-#logout:hover,
 #add-card-item button,
 #add-category button,
 #add-sub-category button,
@@ -84,9 +85,12 @@ body,
 #household-link:hover,
 #bedroom-link:hover,
 #living-room-link:hover,
+/*
 .edit-delete-category a:hover,
 .edit-delete-subcategory a:hover,
 .edit-delete-card a:hover,
+*/
+
 footer a:hover {
     color: aliceblue;
 }
@@ -99,7 +103,8 @@ h3 {
     font-size: 1.75rem;
 }
 
-h4 {
+h4,
+h5 {
     font-size: 1.5rem;
 }
 
@@ -107,12 +112,7 @@ p {
     font-size: 1.3rem;
 }
 
-#logout-wrapper,
-#account-options,
-#nav-options li,
-header div,
-#clothing-category-link,
-#household-category-link,
+
 #bedroom-subcat,
 #living-room-subcat,
 .edit-delete-category a,
@@ -122,12 +122,15 @@ header div,
 }
 
 #login-register-wrapper label,
-#login-register,
 #login-register button,
 #register-user-wrapper label,
+#register-account button {
+    display: block;
+}
+
+
+#login-register,
 #register-account a,
-#login-register button,
-#register-account button,
 #site-info-wrapper div,
 #add-card-wrapper-form,
 #select-cat,
@@ -135,28 +138,25 @@ header div,
 #select-card-item,
 #clothing-cat,
 #household-cat {
-    display: block;
+    /*    display: block;*/
 }
 
-a,
 #nav-options a,
-#landing-page-login,
-#landing-page-register,
-#logout,
-#account-options,
-#account-options a:first-child,
-#login-register a,
 #register-user-form a,
+#card-display-wrapper a,
+footer a {
+    color: #88b4c1;
+    text-decoration: none;
+}
+
+#login-register a,
 #clothing-link,
 #household-link,
 #bedroom-link,
 #living-room-link,
-.edit-delete-category a,
-.edit-delete-subcategory a,
-.edit-delete-card a,
 footer a {
-    color: #88b4c1;
-    text-decoration: none;
+    /*    color: #88b4c1;*/
+    /*    text-decoration: none;*/
 }
 
 #example-card-display-wrapper,
@@ -179,52 +179,25 @@ Header styles (Main Module)
 
 /******NAVIGATION STYLES******/
 
-#navigation {
-    position: relative;
-}
-
-
-#logout-wrapper,
-#account-options {
-    /*    float: left;*/
-    font-size: 1.4rem;
-}
-
 #nav-options li {
     padding-top: .5rem;
     font-size: 1.3rem;
 }
 
-#nav-options li,
-#landing-page-login,
-#landing-page-register,
-#logout,
-#account-options,
-#account-options a:first-child {
-    /*    padding-right: .5rem;*/
+#app-navigation li {
+    padding-right: .75rem;
 }
 
 #account-options {
-    margin-top: 3rem;
-    margin-bottom: .5rem;
+    margin-top: .75rem;
 }
 
-#account-options a {
-    padding: 0 1rem;
+#account-options li {
+    display: inline-block;
 }
 
-#logout-wrapper,
-#account-options {
-    /*    padding-top: .5rem;*/
-}
-
-#logout {
-    padding-right: 1rem;
-}
-
-#logout-wrapper,
-#account-options {
-    /*    float: right;*/
+#nav-login {
+    padding: 0 .75rem;
 }
 
 #home-page {
@@ -252,23 +225,10 @@ Header styles (Main Module)
     font-family: 'Lora', serif;
 }
 
-header div {
-    margin: 0 5rem;
-}
-
-header div img {
-    width: 75px;
-    height: 75px;
-}
-
 header span {
     font-size: 2.5rem;
     color: #e22525;
 }
-
-
-
-
 
 /***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
 
@@ -433,6 +393,11 @@ img,
 
 /******STYLES FOR DISPLAYING CARDS******/
 
+#clothing-cat div,
+#household-cat div {
+    /*    display: inline-block;*/
+}
+
 #bedroom-subcat,
 #living-room-subcat {
     background-color: #48484f;
@@ -452,7 +417,7 @@ img,
     margin-bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid white;
+    /*    border: 1px solid white;*/
     border-radius: 5px;
     width: 95%;
 }
@@ -462,16 +427,11 @@ img,
     margin: .5rem 0;
 }
 
+
+
 /*these should go away once I start creating dynamically*/
 
-#card1,
-#card2,
-#card3,
-#card4,
-#card5,
-#card6,
-#card7,
-#card8 {
+.card {
     background-color: #202126;
     display: inline-block;
     margin: 1rem;
@@ -486,7 +446,7 @@ img,
 
 .edit-delete-card {
     float: right;
-    padding-bottom: .25rem;
+    padding: .4rem 0;
 }
 
 .edit-delete-card a {
@@ -514,24 +474,33 @@ Responsive styles
 place all the mobile tables styles below this line
 */
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 800px) {
     #navigation {
         margin-top: 1rem;
     }
+
+    #app-navigation {
+        float: left;
+    }
+
+    #nav-options ul {
+        display: inline-block;
+    }
+
     #nav-options li {
         display: inline-block;
         float: left;
     }
 
-    #nav-options li {
-        padding-right: 1rem;
-    }
-
     #nav-options li:first-child {
         padding-left: .75rem;
     }
+
+    #nav-options li:last-child {
+        padding-right: .75rem;
+    }
+
     #account-options {
         float: right;
         margin: 0;
     }
-}

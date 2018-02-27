@@ -30,10 +30,8 @@ $(document).ready(function () {
     //hide the following once you set up login options
     $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
     $('#header').show();
-    $('#logout-wrapper').hide();
-    $('#account-options').show();
+    $('#nav-logout').hide();
     $('#site-info-wrapper').show();
-    $('#create-card button').hide();
 
     //    hiding new-category, subcategory, card item, image input field
     $('#add-category').hide();
@@ -41,19 +39,25 @@ $(document).ready(function () {
     $('#add-card-item').hide();
     $('#select-image-wrapper').hide();
     $('#ex-image').hide();
+    $('#save-card-button').hide();
+
+    $('#clothing-category-link').hide();
+    $('#household-category-link').hide();
+    $('#bedroom-subcategory-link').hide();
+    $('#living-room-subcategory-link').hide();
     displayCategoryDropdown();
 });
 
 
 //****ALL LOGIN REGISTER PAGES*****
-$(document).on("click", '#landing-page-login', function () {
+$(document).on("click", '#nav-login', function () {
     $('#account-options').hide();
     $('#login-register-wrapper').show();
     $('#site-info-wrapper').hide();
 });
 
 
-$(document).on("click", '#landing-page-register', function () {
+$(document).on("click", '#nav-register', function () {
     $('#account-options').hide();
     $('#register-user-wrapper').show();
     $('#site-info-wrapper').hide();
@@ -74,7 +78,7 @@ $(document).on("submit", '#go-to-login-page', function (event) {
 
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
-    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
+    $('#nav-home, #nav - display - cards, #nav-display-categories, #nav-add-new').show();
     $('#logout').show();
 });
 
@@ -94,17 +98,15 @@ $(document).on("click", '#nav-about', function (event) {
     //if user is not logged in, about page should display account options.
     //if user is logged in, about page should display logout option
     //if user is logged in, navigation options should show
-
-    //    $('#navigation').show();
-    //    $('#logout-wrapper').show();
     $('#account-options').show();
     $('#login-register-form').hide();
     $('#register-user-form').hide();
     $('#site-info-wrapper').show();
+    $('#home-page').hide();
 });
 
 $(document).on("click", '#nav-home', function () {
-    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
+    $('#nav-home, #nav - display - cards, #nav-display-categories, #nav-add-new').show();
     $('#home-page').show();
     $('#site-info-wrapper').hide();
 });
@@ -113,39 +115,16 @@ $(document).on("click", '#nav-home', function () {
 $(document).on("click", '#nav-display-cards', function () {
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
-    //    $('#clothing-cat').show();
-    //    $('#clothing-category-link').hide();
-    //    $('#household-cat').show();
-    //    $('#household-category-link').hide();
-    //    $('#bedroom-subcat').show();
-    //        $('#bedroom-subcategory-link').hide();
-    //    $('#living-room-subcat').show();
-    //    $('#living-room-subcategory-link').hide();
-    //    $('#create-card').hide();
+    $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').hide();
 });
 
 
 $(document).on("click", '#nav-display-categories', function () {
-    //    $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
-});
-
-//UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
-$(document).on("click", '#display-clothing', function () {
-    //    $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
-    //    $('#clothing-cat').show();
-    //    $('#household-cat').hide();
-    //    $('#bedroom-subcat').hide();
-    //    $('#living-room-subcat').hide();
-});
-
-//UPDATE THIS FUNCTION-NO LONGER A DROPDOWN LIST
-$(document).on("click", '#display-household', function () {
-    //    $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
-    //    $('#clothing-cat').hide();
-    //    $('#household-cat').show();
+    $('#site-info-wrapper').hide();
+    $('#card-display-wrapper').show();
+    $('#clothing-category-link').show();
+    $('#subcat-accessories').show();
+    $('.card h3, .card h4').hide();
 });
 
 
@@ -1079,6 +1058,6 @@ $(document).on("click", '#create-card button', function () {
 
 
 
-$('#logout').click(function () {
+$('#nav-logout').click(function () {
     window.location.reload();
 });

@@ -18,36 +18,26 @@
         <nav role="navigation">
 
             <section id="nav-options">
-                <ul>
+                <ul id="app-navigation">
                     <li><a href="#" id="nav-about">ABOUT</a></li>
                     <li><a href="#" id="nav-home">HOME</a></li>
                     <li><a href="#" id="nav-display-cards">CARDS</a></li>
                     <li><a href="#" id="nav-display-categories">CATEGORIES</a></li>
                     <li><a href="#" id="nav-add-new">NEW</a></li>
                 </ul>
-            </section>
 
-            <section id="logout-wrapper" class="hide-everything">
-                <a href="#" id="logout">Logout
-                </a>
+                <ul id="account-options">
+                    <li><a href="#" id="nav-login">LOGIN</a></li>
+                    <li><a href="#" id="nav-register">REGISTER</a></li>
+                    <li><a href="#" id="nav-logout">LOGOUT</a></li>
+                </ul>
             </section>
-
-            <section id="account-options">
-                <a href="#" id="landing-page-login">Login</a>
-                <a href="#" id="landing-page-register">Register</a>
-            </section>
-
         </nav>
 
-
-        <section id="header-wrapper">
-            <header>
-                <!--                <h1>Find My <span>Words</span></h1>-->
-                <h1><span>B.E.K</span> Lingo</h1>
-
-                <h4><i>non-verbal communication</i></h4>
-            </header>
-        </section>
+        <header id="header-wrapper">
+            <h1><span>B.E.K</span> Lingo</h1>
+            <h4><i>non-verbal communication</i></h4>
+        </header>
 
 
         <section id="home-page" class="hide-everything">
@@ -69,7 +59,6 @@
             <img src="icon-images/mixer.png" alt="">
             <img src="icon-images/office-chair-2.png" alt="">
             <img src="icon-images/sofa-11.png" alt="">
-
         </section>
 
     </main>
@@ -283,80 +272,122 @@
                 </div>
             </div>
 
-            <div>
-                <div id="card1" class="card">
-                    <div>
-                        <a href="#">
-                            <h3>Clothing</h3>
-                        </a>
-                        <a href="#">
-                            <h4>Accessories</h4>
-                        </a>
+
+            <div id="all-clothing-cards">
+
+                <div id="subcat-accessories">
+                    <div id="accessories-subcategory-link">
+                        <div>
+                            <a href="#">
+                                <h4>Accessories</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-category">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
                     </div>
-                    <div class="edit-delete-card">
-                        <a href="">edit</a>
-                        <a href="">delete</a>
+
+                    <div id="completed-card" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Clothing</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Accessories</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img id="purse-icon" src="/icon-images/bag.png" alt="">
+                            <h5>purse</h5>
+                        </div>
                     </div>
-                    <div>
-                        <img id="purse-icon" src="/icon-images/bag.png" alt="">
-                        <h4>purse</h4>
+
+                    <div id="card2" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Clothing</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Accessories</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img id="belt-icon" src="/icon-images/belt.png" alt="">
+                            <h5>belt</h5>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card2" class="card">
-                    <div>
-                        <a href="#">
-                            <h3>Clothing</h3>
-                        </a>
-                        <a href="#">
-                            <h4>Accessories</h4>
-                        </a>
+                <div id="subcat-going-out">
+                    <div id="going-out-subcategory-link">
+                        <div>
+                            <a href="#">
+                                <h4>Going Out</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-category">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
                     </div>
-                    <div class="edit-delete-card">
-                        <a href="">edit</a>
-                        <a href="">delete</a>
-                    </div>
-                    <div>
-                        <img id="belt-icon" src="/icon-images/belt.png" alt="">
-                        <h4>belt</h4>
-                    </div>
-                </div>
-
-                <div id="card3" class="card">
-                    <div>
-                        <a href="#">
-                            <h3>Clothing</h3>
-                        </a>
-                        <a href="#">
-                            <h4>Going Out</h4>
-                        </a>
-                    </div>
-                    <div class="edit-delete-card">
-                        <a href="">edit</a>
-                        <a href="">delete</a>
-                    </div>
-                    <div>
-                        <img id="dress-icon" src="/icon-images/dress-1.png" alt="">
-                        <h4>dress</h4>
+                    <div id="card3" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Clothing</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Going Out</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img id="dress-icon" src="/icon-images/dress-1.png" alt="">
+                            <h5>dress</h5>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card4" class="card">
-                    <div>
-                        <a href="#">
-                            <h3>Clothing</h3>
-                        </a>
-                        <a href="#">
-                            <h4>Business</h4>
-                        </a>
+                <div id="subcat-business">
+                    <div id="business-subcategory-link">
+                        <div>
+                            <a href="#">
+                                <h4>Business</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-category">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
                     </div>
-                    <div class="edit-delete-card">
-                        <a href="">edit</a>
-                        <a href="">delete</a>
-                    </div>
-                    <div>
-                        <img id="blazer-icon" src="/icon-images/blazer.png" alt="">
-                        <h4>jacket</h4>
+                    <div id="card4" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Clothing</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Business</h4>
+                            </a>
+                        </div>
+                        <div class="edit-delete-card">
+                            <a href="">edit</a>
+                            <a href="">delete</a>
+                        </div>
+                        <div>
+                            <img id="blazer-icon" src="/icon-images/blazer.png" alt="">
+                            <h5>jacket</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,7 +399,7 @@
             <div id="household-category-link">
                 <div>
                     <a href="" id="household-link">
-                        <h2>Household</h2>
+                        <h2>Home</h2>
                     </a>
                 </div>
                 <div class="edit-delete-category">
@@ -394,6 +425,14 @@
                     </div>
 
                     <div id="card5" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Home</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Bedroom</h4>
+                            </a>
+                        </div>
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -406,6 +445,14 @@
                     </div>
 
                     <div id="card6" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Home</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Bedroom</h4>
+                            </a>
+                        </div>
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -432,6 +479,14 @@
                     </div>
 
                     <div id="card7" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Home</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Living Room</h4>
+                            </a>
+                        </div>
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
@@ -443,6 +498,14 @@
                     </div>
 
                     <div id="card8" class="card">
+                        <div>
+                            <a href="#">
+                                <h3>Home</h3>
+                            </a>
+                            <a href="#">
+                                <h4>Living Room</h4>
+                            </a>
+                        </div>
                         <div class="edit-delete-card">
                             <a href="">edit</a>
                             <a href="">delete</a>
