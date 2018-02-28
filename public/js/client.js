@@ -396,6 +396,7 @@ $(document).on("click", '#add-category-button', function () {
             .done(function (result) {
                 console.log(result);
                 displayCategoryDropdown();
+                $('#add-category input').val('');
 
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -481,6 +482,7 @@ $(document).on("click", '#add-sub-category-button', function () {
             categoryId: cardCategory
 
         };
+        console.log(newSubCategoryObject);
 
 
         $.ajax({
@@ -492,7 +494,8 @@ $(document).on("click", '#add-sub-category-button', function () {
             })
             .done(function (result) {
                 console.log(result);
-                displaySubCategoryDropdown();
+                displaySubCategoryDropdown(cardCategory);
+                $('#add-category input').val('');
                 //    $('#dropdown').show();
                 //
                 //    $('#example-card-display-wrapper').show();
@@ -573,6 +576,7 @@ function displayCardIconsDropdown(cardId) {
 
                 //use the HTML output to show it in the index.html
                 $("#select-icon-wrapper .menu").html(buildCardIconDropdownOutput);
+                $('#add-card-item input').val('');
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
