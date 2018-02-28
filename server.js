@@ -381,6 +381,21 @@ app.get('/get-item-name-by-id/:id', function (req, res) {
         });
 });
 
+app.get('/get-item-icon-by-id/:id', function (req, res) {
+    CardItem.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].icon);
+            }
+        });
+});
+
 
 
 

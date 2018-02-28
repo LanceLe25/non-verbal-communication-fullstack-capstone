@@ -328,7 +328,8 @@ Content styles (Main Module)
 
 #blank-image {
     margin: auto;
-    clear: both
+    clear: both;
+    padding: .25rem;
 }
 
 img,

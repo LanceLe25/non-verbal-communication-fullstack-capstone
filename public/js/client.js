@@ -317,6 +317,27 @@ function displayNameByID(id, element) {
                 console.log(error);
                 console.log(errorThrown);
             });
+    } else if (element == "icon") {
+        $.ajax({
+                type: 'GET',
+                url: '/get-item-icon-by-id/' + id,
+                dataType: 'json',
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                if ((!result) || (result != undefined) || (result != "")) {
+                    $("#select-icon-wrapper input").val(result);
+                    $("#select-icon-wrapper .text img").attr("id", result);
+                    $("#select-icon-wrapper .text img").attr("src", "/icon-images/" + result);
+                    $("#example-card-display-wrapper #blank-image").css('background-image', 'url(/icon-images/' + result + ')');
+                }
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
     } else {
         return "element not defined";
     }
@@ -520,6 +541,9 @@ function displayCardItemDropdown(subCategoryId) {
 }
 
 function displayCardIconsDropdown(cardId) {
+    let selectCardItemNameValue = $('#select-card-item').val();
+    let selectedIcon = displayNameByID(selectCardItemNameValue, "icon");
+    console.log(selectedIcon);
     $.ajax({
             type: 'GET',
             url: '/card-icons/get/',
