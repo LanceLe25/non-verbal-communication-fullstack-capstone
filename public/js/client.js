@@ -46,6 +46,7 @@ $(document).ready(function () {
     $('#household-category-link').hide();
     $('#bedroom-subcategory-link').hide();
     $('#living-room-subcategory-link').hide();
+    $('#category-display-wrapper').hide();
     displayCategoryDropdown();
 });
 
@@ -112,25 +113,26 @@ $(document).on("click", '#nav-home', function () {
     $('#nav-logout').show();
     $('#home-page').show();
     $('#site-info-wrapper').hide();
+    $('#category-display-wrapper').hide();
+    $('#card-display-wrapper').hide();
 });
 
 
 $(document).on("click", '#nav-display-cards', function () {
     $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
-    $('#card-display-messing-around').show();
+    $('#card-display-wrapper').show();
     $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').hide();
+    $('#household-cat').hide();
 });
 
 
 $(document).on("click", '#nav-display-categories', function () {
     $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
+    $('#category-display-wrapper').show();
     $('#clothing-category-link').show();
     $('#household-category-link').show();
     $('#bedroom-subcategory-link').show();
     $('#living-room-subcategory-link').show();
-    $('.card h3, .card h4').hide();
 });
 
 
@@ -151,7 +153,7 @@ $(document).on("click", '#nav-add-new', function () {
 $(document).on("submit", '#clothing-link', function (event) {
     //    event.preventDefault();
     //    $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
+    //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').show();
     //    $('#household-cat').hide();
     //    $('#bedroom-subcat').hide();
@@ -161,7 +163,7 @@ $(document).on("submit", '#clothing-link', function (event) {
 
 $(document).on("click", '#household-link', function () {
     //    $('#site-info-wrapper').hide();
-    //    $('#card-display-wrapper').show();
+    //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').hide();
     //    $('#household-cat').show();
     //    $('#bedroom-subcat').show();
@@ -178,7 +180,7 @@ $(document).on("click", '#nav-armchair', function () {
     //    $('#navigation').show();
     //    $('#account-options').hide();
     //    $('#logout-wrapper').show();
-    //    $('#card-display-wrapper').show();
+    //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').hide();
     //    $('#bedroom-subcat').hide();
     //    $('#living-room-subcat').show();
@@ -193,7 +195,7 @@ $(document).on("click", '#nav-bed', function () {
     //    $('#navigation').show();
     //    $('#account-options').hide();
     //    $('#logout-wrapper').show();
-    //    $('#card-display-wrapper').show();
+    //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').hide();
     //    $('#bedroom-subcat').show();
     //    $('#living-room-subcat').hide();
@@ -207,7 +209,7 @@ $(document).on("click", '#nav-belt', function () {
     //    $('#navigation').show();
     //    $('#account-options').hide();
     //    $('#logout-wrapper').show();
-    //    $('#card-display-wrapper').show();
+    //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').show();
     //    $('#household-cat').hide();
     //    $('#bedroom-subcat').hide();
@@ -247,11 +249,78 @@ $(document).on("change", '#select-cat', function () {
         globalSelectedCategory = selectCategoryIDValue
         displaySubCategoryDropdown(selectCategoryIDValue);
         $('#add-dropdown-categories').show();
-        $('#ex-card-category').html(selectCategoryNameValue);
+        displayNameByID(selectCategoryIDValue, "category");
         $('#selectCategoryIDValue').val(selectCategoryIDValue);
     }
     console.log(globalSelectedCategory);
 });
+
+function displayNameByID(id, element) {
+    console.log(id, element);
+    if (element == "category") {
+        $.ajax({
+                type: 'GET',
+                url: '/get-category-name-by-id/' + id,
+                dataType: 'json',
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                if ((!result) || (result != undefined) || (result != "")) {
+                    $('#ex-card-category').html(result);
+                } else {
+                    $('#ex-card-category').html("no category");
+                }
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    } else if (element == "subcategory") {
+        $.ajax({
+                type: 'GET',
+                url: '/get-subcategory-name-by-id/' + id,
+                dataType: 'json',
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                if ((!result) || (result != undefined) || (result != "")) {
+                    $('#example-card-sub-cat').html(result);
+                } else {
+                    $('#example-card-sub-cat').html("no sub-category");
+                }
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    } else if (element == "item") {
+        $.ajax({
+                type: 'GET',
+                url: '/get-item-name-by-id/' + id,
+                dataType: 'json',
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                if ((!result) || (result != undefined) || (result != "")) {
+                    $('#ex-card-item').html(result);
+                } else {
+                    $('#ex-card-item').html("no item");
+                }
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    } else {
+        return "element not defined";
+    }
+}
 
 function displaySubCategoryDropdown(categoryId) {
 
@@ -366,7 +435,7 @@ $(document).on("change", '#select-sub-cat', function () {
         $('#ex-card-category').show();
         $('#example-sub-cat-wrapper').show();
         $('#example-card-sub-cat').show();
-        $('#example-card-sub-cat').html(selectSubCategoryIDValue);
+        displayNameByID(selectSubCategoryIDValue, "subcategory");
         $('#ex-card').show();
         $('#blank-image').show();
 
@@ -490,7 +559,40 @@ function displayCardIconsDropdown(cardId) {
 }
 
 
-
+$(document).on("click", '#select-icon-wrapper .item', function () {
+    let cardIcon = $('input[name="country"]').val();
+    $("#example-card-display-wrapper #blank-image").css('background-image', 'url(/icon-images/' + cardIcon + ')');
+    //    let cardSubCategory = $('#selectSubCategoryIDValue').val();
+    //    let addCardItemShow = $('#add-card-item').show();
+    //    let addCardItemHide = $('#add-card-item').hide();
+    //    console.log("selectCardItemNameValue = ", selectCardItemNameValue)
+    //
+    //    if (selectCardItemNameValue == "addCardItem") {
+    //        $('#add-card-item').show();
+    //        $('#select-image-wrapper').show();
+    //    } else if (selectCardItemNameValue == "selectCardItem") {
+    //        alert('Please make a selection');
+    //    } else {
+    //
+    //        $('#selectCardItemIDValue').val(selectCardItemNameValue);
+    //
+    //        globalCardItem == selectCardItemNameValue;
+    //        displayCardIconsDropdown(selectCardItemNameValue);
+    //
+    //
+    //        $('#add-dropdown-categories').show();
+    //        $('#cat-sub-cat-select').show();
+    //        $('#select-image-wrapper').show();
+    //
+    //        $('#example-card-display-wrapper').show();
+    //        $('#ex-card-category').show();
+    //        $('#example-sub-cat-wrapper').show();
+    //        $('#example-card-sub-cat').show();
+    //        $('#ex-card').show();
+    //        $('#blank-image').show();
+    //        displayNameByID(selectCardItemNameValue, "item");
+    //    }
+});
 
 
 
@@ -529,6 +631,7 @@ $(document).on("change", '#select-card-item', function () {
         $('#example-card-sub-cat').show();
         $('#ex-card').show();
         $('#blank-image').show();
+        displayNameByID(selectCardItemNameValue, "item");
     }
 });
 
@@ -578,10 +681,9 @@ $(document).on("click", '#add-card-item-button', function (event) {
                 $('#example-card-sub-cat').show();
                 $('#ex-card').show();
                 $('#blank-image').show();
-                $('#ex-card h4').html(cardItem);
                 $('#cat-sub-cat-select').show();
                 $('#select-sub-cat').show();
-                $('#ex-card-item').html(cardItem);
+                displayNameByID(cardItem, "item");
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -652,8 +754,6 @@ $(document).on("click", '#save-card-button', function (event) {
 
 });
 //*****UPDATE CARD**********UPDATE CARD**********UPDATE CARD*****
-
-
 
 
 

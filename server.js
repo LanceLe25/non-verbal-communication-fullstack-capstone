@@ -333,6 +333,53 @@ app.get('/save-card/get/:saveCardId', function (req, res) {
         });
 });
 
+/*display name by id api end points*/
+
+app.get('/get-category-name-by-id/:id', function (req, res) {
+    Category.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
+
+
+app.get('/get-subcategory-name-by-id/:id', function (req, res) {
+    SubCategory.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
+
+app.get('/get-item-name-by-id/:id', function (req, res) {
+    CardItem.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
 
 
 

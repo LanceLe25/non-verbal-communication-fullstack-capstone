@@ -69,14 +69,7 @@ body {
     background-color: #8aa3b9;
 }
 
-
-#clothing-cat,
-#household-cat {
-    /*    background-color: #202126;*/
-}
-
-#nav-options a:hover,
-#card-display-wrapper a:hover {
+#nav-options a:hover {
     color: aliceblue;
 }
 
@@ -84,12 +77,7 @@ body,
 #add-card-item button,
 #add-category button,
 #add-sub-category button,
-#create-card button,
-#clothing-link:hover,
-#household-link:hover,
-#bedroom-link:hover,
-#living-room-link:hover,
-footer a:hover {
+#create-card button {
     color: aliceblue;
 }
 
@@ -120,10 +108,8 @@ p {
 
 #nav-options a,
 #register-user-form a,
-#card-display-wrapper a,
-footer a {
+#category-display-wrapper a {
     color: #1d1d21;
-    /*    color: #88b4c1;*/
     text-decoration: none;
 }
 
@@ -136,7 +122,8 @@ footer a {
 #add-card-item input,
 #add-category input,
 #add-sub-category input,
-img,
+#example-card-display-wrapper img,
+#home-page img,
 #blank-image {
     border-radius: 5px;
 }
@@ -196,7 +183,6 @@ Header styles (Main Module)
 
 header span {
     font-size: 2.5rem;
-    /*    color: #e22525;*/
     color: #f58048;
 }
 
@@ -297,15 +283,6 @@ Content styles (Main Module)
 
 /******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
 
-#example-card-display-wrapper {
-    width: 300px;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    padding: .5rem;
-}
-
 #add-card-item input,
 #add-category input,
 #add-sub-category input {
@@ -320,7 +297,8 @@ Content styles (Main Module)
 #create-card button {
     padding: .5rem 1rem;
     margin-left: .5rem;
-    background-color: #b72727;
+    /*    background-color: #b72727;*/
+    background-color: #1759bf;
     box-shadow: 1px 2px 2px grey;
 }
 
@@ -359,51 +337,29 @@ img,
     height: 200px;
     padding: .3rem;
     background: white;
+    background-size: cover;
+    background-position: center center;
 }
 
 /******STYLES FOR DISPLAYING CARDS******/
 
-#clothing-cat div,
-#household-cat div {
-    /*    display: inline-block;*/
-}
-
-#bedroom-subcat,
-#living-room-subcat {
-    /*    background-color: #48484f;*/
-    /*
+#example-card-display-wrapper,
+.card {
+    display: inline-block;
+    margin: 1rem;
+    padding: 1rem;
     border-radius: 5px;
-    margin-top: 1rem;
-*/
+    box-shadow: 0px 0px 8px lightgrey;
+    background-color: #c35d2c;
 }
 
-#clothing-cat,
-#household-cat,
-#clothing-cat h2,
-#household-cat h2 {
-    /*    padding-top: .5rem;*/
+#example-card-sub-cat {
+    margin-bottom: .5rem;
 }
 
-#clothing-cat,
-#household-cat {
-    /*
-    margin-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-*/
-    /*    border: 1px solid white;*/
-    /*    border-radius: 5px;*/
-    /*    width: 95%;*/
+.card {
+    margin: 1rem;
 }
-
-#bedroom-link h3,
-#living-room-link h3 {
-    /*    margin: .5rem 0;*/
-}
-
-
-
-/*these should go away once I start creating dynamically*/
 
 .subcategory {
     border-top: 1px solid white;
@@ -421,16 +377,17 @@ img,
     border-top: none;
 }
 
+.subcategory-link {
+    width: 215px;
+    margin: 0 auto;
+}
+
 
 .card h3,
 .card h4,
 .card h5,
-#card-display-wrapper a {
+#category-display-wrapper a {
     color: #fcfdff;
-}
-
-.card {
-    background-color: #c35d2c;
 }
 
 .card a {
@@ -438,27 +395,17 @@ img,
 }
 
 .edit-delete-card a {
-    /*    color: #afdc8d;*/
     color: #3d4046;
 }
 
 .card h3:hover,
 .card h4:hover,
 .card h5:hover,
-#card-display-wrapper a:hover,
+#category-display-wrapper a:hover,
 .edit-delete-card a:hover {
-    /*    color: #3d4046;*/
     color: #afdc8d;
 }
 
-.card {
-    /*    background-color: #202126;*/
-    display: inline-block;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0px 0px 8px lightgrey;
-}
 
 .edit-delete-category {
     padding-bottom: .75rem;
@@ -489,6 +436,11 @@ footer {
 
 footer a {
     color: #afdc8d;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: aliceblue;
 }
 
 /* -------------------------------------
@@ -540,5 +492,4 @@ place all the mobile tables styles below this line
     #living-room-subcategory-link {
         vertical-align: top;
         margin-top: 8rem;
-        margin-right: 3rem;
     }
