@@ -42,7 +42,10 @@ $(document).ready(function () {
     $('#save-card-button').hide();
 
     $('#add-card-main').hide();
-    $('#clothing-category-link').hide();
+    $('#add-card-wrapper-form').hide();
+    $('#example-card-display-wrapper').hide();
+    $('#example-card-display-wrapper').hide();
+    $('#save-card-button').hide();
     $('#household-category-link').hide();
     $('#bedroom-subcategory-link').hide();
     $('#living-room-subcategory-link').hide();
@@ -100,6 +103,8 @@ $(document).on("click", '#nav-about', function (event) {
     //if user is not logged in, about page should display account options.
     //if user is logged in, about page should display logout option
     //if user is logged in, navigation options should show
+    $('.hide-everything').hide();
+    $('#navigation').show();
     $('#account-options').show();
     $('#login-register-form').hide();
     $('#register-user-form').hide();
@@ -108,6 +113,7 @@ $(document).on("click", '#nav-about', function (event) {
 });
 
 $(document).on("click", '#nav-home', function () {
+    $('.hide-everything').hide();
     $('#navigation').show();
     $('#nav-login, #nav-register').hide();
     $('#nav-logout').show();
@@ -115,10 +121,14 @@ $(document).on("click", '#nav-home', function () {
     $('#site-info-wrapper').hide();
     $('#category-display-wrapper').hide();
     $('#card-display-wrapper').hide();
+    $('#save-card-button').hide();
 });
 
 
 $(document).on("click", '#nav-display-cards', function () {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#save-card-button').hide();
     $('#site-info-wrapper').hide();
     $('#card-display-wrapper').show();
     $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').hide();
@@ -127,11 +137,15 @@ $(document).on("click", '#nav-display-cards', function () {
 
 
 $(document).on("click", '#nav-display-categories', function () {
+    $('.hide-everything').hide();
+    $('#navigation').show();
     $('#site-info-wrapper').hide();
+    $('#save-card-button').hide();
     $('#category-display-wrapper').show();
     $('#clothing-category-link').show();
     $('#household-category-link').show();
     $('#bedroom-subcategory-link').show();
+    $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').show();
     $('#living-room-subcategory-link').show();
 });
 
@@ -142,6 +156,7 @@ $(document).on("click", '#nav-add-new', function () {
     $('#nav-login, #nav-register').hide();
     $('#nav-logout').show();
     $('#add-card-main').show();
+    $('#add-card-wrapper-form').show();
     $('#example-card-display-wrapper').show();
     $('#save-card-button').show();
 });
