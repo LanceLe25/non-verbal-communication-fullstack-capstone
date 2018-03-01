@@ -28,7 +28,7 @@ $(document).ready(function () {
     $('.hide-everything').hide();
     $('#navigation').show();
     //hide the following once you set up login options
-    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
+    $('#nav-home, #nav-display-categories, #nav-add-new').show();
     $('#header').show();
     $('#nav-logout').hide();
     $('#site-info-wrapper').show();
@@ -43,7 +43,6 @@ $(document).ready(function () {
 
     $('#add-card-main').hide();
     $('#add-card-wrapper-form').hide();
-    $('#example-card-display-wrapper').hide();
     $('#example-card-display-wrapper').hide();
     $('#save-card-button').hide();
     $('#household-category-link').hide();
@@ -83,7 +82,7 @@ $(document).on("submit", '#go-to-login-page', function (event) {
 
 $(document).on("submit", '#login-account-button', function (event) {
     event.preventDefault();
-    $('#nav-home, #nav-display-cards, #nav-display-categories, #nav-add-new').show();
+    $('#nav-home, #nav-display-categories, #nav-add-new').show();
     $('#logout').show();
 });
 
@@ -120,19 +119,7 @@ $(document).on("click", '#nav-home', function () {
     $('#home-page').show();
     $('#site-info-wrapper').hide();
     $('#category-display-wrapper').hide();
-    $('#card-display-wrapper').hide();
     $('#save-card-button').hide();
-});
-
-
-$(document).on("click", '#nav-display-cards', function () {
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#save-card-button').hide();
-    $('#site-info-wrapper').hide();
-    $('#card-display-wrapper').show();
-    $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').hide();
-    $('#household-cat').hide();
 });
 
 
@@ -889,11 +876,6 @@ $(document).on("click", '#add-card-item-button', function (event) {
 //*****UPDATE CARD**********UPDATE CARD**********UPDATE CARD*****
 $(document).on("click", '#save-card-button', function (event) {
     event.preventDefault();
-    //do i need to add a variable for the empty icon image?
-    //the select variables are for the if else statements that
-    ///if option has not been selected
-    //, user needs to select an option from the dropdown
-
 
     let cardItemID = $('#selectCardItemIDValue').val();
     let cardItemName = $('#selectCardItemNameValue').val();
@@ -919,19 +901,6 @@ $(document).on("click", '#save-card-button', function (event) {
             })
             .done(function (result) {
                 console.log(result);
-                //                displayCardItemDropdown(cardSubCategory);
-                //                        $('#add-card-main').show();
-                //                        $('#add-card-item').hide();
-                //                        $('#example-card-display-wrapper').show();
-                //                        $('#ex-card-category').show();
-                //                        $('#example-sub-cat-wrapper').show();
-                //                        $('#example-card-sub-cat').show();
-                //                        $('#ex-card').show();
-                //                        $('#blank-image').show();
-                //                        $('#ex-card h4').html(cardItem);
-                //                        $('#cat-sub-cat-select').show();
-                //                        $('#select-sub-cat').show();
-                //                        $('#ex-card-item').html(cardItem);
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -942,7 +911,6 @@ $(document).on("click", '#save-card-button', function (event) {
 
 
 });
-//*****UPDATE CARD**********UPDATE CARD**********UPDATE CARD*****
 
 
 
@@ -1137,219 +1105,6 @@ $(document).on("click", '#create-card button', function () {
 //    };
 //
 //});
-
-
-
-//$('.start-button').click(function () {
-//    if (!(loggedInUser)) {
-//        alert('Please login or register');
-//    } else {
-//        $('.logged-in-username').val(loggedInUser);
-//        $('.hide-everything').hide();
-//        $('.logout-account').show();
-//        $('#questions').show();
-//        $('.get-started-instructions').show();
-//        $('.answer-questions').show();
-//        $('.enter-value-belief').show();
-//    };
-//});
-
-
-
-//$('.save-answers-button').click(function (event) {
-//    event.preventDefault();
-//    let answer1 = $('.js-answer1').val();
-//    let answer2 = $('.js-answer2').val();
-//    let answer3 = $('.js-answer3').val();
-//    let answer4 = $('.js-answer4').val();
-//    let answer5 = $('.js-answer5').val();
-//    let answer6 = $('.js-answer6').val();
-//    let sopLoggedInUser = $('.logged-in-username').val();
-//
-//    if ((answer1 == "") || (answer2 == "") || (answer3 == "") || (answer4 == "") || (answer5 == "") || (answer6 == "")) {
-//        alert("Please complete each field");
-//        return;
-//    } else {
-//
-//        $('.js-completed-sop1').val(answer1);
-//        $('.js-completed-sop2').val(answer2);
-//        $('.js-completed-sop3').val(answer3);
-//        $('.js-completed-sop4').val(answer4);
-//        $('#finalValues').val(answer5);
-//        $('#finalBeliefs').val(answer6);
-//
-//
-//        usersAnswers.push(answer1, answer2, answer3, answer4, answer5, answer6, sopLoggedInUser);
-//
-//        for (let i = 0; i < usersAnswers.length; i++) {
-//            $('.js-connect-answer' + (i + 1)).text(usersAnswers[i]);
-//        };
-//
-//        $('.js-connect-answer5').html("");
-//        $('#values-beliefs-goals .values ul').html("");
-//
-//        let valuesArray = answer5.split(",");
-//        for (let j = 0; j < valuesArray.length; j++) {
-//            $('#values-beliefs-goals .values ul').append("<li>" + valuesArray[j] + "</li>");
-//            $('.js-connect-answer5').append("<li>" + valuesArray[j] + "</li>");
-//        };
-//
-//
-//        $('.js-connect-answer6').html("");
-//        $('#values-beliefs-goals .beliefs ul').html("");
-//
-//        let beliefsArray = answer6.split(",");
-//        for (let h = 0; h < beliefsArray.length; h++) {
-//            $('#values-beliefs-goals .beliefs ul').append("<li>" + beliefsArray[h] + "</li>");
-//            $('.js-connect-answer6').append("<li>" + beliefsArray[h] + "</li>");
-//        };
-//
-//        $('.hide-everything').hide();
-//        $('.logout-account').show();
-//        $('#review').show();
-//    };
-//});
-
-
-
-
-
-
-
-//$('.save-completed-button').click(function (event) {
-//
-//    event.preventDefault();
-//    let createSopFreeStyle = $('.create-text').val();
-//    let createGoals = $('.my-goals').val();
-//    let sopId = $('.updated-sop-id').val();
-//
-//    if (createSopFreeStyle == "") {
-//        alert("Please create Statement of Purpose");
-//        return;
-//    } else if (createGoals != "") {
-//        usersCompletedSop.push(createSopFreeStyle);
-//
-//        $('#completed-sop .purpose p').html(createSopFreeStyle);
-//
-//        $('.hide-everything').hide();
-//        $('.navigate-options').show();
-//        $('.logout-account').show();
-//        $('#completed-sop').show();
-//        $('#values-beliefs-goals').show();
-//        $('#finalSopBody').val(createSopFreeStyle);
-//    } else {
-//        usersCompletedSop.push(createSopFreeStyle);
-//
-//        $('#completed-sop .purpose p').html(createSopFreeStyle);
-//
-//        $('.hide-everything').hide();
-//        $('.navigate-options').show();
-//        $('.logout-account').show();
-//        $('#completed-sop').show();
-//        $('#create-goals').show();
-//        $('#finalSopBody').val(createSopFreeStyle);
-//    }
-//
-//    const userIdObject = {
-//        body: createSopFreeStyle
-//    }
-//
-//    $.ajax({
-//            type: 'PUT',
-//            url: '/statements/' + sopId,
-//            dataType: 'json',
-//            data: JSON.stringify(userIdObject),
-//            contentType: 'application/json'
-//        })
-//        .done(function (result) {})
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//        });
-//});
-
-
-//
-//$('.save-completed-template-button').click(function (event) {
-//
-//    event.preventDefault();
-//    let createSopSentence1 = $('.js-completed-sop1').val();
-//    let createSopSentence2 = $('.js-completed-sop2').val();
-//    let createSopSentence3 = $('.js-completed-sop3').val();
-//    let createSopSentence4 = $('.js-completed-sop4').val();
-//    if ((createSopSentence1 == "") || (createSopSentence2 == "") || (createSopSentence3 == "") || (createSopSentence4 == "")) {
-//        alert("Please create Statement of Purpose");
-//        return;
-//    } else {
-//        let createSopTemplate = "It is my purpose to " + createSopSentence1 + ". I will grow and develop my " + createSopSentence2 + ". The people that are most important to me are " + createSopSentence3 + ". I will strive to " + createSopSentence4 + ".";
-//
-//
-//        $('#completed-sop .purpose p').html("");
-//        $('#completed-sop .purpose p').append("<p>" + createSopTemplate + "</p>");
-//
-//        $('#finalSopBody').val(createSopTemplate);
-//    }
-//
-//    $('.hide-everything').hide();
-//    $('.logout-account').show();
-//    $('.navigate-options').show();
-//    $('#completed-sop').show();
-//    $('#create-goals').show();
-//});
-
-
-
-
-//$('.save-goals-button').click(function () {
-//    let user = $('#finalLoggedinUser').val();
-//    let body = $('#finalSopBody').val();
-//    let values = $('#finalValues').val();
-//    let beliefs = $('#finalBeliefs').val();
-//    let goals = $('.my-goals').val();
-//    if (goals == "") {
-//        alert("Please create goals");
-//        return;
-//    } else {
-//        $('#values-beliefs-goals .goals ul').html("");
-//        let goalsArray = goals.split(",");
-//        for (let k = 0; k < goalsArray.length; k++) {
-//            $('#values-beliefs-goals .goals ul').append("<li>" + goalsArray[k] + "</li>");
-//        };
-//        $('.hide-everything').hide();
-//        $('.navigate-options').show();
-//        $('.logout-account').show();
-//        $('#completed-sop').show();
-//        $('#values-beliefs-goals').show();
-//
-//        const userStatementObject = {
-//            user: user,
-//            body: body,
-//            values: values,
-//            beliefs: beliefs,
-//            goals: goals
-//        }
-//
-//        $.ajax({
-//                type: 'POST',
-//                url: '/statements/create',
-//                dataType: 'json',
-//                data: JSON.stringify(userStatementObject),
-//                contentType: 'application/json'
-//            })
-//            .done(function (result) {
-//
-//            })
-//            .fail(function (jqXHR, error, errorThrown) {
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//            });
-//        displayUpdatedStatement(user);
-//    }
-//});
-
-
 
 $('#nav-logout').click(function () {
     window.location.reload();

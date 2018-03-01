@@ -5,58 +5,58 @@
     "name": "air conditioner",
     "url": "air-conditioner.png"
 } {
-    "name": "armchair, chair, living room, blue chair, accent chair",
+    "name": "armchair",
     "url": "armchair-1.png"
 } {
-    "name": "armchair, chair, living room, grey chair, accent chair",
+    "name": "chair",
     "url": "armchair-2.png"
 } {
-    "name": "armchair, chair, living room, brown chair",
+    "name": "armchair",
     "url": "armchair-3.png"
 } {
-    "name": "armchair, chair, living room, brown chair",
+    "name": "armchair",
     "url": "armchair-4.png"
 } {
-    "name": "armchair, chair, living room, dark brown chair",
+    "name": "recliner",
     "url": "armchair-5.png"
 } {
-    "name": "armchair, chair, living room, yellow chair, accent chair",
+    "name": "accent chair",
     "url": "armchair-6.png"
 } {
-    "name": "armchair, chair, living room, brown chair, lamp, accent chair",
+    "name": "armchair",
     "url": "armchair-7.png"
 } {
-    "name": "armchair, chair, living room, green chair",
+    "name": "armchair",
     "url": "armchair.png"
 } {
-    "name": "armchair, chair, living room, chair",
+    "name": "armchair",
     "url": "armchair.png"
 } {
-    "name": "bathtub, shower, bathroom",
+    "name": "shower",
     "url": "bathtub-1.png"
 } {
-    "name": "bathtub, shower, bathroom",
+    "name": "bathtub",
     "url": "bathtub-2.png"
 } {
-    "name": "bathtub, shower, bathroom",
+    "name": "shower",
     "url": "bathtub.png"
 } {
-    "name": "bed, bedroom",
+    "name": "bed",
     "url": "bed-1.png"
 } {
-    "name": "bed, bedroom",
+    "name": "bed",
     "url": "bed-2.png"
 } {
-    "name": "bed, bedroom",
+    "name": "bed",
     "url": "bed.png"
 } {
-    "name": "blender, kitchen",
+    "name": "blender",
     "url": "blender.png"
 } {
-    "name": "tea kettle, boiler, kitchen",
+    "name": "tea kettle",
     "url": "boiler.png"
 } {
-    "name": "bonsai, plant",
+    "name": "bonsai",
     "url": "bonsai.png"
 } {
     "name": "bookcase",
@@ -65,7 +65,7 @@
     "name": "bookcase",
     "url": "bookcase.png"
 } {
-    "name": "bookshelf, end table",
+    "name": "bookshelf",
     "url": "bookshelf-1.png"
 } {
     "name": "bookshelf",
@@ -80,211 +80,211 @@
     "name": "bookshelf",
     "url": "bookshelf.png"
 } {
-    "name": "cactus, plant, houseplant",
+    "name": "cactus",
     "url": "cactus-1.png"
 } {
-    "name": "cactus, plant, houseplant",
+    "name": "cactus",
     "url": "cactus.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "chair",
     "url": "chair-1.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "dining room chair",
     "url": "chair-2.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "chair",
     "url": "chair-3.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "chair",
     "url": "chair-4.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "chair",
     "url": "chair-5.png"
 } {
-    "name": "chair, dining chair, dining room",
+    "name": "chair",
     "url": "chair.png"
 } {
-    "name": "chandelier, light",
+    "name": "chandelier",
     "url": "chandelier.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "chest of drawers",
     "url": "chest-of-drawers-1.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "chest of drawers",
     "url": "chest-of-drawers-2.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "drawers",
     "url": "chest-of-drawers-3.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "dresser",
     "url": "chest-of-drawers-4.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "dresser",
     "url": "chest-of-drawers-5.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "dresser",
     "url": "chest-of-drawers-6.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "chest of drawers",
     "url": "chest-of-drawers-7.png"
 } {
-    "name": "chest of drawers, drawers, dresser",
+    "name": "dresser",
     "url": "chest-of-drawers.png"
 } {
-    "name": "closet, armoire, wardrobe",
+    "name": "wardrobe",
     "url": "closet-1.png"
 } {
-    "name": "closet, armoire, wardrobe",
+    "name": "armoire",
     "url": "closet-2.png"
 } {
-    "name": "closet, armoire, wardrobe",
+    "name": "armoire",
     "url": "closet-3.png"
 } {
-    "name": "closet, armoire, wardrobe",
+    "name": "wardrobe",
     "url": "closet-4.png"
 } {
-    "name": "closet, armoire, wardrobe",
+    "name": "wardrobe",
     "url": "closet.png"
 } {
-    "name": "coffee maker, espresso, coffee",
+    "name": "espresso",
     "url": "coffee-machine.png"
 } {
-    "name": "cooker, rice cooker",
+    "name": "oven",
     "url": "cooker.png"
 } {
-    "name": "fan, cooler",
+    "name": "fan",
     "url": "cooler.png"
 } {
-    "name": "couch, living room, red couch",
+    "name": "love seat",
     "url": "couch-1.png"
 } {
-    "name": "couch, living room, brown couch",
+    "name": "couch",
     "url": "couch-2.png"
 } {
-    "name": "couch, living room, brown loveseat, loveseat",
+    "name": "loveseat",
     "url": "couch-3.png"
 } {
-    "name": "couch, living room, grey couch, grey loveseat",
+    "name": "loveseat",
     "url": "couch-4.png"
 } {
-    "name": "couch, living room, green loveseat, green couch",
+    "name": "loveseat",
     "url": "couch-5.png"
 } {
-    "name": "couch, living room, couch, grey couch, grey loveseat",
+    "name": "loveseat",
     "url": "couch-6.png"
 } {
-    "name": "couch, living room, white couch, white couch",
+    "name": "couch",
     "url": "couch-7.png"
 } {
-    "name": "couch, living room, green loveseat, green couch, divan",
+    "name": "futon",
     "url": "couch-8.png"
 } {
-    "name": "couch, living room, grey loveseat, grey couch, divan",
+    "name": "couch",
     "url": "couch-9.png"
 } {
-    "name": "couch, living room, couch, divan",
+    "name": "couch",
     "url": "couch-10.png"
 } {
-    "name": "couch, living room, couch, divan",
+    "name": "couch",
     "url": "couch-11.png"
 } {
-    "name": "couch, living room, brown loveseat, brown couch",
+    "name": "loveseat",
     "url": "couch.png"
 } {
-    "name": "desk, office",
+    "name": "desk",
     "url": "desk-1.png"
 } {
-    "name": "desk, office, computer desk",
+    "name": "computer desk",
     "url": "desk-2.png"
 } {
-    "name": "desk, office, computer desk",
+    "name": "desk",
     "url": "desk-3.png"
 } {
-    "name": "desk, office, computer desk",
+    "name": "desk",
     "url": "desk-4.png"
 } {
-    "name": "desk, office, computer desk",
+    "name": "desk",
     "url": "desk.png"
 } {
-    "name": "dishwasher, kitchen",
+    "name": "dishwasher",
     "url": "dishwasher.png"
 } {
-    "name": "door, red door",
+    "name": "door",
     "url": "door-1.png"
 } {
-    "name": "door, brown door",
+    "name": "door",
     "url": "door-2.png"
 } {
-    "name": "door",
+    "name": "screen door",
     "url": "door-3.png"
 } {
-    "name": "door, tan door",
+    "name": "door",
     "url": "door-4.png"
 } {
-    "name": "door, double doors, french doors",
+    "name": "french doors",
     "url": "door-5.png"
 } {
-    "name": "door, front door",
+    "name": "door",
     "url": "door-6.png"
 } {
-    "name": "door, front door",
+    "name": "door",
     "url": "door.png"
 } {
-    "name": "dressing, dressing table",
+    "name": "dressing table",
     "url": "dressing-1.png"
 } {
-    "name": "dressing, dressing table",
+    "name": "dressing table",
     "url": "dressing-2.png"
 } {
-    "name": "dressing, closet, armoire",
+    "name": "wardrobe",
     "url": "dressing.png"
 } {
-    "name": "fireplace, heat, warm, fire",
+    "name": "fireplace",
     "url": "fireplace-1.png"
 } {
-    "name": "fireplace, heat, warm, fire",
+    "name": "fireplace",
     "url": "fireplace-2.png"
 } {
-    "name": "fireplace, heat, warm, fire",
+    "name": "fireplace",
     "url": "fireplace-3.png"
 } {
-    "name": "fireplace, heat, warm, fire",
+    "name": "fireplace",
     "url": "fireplace.png"
 } {
-    "name": "flower, flower pot, plant",
+    "name": "flower",
     "url": "flower-1.png"
 } {
-    "name": "flower, flower pot, plant",
+    "name": "tulip",
     "url": "flower.png"
 } {
     "name": "food steamer",
     "url": "food-steamer.png "
 } {
-    "name": "fridge, refrigerator",
+    "name": "refrigerator",
     "url": "fridge-1.png"
 } {
-    "name": "fridge, refrigerator",
+    "name": "fridge",
     "url": "fridge-2.png"
 } {
-    "name": "fridge, refrigerator",
+    "name": "fridge",
     "url": "fridge.png"
 } {
     "name": "garage",
     "url": "garage.png"
 } {
-    "name": "hanger, coat hanger, coat rack, picture",
+    "name": "coat rack",
     "url": "hanger-1.png"
 } {
-    "name": "hanger, coat hanger, coat rack",
+    "name": "coat rack",
     "url": "hanger-2.png"
 } {
-    "name": "hanger, coat hanger, coat rack",
+    "name": "coat rack",
     "url": "hanger.png"
 } {
-    "name": "heater, warm",
+    "name": "heater",
     "url": "heater.png"
 } {
-    "name": "hood, kitchen fan",
+    "name": "kitchen fan",
     "url": "hood.png"
 } {
     "name": "iron",
@@ -293,145 +293,145 @@
     "name": "juicer",
     "url": "juicer.png"
 } {
-    "name": "lamp, light, table lamp",
+    "name": "lamp",
     "url": "lamp-1.png"
 } {
-    "name": "lamp, light, table lamp",
+    "name": "lamp",
     "url": "lamp-2.png"
 } {
-    "name": "lamp, light, wall lamp",
+    "name": "wall lamp",
     "url": "lamp-3.png"
 } {
-    "name": "lamp, light, hanging lamp",
+    "name": "hanging lamp",
     "url": "lamp-4.png"
 } {
-    "name": "lamp, light, table lamp",
+    "name": "table lamp",
     "url": "lamp-5.png"
 } {
-    "name": "lamp, light, table lamp",
+    "name": "table lamp",
     "url": "lamp-6.png"
 } {
-    "name": "lamp, light, desk lamp",
+    "name": "desk lamp",
     "url": "lamp-7.png"
 } {
-    "name": "lamp, light, desk lamp",
+    "name": "desk lamp",
     "url": "lamp.png"
 } {
-    "name": "library, record player, speakers, book shelf",
+    "name": "record player",
     "url": "library.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-1.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-2.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-3.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-4.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-5.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-6.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-7.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-8.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb-9.png"
 } {
-    "name": "light bulb, light",
+    "name": "light bulb",
     "url": "light-bulb.png"
 } {
-    "name": "lights, hanging lights",
+    "name": "hanging lights",
     "url": "lights.png"
 } {
-    "name": "living room, floor lamp, light",
+    "name": "floor lamp",
     "url": "living-room.png"
 } {
-    "name": "living room, couch, green couch, picture, picture frame",
+    "name": "living room",
     "url": "livingroom-1.png"
 } {
-    "name": "living room, couch, brown couch, shelf, books",
+    "name": "living room",
     "url": "livingroom-2.png"
 } {
-    "name": "living room, chaise lounge, red, couch, picture, frame",
+    "name": "chaise lounge",
     "url": "livingroom.png"
 } {
-    "name": "meat grinder, kitchen",
+    "name": "meat grinder",
     "url": "meat-grinder.png"
 } {
-    "name": "microwave, kitchen",
+    "name": "microwave",
     "url": "microwave-1.png"
 } {
-    "name": "microwave, kitchen",
+    "name": "microwave",
     "url": "microwave.png"
 } {
-    "name": "mixer, kitchen",
+    "name": "hand blender",
     "url": "mixer-1.png"
 } {
-    "name": "mixer, kitchen",
+    "name": "mixer",
     "url": "mixer-2.png"
 } {
-    "name": "mixer, kitchen, hand mixer",
+    "name": "hand mixer",
     "url": "mixer-3.png"
 } {
-    "name": "mixer, kitchen, kitchen aid",
+    "name": "blender",
     "url": "mixer.png"
 } {
-    "name": "nightstand, end table, side table, dresser",
+    "name": "dresser",
     "url": "nightstand-1.png"
 } {
-    "name": "nightstand, end table, side table, dresser",
+    "name": "nightstand",
     "url": "nightstand-2.png"
 } {
-    "name": "nightstand, end table, side table, dresser",
+    "name": "end table",
     "url": "nightstand.png"
 } {
-    "name": "office chair, red office chair",
+    "name": "office chair",
     "url": "office-chair-1.png"
 } {
-    "name": "office chair, grey office chair",
+    "name": "office chair",
     "url": "office-chair-2.png"
 } {
-    "name": "office chair, white office chair",
+    "name": "office chair",
     "url": "office-chair-3.png"
 } {
-    "name": "office chair, purple office chair",
+    "name": "office chair",
     "url": "office-chair-4.png"
 } {
-    "name": "office chair, green office chair",
+    "name": "office chair",
     "url": "office-chair-5.png"
 } {
-    "name": "office chair, brown wood office chair",
+    "name": "office chair",
     "url": "office-chair-6.png"
 } {
-    "name": "office chair, red office chair",
+    "name": "office chair",
     "url": "office-chair-7.png"
 } {
-    "name": "office chair, grey office chair",
+    "name": "office chair",
     "url": "office-chair-8.png"
 } {
-    "name": "office chair, yellow office chair",
+    "name": "office chair",
     "url": "office-chair-9.png"
 } {
-    "name": "office chair, brown office chair",
+    "name": "office chair",
     "url": "office-chair-10.png"
 } {
-    "name": "office chair, white office chair",
+    "name": "office chair",
     "url": "office-chair-11.png"
 } {
-    "name": "office chair, brown office chair",
+    "name": "office chair",
     "url": "office-chair.png"
 } {
-    "name": "ottoman, footstool, living room",
+    "name": "ottoman",
     "url": "ottoman.png"
 } {
     "name": "pipe",
@@ -455,16 +455,16 @@
     "name": "pipe",
     "url": "pipe.png"
 } {
-    "name": "plant, pot, house plant",
+    "name": "house plant",
     "url": "plant-1.png"
 } {
-    "name": "plant, pot, house plant",
+    "name": "house plant",
     "url": "plant-2.png"
 } {
-    "name": "plant, pot, house plant, cactus",
+    "name": "house plant",
     "url": "plant-3.png"
 } {
-    "name": "plant, pot, house plant",
+    "name": "plant",
     "url": "plant.png"
 } {
     "name": "radiator",
@@ -482,82 +482,82 @@
     "name": "radiator",
     "url": "radiator.png"
 } {
-    "name": "sandwich maker, kitchen, appliance",
+    "name": "sandwich maker",
     "url": "sandwich-maker.png"
 } {
-    "name": "sewing machine, crafts",
+    "name": "sewing machine",
     "url": "sewing-machine.png"
 } {
-    "name": "shower, bathroom",
+    "name": "shower",
     "url": "shower-1.png"
 } {
-    "name": "shower, bathroom",
+    "name": "shower",
     "url": "shower-2.png"
 } {
-    "name": "shower, bathroom",
+    "name": "shower",
     "url": "shower.png"
 } {
-    "name": "sink, bathroom",
+    "name": "sink",
     "url": "sink-1.png"
 } {
-    "name": "sink, bathroom",
+    "name": "sink",
     "url": "sink.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-1.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-2.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-3.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-4.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-5.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "chaise lounge",
     "url": "sofa-6.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-7.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-8.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-9.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-10.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-11.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-12.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-13.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-14.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-15.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-16.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-17.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa-18.png"
 } {
-    "name": "sofa, couch, living room",
+    "name": "sofa",
     "url": "sofa.png"
 } {
     "name": "stairs",
@@ -575,58 +575,58 @@
     "name": "stool",
     "url": "stool.png"
 } {
-    "name": "stove, stovetop, kitchen",
+    "name": "stovetop",
     "url": "stove-1.png"
 } {
-    "name": "stove, oven, kitchen",
+    "name": "oven",
     "url": "stove.png"
 } {
-    "name": "table, dining table",
+    "name": "table",
     "url": "table-1.png"
 } {
-    "name": "table, dining table",
+    "name": "table",
     "url": "table-2.png"
 } {
-    "name": "table, dining table",
+    "name": "dining table",
     "url": "table-3.png"
 } {
-    "name": "table, dining table",
+    "name": "table",
     "url": "table-4.png"
 } {
-    "name": "table, dining table",
+    "name": "table",
     "url": "table-5.png"
 } {
-    "name": "table, dining table",
+    "name": "dining table",
     "url": "table-6.png"
 } {
-    "name": "table, coffee table",
+    "name": "coffee table",
     "url": "table-7.png"
 } {
-    "name": "table, coffee table",
+    "name": "coffee table",
     "url": "table.png"
 } {
-    "name": "tap water, tap, water, faucet",
+    "name": "faucet",
     "url": "tap.png"
 } {
-    "name": "television, entertainment center, tv, flatscreen",
+    "name": "entertainment center",
     "url": "television-1.png"
 } {
-    "name": "television, entertainment center, tv, flatscreen",
+    "name": "television",
     "url": "television-2.png"
 } {
-    "name": "television, entertainment center, tv, flatscreen",
+    "name": "entertainment center",
     "url": "television-3.png"
 } {
-    "name": "television, entertainment center, tv, flatscreen",
+    "name": "entertainment center",
     "url": "television-4.png"
 } {
-    "name": "television, entertainment center, tv, flatscreen",
+    "name": "entertainment center",
     "url": "television.png"
 } {
-    "name": "toilet, bathroom",
+    "name": "toilet",
     "url": "toilet.png"
 } {
-    "name": "tulips, flowers, vase",
+    "name": "tulips",
     "url": "tulips.png"
 } {
     "name": "vacuum cleaner",
@@ -641,28 +641,28 @@
     "name": "valve",
     "url": "valve.png"
 } {
-    "name": "wall, brick wall",
+    "name": "brick wall",
     "url": "wall.png"
 } {
-    "name": "wardrobe, armoire, closet",
+    "name": "wardrobe",
     "url": "wardrobe-1.png"
 } {
-    "name": "wardrobe, armoire, closet",
+    "name": "wardrobe",
     "url": "wardrobe-2.png"
 } {
-    "name": "wardrobe, armoire, closet",
+    "name": "wardrobe",
     "url": "wardrobe.png"
 } {
-    "name": "washing machine, washer, laundry",
+    "name": "washer",
     "url": "washing-machine-1.png"
 } {
-    "name": "washing machine, dryer, laundry",
+    "name": "dryer",
     "url": "washing-machine.png"
 } {
     "name": "water heater",
     "url": "water-heater.png"
 } {
-    "name": "window, curtains",
+    "name": "window curtains",
     "url": "window-1.png"
 } {
     "name": "window",
@@ -671,13 +671,13 @@
     "name": "window",
     "url": "window-3.png"
 } {
-    "name": "window, curtain",
+    "name": "window shade",
     "url": "window-4.png"
 } {
-    "name": "window",
+    "name": "shutters",
     "url": "window-5.png"
 } {
-    "name": "window, curtain",
+    "name": "curtain",
     "url": "window-6.png"
 } {
     "name": "window",
@@ -689,49 +689,49 @@
     "name": "window",
     "url": "window-9.png"
 } {
-    "name": "window, curtain",
+    "name": "window curtain",
     "url": "window.png"
 } {
-    "name": "bag, purse",
+    "name": "hand bag",
     "url": "bag.png"
 } {
-    "name": "ballgown, dress, clothing",
+    "name": "ballgown",
     "url": "ballgown.png"
 } {
-    "name": "belt, clothing",
+    "name": "belt",
     "url": "belt.png"
 } {
-    "name": "blazer, jacket, clothing",
+    "name": "jacket",
     "url": "blazer.png"
 } {
-    "name": "boots, shoes, clothing",
+    "name": "boots",
     "url": "boots.png"
 } {
-    "name": "cap, hat, accessory",
+    "name": "cap",
     "url": "cap.png"
 } {
-    "name": "clutch, purse, accessory",
+    "name": "clutch",
     "url": "clutch.png"
 } {
-    "name": "dress, clothing",
+    "name": "dress",
     "url": "dress-1.png"
 } {
-    "name": "dress, clothing",
+    "name": "dress",
     "url": "dress-2.png"
 } {
-    "name": "dress, clothing",
+    "name": "dress",
     "url": "dress.png"
 } {
-    "name": "hat, accessory",
+    "name": "hat",
     "url": "hat-1.png"
 } {
-    "name": "hat, accessory",
+    "name": "hat",
     "url": "hat.png"
 } {
-    "name": "hoodie, coat, jacket, clothing",
+    "name": "coat",
     "url": "hoodie.png"
 } {
-    "name": "long dress, dress, clothing",
+    "name": "maxie dress",
     "url": "long-dress.png"
 } {
     "name": "pamela, hat, sun bonnet, accessory",
@@ -917,7 +917,7 @@
     "name": "coconut",
     "url": "coconut.png"
 } {
-    "name": "coffee maker, coffee pot, coffee",
+    "name": "coffee maker",
     "url": "coffee-1.png"
 } {
     "name": "coffee beans",
