@@ -734,82 +734,82 @@
     "name": "maxie dress",
     "url": "long-dress.png"
 } {
-    "name": "pamela, hat, sun bonnet, accessory",
+    "name": "sun hat",
     "url": "pamela.png"
 } {
-    "name": "purse, bag, accessory",
+    "name": "purse",
     "url": "purse.png"
 } {
-    "name": "shirt, t-shirt, clothing",
+    "name": "t-shirt",
     "url": "shirt-1.png"
 } {
-    "name": "shirt, dress shirt, clothing, man's dress shirt",
+    "name": "man's dress shirt",
     "url": "shirt-2.png"
 } {
-    "name": "shirt, polo shirt, clothing",
+    "name": "polo shirt",
     "url": "shirt-3.png"
 } {
-    "name": "shirt, t-shirt, clothing",
+    "name": "t-shirt",
     "url": "shirt-4.png"
 } {
-    "name": "shirt, tank top, clothing",
+    "name": "tank top",
     "url": "shirt-5.png"
 } {
-    "name": "shirt, short sleeve shirt, clothing",
+    "name": "short sleeve shirt",
     "url": "shirt.png"
 } {
-    "name": "shoes, men's dress shoes",
+    "name": "men's dress shoes",
     "url": "shoes-1.png"
 } {
-    "name": "shoes, men's dress shoes",
+    "name": "men's dress shoes",
     "url": "shoes.png"
 } {
-    "name": "shorts, clothing",
+    "name": "shorts",
     "url": "shorts.png"
 } {
-    "name": "skirt, clothing",
+    "name": "skirt",
     "url": "skirt-1.png"
 } {
-    "name": "skirt, clothing",
+    "name": "skirt",
     "url": "skirt.png"
 } {
-    "name": "sneakers, shoes, tennis shoes",
+    "name": "sneakers",
     "url": "sneakers.png"
 } {
-    "name": "sweater, clothing",
+    "name": "sweater",
     "url": "sweater-1.png"
 } {
-    "name": "sweater, clothing",
+    "name": "sweater",
     "url": "sweater.png"
 } {
-    "name": "swimsuit, bathing suit, clothing",
+    "name": "swimsuit",
     "url": "swimsuit.png"
 } {
-    "name": "tie, neck tie, accessory",
+    "name": "neck tie",
     "url": "tie.png"
 } {
-    "name": "top hat, hat, accessory",
+    "name": "top hat",
     "url": "top-hat.png"
 } {
-    "name": "trousers, pants, jeans, clothing",
+    "name": "jeans",
     "url": "trousers.png"
 } {
-    "name": "underwear, underclothes, bikini",
+    "name": "bikini",
     "url": "underwear.png"
 } {
-    "name": "uniform, outfit, sweater, skirt, clothing",
+    "name": "outfit",
     "url": "uniform.png"
 } {
-    "name": "apple, fruit",
+    "name": "apple",
     "url": "apple-1.png"
 } {
-    "name": "apple, fruit",
+    "name": "apple",
     "url": "apple.png"
 } {
-    "name": "asparagus, vegetable",
+    "name": "asparagus",
     "url": "asparagus.png"
 } {
-    "name": "eggplant, aubergine",
+    "name": "eggplant",
     "url": "aubergine.png"
 } {
     "name": "avocado",
@@ -821,25 +821,25 @@
     "name": "baguette",
     "url": "baguette.png"
 } {
-    "name": "banana, fruit",
+    "name": "banana",
     "url": "banana.png"
 } {
-    "name": "beans, peas, vegetable",
+    "name": "beans",
     "url": "beans.png"
 } {
-    "name": "cracker, biscuit",
+    "name": "cracker",
     "url": "biscuit.png"
 } {
-    "name": "blueberries, berries",
+    "name": "blueberries",
     "url": "blueberries.png"
 } {
-    "name": "boiled egg, boiled, egg",
+    "name": "boiled egg",
     "url": "boiled.png"
 } {
-    "name": "bowl, dish",
+    "name": "bowl",
     "url": "bowl-1.png"
 } {
-    "name": "bowl, dish, food",
+    "name": "bowl",
     "url": "bowl.png"
 } {
     "name": "bread",
@@ -848,31 +848,31 @@
     "name": "bread knife",
     "url": "bread-2.png"
 } {
-    "name": "bread, baguette",
+    "name": "baguettes",
     "url": "bread.png"
 } {
-    "name": "broccoli, vegetable",
+    "name": "broccoli",
     "url": "broccoli.png"
 } {
-    "name": "butcher knife, knife",
+    "name": "butcher knife",
     "url": "butcher.png"
 } {
-    "name": "apple butter, butter, jam, peanut butter",
+    "name": "apple butter",
     "url": "butter.png"
 } {
-    "name": "cabbage, vegetable",
+    "name": "cabbage",
     "url": "cabbage.png"
 } {
-    "name": "cake, birthday cake",
+    "name": "birthday cake",
     "url": "cake.png"
 } {
-    "name": "soda, pop, coke",
+    "name": "soda",
     "url": "can-1.png"
 } {
-    "name": "canned food, can",
+    "name": "canned food",
     "url": "can-2.png"
 } {
-    "name": "soda, pop, coke",
+    "name": "pop",
     "url": "can.png"
 } {
     "name": "candy",
@@ -881,19 +881,19 @@
     "name": "candy",
     "url": "candy.png"
 } {
-    "name": "carrot, vegetable",
+    "name": "carrot",
     "url": "carrot.png"
 } {
-    "name": "cauliflower, vegetable",
+    "name": "cauliflower",
     "url": "cauliflower.png"
 } {
     "name": "cereal",
     "url": "cereals.png"
 } {
-    "name": "cheese, swiss cheese",
+    "name": "swiss cheese",
     "url": "cheese-1.png"
 } {
-    "name": "image",
+    "name": "cheddar cheese",
     "url": "cheese.png"
 } {
     "name": "chef hat",
@@ -905,13 +905,13 @@
     "name": "chili pepper",
     "url": "chili.png"
 } {
-    "name": "chips, potato chips",
+    "name": "chips",
     "url": "chips.png"
 } {
-    "name": "chives, green onion",
+    "name": "chives",
     "url": "chives.png"
 } {
-    "name": "chocolate, candy",
+    "name": "chocolate",
     "url": "chocolate.png"
 } {
     "name": "coconut",
@@ -923,25 +923,25 @@
     "name": "coffee beans",
     "url": "coffee-2.png"
 } {
-    "name": "latte, coffee",
+    "name": "latte",
     "url": "coffee-3.png"
 } {
-    "name": "latte, coffee",
+    "name": "latte",
     "url": "coffee-4.png"
 } {
-    "name": "coffee, coffee maker, coffee pot",
+    "name": "coffee pot",
     "url": "coffee-maker.png"
 } {
-    "name": "coffee, cup of coffee",
+    "name": "cup of coffee",
     "url": "coffee.png"
 } {
-    "name": "cookies, dessert",
+    "name": "cookies",
     "url": "cookies.png"
 } {
     "name": "corkscrew",
     "url": "corckscrew.png"
 } {
-    "name": "corn, corn on the cob, vegetable",
+    "name": "corn on the cob",
     "url": "corn.png"
 } {
     "name": "corndog",
@@ -950,10 +950,10 @@
     "name": "croissant",
     "url": "croissant.png"
 } {
-    "name": "cucumber, vegetable",
+    "name": "cucumber",
     "url": "cucumber.png"
 } {
-    "name": "cup, cup and saucer",
+    "name": "cup and saucer",
     "url": "cup.png"
 } {
     "name": "cupcake",
@@ -965,16 +965,16 @@
     "name": "cupcake",
     "url": "cupcake.png"
 } {
-    "name": "cutlery, knife, fork",
+    "name": "cutlery",
     "url": "cutlery.png"
 } {
-    "name": "dairy, milk",
+    "name": "milk",
     "url": "dairy.png"
 } {
-    "name": "dish, entree",
+    "name": "entree",
     "url": "dish.png"
 } {
-    "name": "dishes, bowls",
+    "name": "bowls",
     "url": "dishes.png"
 } {
     "name": "doughnut",
@@ -986,25 +986,25 @@
     "name": "doughnut",
     "url": "doughnut.png"
 } {
-    "name": "egg, breakfast",
+    "name": "fried egg",
     "url": "egg.png"
 } {
-    "name": "eggs, breakfast",
+    "name": "eggs",
     "url": "eggs.png"
 } {
     "name": "fig",
     "url": "fig.png"
 } {
-    "name": "fish, seafood",
+    "name": "fish",
     "url": "fish.png"
 } {
-    "name": "flour, baking",
+    "name": "flour",
     "url": "flour-1.png"
 } {
-    "name": "flour, baking",
+    "name": "flour",
     "url": "flour.png"
 } {
-    "name": "food, entree",
+    "name": "entree",
     "url": "food.png"
 } {
     "name": "fork",
@@ -1013,61 +1013,61 @@
     "name": "frappe",
     "url": "frappe.png"
 } {
-    "name": "fries, french fries",
+    "name": "french fries",
     "url": "fries.png"
 } {
     "name": "garlic",
     "url": "garlic.png"
 } {
-    "name": "gingerbread, cookie",
+    "name": "gingerbread cookie",
     "url": "gingerbread.png"
 } {
-    "name": "glass, wine, wine glass",
+    "name": "wine glass",
     "url": "glass-1.png"
 } {
-    "name": "glass, champagne",
+    "name": "champagne",
     "url": "glass-2.png"
 } {
-    "name": "glass, martini",
+    "name": "martini",
     "url": "glass-3.png"
 } {
-    "name": "glass, wine, wine glass",
+    "name": "wine glass",
     "url": "glass-4.png"
 } {
-    "name": "glass, ice, drink",
+    "name": "drink",
     "url": "glass-5.png"
 } {
-    "name": "glass, beer, drink",
+    "name": "beer",
     "url": "glass-6.png"
 } {
-    "name": "glass, ice water, drink",
+    "name": "ice water",
     "url": "glass.png"
 } {
-    "name": "grain, wheat",
+    "name": "grain",
     "url": "grain.png"
 } {
     "name": "grapes",
     "url": "grapes.png"
 } {
-    "name": "grater, cheese grater",
+    "name": "cheese grater",
     "url": "grater.png"
 } {
-    "name": "grinder, pepper grinder",
+    "name": "pepper grinder",
     "url": "grinder.png"
 } {
-    "name": "groceries, shopping, grocery shopping",
+    "name": "groceries",
     "url": "groceries.png"
 } {
-    "name": "ham, meat",
+    "name": "ham",
     "url": "ham.png"
 } {
     "name": "hamburger",
     "url": "hamburguer-1.png"
 } {
-    "name": "hamburger, cheeseburger",
+    "name": "cheeseburger",
     "url": "hamburguer.png"
 } {
-    "name": "hazelnut, nut",
+    "name": "hazelnut",
     "url": "hazelnut.png"
 } {
     "name": "honey",
@@ -1082,76 +1082,76 @@
     "name": "hot dog",
     "url": "hot-dog.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-1.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-2.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-3.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-4.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-5.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-6.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-7.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-8.png"
 } {
-    "name": "ice cream, ice cream bar",
+    "name": "ice cream bar",
     "url": "ice-cream-9.png"
 } {
     "name": "ice cream",
     "url": "ice-cream-10.png"
 } {
-    "name": "ice cream, ice cream cone",
+    "name": "ice cream cone",
     "url": "ice-cream-11.png"
 } {
-    "name": "ice cream, ice cream cone",
+    "name": "ice cream cone",
     "url": "ice-cream-12.png"
 } {
-    "name": "ice cream, ice cream cone",
+    "name": "ice cream cone",
     "url": "ice-cream-13.png"
 } {
-    "name": "ice cream, ice cream cone",
+    "name": "ice cream cone",
     "url": "ice-cream-14.png"
 } {
-    "name": "ice cream, ice cream bar, chocolate ice cream",
+    "name": "chocolate ice cream bar",
     "url": "ice-cream.png"
 } {
-    "name": "jam, strawberry jam, jelly",
+    "name": " strawberry  jelly",
     "url": "jam-1.png"
 } {
-    "name": "jam, grape jam, jelly",
+    "name": " grape  jelly",
     "url": "jam.png"
 } {
-    "name": "sucker, candy, sweets",
+    "name": "sucker",
     "url": "jawbreaker.png"
 } {
-    "name": "jelly, jam",
+    "name": "jelly",
     "url": "jelly.png"
 } {
-    "name": "kebab, meat",
+    "name": "kebab",
     "url": "kebab-1.png"
 } {
-    "name": "kebab, meat",
+    "name": "kebab",
     "url": "kebab-2.png"
 } {
-    "name": "kebab, wrap",
+    "name": "wrap",
     "url": "kebab.png"
 } {
-    "name": "kitchen, oven mitt",
+    "name": "oven mitt",
     "url": "kitchen.png"
 } {
-    "name": "knife, spatula",
+    "name": "spatula",
     "url": "knife-1.png"
 } {
     "name": "knife",
@@ -1166,7 +1166,7 @@
     "name": "knives",
     "url": "knives.png"
 } {
-    "name": "ladle, spoon",
+    "name": "ladle",
     "url": "ladle.png"
 } {
     "name": "lemon",
@@ -1184,19 +1184,19 @@
     "name": "meat",
     "url": "meat-2.png"
 } {
-    "name": "meat, chicken leg",
+    "name": "chicken leg",
     "url": "meat.png"
 } {
-    "name": "milk, dairy",
+    "name": "milk",
     "url": "milk-1.png"
 } {
-    "name": "milk, dairy",
+    "name": "milk",
     "url": "milk.png"
 } {
-    "name": "mixer, blender",
+    "name": "mixer",
     "url": "mixer.png"
 } {
-    "name": "mug, cup",
+    "name": "mug",
     "url": "mug.png"
 } {
     "name": "mushroom",
@@ -1205,91 +1205,91 @@
     "name": "mushrooms",
     "url": "mushrooms.png"
 } {
-    "name": "mustard, condiments",
+    "name": "mustard",
     "url": "mustard-1.png"
 } {
-    "name": "ketchup, catsup, condiments",
+    "name": "ketchup",
     "url": "mustard-2.png"
 } {
-    "name": "mustard, condiments",
+    "name": "mustard",
     "url": "mustard.png"
 } {
-    "name": "noodles, pasta",
+    "name": "noodles",
     "url": "noodles.png"
 } {
-    "name": "oat, grain, wheat",
+    "name": "oat",
     "url": "oat.png"
 } {
-    "name": "octopus, seafood",
+    "name": "octopus",
     "url": "octopus.png"
 } {
-    "name": "oil, olive oil",
+    "name": "olive oil",
     "url": "oil.png"
 } {
-    "name": "olives, green olives",
+    "name": "green olives",
     "url": "olives.png"
 } {
-    "name": "onion, vegetable",
+    "name": "onion",
     "url": "onion-1.png"
 } {
-    "name": "onion, vegetable",
+    "name": "onion",
     "url": "onion.png"
 } {
-    "name": "orange, fruit",
+    "name": "orange",
     "url": "orange.png"
 } {
-    "name": "spatula, ornating",
+    "name": "spatula",
     "url": "ornating.png"
 } {
-    "name": "skillet, pan",
+    "name": "skillet",
     "url": "pan.png"
 } {
-    "name": "pancakes, hotcakes",
+    "name": "pancakes",
     "url": "pancakes-1.png"
 } {
-    "name": "pancakes, hotcakes",
+    "name": "hotcakes",
     "url": "pancakes.png"
 } {
     "name": "pasta",
     "url": "pasta-1.png"
 } {
-    "name": "pasta, pasta noodles",
+    "name": "pasta noodles",
     "url": "pasta.png"
 } {
-    "name": "peach, fruit",
+    "name": "peach",
     "url": "peach.png"
 } {
-    "name": "pear, fruit",
+    "name": "pear",
     "url": "pear.png"
 } {
-    "name": "peas, vegetable",
+    "name": "peas",
     "url": "peas.png"
 } {
     "name": "pepper",
     "url": "pepper-1.png"
 } {
-    "name": "pepper, green pepper, vegetable",
+    "name": "green pepper",
     "url": "pepper.png"
 } {
-    "name": "pickles, vegetable",
+    "name": "pickles",
     "url": "pickles.png"
 } {
-    "name": "pie, dessert",
+    "name": "pie",
     "url": "pie-1.png"
 } {
-    "name": "pie, dessert",
+    "name": "pie",
     "url": "pie-2.png"
 } {
-    "name": "pie, dessert",
+    "name": "pie",
     "url": "pie.png"
 } {
     "name": "pineapple",
     "url": "pineapple.png"
 } {
-    "name": "pint, beer",
+    "name": "pint",
     "url": "pint.png"
 } {
-    "name": "pistachio, nut",
+    "name": "pistachio",
     "url": "pistachio.png"
 } {
     "name": "pizza",
@@ -1319,34 +1319,34 @@
     "name": "pot",
     "url": "pot-1.png"
 } {
-    "name": "pot, stock pot",
+    "name": "stock pot",
     "url": "pot-2.png"
 } {
-    "name": "pot, stock pot",
+    "name": "stock pot",
     "url": "pot.png"
 } {
-    "name": "potatoes, vegetable",
+    "name": "potatoes",
     "url": "potatoes-1.png"
 } {
-    "name": "potatoes, vegetable",
+    "name": "potatoes",
     "url": "potatoes-2.png"
 } {
-    "name": "potatoes, vegetable",
+    "name": "potatoes",
     "url": "potatoes.png"
 } {
-    "name": "pretzel, snack",
+    "name": "pretzel",
     "url": "pretzel.png"
 } {
-    "name": "pudding, dessert",
+    "name": "pudding",
     "url": "pudding.png"
 } {
     "name": "pumpkin",
     "url": "pumpkin.png"
 } {
-    "name": "radish, vegetable",
+    "name": "radish",
     "url": "radish.png"
 } {
-    "name": "raspberry, berry",
+    "name": "raspberry",
     "url": "raspberry.png"
 } {
     "name": "rice",
@@ -1358,7 +1358,7 @@
     "name": "rolling pin",
     "url": "rolling-pin.png"
 } {
-    "name": "lettuce, salad, greens",
+    "name": "lettuce",
     "url": "salad-1.png"
 } {
     "name": "salad",
@@ -1367,19 +1367,19 @@
     "name": "salami",
     "url": "salami.png"
 } {
-    "name": "salmon, fish, seafood",
+    "name": "salmon",
     "url": "salmon.png"
 } {
     "name": "salt",
     "url": "salt.png"
 } {
-    "name": "sandwich, sub sandwich",
+    "name": "sub sandwich",
     "url": "sandwich-1.png"
 } {
     "name": "sandwich",
     "url": "sandwich.png"
 } {
-    "name": "sausage, meat",
+    "name": "sausage",
     "url": "sausage.png"
 } {
     "name": "scale",
@@ -1388,13 +1388,13 @@
     "name": "seeds",
     "url": "seeds.png"
 } {
-    "name": "shrimp, seafood",
+    "name": "shrimp",
     "url": "shrimp.png"
 } {
     "name": "slottedspoon",
     "url": "slotted-spoon.png"
 } {
-    "name": "sorbet, ice cream",
+    "name": "sorbet",
     "url": "sorbet.png"
 } {
     "name": "spaghetti",
@@ -1412,7 +1412,7 @@
     "name": "spoon",
     "url": "spoon.png"
 } {
-    "name": "steak, meat",
+    "name": "steak",
     "url": "steak.png"
 } {
     "name": "stew",
@@ -1421,43 +1421,43 @@
     "name": "stew",
     "url": "stew.png"
 } {
-    "name": "strainer, colander",
+    "name": "colander",
     "url": "strainer.png"
 } {
-    "name": "strawberry, berry",
+    "name": "strawberry",
     "url": "strawberry.png"
 } {
-    "name": "sushi, fish, seafood",
+    "name": "sushi",
     "url": "sushi-1.png"
 } {
-    "name": "sushi, fish, seafood",
+    "name": "sushi",
     "url": "sushi-2.png"
 } {
-    "name": "sushi, fish, seafood",
+    "name": "sushi",
     "url": "sushi.png"
 } {
     "name": "taco",
     "url": "taco.png"
 } {
-    "name": "tea, hot tea",
+    "name": "hot tea",
     "url": "tea-1.png"
 } {
-    "name": "tea, tea bag",
+    "name": "tea bag",
     "url": "tea.png"
 } {
-    "name": "teapot, hot tea",
+    "name": "teapot",
     "url": "teapot-1.png"
 } {
-    "name": "tea kettle, tea pot",
+    "name": "tea kettle",
     "url": "teapot.png"
 } {
-    "name": "spoon, teaspoon",
+    "name": "spoon",
     "url": "teaspoon.png"
 } {
-    "name": "tenderizer, meat tenderizer",
+    "name": "tenderizer",
     "url": "tenderizer.png"
 } {
-    "name": "thermos, mixer",
+    "name": "shaker",
     "url": "thermos.png"
 } {
     "name": "toast",
@@ -1466,19 +1466,19 @@
     "name": "toaster",
     "url": "toaster.png"
 } {
-    "name": "toffee, candy",
+    "name": "toffee",
     "url": "toffee.png"
 } {
-    "name": "tomato, vegetable",
+    "name": "tomato",
     "url": "tomato.png"
 } {
-    "name": "turkey, meat",
+    "name": "turkey",
     "url": "turkey.png"
 } {
-    "name": "water, drink",
+    "name": "water",
     "url": "water-1.png"
 } {
-    "name": "water, bottled water",
+    "name": "bottled water",
     "url": "water.png"
 } {
     "name": "watermelon",
