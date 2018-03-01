@@ -176,7 +176,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                     buildSubCategoryDropdownOutput += '<section id="' + resultValue.name + '-subcategory-link" class="subcategory-link">';
                                     buildSubCategoryDropdownOutput += '<div>';
                                     buildSubCategoryDropdownOutput += '<a href="#">';
-                                    buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4>';
+                                    buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
                                     buildSubCategoryDropdownOutput += '</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '<div class="edit-delete-category">';
@@ -236,7 +236,9 @@ $(document).on("click", '#nav-display-categories', function () {
                                     //                <!--       end subcategory-->
 
 
-                                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+//*****THIS LINE IS CAUSING SUBCATEGORY NAME TO DISPLAY AT THE BOTTOM OF THE SUBCATEGORY. SUBCATEGORY NAME SHOULD ONLY DISPLAY AT THE TOP*****
+
+                                    //                                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
                                 });
                                 //use the HTML output to show it in the index.html
                                 $("#all-" + resultValue.name + "-cards").html(buildSubCategoryDropdownOutput);
@@ -489,9 +491,6 @@ function displayNameByID(id, element) {
 }
 
 function displaySubCategoryDropdown(categoryId) {
-
-    //when we make the call, only grab sub-categories that are
-    //within the specified categoryId
     $.ajax({
             type: 'GET',
             url: '/sub-category/get/' + categoryId,
@@ -520,7 +519,8 @@ function displaySubCategoryDropdown(categoryId) {
         });
 }
 
-$(document).on("click", '#add-category-button', function () {
+$(document).on("click", '#add-category-button', function (event) {
+    event.preventDefault();
     let cardCategory = $('#add-category input').val();
     console.log(cardCategory);
     if (cardCategory == "") {
