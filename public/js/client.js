@@ -137,6 +137,149 @@ $(document).on("click", '#nav-display-cards', function () {
 
 
 $(document).on("click", '#nav-display-categories', function () {
+
+
+    $.ajax({
+            type: 'GET',
+            url: '/category/get',
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#category-display-wrapper").html('');
+                var buildCategoryDropdownOutput = "";
+
+                $.each(result, function (resultKey, resultValue) {
+
+                    buildCategoryDropdownOutput += '<section id="' + resultValue.name + '-cat" class="category">';
+                    buildCategoryDropdownOutput += '<div id="' + resultValue.name + '-category-link">';
+                    buildCategoryDropdownOutput += '<div>';
+                    buildCategoryDropdownOutput += '<a href="" id="' + resultValue.name + '-link">';
+                    buildCategoryDropdownOutput += '<h2>' + resultValue.name + '</h2>';
+                    buildCategoryDropdownOutput += '</a>';
+                    buildCategoryDropdownOutput += '</div>';
+                    buildCategoryDropdownOutput += '<div class="edit-delete-category">';
+                    buildCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                    buildCategoryDropdownOutput += '<a href="">delete</a>';
+                    buildCategoryDropdownOutput += '</div>';
+                    buildCategoryDropdownOutput += '</div>';
+                    buildCategoryDropdownOutput += '<div id="all-' + resultValue.name + '-cards">';
+
+
+                    $.ajax({
+                            type: 'GET',
+                            url: '/sub-category/get/' + resultValue._id,
+                            dataType: 'json',
+                            contentType: 'application/json'
+                        })
+                        .done(function (result) {
+                            console.log(result);
+                            if ((!result) || (result != undefined) || (result != "")) {
+
+                                $("#all-" + resultValue.name + "-cards").html('');
+                                var buildSubCategoryDropdownOutput = "";
+                                $.each(result, function (resultKey, resultValue) {
+
+                                    //                    <!--       start subcategory-->
+
+                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + resultValue.name + '" class="subcategory">';
+                                    buildSubCategoryDropdownOutput += '<section id="' + resultValue.name + '-subcategory-link" class="subcategory-link">';
+                                    buildSubCategoryDropdownOutput += '<div>';
+                                    buildSubCategoryDropdownOutput += '<a href="#">';
+                                    buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4>';
+                                    buildSubCategoryDropdownOutput += '</a>';
+                                    buildSubCategoryDropdownOutput += '</div>';
+                                    buildSubCategoryDropdownOutput += '<div class="edit-delete-category">';
+                                    buildSubCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                                    buildSubCategoryDropdownOutput += '<a href="">delete</a>';
+                                    buildSubCategoryDropdownOutput += '</div>';
+                                    buildSubCategoryDropdownOutput += '</section>';
+                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + resultValue.name + '-cards" class="card-wrapper">';
+
+
+                                    $.ajax({
+                                            type: 'GET',
+                                            url: '/card-item/get/' + resultValue._id,
+                                            dataType: 'json',
+                                            contentType: 'application/json'
+                                        })
+                                        .done(function (result) {
+                                            console.log(result);
+                                            if ((!result) || (result != undefined) || (result != "")) {
+
+                                                $("#subcat-" + resultValue.name + "-cards").html('');
+                                                var buildCardItemDropdownOutput = "";
+                                                $.each(result, function (resultKey, resultValue) {
+
+                                                    //                    <!--       start card-->
+
+                                                    buildCardItemDropdownOutput += '<section id="completed-card" class="card">';
+                                                    buildCardItemDropdownOutput += '<div class="edit-delete-card">';
+                                                    buildCardItemDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                                                    buildCardItemDropdownOutput += '<a href="">delete</a>';
+                                                    buildCardItemDropdownOutput += '</div>';
+                                                    buildCardItemDropdownOutput += '<div>';
+                                                    if (resultValue.icon != "") {
+                                                        buildCardItemDropdownOutput += '<img id="purse-icon" src="/icon-images/' + resultValue.icon + '" alt="">';
+                                                    } else {
+                                                        buildCardItemDropdownOutput += '<img id="purse-icon" src="/icon-images/no-image.png" alt="">';
+                                                    }
+                                                    buildCardItemDropdownOutput += '<h5>' + resultValue.name + '</h5>';
+                                                    buildCardItemDropdownOutput += '</div>';
+                                                    buildCardItemDropdownOutput += ' </section>';
+                                                    //                <!--       start card-->
+
+                                                });
+
+                                                //use the HTML output to show it in the index.html
+                                                $("#subcat-" + resultValue.name + "-cards").html(buildCardItemDropdownOutput);
+                                            }
+                                        })
+                                        .fail(function (jqXHR, error, errorThrown) {
+                                            console.log(jqXHR);
+                                            console.log(error);
+                                            console.log(errorThrown);
+                                        });
+
+                                    buildSubCategoryDropdownOutput += '</div>';
+                                    buildSubCategoryDropdownOutput += '</div>';
+                                    //                <!--       end subcategory-->
+
+
+                                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                                });
+                                //use the HTML output to show it in the index.html
+                                $("#all-" + resultValue.name + "-cards").html(buildSubCategoryDropdownOutput);
+                            }
+                        })
+                        .fail(function (jqXHR, error, errorThrown) {
+                            console.log(jqXHR);
+                            console.log(error);
+                            console.log(errorThrown);
+                        });
+
+
+
+
+                    buildCategoryDropdownOutput += '</div>';
+                    buildCategoryDropdownOutput += '</section>';
+
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#category-display-wrapper").html(buildCategoryDropdownOutput);
+                $("#add-category").hide();
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#site-info-wrapper').hide();
@@ -636,6 +779,9 @@ $(document).on("click", '#select-icon-wrapper .item', function () {
     //        displayNameByID(selectCardItemNameValue, "item");
     //    }
 });
+
+
+
 
 
 
