@@ -63,10 +63,16 @@ General styles (General Module, wrapping around the modules below)
 body {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    background-color: #48484f
 }
 
 body {
+    /*    background-color: #8aa3b9;*/
+}
+
+#navigation {
     background-color: #8aa3b9;
+    margin-top: 1rem;
 }
 
 #nav-options a:hover {
@@ -138,6 +144,10 @@ Header styles (Main Module)
 #nav-options li {
     padding-top: .5rem;
     font-size: 1.3rem;
+}
+
+#app-navigation {
+    padding-bottom: .5rem;
 }
 
 #app-navigation li {
@@ -364,18 +374,34 @@ img,
 }
 
 .subcategory {
-    border-top: 1px solid white;
+    /*    border-top: 1px solid white;*/
     margin-bottom: 3rem;
     padding-top: 3rem;
 }
 
 .category {
-    border-top: 10px solid white;
-    padding-top: 4rem;
+    font-family: 'Lora', serif;
+    padding-top: 2rem;
+    background-color: #8aa3b9;
+    width: 99%;
+    margin: 0 auto;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.category h2,
+.subcategory-link h4,
+#completed-card h5 {
+    text-transform: capitalize;
+}
+
+.category h2 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #000000;
 }
 
 .category:first-child {
-    padding-top: 0;
     border-top: none;
 }
 
@@ -385,9 +411,6 @@ img,
 }
 
 
-.card h3,
-.card h4,
-.card h5,
 #category-display-wrapper a {
     color: #fcfdff;
 }
@@ -400,9 +423,6 @@ img,
     color: #3d4046;
 }
 
-.card h3:hover,
-.card h4:hover,
-.card h5:hover,
 #category-display-wrapper a:hover,
 .edit-delete-card a:hover {
     color: #afdc8d;
@@ -481,10 +501,6 @@ place all the mobile tables styles below this line
     #account-options {
         float: right;
         margin: 0;
-    }
-
-    .subcategory section {
-        display: inline-block;
     }
 
     #accessories-subcategory-link,
