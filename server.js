@@ -270,6 +270,22 @@ app.get('/card-item/get/:subCategoryId', function (req, res) {
         });
 });
 
+app.get('/card-item/get-by-category/:categoryId', function (req, res) {
+    //this returns only the SubCategories that are connected with the specific category id
+    CardItem.find({
+            categoryId: req.params.categoryId
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
+});
+
 //*********************CARD SAVE POST AND GET*************************
 app.post('/save-card/create', (req, res) => {
 

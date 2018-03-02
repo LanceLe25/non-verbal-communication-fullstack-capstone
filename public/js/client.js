@@ -18,6 +18,57 @@ var globalSelectedSubCategory = "";
 var globalCardItem = "";
 var globalImage = "";
 
+function removeSpaces(inputString) {
+    return inputString.replace(/\s/g, '-');
+}
+
+function deleteCategory(categoryID) {
+    console.log(categoryID);
+    // check if there subcategories
+    $.ajax({
+            type: 'GET',
+            url: '/sub-category/get/' + categoryID,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (resultSubCategories) {
+            console.log(resultSubCategories);
+            if (resultSubCategories.length != 0) {
+                // delete the category
+                alert("Category has sub-categories or items and can't be deleted");
+            }
+            // check if there itmes
+            else {
+                $.ajax({
+                        type: 'GET',
+                        url: '/card-item/get-by-category/' + categoryID,
+                        dataType: 'json',
+                        contentType: 'application/json'
+                    })
+                    .done(function (resultItems) {
+                        console.log(resultItems);
+                        if (resultItems.length != 0) {
+                            // delete the category
+                            alert("Category has sub-categories or items and can't be deleted");
+                        } else {
+                            alert("No items ready to delete");
+                        }
+                    })
+                    .fail(function (jqXHR, error, errorThrown) {
+                        console.log(jqXHR);
+                        console.log(error);
+                        console.log(errorThrown);
+                    });
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+
+
+}
 
 // step 2. Defining functions
 
@@ -141,19 +192,19 @@ $(document).on("click", '#nav-display-categories', function () {
 
                 $.each(result, function (resultKey, resultValue) {
 
-                    buildCategoryDropdownOutput += '<section id="' + resultValue.name + '-cat" class="category">';
-                    buildCategoryDropdownOutput += '<div id="' + resultValue.name + '-category-link">';
+                    buildCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-cat" class="category">';
+                    buildCategoryDropdownOutput += '<div id="' + removeSpaces(resultValue.name) + '-category-link">';
                     buildCategoryDropdownOutput += '<div>';
-                    buildCategoryDropdownOutput += '<a href="" id="' + resultValue.name + '-link">';
+                    buildCategoryDropdownOutput += '<a href="" id="' + removeSpaces(resultValue.name) + '-link">';
                     buildCategoryDropdownOutput += '<h2>' + resultValue.name + '</h2>';
                     buildCategoryDropdownOutput += '</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div class="edit-delete-category">';
                     buildCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
-                    buildCategoryDropdownOutput += '<a href="">delete</a>';
+                    buildCategoryDropdownOutput += '<a href="#" onclick=deleteCategory("' + resultValue._id + '")>delete</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '</div>';
-                    buildCategoryDropdownOutput += '<div id="all-' + resultValue.name + '-cards">';
+                    buildCategoryDropdownOutput += '<div id="all-' + removeSpaces(resultValue.name) + '-cards">';
 
 
                     $.ajax({
@@ -166,14 +217,14 @@ $(document).on("click", '#nav-display-categories', function () {
                             console.log(result);
                             if ((!result) || (result != undefined) || (result != "")) {
 
-                                $("#all-" + resultValue.name + "-cards").html('');
+                                $("#all-" + removeSpaces(resultValue.name) + "-cards").html('');
                                 var buildSubCategoryDropdownOutput = "";
                                 $.each(result, function (resultKey, resultValue) {
 
                                     //                    <!--       start subcategory-->
 
-                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + resultValue.name + '" class="subcategory">';
-                                    buildSubCategoryDropdownOutput += '<section id="' + resultValue.name + '-subcategory-link" class="subcategory-link">';
+                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '" class="subcategory">';
+                                    buildSubCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-subcategory-link" class="subcategory-link">';
                                     buildSubCategoryDropdownOutput += '<div>';
                                     buildSubCategoryDropdownOutput += '<a href="#">';
                                     buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
@@ -184,7 +235,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                     buildSubCategoryDropdownOutput += '<a href="">delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
-                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + resultValue.name + '-cards" class="card-wrapper">';
+                                    buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '-cards" class="card-wrapper">';
 
 
                                     $.ajax({
@@ -197,7 +248,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                             console.log(result);
                                             if ((!result) || (result != undefined) || (result != "")) {
 
-                                                $("#subcat-" + resultValue.name + "-cards").html('');
+                                                $("#subcat-" + removeSpaces(resultValue.name) + "-cards").html('');
                                                 var buildCardItemDropdownOutput = "";
                                                 $.each(result, function (resultKey, resultValue) {
 
@@ -222,7 +273,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                                 });
 
                                                 //use the HTML output to show it in the index.html
-                                                $("#subcat-" + resultValue.name + "-cards").html(buildCardItemDropdownOutput);
+                                                $("#subcat-" + removeSpaces(resultValue.name) + "-cards").html(buildCardItemDropdownOutput);
                                             }
                                         })
                                         .fail(function (jqXHR, error, errorThrown) {
@@ -236,12 +287,9 @@ $(document).on("click", '#nav-display-categories', function () {
                                     //                <!--       end subcategory-->
 
 
-//*****THIS LINE IS CAUSING SUBCATEGORY NAME TO DISPLAY AT THE BOTTOM OF THE SUBCATEGORY. SUBCATEGORY NAME SHOULD ONLY DISPLAY AT THE TOP*****
-
-                                    //                                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
                                 });
                                 //use the HTML output to show it in the index.html
-                                $("#all-" + resultValue.name + "-cards").html(buildSubCategoryDropdownOutput);
+                                $("#all-" + removeSpaces(resultValue.name) + "-cards").html(buildSubCategoryDropdownOutput);
                             }
                         })
                         .fail(function (jqXHR, error, errorThrown) {
@@ -376,10 +424,7 @@ $(document).on("click", '#nav-belt', function () {
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function () {
     let selectCategoryIDValue = $('#select-cat').val();
-
-    //how do I get the name value??????
     let selectCategoryNameValue = $('#select-cat option[value="stuff"]').val();
-
 
 
     let addCategoryShow = $('#add-category').show();
@@ -641,6 +686,8 @@ $(document).on("click", '#add-sub-category-button', function () {
                 console.log(result);
                 displaySubCategoryDropdown(cardCategory);
                 $('#add-category input').val('');
+                $('#add-sub-category input').val('');
+                $('#add-sub-category').hide();
                 //    $('#dropdown').show();
                 //
                 //    $('#example-card-display-wrapper').show();
@@ -901,6 +948,7 @@ $(document).on("click", '#save-card-button', function (event) {
             })
             .done(function (result) {
                 console.log(result);
+                alert("Card created");
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
