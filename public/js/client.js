@@ -35,7 +35,7 @@ function deleteCategory(categoryID) {
             console.log(resultSubCategories);
             if (resultSubCategories.length != 0) {
                 // delete the category
-                alert("Category has sub-categories or items and can't be deleted");
+                alert("Category has sub-categories and can't be deleted");
             }
             // check if there itmes
             else {
@@ -49,9 +49,23 @@ function deleteCategory(categoryID) {
                         console.log(resultItems);
                         if (resultItems.length != 0) {
                             // delete the category
-                            alert("Category has sub-categories or items and can't be deleted");
+                            alert("Category has items and can't be deleted");
                         } else {
-                            alert("No items ready to delete");
+                            $.ajax({
+                                    type: 'DELETE',
+                                    url: '/delete-category/' + categoryID,
+                                    dataType: 'json',
+                                    contentType: 'application/json'
+                                })
+                                .done(function (result) {
+                                    displayAll();
+                                    alert('Category has been deleted');
+                                })
+                                .fail(function (jqXHR, error, errorThrown) {
+                                    console.log(jqXHR);
+                                    console.log(error);
+                                    console.log(errorThrown);
+                                });
                         }
                     })
                     .fail(function (jqXHR, error, errorThrown) {
@@ -66,8 +80,65 @@ function deleteCategory(categoryID) {
             console.log(error);
             console.log(errorThrown);
         });
+}
 
+function deleteSubCategory(subCategoryID) {
+    console.log(subCategoryID);
+    // check if there subcategories
 
+    $.ajax({
+            type: 'GET',
+            url: '/card-item/get/' + subCategoryID,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (resultItems) {
+            console.log(resultItems);
+            if (resultItems.length != 0) {
+                // delete the category
+                alert("Sub-Category has items and can't be deleted");
+            } else {
+                $.ajax({
+                        type: 'DELETE',
+                        url: '/delete-sub-category/' + subCategoryID,
+                        dataType: 'json',
+                        contentType: 'application/json'
+                    })
+                    .done(function (result) {
+                        displayAll();
+                        alert('Sub-Category has been deleted');
+                    })
+                    .fail(function (jqXHR, error, errorThrown) {
+                        console.log(jqXHR);
+                        console.log(error);
+                        console.log(errorThrown);
+                    });
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function deleteItem(itemID) {
+
+    $.ajax({
+            type: 'DELETE',
+            url: '/delete-item/' + itemID,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            displayAll();
+            alert('Item has been deleted');
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
 }
 
 // step 2. Defining functions
@@ -105,14 +176,16 @@ $(document).ready(function () {
 
 
 //****ALL LOGIN REGISTER PAGES*****
-$(document).on("click", '#nav-login', function () {
+$(document).on("click", '#nav-login', function (event) {
+    event.preventDefault();
     $('#account-options').hide();
     $('#login-register-wrapper').show();
     $('#site-info-wrapper').hide();
 });
 
 
-$(document).on("click", '#nav-register', function () {
+$(document).on("click", '#nav-register', function (event) {
+    event.preventDefault();
     $('#account-options').hide();
     $('#register-user-wrapper').show();
     $('#site-info-wrapper').hide();
@@ -162,7 +235,8 @@ $(document).on("click", '#nav-about', function (event) {
     $('#home-page').hide();
 });
 
-$(document).on("click", '#nav-home', function () {
+$(document).on("click", '#nav-home', function (event) {
+    event.preventDefault();
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#nav-login, #nav-register').hide();
@@ -173,10 +247,7 @@ $(document).on("click", '#nav-home', function () {
     $('#save-card-button').hide();
 });
 
-
-$(document).on("click", '#nav-display-categories', function () {
-
-
+function displayAll() {
     $.ajax({
             type: 'GET',
             url: '/category/get',
@@ -184,7 +255,7 @@ $(document).on("click", '#nav-display-categories', function () {
             contentType: 'application/json'
         })
         .done(function (result) {
-            console.log(result);
+            //console.log(result);
             if ((!result) || (result != undefined) || (result != "")) {
 
                 $("#category-display-wrapper").html('');
@@ -195,9 +266,9 @@ $(document).on("click", '#nav-display-categories', function () {
                     buildCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-cat" class="category">';
                     buildCategoryDropdownOutput += '<div id="' + removeSpaces(resultValue.name) + '-category-link">';
                     buildCategoryDropdownOutput += '<div>';
-                    buildCategoryDropdownOutput += '<a href="" id="' + removeSpaces(resultValue.name) + '-link">';
+                    //                    buildCategoryDropdownOutput += '<a href="" id="' + removeSpaces(resultValue.name) + '-link">';
                     buildCategoryDropdownOutput += '<h2>' + resultValue.name + '</h2>';
-                    buildCategoryDropdownOutput += '</a>';
+                    //                    buildCategoryDropdownOutput += '</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div class="edit-delete-category">';
                     buildCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
@@ -214,7 +285,7 @@ $(document).on("click", '#nav-display-categories', function () {
                             contentType: 'application/json'
                         })
                         .done(function (result) {
-                            console.log(result);
+                            //console.log(result);
                             if ((!result) || (result != undefined) || (result != "")) {
 
                                 $("#all-" + removeSpaces(resultValue.name) + "-cards").html('');
@@ -226,13 +297,13 @@ $(document).on("click", '#nav-display-categories', function () {
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '" class="subcategory">';
                                     buildSubCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-subcategory-link" class="subcategory-link">';
                                     buildSubCategoryDropdownOutput += '<div>';
-                                    buildSubCategoryDropdownOutput += '<a href="#">';
+                                    //                                    buildSubCategoryDropdownOutput += '<a href="#">';
                                     buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
-                                    buildSubCategoryDropdownOutput += '</a>';
+                                    //                                    buildSubCategoryDropdownOutput += '</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '<div class="edit-delete-category">';
                                     buildSubCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
-                                    buildSubCategoryDropdownOutput += '<a href="">delete</a>';
+                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=deleteSubCategory("' + resultValue._id + '")>delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '-cards" class="card-wrapper">';
@@ -245,7 +316,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                             contentType: 'application/json'
                                         })
                                         .done(function (result) {
-                                            console.log(result);
+                                            //console.log(result);
                                             if ((!result) || (result != undefined) || (result != "")) {
 
                                                 $("#subcat-" + removeSpaces(resultValue.name) + "-cards").html('');
@@ -257,7 +328,7 @@ $(document).on("click", '#nav-display-categories', function () {
                                                     buildCardItemDropdownOutput += '<section id="completed-card" class="card">';
                                                     buildCardItemDropdownOutput += '<div class="edit-delete-card">';
                                                     buildCardItemDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
-                                                    buildCardItemDropdownOutput += '<a href="">delete</a>';
+                                                    buildCardItemDropdownOutput += '<a href="#" onclick=deleteItem("' + resultValue._id + '")>delete</a>';
                                                     buildCardItemDropdownOutput += '</div>';
                                                     buildCardItemDropdownOutput += '<div>';
                                                     if (resultValue.icon != "") {
@@ -316,6 +387,13 @@ $(document).on("click", '#nav-display-categories', function () {
             console.log(error);
             console.log(errorThrown);
         });
+}
+
+
+$(document).on("click", '#nav-display-categories', function (event) {
+    event.preventDefault();
+
+    displayAll();
 
     $('.hide-everything').hide();
     $('#navigation').show();
@@ -330,7 +408,8 @@ $(document).on("click", '#nav-display-categories', function () {
 });
 
 
-$(document).on("click", '#nav-add-new', function () {
+$(document).on("click", '#nav-add-new', function (event) {
+    event.preventDefault();
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#nav-login, #nav-register').hide();
@@ -356,7 +435,8 @@ $(document).on("submit", '#clothing-link', function (event) {
 });
 
 
-$(document).on("click", '#household-link', function () {
+$(document).on("click", '#household-link', function (event) {
+    event.preventDefault();
     //    $('#site-info-wrapper').hide();
     //    $('#category-display-wrapper').show();
     //    $('#clothing-cat').hide();
@@ -368,7 +448,8 @@ $(document).on("click", '#household-link', function () {
 
 
 //****BELOW - NEED TO BE DELETED. JUST FOR EXAMPLE***
-$(document).on("click", '#nav-armchair', function () {
+$(document).on("click", '#nav-armchair', function (event) {
+    event.preventDefault();
 
 
     //    $('.hide-everything').hide();
@@ -383,7 +464,8 @@ $(document).on("click", '#nav-armchair', function () {
 });
 
 
-$(document).on("click", '#nav-bed', function () {
+$(document).on("click", '#nav-bed', function (event) {
+    event.preventDefault();
 
     //
     //    $('.hide-everything').hide();
@@ -397,7 +479,8 @@ $(document).on("click", '#nav-bed', function () {
     //    $('#card6').hide();
 });
 
-$(document).on("click", '#nav-belt', function () {
+$(document).on("click", '#nav-belt', function (event) {
+    event.preventDefault();
 
 
     //    $('.hide-everything').hide();
@@ -422,7 +505,8 @@ $(document).on("click", '#nav-belt', function () {
 
 
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
-$(document).on("change", '#select-cat', function () {
+$(document).on("change", '#select-cat', function (event) {
+    event.preventDefault();
     let selectCategoryIDValue = $('#select-cat').val();
     let selectCategoryNameValue = $('#select-cat option[value="stuff"]').val();
 
@@ -628,7 +712,8 @@ function displayCategoryDropdown() {
         });
 }
 
-$(document).on("change", '#select-sub-cat', function () {
+$(document).on("change", '#select-sub-cat', function (event) {
+    event.preventDefault();
     let selectSubCategoryIDValue = $('#select-sub-cat').val();
     let cardCategory = $('#selectCategoryIDValue').val();
     let addSubCategoryShow = $('#add-sub-category').show();
@@ -655,17 +740,18 @@ $(document).on("change", '#select-sub-cat', function () {
     }
 });
 
-$(document).on("click", '#add-sub-category-button', function () {
+$(document).on("click", '#add-sub-category-button', function (event) {
+    event.preventDefault();
     let cardCategory = $('#add-category input').val();
     if (cardCategory == "") {
         cardCategory = $('#selectCategoryIDValue').val();
     }
 
     let cardSubCategory = $('#add-sub-category input').val();
-
-    if (cardSubCategory == "") {
+    if (cardCategory == "") {
+        alert("Please select a category");
+    } else if (cardSubCategory == "") {
         alert("Please enter a sub category");
-
     } else {
         const newSubCategoryObject = {
             name: cardSubCategory,
@@ -779,7 +865,8 @@ function displayCardIconsDropdown(cardId) {
 }
 
 
-$(document).on("click", '#select-icon-wrapper .item', function () {
+$(document).on("click", '#select-icon-wrapper .item', function (event) {
+    event.preventDefault();
     let cardIcon = $('input[name="country"]').val();
     $("#example-card-display-wrapper #blank-image").css('background-image', 'url(/icon-images/' + cardIcon + ')');
     //    let cardSubCategory = $('#selectSubCategoryIDValue').val();
@@ -824,7 +911,8 @@ $(document).on("click", '#select-icon-wrapper .item', function () {
 
 //modified select-card-item and below
 
-$(document).on("change", '#select-card-item', function () {
+$(document).on("change", '#select-card-item', function (event) {
+    event.preventDefault();
     let selectCardItemNameValue = $('#select-card-item').val();
     let cardSubCategory = $('#selectSubCategoryIDValue').val();
     let addCardItemShow = $('#add-card-item').show();
@@ -965,7 +1053,8 @@ $(document).on("click", '#save-card-button', function (event) {
 
 
 //*****how do you do this*****
-$(document).on("change", '#menu url', function () {
+$(document).on("change", '#menu url', function (event) {
+    event.preventDefault();
     let selectImageValue = $('#menu url').val();
 
     alert(selectImageValue);
@@ -990,7 +1079,8 @@ $(document).on("change", '#menu url', function () {
     }
 });
 
-$(document).on("click", '#create-card button', function () {
+$(document).on("click", '#create-card button', function (event) {
+    event.preventDefault();
     //    $('#add-dropdown-categories').hide();//    $('#cat-sub-cat-select').hide();
     //    $('#add-card-item input').hide();
     //

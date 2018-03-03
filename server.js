@@ -453,6 +453,43 @@ app.put('/icons/:id', function (req, res) {
         });
 });
 
+
+
+//*********************DELETE CATEGORY*************************
+
+
+app.delete('/delete-category/:categoryId', function (req, res) {
+    Category.findByIdAndRemove(req.params.categoryId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+app.delete('/delete-sub-category/:subCategoryId', function (req, res) {
+    SubCategory.findByIdAndRemove(req.params.subCategoryId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+app.delete('/delete-item/:itemId', function (req, res) {
+    CardItem.findByIdAndRemove(req.params.itemId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+
+
 //*********************MISC*************************
 app.use('*', (req, res) => {
     res.status(404).json({
