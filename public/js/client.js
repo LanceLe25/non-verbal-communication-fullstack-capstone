@@ -1,13 +1,12 @@
 // step 1. Defining global variables
 
-//1. User loads page
-//2. User has option to sign in, create new account or continue to create SOP
-//3. User selects 'Let's get started'
-//4. User enters answer in answer fields
-//5. User clicks Save and Contiue.
-//6. Once user has answered all questions, they have the option to create SOP free-style or use template
-//7. If using template, user can alter text when finished filling in blank fields
-//8. User clicks Save once finished writing SOP
+//1. User loads page that gives information on what the site is about
+//2. User has option to sign in or create new account
+//3. User selects 'ADD NEW' to create a new card
+//4. User selects or adds a Category, Sub-Category, Item and Icon
+//5. User clicks 'Save' to save the card
+//6. User can click 'SHOW ALL' to view all their cards
+//7. User selects HOME to return the the home page
 
 
 
@@ -420,96 +419,12 @@ $(document).on("click", '#nav-add-new', function (event) {
     $('#save-card-button').show();
 });
 
-//unable to get the following function to work. Do I need to
-//use .on(submit)?
-//This is when all categories are displayed,
-//user can click on a category title to view that single category
-$(document).on("submit", '#clothing-link', function (event) {
-    //    event.preventDefault();
-    //    $('#site-info-wrapper').hide();
-    //    $('#category-display-wrapper').show();
-    //    $('#clothing-cat').show();
-    //    $('#household-cat').hide();
-    //    $('#bedroom-subcat').hide();
-    //    $('#living-room-subcat').hide();
-});
-
-
-$(document).on("click", '#household-link', function (event) {
-    event.preventDefault();
-    //    $('#site-info-wrapper').hide();
-    //    $('#category-display-wrapper').show();
-    //    $('#clothing-cat').hide();
-    //    $('#household-cat').show();
-    //    $('#bedroom-subcat').show();
-    //    $('#living-room-subcat').show();
-});
-
-
-
-//****BELOW - NEED TO BE DELETED. JUST FOR EXAMPLE***
-$(document).on("click", '#nav-armchair', function (event) {
-    event.preventDefault();
-
-
-    //    $('.hide-everything').hide();
-    //    $('#navigation').show();
-    //    $('#account-options').hide();
-    //    $('#logout-wrapper').show();
-    //    $('#category-display-wrapper').show();
-    //    $('#clothing-cat').hide();
-    //    $('#bedroom-subcat').hide();
-    //    $('#living-room-subcat').show();
-    //    $('#card8').hide();
-});
-
-
-$(document).on("click", '#nav-bed', function (event) {
-    event.preventDefault();
-
-    //
-    //    $('.hide-everything').hide();
-    //    $('#navigation').show();
-    //    $('#account-options').hide();
-    //    $('#logout-wrapper').show();
-    //    $('#category-display-wrapper').show();
-    //    $('#clothing-cat').hide();
-    //    $('#bedroom-subcat').show();
-    //    $('#living-room-subcat').hide();
-    //    $('#card6').hide();
-});
-
-$(document).on("click", '#nav-belt', function (event) {
-    event.preventDefault();
-
-
-    //    $('.hide-everything').hide();
-    //    $('#navigation').show();
-    //    $('#account-options').hide();
-    //    $('#logout-wrapper').show();
-    //    $('#category-display-wrapper').show();
-    //    $('#clothing-cat').show();
-    //    $('#household-cat').hide();
-    //    $('#bedroom-subcat').hide();
-    //    $('#living-room-subcat').hide();
-    //    $('#card1').hide();
-    //    $('#card3').hide();
-    //    $('#card4').hide();
-});
-//****ABOVE - NEED TO BE DELETED. JUST FOR EXAMPLE***
-
-
-
-
-
 
 
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function (event) {
     event.preventDefault();
     let selectCategoryIDValue = $('#select-cat').val();
-    let selectCategoryNameValue = $('#select-cat option[value="stuff"]').val();
-
 
     let addCategoryShow = $('#add-category').show();
     let addCategoryHide = $('#add-category').hide();
@@ -648,37 +563,50 @@ function displaySubCategoryDropdown(categoryId) {
         });
 }
 
+
+//HELP, need validation if user is trying to add a category that already exists
 $(document).on("click", '#add-category-button', function (event) {
     event.preventDefault();
     let cardCategory = $('#add-category input').val();
+
+    //loop through list of categories to see if cardCategory already exists
+    //if card category exists, alert user.
+    let existingCardCategory = $().val();
+
+    for (let i = 0; i < existingCardCategory.length; i++) {
+        if (cardCategory == existingCardCategory) {
+            alert("Category already exists");
+        }
+    }
+
     console.log(cardCategory);
     if (cardCategory == "") {
         alert("Please enter a category");
-
-    } else {
-        const newCategoryObject = {
-            name: cardCategory
-        };
-
-        $.ajax({
-                type: 'POST',
-                url: '/category/create',
-                dataType: 'json',
-                data: JSON.stringify(newCategoryObject),
-                contentType: 'application/json'
-            })
-            .done(function (result) {
-                console.log(result);
-                displayCategoryDropdown();
-                $('#add-category input').val('');
-
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+    }
+} else {
+    const newCategoryObject = {
+        name: cardCategory
     };
+
+    $.ajax({
+            type: 'POST',
+            url: '/category/create',
+            dataType: 'json',
+            data: JSON.stringify(newCategoryObject),
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            displayCategoryDropdown();
+            $('#add-category input').val('');
+
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+};
 });
 
 function displayCategoryDropdown() {
@@ -1044,8 +972,11 @@ $(document).on("click", '#save-card-button', function (event) {
                 console.log(errorThrown);
             });
     }
-
-
+    displayCategoryDropdown();
+    displaySubCategoryDropdown();
+    displayCardItemDropdown();
+    //how do I get icons to refresh?
+    displayCardIconsDropdown();
 });
 
 
