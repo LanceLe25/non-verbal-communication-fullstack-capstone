@@ -95,9 +95,12 @@ h3 {
     font-size: 1.75rem;
 }
 
-h4,
+h4 {
+    font-size: 2rem;
+}
+
 h5 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
 
 p {
@@ -113,8 +116,7 @@ p {
 }
 
 #nav-options a,
-#register-user-form a,
-#category-display-wrapper a {
+#register-user-form a {
     color: #1d1d21;
     text-decoration: none;
 }
@@ -356,7 +358,7 @@ img,
 /******STYLES FOR DISPLAYING CARDS******/
 
 #example-card-display-wrapper,
-.card {
+.completed-card-content {
     display: inline-block;
     margin: 1rem;
     padding: 1rem;
@@ -369,7 +371,7 @@ img,
     margin-bottom: .5rem;
 }
 
-.card {
+.completed-card-content {
     margin: 1rem;
 }
 
@@ -415,31 +417,67 @@ img,
     color: #fcfdff;
 }
 
-.card a {
+.completed-card a {
     text-decoration: none;
 }
 
+.editShowAllInputText {
+    width: 200px;
+}
+
+
+
+
+.editShowAllInputText,
+.editShowAllInputButton {
+    border-radius: 5px;
+}
+
+.editShowAllInputText {}
+
+
+.editShowAllInputButton {
+    font-size: 1.5rem;
+    width: 130px;
+    background-color: #676060;
+    color: #fcfdff;
+}
+
+.edit-delete-card {
+    padding-bottom: .4rem;
+}
+
+.edit-delete-category a,
+.edit-delete-sub-category a {
+    background-color: #c35d2c;
+}
+
 .edit-delete-card a {
-    color: #3d4046;
+    display: block;
+    width: 130px;
+    margin: 0 auto;
+}
+
+.edit-delete-category a,
+.edit-delete-sub-category a,
+.edit-delete-card a {
+    border-radius: 5px;
+    padding: .3rem 0;
+    background-color: #676060;
+    border: 1px solid #8c8686;
+}
+
+.edit-delete-card a:first-child {
+    margin-bottom: .5rem;
+}
+
+#category-display-wrapper a {
+    text-decoration: none;
 }
 
 #category-display-wrapper a:hover,
 .edit-delete-card a:hover {
     color: #afdc8d;
-}
-
-
-.edit-delete-category {
-    padding-bottom: .75rem;
-}
-
-.edit-delete-card {
-    float: right;
-    padding: .4rem 0;
-}
-
-.edit-delete-card a {
-    padding-left: .5rem;
 }
 
 
@@ -501,13 +539,4 @@ place all the mobile tables styles below this line
     #account-options {
         float: right;
         margin: 0;
-    }
-
-    #accessories-subcategory-link,
-    #going-out-subcategory-link,
-    #business-subcategory-link,
-    #bedroom-subcategory-link,
-    #living-room-subcategory-link {
-        vertical-align: top;
-        margin-top: 8rem;
     }

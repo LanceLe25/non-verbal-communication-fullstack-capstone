@@ -252,10 +252,14 @@ function showEditCategory(categoryIDAndCategoryName) {
     let categoryName = categoryIDAndCategoryNameArray[1];
 
     let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
+    buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>"
     buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
     buildShowEditCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='category-id' placeholder='Category ID' value='" + categoryID + "'>";
+    buildShowEditCategoryHTML += "</div>"
+    buildShowEditCategoryHTML += "<div id='updateCancelCategory'>";
     buildShowEditCategoryHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
     buildShowEditCategoryHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditCategoryHTML += "</div>";
     buildShowEditCategoryHTML += "</form>";
     $('#' + removeSpaces(categoryName) + '-cat h2').html(buildShowEditCategoryHTML);
 }
@@ -263,6 +267,7 @@ function showEditCategory(categoryIDAndCategoryName) {
 
 $(document).on("submit", '.editShowAllCategoryForm', function (event) {
     event.preventDefault();
+    $('.edit-delete-category a').hide();
 
     const categoryName = $(this).find('.editShowAllInputText').val();
     const categoryID = $(this).find('.editShowAllInputHidden').val();
@@ -445,13 +450,11 @@ function displayAll() {
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '" class="subcategory">';
                                     buildSubCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-subcategory-link" class="subcategory-link">';
                                     buildSubCategoryDropdownOutput += '<div>';
-                                    //                                    buildSubCategoryDropdownOutput += '<a href="#">';
                                     buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
-                                    //                                    buildSubCategoryDropdownOutput += '</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
-                                    buildSubCategoryDropdownOutput += '<div class="edit-delete-category">';
-                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=showEditSubCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
-                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=deleteSubCategory("' + resultValue._id + '")>delete</a>';
+                                    buildSubCategoryDropdownOutput += '<div class="edit-delete-sub-category">';
+                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=showEditSubCategory id="showEditSubCategory"("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
+                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=deleteSubCategory id="deleteSubCategory"("' + resultValue._id + '")>delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '-cards" class="card-wrapper">';
@@ -473,7 +476,7 @@ function displayAll() {
 
                                                     //                    <!--       start card-->
 
-                                                    buildCardItemDropdownOutput += '<section id="completed-card-' + removeSpaces(resultValue.name) + '" class="card">';
+                                                    buildCardItemDropdownOutput += '<section id="completed-card-' + removeSpaces(resultValue.name) + '" class="completed-card-content">';
                                                     buildCardItemDropdownOutput += '<div class="edit-delete-card">';
                                                     buildCardItemDropdownOutput += '<a href="#" onclick=showEditItem("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
                                                     buildCardItemDropdownOutput += '<a href="#" onclick=deleteItem("' + resultValue._id + '")>delete</a>';
@@ -548,11 +551,6 @@ $(document).on("click", '#nav-display-categories', function (event) {
     $('#site-info-wrapper').hide();
     $('#save-card-button').hide();
     $('#category-display-wrapper').show();
-    $('#clothing-category-link').show();
-    $('#household-category-link').show();
-    $('#bedroom-subcategory-link').show();
-    $('#accessories-subcategory-link, #going-out-subcategory-link, #business-subcategory-link').show();
-    $('#living-room-subcategory-link').show();
 });
 
 
@@ -853,12 +851,6 @@ $(document).on("click", '#add-sub-category-button', function (event) {
                 $('#add-category input').val('');
                 $('#add-sub-category input').val('');
                 $('#add-sub-category').hide();
-                //    $('#dropdown').show();
-                //
-                //    $('#example-card-display-wrapper').show();
-                //    $('#add-subcategory-display-wrapper').show();
-                //    $('#add-sub-category').hide();
-                //    $('#subcategory-displayed').show();
                 $('#example-card-sub-cat').html(cardSubCategory);
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -869,7 +861,7 @@ $(document).on("click", '#add-sub-category-button', function (event) {
     };
 });
 
-//based on how the category post request was written
+
 function displayCardItemDropdown(subCategoryId) {
     $.ajax({
             type: 'GET',
@@ -948,39 +940,7 @@ $(document).on("click", '#select-icon-wrapper .item', function (event) {
     event.preventDefault();
     let cardIcon = $('input[name="country"]').val();
     $("#example-card-display-wrapper #blank-image").css('background-image', 'url(/icon-images/' + cardIcon + ')');
-    //    let cardSubCategory = $('#selectSubCategoryIDValue').val();
-    //    let addCardItemShow = $('#add-card-item').show();
-    //    let addCardItemHide = $('#add-card-item').hide();
-    //    console.log("selectCardItemNameValue = ", selectCardItemNameValue)
-    //
-    //    if (selectCardItemNameValue == "addCardItem") {
-    //        $('#add-card-item').show();
-    //        $('#select-image-wrapper').show();
-    //    } else if (selectCardItemNameValue == "selectCardItem") {
-    //        alert('Please make a selection');
-    //    } else {
-    //
-    //        $('#selectCardItemIDValue').val(selectCardItemNameValue);
-    //
-    //        globalCardItem == selectCardItemNameValue;
-    //        displayCardIconsDropdown(selectCardItemNameValue);
-    //
-    //
-    //        $('#add-dropdown-categories').show();
-    //        $('#cat-sub-cat-select').show();
-    //        $('#select-image-wrapper').show();
-    //
-    //        $('#example-card-display-wrapper').show();
-    //        $('#ex-card-category').show();
-    //        $('#example-sub-cat-wrapper').show();
-    //        $('#example-card-sub-cat').show();
-    //        $('#ex-card').show();
-    //        $('#blank-image').show();
-    //        displayNameByID(selectCardItemNameValue, "item");
-    //    }
 });
-
-
 
 //modified select-card-item and below
 
@@ -1158,15 +1118,6 @@ $(document).on("change", '#menu url', function (event) {
 
 $(document).on("click", '#create-card button', function (event) {
     event.preventDefault();
-    //    $('#add-dropdown-categories').hide();//    $('#cat-sub-cat-select').hide();
-    //    $('#add-card-item input').hide();
-    //
-    //    $('#example-card-display-wrapper').show();
-    //    $('#ex-card-category').show();
-    //    $('#example-sub-cat-wrapper').show();
-    //    $('#example-card-sub-cat').show();
-    //    $('#ex-card').show();
-    //    $('#ex-image').html(selectImageValue);
 });
 
 
