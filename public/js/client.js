@@ -166,9 +166,6 @@ $(document).ready(function () {
     $('#add-card-wrapper-form').hide();
     $('#example-card-display-wrapper').hide();
     $('#save-card-button').hide();
-    $('#household-category-link').hide();
-    $('#bedroom-subcategory-link').hide();
-    $('#living-room-subcategory-link').hide();
     $('#category-display-wrapper').hide();
     displayCategoryDropdown();
 });
@@ -262,12 +259,12 @@ function showEditCategory(categoryIDAndCategoryName) {
     buildShowEditCategoryHTML += "</div>";
     buildShowEditCategoryHTML += "</form>";
     $('#' + removeSpaces(categoryName) + '-cat h2').html(buildShowEditCategoryHTML);
+    $('.edit-delete-category').hide();
 }
 
 
 $(document).on("submit", '.editShowAllCategoryForm', function (event) {
     event.preventDefault();
-    $('.edit-delete-category a').hide();
 
     const categoryName = $(this).find('.editShowAllInputText').val();
     const categoryID = $(this).find('.editShowAllInputHidden').val();
@@ -307,12 +304,17 @@ function showEditSubCategory(subCategoryIDAndSubCategoryName) {
     let subCategoryName = subCategoryIDAndSubCategoryNameArray[1];
 
     let buildShowEditSubCategoryHTML = "<form class='editShowAllSubCategoryForm' id='edit-" + subCategoryName + "'-form'>";
+    buildShowEditSubCategoryHTML += "<div id='subCategoryUpdateInput'>"
     buildShowEditSubCategoryHTML += "<input class='editShowAllInputText' type='text' name='sub-category-name' placeholder='Sub-category name' value='" + subCategoryName + "'>";
     buildShowEditSubCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='sub-category-id' placeholder='Sub-category ID' value='" + subCategoryID + "'>";
+    buildShowEditSubCategoryHTML += "</div>"
+    buildShowEditSubCategoryHTML += "<div id='updateCancelSubCategory'>";
     buildShowEditSubCategoryHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
     buildShowEditSubCategoryHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditSubCategoryHTML += "</div>";
     buildShowEditSubCategoryHTML += "</form>";
     $('#subcat-' + removeSpaces(subCategoryName) + ' h4').html(buildShowEditSubCategoryHTML);
+    $('.edit-delete-sub-category').hide();
 }
 
 
@@ -356,12 +358,17 @@ function showEditItem(itemIDAndItemName) {
     let itemName = itemIDAndItemNameArray[1];
 
     let buildShowEditItemHTML = "<form class='editShowAllItemForm' id='edit-" + itemName + "'-form'>";
+    buildShowEditItemHTML += "<div id='itemUpdateInput'>"
     buildShowEditItemHTML += "<input class='editShowAllInputText' type='text' name='item-name' placeholder='Item name' value='" + itemName + "'>";
     buildShowEditItemHTML += "<input class='editShowAllInputHidden' type='hidden' name='item-id' placeholder='Item ID' value='" + itemID + "'>";
-    buildShowEditItemHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
-    buildShowEditItemHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditItemHTML += "</div>"
+    buildShowEditItemHTML += "<div id='updateCancelItem'>";
+    buildShowEditItemHTML += "<button id='updateItem' class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditItemHTML += "<a id='deleteItem' class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditItemHTML += "</div>";
     buildShowEditItemHTML += "</form>";
     $('#completed-card-' + removeSpaces(itemName) + ' h5').html(buildShowEditItemHTML);
+    //    $('.edit-delete-card').hide();
 }
 
 $(document).on("submit", '.editShowAllItemForm', function (event) {
@@ -417,15 +424,15 @@ function displayAll() {
                 $.each(result, function (resultKey, resultValue) {
 
                     buildCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-cat" class="category">';
-                    buildCategoryDropdownOutput += '<div id="' + removeSpaces(resultValue.name) + '-category-link">';
+                    buildCategoryDropdownOutput += '<div id="' + removeSpaces(resultValue.name) + '-category-title">';
                     buildCategoryDropdownOutput += '<div>';
                     //                    buildCategoryDropdownOutput += '<a href="" id="' + removeSpaces(resultValue.name) + '-link">';
                     buildCategoryDropdownOutput += '<h2>' + resultValue.name + '</h2>';
                     //                    buildCategoryDropdownOutput += '</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div class="edit-delete-category">';
-                    buildCategoryDropdownOutput += '<a href="#" onclick=showEditCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
-                    buildCategoryDropdownOutput += '<a href="#" onclick=deleteCategory("' + resultValue._id + '")>delete</a>';
+                    buildCategoryDropdownOutput += '<a  id="updateCategory" href="#" onclick=showEditCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
+                    buildCategoryDropdownOutput += '<a  id="deleteCategory" href="#" onclick=deleteCategory("' + resultValue._id + '")>delete</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div id="all-' + removeSpaces(resultValue.name) + '-cards">';
@@ -448,13 +455,13 @@ function displayAll() {
                                     //                    <!--       start subcategory-->
 
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '" class="subcategory">';
-                                    buildSubCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-subcategory-link" class="subcategory-link">';
+                                    buildSubCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-subcategory-title" class="subcategory-title">';
                                     buildSubCategoryDropdownOutput += '<div>';
                                     buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '<div class="edit-delete-sub-category">';
-                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=showEditSubCategory id="showEditSubCategory"("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
-                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=deleteSubCategory id="deleteSubCategory"("' + resultValue._id + '")>delete</a>';
+                                    buildSubCategoryDropdownOutput += '<a  id="showEditSubCategory" href="#" onclick=showEditSubCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
+                                    buildSubCategoryDropdownOutput += '<a  id="deleteSubCategory" href="#" onclick=deleteSubCategory("' + resultValue._id + '")>delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '-cards" class="card-wrapper">';

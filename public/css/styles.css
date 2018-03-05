@@ -66,10 +66,6 @@ body {
     background-color: #48484f
 }
 
-body {
-    /*    background-color: #8aa3b9;*/
-}
-
 #navigation {
     background-color: #8aa3b9;
     margin-top: 1rem;
@@ -136,6 +132,14 @@ p {
     border-radius: 5px;
 }
 
+
+#header-wrapper,
+.category,
+.editShowAllInputText,
+.editShowAllInputButton {
+    font-family: 'Lora', serif;
+}
+
 /* -------------------------------------
 Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
@@ -190,7 +194,6 @@ Header styles (Main Module)
     font-size: 2rem;
     padding: 1rem 0;
     margin-bottom: 2rem;
-    font-family: 'Lora', serif;
 }
 
 header span {
@@ -382,7 +385,6 @@ img,
 }
 
 .category {
-    font-family: 'Lora', serif;
     padding-top: 2rem;
     background-color: #8aa3b9;
     width: 99%;
@@ -392,14 +394,19 @@ img,
 }
 
 .category h2,
-.subcategory-link h4,
-#completed-card h5 {
+.subcategory-title h4,
+.completed-card-content h5 {
     text-transform: capitalize;
 }
 
 .category h2 {
     font-size: 3.5rem;
     letter-spacing: 2px;
+
+}
+
+.category h2,
+.subcategory-title {
     color: #000000;
 }
 
@@ -407,14 +414,10 @@ img,
     border-top: none;
 }
 
-.subcategory-link {
-    width: 215px;
-    margin: 0 auto;
-}
-
 
 #category-display-wrapper a {
     color: #fcfdff;
+    text-decoration: none;
 }
 
 .completed-card a {
@@ -425,31 +428,26 @@ img,
     width: 200px;
 }
 
-
-
-
 .editShowAllInputText,
 .editShowAllInputButton {
     border-radius: 5px;
 }
 
-.editShowAllInputText {}
-
+.editShowAllInputText {
+    font-size: 2rem;
+    text-align: center;
+}
 
 .editShowAllInputButton {
-    font-size: 1.5rem;
-    width: 130px;
+    font-size: 1.25rem;
+    /*    width: 150px;*/
     background-color: #676060;
     color: #fcfdff;
+    padding: .25rem 2.5rem;
 }
 
 .edit-delete-card {
     padding-bottom: .4rem;
-}
-
-.edit-delete-category a,
-.edit-delete-sub-category a {
-    background-color: #c35d2c;
 }
 
 .edit-delete-card a {
@@ -458,29 +456,81 @@ img,
     margin: 0 auto;
 }
 
+#showEditSubCategory,
+#deleteSubCategory {
+    display: inline-block;
+    border: 1px solid black;
+    /*    width: 25%;*/
+}
+
+.edit-delete-category,
+.edit-delete-sub-category {
+    margin-top: .5rem;
+}
+
+.edit-delete-category a,
+.edit-delete-sub-category a,
+.edit-delete-card a,
+#updateCategory,
+#showEditSubCategory,
+#deleteSubCategory {
+    border-radius: 5px;
+    background-color: #676060;
+    border: 1px solid #8c8686;
+}
+
 .edit-delete-category a,
 .edit-delete-sub-category a,
 .edit-delete-card a {
-    border-radius: 5px;
     padding: .3rem 0;
-    background-color: #676060;
-    border: 1px solid #8c8686;
+}
+
+#updateCategory,
+#deleteCategory,
+#showEditSubCategory,
+#deleteSubCategory {
+    font-size: 1.1rem;
+    padding: .25rem 1rem;
 }
 
 .edit-delete-card a:first-child {
     margin-bottom: .5rem;
 }
 
-#category-display-wrapper a {
-    text-decoration: none;
-}
-
+.editShowAllInputButton:hover,
 #category-display-wrapper a:hover,
 .edit-delete-card a:hover {
     color: #afdc8d;
 }
 
 
+
+#updateCancelCategory button,
+#updateCancelSubCategory button,
+#updateCancelItem {
+    margin-right: 1rem;
+}
+
+#updateCancelCategory {
+    margin-top: -1rem;
+}
+
+#updateCancelSubCategory {
+    margin-top: 1rem;
+}
+
+#itemUpdateInput input {
+    font-size: 1.5rem;
+}
+
+#updateItem,
+#deleteItem {
+    display: block;
+    width: 130px;
+    margin: 0 auto;
+    font-size: 1rem;
+    /*    margin: .25rem;*/
+}
 
 /* -------------------------------------
 Footer styles (Main Module)
