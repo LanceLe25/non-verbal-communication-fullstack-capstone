@@ -5,7 +5,6 @@ const Icon = require('./models/icon');
 const Category = require('./models/category');
 const SubCategory = require('./models/sub-category');
 const CardItem = require('./models/card-item');
-const SaveCard = require('./models/save-card');
 const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -334,20 +333,7 @@ app.put('/save-card/update', (req, res) => {
 });
 
 
-app.get('/save-card/get/:saveCardId', function (req, res) {
-    SaveCard.find({
-            saveCardId: req.params.saveCardId
-        },
-        function (err, item) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item);
-            }
-        });
-});
+
 
 /*display name by id api end points*/
 
@@ -453,6 +439,74 @@ app.put('/icons/:id', function (req, res) {
         });
 });
 
+
+
+
+
+
+//*********************Update  CATEGORY*************************
+
+app.put('/update-category/', (req, res) => {
+
+    let categoryName = req.body.name;
+    let categoryID = req.body.id;
+
+    Category.findByIdAndUpdate(categoryID, {
+        name: categoryName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated Category \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+//*********************Update  CATEGORY*************************
+
+app.put('/update-sub-category/', (req, res) => {
+
+    let subCategoryName = req.body.name;
+    let subCategoryID = req.body.id;
+
+    SubCategory.findByIdAndUpdate(subCategoryID, {
+        name: subCategoryName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated Sub-category \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+app.put('/update-item/', (req, res) => {
+
+    let itemName = req.body.name;
+    let itemID = req.body.id;
+
+    CardItem.findByIdAndUpdate(itemID, {
+        name: itemName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated item \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
 
 
 //*********************DELETE CATEGORY*************************

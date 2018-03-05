@@ -246,6 +246,155 @@ $(document).on("click", '#nav-home', function (event) {
     $('#save-card-button').hide();
 });
 
+function showEditCategory(categoryIDAndCategoryName) {
+    let categoryIDAndCategoryNameArray = categoryIDAndCategoryName.split("@");
+    let categoryID = categoryIDAndCategoryNameArray[0];
+    let categoryName = categoryIDAndCategoryNameArray[1];
+
+    let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
+    buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
+    buildShowEditCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='category-id' placeholder='Category ID' value='" + categoryID + "'>";
+    buildShowEditCategoryHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditCategoryHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditCategoryHTML += "</form>";
+    $('#' + removeSpaces(categoryName) + '-cat h2').html(buildShowEditCategoryHTML);
+}
+
+
+$(document).on("submit", '.editShowAllCategoryForm', function (event) {
+    event.preventDefault();
+
+    const categoryName = $(this).find('.editShowAllInputText').val();
+    const categoryID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(categoryID, categoryName);
+    if (categoryName == "") {
+        alert('Please specify Category Name');
+    } else {
+        const updateCategoryObject = {
+            name: categoryName,
+            id: categoryID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-category/',
+                dataType: 'json',
+                data: JSON.stringify(updateCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Category ' + categoryName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+
+function showEditSubCategory(subCategoryIDAndSubCategoryName) {
+    let subCategoryIDAndSubCategoryNameArray = subCategoryIDAndSubCategoryName.split("@");
+    let subCategoryID = subCategoryIDAndSubCategoryNameArray[0];
+    let subCategoryName = subCategoryIDAndSubCategoryNameArray[1];
+
+    let buildShowEditSubCategoryHTML = "<form class='editShowAllSubCategoryForm' id='edit-" + subCategoryName + "'-form'>";
+    buildShowEditSubCategoryHTML += "<input class='editShowAllInputText' type='text' name='sub-category-name' placeholder='Sub-category name' value='" + subCategoryName + "'>";
+    buildShowEditSubCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='sub-category-id' placeholder='Sub-category ID' value='" + subCategoryID + "'>";
+    buildShowEditSubCategoryHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditSubCategoryHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditSubCategoryHTML += "</form>";
+    $('#subcat-' + removeSpaces(subCategoryName) + ' h4').html(buildShowEditSubCategoryHTML);
+}
+
+
+$(document).on("submit", '.editShowAllSubCategoryForm', function (event) {
+    event.preventDefault();
+
+    const subCategoryName = $(this).find('.editShowAllInputText').val();
+    const subCategoryID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(subCategoryID, subCategoryName);
+    if (subCategoryName == "") {
+        alert('Please specify Sub-category Name');
+    } else {
+        const updateSubCategoryObject = {
+            name: subCategoryName,
+            id: subCategoryID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-sub-category/',
+                dataType: 'json',
+                data: JSON.stringify(updateSubCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Sub-category ' + subCategoryName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+function showEditItem(itemIDAndItemName) {
+    let itemIDAndItemNameArray = itemIDAndItemName.split("@");
+    let itemID = itemIDAndItemNameArray[0];
+    let itemName = itemIDAndItemNameArray[1];
+
+    let buildShowEditItemHTML = "<form class='editShowAllItemForm' id='edit-" + itemName + "'-form'>";
+    buildShowEditItemHTML += "<input class='editShowAllInputText' type='text' name='item-name' placeholder='Item name' value='" + itemName + "'>";
+    buildShowEditItemHTML += "<input class='editShowAllInputHidden' type='hidden' name='item-id' placeholder='Item ID' value='" + itemID + "'>";
+    buildShowEditItemHTML += "<button class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditItemHTML += "<a class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditItemHTML += "</form>";
+    $('#completed-card-' + removeSpaces(itemName) + ' h5').html(buildShowEditItemHTML);
+}
+
+$(document).on("submit", '.editShowAllItemForm', function (event) {
+    event.preventDefault();
+
+    const itemName = $(this).find('.editShowAllInputText').val();
+    const itemID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(itemID, itemName);
+    if (itemName == "") {
+        alert('Please specify Item Name');
+    } else {
+        const updateItemObject = {
+            name: itemName,
+            id: itemID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-item/',
+                dataType: 'json',
+                data: JSON.stringify(updateItemObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Item ' + itemName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+
+
 function displayAll() {
     $.ajax({
             type: 'GET',
@@ -270,7 +419,7 @@ function displayAll() {
                     //                    buildCategoryDropdownOutput += '</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div class="edit-delete-category">';
-                    buildCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                    buildCategoryDropdownOutput += '<a href="#" onclick=showEditCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
                     buildCategoryDropdownOutput += '<a href="#" onclick=deleteCategory("' + resultValue._id + '")>delete</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '</div>';
@@ -301,7 +450,7 @@ function displayAll() {
                                     //                                    buildSubCategoryDropdownOutput += '</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '<div class="edit-delete-category">';
-                                    buildSubCategoryDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                                    buildSubCategoryDropdownOutput += '<a href="#" onclick=showEditSubCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
                                     buildSubCategoryDropdownOutput += '<a href="#" onclick=deleteSubCategory("' + resultValue._id + '")>delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
@@ -324,9 +473,9 @@ function displayAll() {
 
                                                     //                    <!--       start card-->
 
-                                                    buildCardItemDropdownOutput += '<section id="completed-card" class="card">';
+                                                    buildCardItemDropdownOutput += '<section id="completed-card-' + removeSpaces(resultValue.name) + '" class="card">';
                                                     buildCardItemDropdownOutput += '<div class="edit-delete-card">';
-                                                    buildCardItemDropdownOutput += '<a href="">edit ' + resultValue._id + '</a>';
+                                                    buildCardItemDropdownOutput += '<a href="#" onclick=showEditItem("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>update name</a> ';
                                                     buildCardItemDropdownOutput += '<a href="#" onclick=deleteItem("' + resultValue._id + '")>delete</a>';
                                                     buildCardItemDropdownOutput += '</div>';
                                                     buildCardItemDropdownOutput += '<div>';
@@ -969,11 +1118,11 @@ $(document).on("click", '#save-card-button', function (event) {
                 console.log(errorThrown);
             });
     }
-    displayCategoryDropdown();
-    displaySubCategoryDropdown();
-    displayCardItemDropdown();
+    //    displayCategoryDropdown();
+    //    displaySubCategoryDropdown();
+    //    displayCardItemDropdown();
     //how do I get icons to refresh?
-    displayCardIconsDropdown();
+    //    displayCardIconsDropdown();
 });
 
 
