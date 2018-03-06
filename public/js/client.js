@@ -142,6 +142,17 @@ function deleteItem(itemID) {
         });
 }
 
+
+//Can I add a toggle option for the update delete options?
+function toggleEditOptions() {
+    let showUpdateDelete = ("#edit-delete-category").show()
+    let hideUpdateDelete = ("#edit-delete-category").hide()
+
+    if (showUpdateDelete) {
+        hideUpdateDelete;
+    }
+}
+
 // step 2. Defining functions
 
 // step 3. dynamically created layout to display home screen
@@ -255,7 +266,8 @@ function showEditCategory(categoryIDAndCategoryName) {
     let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
 
     //Can we add a toggle to show and hide the edit and delete buttons?
-    //    buildShowEditCategoryHTML += '<a  id="editDeleteOptions" href="#" onclick=toggle(toggleEditDelete)>Edit</a>';
+    buildShowEditCategoryHTML += '<div><a  id="editDeleteOptions" href="#" onclick=toggle(toggleEditDelete)>Edit</a>';
+    buildShowEditCategoryHTML += "</div>";
 
     buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>";
     buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
@@ -579,16 +591,13 @@ $(document).on("click", '#nav-add-new', function (event) {
     $('#add-card-wrapper-form').show();
     $('#example-card-display-wrapper').show();
     $('#save-card-button').show();
+    $('#select-cat').focus();
 });
-
-
-
 
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function (event) {
     event.preventDefault();
     let selectCategoryIDValue = $('#select-cat').val();
-
     let addCategoryShow = $('#add-category').show();
     let addCategoryHide = $('#add-category').hide();
 
@@ -596,6 +605,7 @@ $(document).on("change", '#select-cat', function (event) {
     if (selectCategoryIDValue == "addCategory") {
         $('#add-category input').val("");
         $('#add-category').show();
+        $('#add-category input').focus();
     } else if (selectCategoryIDValue == "selectCategory") {
         alert('Please make a selection');
         //    } else if ((addCategoryShow) && (globalSelectedCategory = selectCategoryIDValue)) {
@@ -606,6 +616,7 @@ $(document).on("change", '#select-cat', function (event) {
         $('#add-dropdown-categories').show();
         displayNameByID(selectCategoryIDValue, "category");
         $('#selectCategoryIDValue').val(selectCategoryIDValue);
+        $('#select-sub-cat').focus();
     }
     console.log(globalSelectedCategory);
 });
@@ -763,6 +774,7 @@ $(document).on("click", '#add-category-button', function (event) {
                 console.log(result);
                 displayCategoryDropdown();
                 $('#add-category input').val('');
+                $('#select-cat').focus();
 
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -817,7 +829,7 @@ $(document).on("change", '#select-sub-cat', function (event) {
 
     } else if (selectSubCategoryIDValue == "addSubCategory") {
         $('#add-sub-category').show();
-
+        $('#add-sub-category input').focus();
     } else if ((selectSubCategoryIDValue == "selectSubCategory") && (selectCategoryIDValue == "addCategory") || (selectCategoryIDValue == "selectCategory")) {
         alert('Please select a category');
     } else if (selectSubCategoryIDValue == "selectSubCategory") {
@@ -831,8 +843,8 @@ $(document).on("change", '#select-sub-cat', function (event) {
         displayNameByID(selectSubCategoryIDValue, "subcategory");
         $('#ex-card').show();
         $('#blank-image').show();
-
         $('#selectSubCategoryIDValue').val(selectSubCategoryIDValue);
+        $('#select-card-item').focus();
     }
 });
 
@@ -871,6 +883,7 @@ $(document).on("click", '#add-sub-category-button', function (event) {
                 $('#add-sub-category input').val('');
                 $('#add-sub-category').hide();
                 $('#example-card-sub-cat').html(cardSubCategory);
+                $('#select-sub-cat').focus();
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -970,6 +983,8 @@ $(document).on("change", '#select-card-item', function (event) {
     let addCardItemShow = $('#add-card-item').show();
     let addCardItemHide = $('#add-card-item').hide();
     let selectSubCategoryIDValue = $('#select-sub-cat').val();
+    //    let cardItemNameValue =
+
     console.log("selectCardItemNameValue = ", selectCardItemNameValue)
 
     if ((cardItemID == "addCardItem") && (selectCategoryIDValue == "selectCategory") || (selectCategoryIDValue == "addCategory") ||
@@ -982,6 +997,7 @@ $(document).on("change", '#select-card-item', function (event) {
     } else if (selectCardItemNameValue == "addCardItem") {
         $('#add-card-item').show();
         $('#select-image-wrapper').show();
+        $('#add-card-item input').focus();
     } else if ((selectCardItemNameValue == "selectCardItem") && (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory")) {
         alert('Please select a subcategory');
     } else if (selectCardItemNameValue == "selectCardItem") {
@@ -990,10 +1006,12 @@ $(document).on("change", '#select-card-item', function (event) {
 
         $('#selectCardItemIDValue').val(selectCardItemNameValue);
 
+
         globalCardItem == selectCardItemNameValue;
         displayCardIconsDropdown(selectCardItemNameValue);
 
 
+        $('.search').focus();
         $('#add-dropdown-categories').show();
         $('#cat-sub-cat-select').show();
         $('#select-image-wrapper').show();
@@ -1004,6 +1022,7 @@ $(document).on("change", '#select-card-item', function (event) {
         $('#example-card-sub-cat').show();
         $('#ex-card').show();
         $('#blank-image').show();
+        $('#selectCardItemNameValue').html('.search');
         displayNameByID(selectCardItemNameValue, "item");
     }
 });
@@ -1058,6 +1077,7 @@ $(document).on("click", '#add-card-item-button', function (event) {
                 $('#select-sub-cat').show();
                 displayNameByID(cardItem, "item");
                 $('#add-card-item input').val('');
+                $('#select-card-item').focus();
             })
             .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -1075,11 +1095,19 @@ $(document).on("click", '#add-card-item-button', function (event) {
 $(document).on("click", '#save-card-button', function (event) {
     event.preventDefault();
 
+    let selectCategoryIDValue = $('#select-cat').val();
+    let selectCardItemNameValue = $('#select-card-item').val();
+    let cardSubCategory = $('#selectSubCategoryIDValue').val();
     let cardItemID = $('#selectCardItemIDValue').val();
     let cardItemName = $('#selectCardItemNameValue').val();
-
     let cardIcon = $('input[name="country"]').val();
-    if (cardIcon == "") {
+
+
+    if ((selectCategoryIDValue == "selectCategory") || (selectCategoryIDValue == "addCategory") ||
+        (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory") ||
+        (selectCardItemNameValue == "selectCardItem") || (selectCardItemNameValue == "addCardItem")) {
+        alert('Please select a category, subcategory, item and icon');
+    } else if (cardIcon == "") {
         alert('Please select an icon for the item before continuing');
     } else {
         const saveCardObject = {
@@ -1107,6 +1135,7 @@ $(document).on("click", '#save-card-button', function (event) {
                 console.log(errorThrown);
             });
     }
+
     displayCardIconsDropdown();
 });
 
@@ -1137,7 +1166,7 @@ $(document).on("change", '#menu url', function (event) {
         $('#example-sub-cat-wrapper').show();
         $('#example-card-sub-cat').show();
         $('#ex-card').show();
-        $('#ex-image').html(selectImageValue);
+        $('#ex-image').html(selectImageValue).hide();
     }
 });
 
