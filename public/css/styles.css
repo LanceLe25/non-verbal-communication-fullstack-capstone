@@ -335,6 +335,10 @@ Content styles (Main Module)
     margin: 0 auto;
 }
 
+.search {
+    font-size: 1.25rem;
+}
+
 #select-icon-wrapper img {
     width: 75px;
     height: 75px;
@@ -386,6 +390,7 @@ img,
 
 .category {
     padding-top: 2rem;
+    padding-bottom: 1rem;
     background-color: #8aa3b9;
     width: 99%;
     margin: 0 auto;

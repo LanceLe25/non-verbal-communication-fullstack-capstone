@@ -96,6 +96,8 @@ function deleteSubCategory(subCategoryID) {
             if (resultItems.length != 0) {
                 // delete the category
                 alert("Sub-Category has items and can't be deleted");
+                //Add alert that asks user, "Are you sure you want to delete subcategory?
+                //button to cancel delete request that will go back to "displayAll
             } else {
                 $.ajax({
                         type: 'DELETE',
@@ -248,8 +250,14 @@ function showEditCategory(categoryIDAndCategoryName) {
     let categoryID = categoryIDAndCategoryNameArray[0];
     let categoryName = categoryIDAndCategoryNameArray[1];
 
+    let toggleEditDelete = $("#edit-delete-category").show();
+
     let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
-    buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>"
+
+    //Can we add a toggle to show and hide the edit and delete buttons?
+    //    buildShowEditCategoryHTML += '<a  id="editDeleteOptions" href="#" onclick=toggle(toggleEditDelete)>Edit</a>';
+
+    buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>";
     buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
     buildShowEditCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='category-id' placeholder='Category ID' value='" + categoryID + "'>";
     buildShowEditCategoryHTML += "</div>"
@@ -799,17 +807,21 @@ function displayCategoryDropdown() {
 $(document).on("change", '#select-sub-cat', function (event) {
     event.preventDefault();
     let selectSubCategoryIDValue = $('#select-sub-cat').val();
-    let cardCategory = $('#selectCategoryIDValue').val();
+    let selectCategoryIDValue = $('#select-cat').val();
     let addSubCategoryShow = $('#add-sub-category').show();
     let addSubCategoryHide = $('#add-sub-category').hide();
 
     //    alert(selectSubCategoryIDValue);
-    if (selectSubCategoryIDValue == "addSubCategory") {
+    if ((selectSubCategoryIDValue == "addSubCategory") && (selectCategoryIDValue == "addCategory") || (selectCategoryIDValue == "selectCategory")) {
+        alert('Please select a category');
+
+    } else if (selectSubCategoryIDValue == "addSubCategory") {
         $('#add-sub-category').show();
+
+    } else if ((selectSubCategoryIDValue == "selectSubCategory") && (selectCategoryIDValue == "addCategory") || (selectCategoryIDValue == "selectCategory")) {
+        alert('Please select a category');
     } else if (selectSubCategoryIDValue == "selectSubCategory") {
         alert('Please make a selection');
-        //    } else if ((addSubCategoryShow) && (globalSelectedSubCategory = selectSubCategoryIDValue)) {
-        //        addSubCategoryHide;
     } else {
         globalSelectedSubCategory == selectSubCategoryIDValue;
         displayCardItemDropdown(selectSubCategoryIDValue)
@@ -867,7 +879,6 @@ $(document).on("click", '#add-sub-category-button', function (event) {
             });
     };
 });
-
 
 function displayCardItemDropdown(subCategoryId) {
     $.ajax({
@@ -942,7 +953,6 @@ function displayCardIconsDropdown(cardId) {
         });
 }
 
-
 $(document).on("click", '#select-icon-wrapper .item', function (event) {
     event.preventDefault();
     let cardIcon = $('input[name="country"]').val();
@@ -954,14 +964,26 @@ $(document).on("click", '#select-icon-wrapper .item', function (event) {
 $(document).on("change", '#select-card-item', function (event) {
     event.preventDefault();
     let selectCardItemNameValue = $('#select-card-item').val();
+    let cardItemID = $('#selectCardItemIDValue').val();
+    let selectCategoryIDValue = $('#select-cat').val();
     let cardSubCategory = $('#selectSubCategoryIDValue').val();
     let addCardItemShow = $('#add-card-item').show();
     let addCardItemHide = $('#add-card-item').hide();
+    let selectSubCategoryIDValue = $('#select-sub-cat').val();
     console.log("selectCardItemNameValue = ", selectCardItemNameValue)
 
-    if (selectCardItemNameValue == "addCardItem") {
+    if ((cardItemID == "addCardItem") && (selectCategoryIDValue == "selectCategory") || (selectCategoryIDValue == "addCategory") ||
+        (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory")) {
+        alert('Please select a category and subcategory');
+        console.log("addCardItem");
+    } else if ((cardItemID == "addCardItem") && (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory")) {
+        alert('Please select a subcategory');
+        console.log("addCardItem");
+    } else if (selectCardItemNameValue == "addCardItem") {
         $('#add-card-item').show();
         $('#select-image-wrapper').show();
+    } else if ((selectCardItemNameValue == "selectCardItem") && (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory")) {
+        alert('Please select a subcategory');
     } else if (selectCardItemNameValue == "selectCardItem") {
         alert('Please make a selection');
     } else {
@@ -1085,11 +1107,7 @@ $(document).on("click", '#save-card-button', function (event) {
                 console.log(errorThrown);
             });
     }
-    //    displayCategoryDropdown();
-    //    displaySubCategoryDropdown();
-    //    displayCardItemDropdown();
-    //how do I get icons to refresh?
-    //    displayCardIconsDropdown();
+    displayCardIconsDropdown();
 });
 
 
