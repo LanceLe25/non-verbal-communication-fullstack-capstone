@@ -87,7 +87,8 @@ h2 {
     font-size: 2.5rem;
 }
 
-h3 {
+h3,
+h5 {
     font-size: 1.75rem;
 }
 
@@ -95,12 +96,13 @@ h4 {
     font-size: 2rem;
 }
 
-h5 {
-    font-size: 1.75rem;
-}
-
 p {
     font-size: 1.3rem;
+}
+
+#flaticon-credit p {
+    font-size: .8rem;
+    text-align: center;
 }
 
 #login-register-wrapper label,
@@ -229,9 +231,6 @@ header span {
 #register-user {
     border: 1px solid black;
     width: 20rem;
-    /*
-    margin: 0 auto;padding-bottom: 1rem;
-*/
 }
 
 #login-register button,
@@ -293,7 +292,10 @@ Content styles (Main Module)
     float: right;
 }
 
-
+#flaticon-credit li {
+    list-style: none;
+    text-align: center;
+}
 
 
 /******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
@@ -355,7 +357,9 @@ img,
 #blank-image {
     width: 200px;
     height: 200px;
+    border-radius: 3px;
     padding: .3rem;
+    /*    background: #e3efe3;*/
     background: white;
     background-size: cover;
     background-position: center center;
@@ -402,12 +406,11 @@ img,
 .subcategory-title h4,
 .completed-card-content h5 {
     text-transform: capitalize;
+    letter-spacing: 2px;
 }
 
 .category h2 {
     font-size: 3.5rem;
-    letter-spacing: 2px;
-
 }
 
 .category h2,
@@ -419,123 +422,84 @@ img,
     border-top: none;
 }
 
-
-#category-display-wrapper a {
-    color: #fcfdff;
-    text-decoration: none;
-}
-
-.completed-card a {
-    text-decoration: none;
-}
-
-.editShowAllInputText {
-    width: 200px;
-}
-
-.editShowAllInputText,
-.editShowAllInputButton {
-    border-radius: 5px;
-}
-
-.editShowAllInputText {
-    font-size: 2rem;
-    text-align: center;
-}
-
-.editShowAllInputButton {
-    font-size: 1.25rem;
-    /*    width: 150px;*/
-    background-color: #676060;
-    color: #fcfdff;
-    padding: .25rem 2.5rem;
-}
-
-.edit-delete-card {
-    padding-bottom: .4rem;
-}
-
-.edit-delete-card a {
-    display: block;
-    width: 130px;
-    margin: 0 auto;
-}
-
-#showEditSubCategory,
-#deleteSubCategory {
-    display: inline-block;
-    border: 1px solid black;
-    /*    width: 25%;*/
-}
-
-.edit-delete-category,
-.edit-delete-sub-category {
-    margin-top: .5rem;
-}
+/******STYLES FOR EDITING CARDS******/
 
 .edit-delete-category a,
 .edit-delete-sub-category a,
 .edit-delete-card a,
 #updateCategory,
-#showEditSubCategory,
-#deleteSubCategory {
-    border-radius: 5px;
-    background-color: #676060;
-    border: 1px solid #8c8686;
+#cancelUpdateCategory,
+#updateSubCategory,
+#cancelUpdateSubCategory,
+#updateItem,
+#cancelUpdateItem {
+    color: aliceblue;
+    text-shadow: 0px 2px 1px black;
+    font-size: 1.2rem;
+    cursor: default;
 }
+
 
 .edit-delete-category a,
 .edit-delete-sub-category a,
 .edit-delete-card a {
-    padding: .3rem 0;
+    text-decoration: none;
 }
 
-#updateCategory,
-#deleteCategory,
-#showEditSubCategory,
-#deleteSubCategory {
-    font-size: 1.1rem;
-    padding: .25rem 1rem;
-}
-
-.edit-delete-card a:first-child {
-    margin-bottom: .5rem;
-}
-
-.editShowAllInputButton:hover,
-#category-display-wrapper a:hover,
-.edit-delete-card a:hover {
+.edit-delete-category a:hover,
+.edit-delete-sub-category a:hover,
+.edit-delete-card a:hover,
+#updateCategory:hover,
+#cancelUpdateCategory:hover,
+#updateSubCategory:hover,
+#cancelUpdateSubCategory:hover,
+#updateItem:hover,
+#cancelUpdateItem:hover {
     color: #afdc8d;
+    text-decoration: underline;
 }
 
 
+.edit-delete-card {
+    padding-bottom: .4rem;
+}
 
-#updateCancelCategory button,
-#updateCancelSubCategory button,
-#updateCancelItem {
+.edit-delete-category a:first-child,
+.edit-delete-sub-category a:first-child,
+.edit-delete-card a:first-child,
+#updateCategory,
+#updateSubCategory,
+#updateItem {
     margin-right: 1rem;
 }
 
+#updateItem {
+    background-color: #c35d2c;
+}
+
+#updateCategory,
+#updateSubCategory {
+    background-color: #8aa3b9;
+}
+
 #updateCancelCategory {
-    margin-top: -1rem;
+    margin-top: -2rem;
 }
 
-#updateCancelSubCategory {
-    margin-top: 1rem;
-}
-
-#itemUpdateInput input {
+#categoryUpdateInput Input,
+#subCategoryUpdateInput Input,
+#itemUpdateInput Input {
+    width: 200px;
     font-size: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
 }
 
-#updateItem,
-#deleteItem {
-    display: block;
-    width: 130px;
-    margin: 0 auto;
-    font-size: 1rem;
-    /*    margin: .25rem;*/
+#itemUpdateInput Input {
+    padding-bottom: .4rem;
 }
+
+
 
 /* -------------------------------------
 Footer styles (Main Module)
