@@ -147,8 +147,8 @@ app.post('/users/signin', function (req, res) {
 });
 
 
-// -------------category ENDPOINTS------------------------------------------------
-//*********************CATEGORY POST AND GET*************************
+
+//*********************CATEGORY ENDPOINTS - POST, GET, PUT, DELETE*************************
 app.post('/category/create', (req, res) => {
 
     let name = req.body.name;
@@ -183,10 +183,73 @@ app.get('/category/get', function (req, res) {
         });
 });
 
+app.get('/get-category-name-by-id/:id', function (req, res) {
+    Category.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
+
+app.get('/check-category-duplicate-by-name/:name', function (req, res) {
+
+    Category.find({
+            name: req.params.name
+        },
+        function (err, item) {
+            console.log(item);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item.length);
+            }
+        });
+});
+
+app.put('/update-category/', (req, res) => {
+
+    let categoryName = req.body.name;
+    let categoryID = req.body.id;
+
+    Category.findByIdAndUpdate(categoryID, {
+        name: categoryName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated Category \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+app.delete('/delete-category/:categoryId', function (req, res) {
+    Category.findByIdAndRemove(req.params.categoryId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
 
 
 
-//*********************SUB-CATEGORY POST AND GET*************************
+
+//*********************SUB-CATEGORY ENDPOINTS - POST, GET, PUT, DELETE*************************
 app.post('/sub-category/create', (req, res) => {
 
     let name = req.body.name;
@@ -227,11 +290,73 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
         });
 });
 
+app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
+
+    SubCategory.find({
+            name: req.params.name
+        },
+        function (err, item) {
+            console.log(item);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item.length);
+            }
+        });
+});
+
+app.get('/get-subcategory-name-by-id/:id', function (req, res) {
+    SubCategory.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
+
+app.put('/update-sub-category/', (req, res) => {
+
+    let subCategoryName = req.body.name;
+    let subCategoryID = req.body.id;
+
+    SubCategory.findByIdAndUpdate(subCategoryID, {
+        name: subCategoryName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated Sub-category \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+app.delete('/delete-sub-category/:subCategoryId', function (req, res) {
+    SubCategory.findByIdAndRemove(req.params.subCategoryId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
 
 
 
 
-//*********************CARD ITEM POST AND GET*************************
+//*********************CARD ITEM ENDPOINTS - POST, GET, PUT, DELETE*************************
 app.post('/card-item/create', (req, res) => {
 
     let name = req.body.name;
@@ -289,8 +414,68 @@ app.get('/card-item/get-by-category/:categoryId', function (req, res) {
         });
 });
 
+app.put('/update-item/', (req, res) => {
 
+    let itemName = req.body.name;
+    let itemID = req.body.id;
 
+    CardItem.findByIdAndUpdate(itemID, {
+        name: itemName
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        } else if (item) {
+            console.log(`Updated item \`${item}\`.`);
+            return res.json(item);
+        }
+
+    });
+});
+
+app.get('/get-item-name-by-id/:id', function (req, res) {
+    CardItem.find({
+            _id: req.params.id
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item[0].name);
+            }
+        });
+});
+
+app.delete('/delete-item/:itemId', function (req, res) {
+    CardItem.findByIdAndRemove(req.params.itemId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+
+app.get('/check-item-duplicate-by-name/:name', function (req, res) {
+
+    CardItem.find({
+            name: req.params.name
+        },
+        function (err, item) {
+            console.log(item);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item.length);
+            }
+        });
+});
 
 
 //*********************CARD SAVE POST AND GET*************************
@@ -342,88 +527,20 @@ app.put('/save-card/update', (req, res) => {
 
 
 
-/*display name by id api end points*/
 
-app.get('/get-category-name-by-id/:id', function (req, res) {
-    Category.find({
-            _id: req.params.id
-        },
-        function (err, item) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item[0].name);
-            }
-        });
+//*********************CARD ICON POST AND GET*************************
+app.get('/card-icons/get/', function (req, res) {
+    Icon.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
 });
 
-app.get('/check-category-duplicate-by-name/:name', function (req, res) {
-
-    Category.find({
-            name: req.params.name
-        },
-        function (err, item) {
-            console.log(item);
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item.length);
-            }
-        });
-});
-
-app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
-
-    SubCategory.find({
-            name: req.params.name
-        },
-        function (err, item) {
-            console.log(item);
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item.length);
-            }
-        });
-});
-
-app.get('/get-subcategory-name-by-id/:id', function (req, res) {
-    SubCategory.find({
-            _id: req.params.id
-        },
-        function (err, item) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item[0].name);
-            }
-        });
-});
-
-app.get('/get-item-name-by-id/:id', function (req, res) {
-    CardItem.find({
-            _id: req.params.id
-        },
-        function (err, item) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item[0].name);
-            }
-        });
-});
-
-app.get('/get-item-icon-by-id/:id', function (req, res) {
+app.get('/get - item - icon - by - id/:id', function (req, res) {
     CardItem.find({
             _id: req.params.id
         },
@@ -441,147 +558,7 @@ app.get('/get-item-icon-by-id/:id', function (req, res) {
 
 
 
-//*********************CARD ICON POST AND GET*************************
-app.get('/card-icons/get/', function (req, res) {
-    //this returns only the SubCategories that are connected with the specific category id
-    Icon.find(function (err, item) {
-        if (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        }
-        res.status(200).json(item);
-    });
-});
 
-
-
-
-//*********************PUT*************************
-app.put('/icons/:id', function (req, res) {
-    let updateSop = {};
-    let updateableFields = ['body'];
-    updateableFields.forEach(function (field) {
-        if (field in req.body) {
-            updateSop[field] = req.body[field];
-        }
-    });
-
-    Icon
-        .findByIdAndUpdate(req.params.id, {
-            $set: updateSop
-        }).exec().then(function (icon) {
-            return res.status(204).end();
-        }).catch(function (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        });
-});
-
-
-
-
-
-
-//*********************Update  CATEGORY*************************
-
-app.put('/update-category/', (req, res) => {
-
-    let categoryName = req.body.name;
-    let categoryID = req.body.id;
-
-    Category.findByIdAndUpdate(categoryID, {
-        name: categoryName
-    }, (err, item) => {
-        if (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        } else if (item) {
-            console.log(`Updated Category \`${item}\`.`);
-            return res.json(item);
-        }
-
-    });
-});
-
-//*********************Update  CATEGORY*************************
-
-app.put('/update-sub-category/', (req, res) => {
-
-    let subCategoryName = req.body.name;
-    let subCategoryID = req.body.id;
-
-    SubCategory.findByIdAndUpdate(subCategoryID, {
-        name: subCategoryName
-    }, (err, item) => {
-        if (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        } else if (item) {
-            console.log(`Updated Sub-category \`${item}\`.`);
-            return res.json(item);
-        }
-
-    });
-});
-
-app.put('/update-item/', (req, res) => {
-
-    let itemName = req.body.name;
-    let itemID = req.body.id;
-
-    CardItem.findByIdAndUpdate(itemID, {
-        name: itemName
-    }, (err, item) => {
-        if (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        } else if (item) {
-            console.log(`Updated item \`${item}\`.`);
-            return res.json(item);
-        }
-
-    });
-});
-
-
-//*********************DELETE CATEGORY*************************
-
-
-app.delete('/delete-category/:categoryId', function (req, res) {
-    Category.findByIdAndRemove(req.params.categoryId, function (err, items) {
-        if (err)
-            return res.status(404).json({
-                message: 'Item not found.'
-            });
-
-        res.status(201).json(items);
-    });
-});
-app.delete('/delete-sub-category/:subCategoryId', function (req, res) {
-    SubCategory.findByIdAndRemove(req.params.subCategoryId, function (err, items) {
-        if (err)
-            return res.status(404).json({
-                message: 'Item not found.'
-            });
-
-        res.status(201).json(items);
-    });
-});
-app.delete('/delete-item/:itemId', function (req, res) {
-    CardItem.findByIdAndRemove(req.params.itemId, function (err, items) {
-        if (err)
-            return res.status(404).json({
-                message: 'Item not found.'
-            });
-
-        res.status(201).json(items);
-    });
-});
 
 
 //*********************MISC*************************

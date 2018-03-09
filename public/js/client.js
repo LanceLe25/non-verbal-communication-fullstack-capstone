@@ -580,37 +580,6 @@ $(document).ready(function () {
 });
 
 
-//****ALL LOGIN REGISTER PAGES*****
-$(document).on("click", '#nav-login', function (event) {
-    event.preventDefault();
-    //    $('#account-options').hide();
-    //    $('#login-register-wrapper').show();
-    //    $('#site-info-wrapper').hide();
-});
-$(document).on("click", '#nav-register', function (event) {
-    //    event.preventDefault();
-    //    $('#account-options').hide();
-    //    $('#register-user-wrapper').show();
-    //    $('#site-info-wrapper').hide();
-});
-$(document).on("submit", '#register-account-button', function (event) {
-    event.preventDefault();
-    //    $('#login-register-form').show();
-});
-$(document).on("submit", '#go-to-login-page', function (event) {
-    //    event.preventDefault();
-    //    $('#login-register-wrapper').show();
-});
-$(document).on("submit", '#login-account-button', function (event) {
-    //    event.preventDefault();
-    //    $('#nav-home, #nav-display-categories, #nav-add-new').show();
-    //    $('#logout').show();
-});
-$(document).on("submit", '#go-to-register-page-button', function (event) {
-    //    event.preventDefault();//    $('#register-user-wrapper').show();
-});
-
-
 //*****ALL NAV OPTION PAGES*****
 
 $(document).on("click", '#nav-about', function (event) {
@@ -997,6 +966,27 @@ $(document).on("change", '#select-card-item', function (event) {
     }
 });
 
+function checkItemDuplicate(ItemName) {
+    $.ajax({
+            type: 'GET',
+            url: '/check - item - duplicate - by - name/' + ItemName,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            processItemDuplicate(result);
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function processItemDuplicate(result) {
+    return result;
+}
+
 $(document).on("click", '#add-card-item-button', function (event) {
     event.preventDefault();
 
@@ -1005,7 +995,6 @@ $(document).on("click", '#add-card-item-button', function (event) {
         cardCategory = $('#selectCategoryIDValue').val();
     }
 
-
     let cardSubCategory = $('#add-sub-category input').val();
     if (cardSubCategory == "") {
         cardSubCategory = $('#selectSubCategoryIDValue').val();
@@ -1013,9 +1002,20 @@ $(document).on("click", '#add-card-item-button', function (event) {
 
     let cardItem = $('#add-card-item input').val();
 
+    let lowerName = cardItem.toLowerCase();
+    let upperName = cardItem.toUpperCase();
+    console.log(cardItem, lowerName, upperName);
+    console.log(processItemDuplicate(cardItem));
+    console.log(cardItem);
+
     if (cardItem == "") {
         alert("Please enter an item");
-
+    } else if (cardItem == processItemDuplicate(cardItem)) {
+        alert('Item already exists, please select from list');
+    } else if (cardItem == processItemDuplicate(lowerName)) {
+        alert('Item already exists, please select from list');
+    } else if (cardItem == processItemDuplicate(upperName)) {
+        alert('Item already exists, please select from list');
     } else {
         const newCardItemObject = {
             name: cardItem,
