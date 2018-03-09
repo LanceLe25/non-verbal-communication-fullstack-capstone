@@ -25,11 +25,13 @@
                     <li><a href="#" id="nav-add-new">ADD NEW</a></li>
                 </ul>
 
+                <!--
                 <ul id="account-options">
-                    <li><a href="#" id="nav-login">LOGIN</a></li>
-                    <li><a href="#" id="nav-register">REGISTER</a></li>
-                    <li><a href="#" id="nav-logout">LOGOUT</a></li>
-                </ul>
+<li><a href="#" id="nav-login">LOGIN</a></li>
+<li><a href="#" id="nav-register">REGISTER</a></li>
+<li><a href="#" id="nav-logout">LOGOUT</a></li>
+</ul>
+-->
             </section>
         </nav>
 
@@ -39,7 +41,7 @@
         </header>
 
 
-        <section id="home-page" class="hide-everything">
+        <section id="home-page-icons" class="hide-everything">
             <img src="icon-images/sneakers.png" alt="">
             <img src="icon-images/bonsai.png" alt="">
             <img src="icon-images/armchair-1.png" alt="">
@@ -63,6 +65,7 @@
     </main>
 
     <!--    *****USER LOGIN OR REGISTER*****  -->
+    <!--
     <main id="login-register-wrapper" class="hide-everything">
         <form action="login" id="login-register-form">
 
@@ -81,9 +84,11 @@
 
         </form>
     </main>
+-->
 
 
     <!--  **********USER REGISTERS HERE**********  -->
+    <!--
     <main id="register-user-wrapper" class="hide-everything">
         <form action="register" id="register-user-form">
 
@@ -104,6 +109,7 @@
             </section>
         </form>
     </main>
+-->
 
 
     <!--  **********Explaination of what site is about, gives brief instructions**********  -->
@@ -139,18 +145,9 @@
             </div>
         </div>
 
-        <div id="flaticon-credit">
-            <p>Icon made by</p>
-            <ul>
-                <li><a href="https://roundicons.com/">https://roundicons.com/ </a></li>
-                <li><a href="https://smashicons.com/">https://smashicons.com/</a></li>
-            </ul>
-            <p>from www.flaticon.com <br> E.g.: Icon made by Freepik from www.flaticon.com </p>
-        </div>
+
 
     </main>
-
-
 
     <!--  ******ALL CONTENT FOR CREATING A CARD ADDING CATEGORY, SUBCATEGORY, CARD ITEM AND ICON IMAGE******  -->
     <main role="main" id="add-card-main" class="hide-everything">
@@ -160,13 +157,7 @@
 
                 <section id="cat-sub-cat-select">
                     <select id="select-cat">
-                                <option value="selectCategory">select or add category</option>
-                                <option value="addCategory">add category</option>
-<!--
-                                <option value="">Clothing</option>
-                                <option value="Household">Household</option>
--->
-                        </select>
+                    </select>
 
                     <div id="add-category">
                         <input type="text" placeholder="add category">
@@ -175,18 +166,12 @@
                     <input type="hidden" id="selectCategoryIDValue" value="">
 
                     <select id="select-sub-cat">
-                            <option value="selectSubCategory">select or add sub category</option>
-                            <option value="addSubCategory">add sub category</option>
-<!--
-                            <option value="Bedroom">Bedroom</option>
-                            <option value="Living Room">Living Room</option>
-                            <option value="noSubCat">no sub category</option>
--->
-                        </select>
+                        <option value="selectSubCategory">select or add sub category</option>
+                        <option value="addSubCategory">add sub category</option>
+                    </select>
 
                     <div id="add-sub-category">
-                        <input type="text" placeholder="add sub category">
-                        <button id="add-sub-category-button">Add</button>
+                        <input type="text" placeholder="add sub category"><button id="add-sub-category-button">Add</button>
                     </div>
 
                     <input type="hidden" id="selectSubCategoryIDValue" value="">
@@ -222,27 +207,28 @@
                 </section>
             </section>
         </form>
-    </main>
+
+        <main id="example-card-display-wrapper" class="hide-everything">
+
+            <h2 id="example-card-category">Category</h2>
+
+            <section id="example-sub-cat-wrapper">
+                <h3 id="example-card-sub-cat">Subcategory</h3>
+                <div id="example-card">
+                    <div id="blank-image"></div>
+                    <h5 id="example-card-item">item</h5>
+                </div>
+            </section>
 
 
-    <main id="example-card-display-wrapper" class="hide-everything">
+        </main>
 
-        <h2 id="ex-card-category">Category</h2>
-
-        <section id="example-sub-cat-wrapper">
-            <h3 id="example-card-sub-cat">Subcategory</h3>
-            <div id="ex-card"><img id="ex-image" src="/icon-images/bed-1.png" alt="">
-                <div id="blank-image"></div>
-                <h5 id="ex-card-item">item</h5>
-            </div>
+        <section id="create-card">
+            <button id="save-card-button">Save</button>
         </section>
 
-
     </main>
 
-    <section id="create-card">
-        <button id="save-card-button">Save</button>
-    </section>
 
 
 
@@ -297,17 +283,26 @@
             </div>
         </section>
         <!--       end category-->
-
-
-
     </main>
     <!--  *********************************Footer*****************************  -->
     <footer role="content-info">
-        <p>© Kimberly Kearney</p>
-        <p>
-            <a href="https://www.linkedin.com/in/kimberly-kearney" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/kimcheru18" target="_blank">Github</a>
-        </p>
+        <div>
+            <p>© Kimberly Kearney</p>
+            <p>
+                <a href="https://www.linkedin.com/in/kimberly-kearney" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/kimcheru18" target="_blank">Github</a>
+            </p>
+        </div>
+        <div id="flaticon-credit">
+            <p>Icon made by</p>
+
+            <a href="https://roundicons.com/">https://roundicons.com/  </a>
+            <p>&</p>
+            <a href="https://smashicons.com/">https://smashicons.com/ </a>
+
+            <p>from www.flaticon.com E.g.: Icon made by Freepik from www.flaticon.com </p>
+        </div>
+
     </footer>
 
 

@@ -1,12 +1,11 @@
 // step 1. Defining global variables
 
 //1. User loads page that gives information on what the site is about
-//2. User has option to sign in or create new account
-//3. User selects 'ADD NEW' to create a new card
-//4. User selects or adds a Category, Sub-Category, Item and Icon
-//5. User clicks 'Save' to save the card
-//6. User can click 'SHOW ALL' to view all their cards
-//7. User selects HOME to return the the home page
+//2. User selects 'ADD NEW' to create a new card
+//3. User selects or adds a Category, Sub-Category, Item and Icon
+//4. User clicks 'Save' to save the card
+//5. User can click 'SHOW ALL' to view all their cards
+//6. User selects HOME to return the the home page
 
 
 
@@ -17,413 +16,7 @@ var globalSelectedSubCategory = "";
 var globalCardItem = "";
 var globalImage = "";
 
-function removeSpaces(inputString) {
-    return inputString.replace(/\s/g, '-');
-}
-
-function deleteCategory(categoryID) {
-    console.log(categoryID);
-    // check if there subcategories
-    $.ajax({
-            type: 'GET',
-            url: '/sub-category/get/' + categoryID,
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (resultSubCategories) {
-            console.log(resultSubCategories);
-            if (resultSubCategories.length != 0) {
-                // delete the category
-                alert("Category has sub-categories and can't be deleted");
-            }
-            // check if there itmes
-            else {
-                $.ajax({
-                        type: 'GET',
-                        url: '/card-item/get-by-category/' + categoryID,
-                        dataType: 'json',
-                        contentType: 'application/json'
-                    })
-                    .done(function (resultItems) {
-                        console.log(resultItems);
-                        if (resultItems.length != 0) {
-                            // delete the category
-                            alert("Category has items and can't be deleted");
-                        } else {
-                            $.ajax({
-                                    type: 'DELETE',
-                                    url: '/delete-category/' + categoryID,
-                                    dataType: 'json',
-                                    contentType: 'application/json'
-                                })
-                                .done(function (result) {
-                                    displayAll();
-                                    alert('Category has been deleted');
-                                })
-                                .fail(function (jqXHR, error, errorThrown) {
-                                    console.log(jqXHR);
-                                    console.log(error);
-                                    console.log(errorThrown);
-                                });
-                        }
-                    })
-                    .fail(function (jqXHR, error, errorThrown) {
-                        console.log(jqXHR);
-                        console.log(error);
-                        console.log(errorThrown);
-                    });
-            }
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
-function deleteSubCategory(subCategoryID) {
-    console.log(subCategoryID);
-    // check if there subcategories
-
-    $.ajax({
-            type: 'GET',
-            url: '/card-item/get/' + subCategoryID,
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (resultItems) {
-            console.log(resultItems);
-            if (resultItems.length != 0) {
-                // delete the category
-                alert("Sub-Category has items and can't be deleted");
-                //Add alert that asks user, "Are you sure you want to delete subcategory?
-                //button to cancel delete request that will go back to "displayAll
-            } else {
-                $.ajax({
-                        type: 'DELETE',
-                        url: '/delete-sub-category/' + subCategoryID,
-                        dataType: 'json',
-                        contentType: 'application/json'
-                    })
-                    .done(function (result) {
-                        displayAll();
-                        alert('Sub-Category has been deleted');
-                    })
-                    .fail(function (jqXHR, error, errorThrown) {
-                        console.log(jqXHR);
-                        console.log(error);
-                        console.log(errorThrown);
-                    });
-            }
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
-function deleteItem(itemID) {
-
-    $.ajax({
-            type: 'DELETE',
-            url: '/delete-item/' + itemID,
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (result) {
-            displayAll();
-            alert('Item has been deleted');
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
-
-//Can I add a toggle option for the update delete options?
-function toggleEditOptions() {
-    let showUpdateDelete = ("#edit-delete-category").show()
-    let hideUpdateDelete = ("#edit-delete-category").hide()
-
-    if (showUpdateDelete) {
-        hideUpdateDelete;
-    }
-}
-
 // step 2. Defining functions
-
-// step 3. dynamically created layout to display home screen
-$(document).ready(function () {
-
-    $('.ui.dropdown').dropdown();
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    //hide the following once you set up login options
-    $('#nav-home, #nav-display-categories, #nav-add-new').show();
-    $('#header').show();
-    $('#nav-logout').hide();
-    $('#site-info-wrapper').show();
-
-    //    hiding new-category, subcategory, card item, image input field
-    $('#add-category').hide();
-    $('#add-sub-category').hide();
-    $('#add-card-item').hide();
-    $('#select-image-wrapper').hide();
-    $('#ex-image').hide();
-    $('#save-card-button').hide();
-
-    $('#add-card-main').hide();
-    $('#add-card-wrapper-form').hide();
-    $('#example-card-display-wrapper').hide();
-    $('#save-card-button').hide();
-    $('#category-display-wrapper').hide();
-    $('.edit-delete-category a').hide();
-    displayCategoryDropdown();
-});
-
-
-//****ALL LOGIN REGISTER PAGES*****
-$(document).on("click", '#nav-login', function (event) {
-    event.preventDefault();
-    $('#account-options').hide();
-    $('#login-register-wrapper').show();
-    $('#site-info-wrapper').hide();
-});
-
-
-$(document).on("click", '#nav-register', function (event) {
-    event.preventDefault();
-    $('#account-options').hide();
-    $('#register-user-wrapper').show();
-    $('#site-info-wrapper').hide();
-});
-
-
-$(document).on("submit", '#register-account-button', function (event) {
-    event.preventDefault();
-    $('#login-register-form').show();
-});
-
-
-$(document).on("submit", '#go-to-login-page', function (event) {
-    event.preventDefault();
-    $('#login-register-wrapper').show();
-});
-
-
-$(document).on("submit", '#login-account-button', function (event) {
-    event.preventDefault();
-    $('#nav-home, #nav-display-categories, #nav-add-new').show();
-    $('#logout').show();
-});
-
-
-$(document).on("submit", '#go-to-register-page-button', function (event) {
-    event.preventDefault();
-    $('#register-user-wrapper').show();
-});
-
-
-
-
-
-//*****ALL NAV OPTION PAGES*****
-
-$(document).on("click", '#nav-about', function (event) {
-    //if user is not logged in, about page should display account options.
-    //if user is logged in, about page should display logout option
-    //if user is logged in, navigation options should show
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#account-options').show();
-    $('#login-register-form').hide();
-    $('#register-user-form').hide();
-    $('#site-info-wrapper').show();
-    $('#home-page').hide();
-});
-
-$(document).on("click", '#nav-home', function (event) {
-    event.preventDefault();
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#nav-login, #nav-register').hide();
-    $('#nav-logout').show();
-    $('#home-page').show();
-    $('#site-info-wrapper').hide();
-    $('#category-display-wrapper').hide();
-    $('#save-card-button').hide();
-});
-
-function showEditCategory(categoryIDAndCategoryName) {
-    let categoryIDAndCategoryNameArray = categoryIDAndCategoryName.split("@");
-    let categoryID = categoryIDAndCategoryNameArray[0];
-    let categoryName = categoryIDAndCategoryNameArray[1];
-
-    let toggleEditDelete = $("#edit-delete-category").show();
-
-    let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
-
-    buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>";
-    buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
-    buildShowEditCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='category-id' placeholder='Category ID' value='" + categoryID + "'>";
-    buildShowEditCategoryHTML += "</div>"
-    buildShowEditCategoryHTML += "<div id='updateCancelCategory'>";
-    buildShowEditCategoryHTML += "<button id='updateCategory' class='editShowAllInputButton' type='submit'>Update</button>";
-    buildShowEditCategoryHTML += "<a id='cancelUpdateCategory' class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
-    buildShowEditCategoryHTML += "</div>";
-    buildShowEditCategoryHTML += "</form>";
-    $('#' + removeSpaces(categoryName) + '-cat h2').html(buildShowEditCategoryHTML);
-    $('.edit-delete-category').hide();
-}
-
-
-$(document).on("submit", '.editShowAllCategoryForm', function (event) {
-    event.preventDefault();
-
-    const categoryName = $(this).find('.editShowAllInputText').val();
-    const categoryID = $(this).find('.editShowAllInputHidden').val();
-
-    console.log(categoryID, categoryName);
-    if (categoryName == "") {
-        alert('Please specify Category Name');
-    } else {
-        const updateCategoryObject = {
-            name: categoryName,
-            id: categoryID
-        };
-
-        $.ajax({
-                type: 'PUT',
-                url: '/update-category/',
-                dataType: 'json',
-                data: JSON.stringify(updateCategoryObject),
-                contentType: 'application/json'
-            })
-            .done(function (result) {
-                displayAll();
-                alert('Category ' + categoryName + ' has been updated');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
-    }
-});
-
-
-function showEditSubCategory(subCategoryIDAndSubCategoryName) {
-    let subCategoryIDAndSubCategoryNameArray = subCategoryIDAndSubCategoryName.split("@");
-    let subCategoryID = subCategoryIDAndSubCategoryNameArray[0];
-    let subCategoryName = subCategoryIDAndSubCategoryNameArray[1];
-
-    let buildShowEditSubCategoryHTML = "<form class='editShowAllSubCategoryForm' id='edit-" + subCategoryName + "'-form'>";
-    buildShowEditSubCategoryHTML += "<div id='subCategoryUpdateInput'>"
-    buildShowEditSubCategoryHTML += "<input class='editShowAllInputText' type='text' name='sub-category-name' placeholder='Sub-category name' value='" + subCategoryName + "'>";
-    buildShowEditSubCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='sub-category-id' placeholder='Sub-category ID' value='" + subCategoryID + "'>";
-    buildShowEditSubCategoryHTML += "</div>"
-    buildShowEditSubCategoryHTML += "<div id='updateCancelSubCategory'>";
-    buildShowEditSubCategoryHTML += "<button id='updateSubCategory' class='editShowAllInputButton' type='submit'>Update</button>";
-    buildShowEditSubCategoryHTML += "<a id='cancelUpdateSubCategory'class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
-    buildShowEditSubCategoryHTML += "</div>";
-    buildShowEditSubCategoryHTML += "</form>";
-    $('#subcat-' + removeSpaces(subCategoryName) + ' h4').html(buildShowEditSubCategoryHTML);
-    $('.edit-delete-sub-category').hide();
-}
-
-
-$(document).on("submit", '.editShowAllSubCategoryForm', function (event) {
-    event.preventDefault();
-
-    const subCategoryName = $(this).find('.editShowAllInputText').val();
-    const subCategoryID = $(this).find('.editShowAllInputHidden').val();
-
-    console.log(subCategoryID, subCategoryName);
-    if (subCategoryName == "") {
-        alert('Please specify Sub-category Name');
-    } else {
-        const updateSubCategoryObject = {
-            name: subCategoryName,
-            id: subCategoryID
-        };
-
-        $.ajax({
-                type: 'PUT',
-                url: '/update-sub-category/',
-                dataType: 'json',
-                data: JSON.stringify(updateSubCategoryObject),
-                contentType: 'application/json'
-            })
-            .done(function (result) {
-                displayAll();
-                alert('Sub-category ' + subCategoryName + ' has been updated');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
-    }
-});
-
-function showEditItem(itemIDAndItemName, event) {
-    let itemIDAndItemNameArray = itemIDAndItemName.split("@");
-    let itemID = itemIDAndItemNameArray[0];
-    let itemName = itemIDAndItemNameArray[1];
-
-    let buildShowEditItemHTML = "<form class='editShowAllItemForm' id='edit-" + itemName + "'-form'>";
-    buildShowEditItemHTML += "<div id='itemUpdateInput'>"
-    buildShowEditItemHTML += "<input class='editShowAllInputText' type='text' name='item-name' placeholder='Item name' value='" + itemName + "'>";
-    buildShowEditItemHTML += "<input class='editShowAllInputHidden' type='hidden' name='item-id' placeholder='Item ID' value='" + itemID + "'>";
-    buildShowEditItemHTML += "</div>"
-    buildShowEditItemHTML += "<div id='updateCancelItem'>";
-    buildShowEditItemHTML += "<button id='updateItem' class='editShowAllInputButton' type='submit'>Update</button>";
-    buildShowEditItemHTML += "<a id='cancelUpdateItem' class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
-    buildShowEditItemHTML += "</div>";
-    buildShowEditItemHTML += "</form>";
-    $('#completed-card-' + removeSpaces(itemName) + ' h5').html(buildShowEditItemHTML);
-    //    $('.edit-delete-card').hide();
-}
-
-$(document).on("submit", '.editShowAllItemForm', function (event) {
-    event.preventDefault();
-
-    const itemName = $(this).find('.editShowAllInputText').val();
-    const itemID = $(this).find('.editShowAllInputHidden').val();
-
-    console.log(itemID, itemName);
-    if (itemName == "") {
-        alert('Please specify Item Name');
-    } else {
-        const updateItemObject = {
-            name: itemName,
-            id: itemID
-        };
-
-        $.ajax({
-                type: 'PUT',
-                url: '/update-item/',
-                dataType: 'json',
-                data: JSON.stringify(updateItemObject),
-                contentType: 'application/json'
-            })
-            .done(function (result) {
-                displayAll();
-                alert('Item ' + itemName + ' has been updated');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
-    }
-});
-
-
-
 function displayAll() {
     $.ajax({
             type: 'GET',
@@ -432,7 +25,6 @@ function displayAll() {
             contentType: 'application/json'
         })
         .done(function (result) {
-            //console.log(result);
             if ((!result) || (result != undefined) || (result != "")) {
 
                 $("#category-display-wrapper").html('');
@@ -443,13 +35,11 @@ function displayAll() {
                     buildCategoryDropdownOutput += '<section id="' + removeSpaces(resultValue.name) + '-cat" class="category">';
                     buildCategoryDropdownOutput += '<div id="' + removeSpaces(resultValue.name) + '-category-title">';
                     buildCategoryDropdownOutput += '<div>';
-                    //                    buildCategoryDropdownOutput += '<a href="" id="' + removeSpaces(resultValue.name) + '-link">';
                     buildCategoryDropdownOutput += '<h2>' + resultValue.name + '</h2>';
-                    //                    buildCategoryDropdownOutput += '</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div class="edit-delete-category">';
-                    buildCategoryDropdownOutput += '<a  id="updateCategory" href="#" onclick=showEditCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update</a> ';
-                    buildCategoryDropdownOutput += '<a  id="deleteCategory" href="#" onclick=deleteCategory("' + resultValue._id + '")>Delete</a>';
+                    buildCategoryDropdownOutput += '<a  id="updateCategory" onclick=showEditCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update</a> ';
+                    buildCategoryDropdownOutput += '<a  id="deleteCategory" onclick=deleteCategory("' + resultValue._id + '")>Delete</a>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '</div>';
                     buildCategoryDropdownOutput += '<div id="all-' + removeSpaces(resultValue.name) + '-cards">';
@@ -462,7 +52,6 @@ function displayAll() {
                             contentType: 'application/json'
                         })
                         .done(function (result) {
-                            //console.log(result);
                             if ((!result) || (result != undefined) || (result != "")) {
 
                                 $("#all-" + removeSpaces(resultValue.name) + "-cards").html('');
@@ -477,8 +66,8 @@ function displayAll() {
                                     buildSubCategoryDropdownOutput += '<h4>' + resultValue.name + '</h4> ';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '<div class="edit-delete-sub-category">';
-                                    buildSubCategoryDropdownOutput += '<a  id="showEditSubCategory" href="#" onclick=showEditSubCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update</a> ';
-                                    buildSubCategoryDropdownOutput += '<a  id="deleteSubCategory" href="#" onclick=deleteSubCategory("' + resultValue._id + '")>Delete</a>';
+                                    buildSubCategoryDropdownOutput += '<a  id="showEditSubCategory" onclick=showEditSubCategory("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update</a> ';
+                                    buildSubCategoryDropdownOutput += '<a  id="deleteSubCategory" onclick=deleteSubCategory("' + resultValue._id + '")>Delete</a>';
                                     buildSubCategoryDropdownOutput += '</div>';
                                     buildSubCategoryDropdownOutput += '</section>';
                                     buildSubCategoryDropdownOutput += '<div id="subcat-' + removeSpaces(resultValue.name) + '-cards" class="card-wrapper">';
@@ -491,7 +80,6 @@ function displayAll() {
                                             contentType: 'application/json'
                                         })
                                         .done(function (result) {
-                                            //console.log(result);
                                             if ((!result) || (result != undefined) || (result != "")) {
 
                                                 $("#subcat-" + removeSpaces(resultValue.name) + "-cards").html('');
@@ -502,8 +90,8 @@ function displayAll() {
 
                                                     buildCardItemDropdownOutput += '<section id="completed-card-' + removeSpaces(resultValue.name) + '" class="completed-card-content">';
                                                     buildCardItemDropdownOutput += '<div class="edit-delete-card">';
-                                                    buildCardItemDropdownOutput += '<a href="#" onclick=showEditItem("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update name</a> ';
-                                                    buildCardItemDropdownOutput += '<a href="#" onclick=deleteItem("' + resultValue._id + '")>Delete</a>';
+                                                    buildCardItemDropdownOutput += '<a onclick=showEditItem("' + resultValue._id + '@' + removeSpaces(resultValue.name) + '")>Update name</a> ';
+                                                    buildCardItemDropdownOutput += '<a onclick=deleteItem("' + resultValue._id + '")>Delete</a>';
                                                     buildCardItemDropdownOutput += '</div>';
                                                     buildCardItemDropdownOutput += '<div>';
                                                     if (resultValue.icon != "") {
@@ -564,60 +152,6 @@ function displayAll() {
         });
 }
 
-
-$(document).on("click", '#nav-display-categories', function (event) {
-    event.preventDefault();
-
-    displayAll();
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#site-info-wrapper').hide();
-    $('#save-card-button').hide();
-    $('#category-display-wrapper').show();
-});
-
-
-$(document).on("click", '#nav-add-new', function (event) {
-    event.preventDefault();
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#nav-login, #nav-register').hide();
-    $('#nav-logout').show();
-    $('#add-card-main').show();
-    $('#add-card-wrapper-form').show();
-    $('#example-card-display-wrapper').show();
-    $('#save-card-button').show();
-    $('#select-cat').focus();
-});
-
-//*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
-$(document).on("change", '#select-cat', function (event) {
-    event.preventDefault();
-    let selectCategoryIDValue = $('#select-cat').val();
-    let addCategoryShow = $('#add-category').show();
-    let addCategoryHide = $('#add-category').hide();
-
-    //    alert(selectCategoryIDValue);
-    if (selectCategoryIDValue == "addCategory") {
-        $('#add-category input').val("");
-        $('#add-category').show();
-        $('#add-category input').focus();
-    } else if (selectCategoryIDValue == "selectCategory") {
-        alert('Please make a selection');
-        //    } else if ((addCategoryShow) && (globalSelectedCategory = selectCategoryIDValue)) {
-        //        addCategoryHide;
-    } else {
-        globalSelectedCategory = selectCategoryIDValue
-        displaySubCategoryDropdown(selectCategoryIDValue);
-        $('#add-dropdown-categories').show();
-        displayNameByID(selectCategoryIDValue, "category");
-        $('#selectCategoryIDValue').val(selectCategoryIDValue);
-        $('#select-sub-cat').focus();
-    }
-    console.log(globalSelectedCategory);
-});
-
 function displayNameByID(id, element) {
     console.log(id, element);
     if (element == "category") {
@@ -630,9 +164,9 @@ function displayNameByID(id, element) {
             .done(function (result) {
                 console.log(result);
                 if ((!result) || (result != undefined) || (result != "")) {
-                    $('#ex-card-category').html(result);
+                    $('#example-card-category').html(result);
                 } else {
-                    $('#ex-card-category').html("no category");
+                    $('#example-card-category').html("no category");
                 }
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -670,9 +204,9 @@ function displayNameByID(id, element) {
             .done(function (result) {
                 console.log(result);
                 if ((!result) || (result != undefined) || (result != "")) {
-                    $('#ex-card-item').html(result);
+                    $('#example-card-item').html(result);
                 } else {
-                    $('#ex-card-item').html("no item");
+                    $('#example-card-item').html("no item");
                 }
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -706,82 +240,6 @@ function displayNameByID(id, element) {
     }
 }
 
-function displaySubCategoryDropdown(categoryId) {
-    $.ajax({
-            type: 'GET',
-            url: '/sub-category/get/' + categoryId,
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (result) {
-            console.log(result);
-            if ((!result) || (result != undefined) || (result != "")) {
-
-                $("#select-sub-cat").html('');
-                var buildSubCategoryDropdownOutput = "";
-                buildSubCategoryDropdownOutput += '<option value="selectSubCategory">select or add sub category</option>';
-                buildSubCategoryDropdownOutput += '<option value="addSubCategory">add sub category</option>';
-                $.each(result, function (resultKey, resultValue) {
-                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
-                });
-                //use the HTML output to show it in the index.html
-                $("#select-sub-cat").html(buildSubCategoryDropdownOutput);
-            }
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
-
-//HELP, need validation if user is trying to add a category that already exists
-$(document).on("click", '#add-category-button', function (event) {
-    event.preventDefault();
-    let cardCategory = $('#add-category input').val();
-
-    //loop through list of categories to see if cardCategory already exists
-    //if card category exists, alert user.
-    //    let existingCardCategory = resultValue.name;
-    //
-    //    for (let i = 0; i < existingCardCategory.length; i++) {
-    //        if (cardCategory == existingCardCategory) {
-    //            alert("Category already exists");
-    //        }
-    //    }
-
-    console.log(cardCategory);
-    if (cardCategory == "") {
-        alert("Please enter a category");
-
-    } else {
-        const newCategoryObject = {
-            name: cardCategory
-        };
-
-        $.ajax({
-                type: 'POST',
-                url: '/category/create',
-                dataType: 'json',
-                data: JSON.stringify(newCategoryObject),
-                contentType: 'application/json'
-            })
-            .done(function (result) {
-                console.log(result);
-                displayCategoryDropdown();
-                $('#add-category input').val('');
-                $('#select-cat').focus();
-
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
-    };
-});
-
 function displayCategoryDropdown() {
     $.ajax({
             type: 'GET',
@@ -813,6 +271,543 @@ function displayCategoryDropdown() {
         });
 }
 
+function displaySubCategoryDropdown(categoryId) {
+    $.ajax({
+            type: 'GET',
+            url: '/sub-category/get/' + categoryId,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#select-sub-cat").html('');
+                var buildSubCategoryDropdownOutput = "";
+                buildSubCategoryDropdownOutput += '<option value="selectSubCategory">select or add sub category</option>';
+                buildSubCategoryDropdownOutput += '<option value="addSubCategory">add sub category</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildSubCategoryDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                });
+                //use the HTML output to show it in the index.html
+                $("#select-sub-cat").html(buildSubCategoryDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function displayCardItemDropdown(subCategoryId) {
+    $.ajax({
+            type: 'GET',
+            url: '/card-item/get/' + subCategoryId,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#select-card-item").html('');
+                var buildCardItemDropdownOutput = "";
+                buildCardItemDropdownOutput += '<option value="selectCardItem">select or add item</option>';
+                buildCardItemDropdownOutput += '<option value="addCardItem">add item</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCardItemDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#select-card-item").html(buildCardItemDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function displayCardIconsDropdown(cardId) {
+    let selectCardItemNameValue = $('#select-card-item').val();
+    let selectedIcon = displayNameByID(selectCardItemNameValue, "icon");
+    console.log(selectedIcon);
+    $.ajax({
+            type: 'GET',
+            url: '/card-icons/get/',
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#select-icon-wrapper .menu").html('');
+                var buildCardIconDropdownOutput = "";
+
+                $.each(result, function (resultKey, resultValue) {
+                    buildCardIconDropdownOutput += '<div class="item" data-value="' + resultValue.url + '">';
+                    buildCardIconDropdownOutput += '<i class="af flag">';
+                    buildCardIconDropdownOutput += '<img id="' + resultValue.url + '" src="/icon-images/' + resultValue.url + '" alt="">';
+                    buildCardIconDropdownOutput += '</i>' + resultValue.name;
+                    buildCardIconDropdownOutput += '</div>';
+                });
+
+                //use the HTML output to show it in the index.html
+                $("#select-icon-wrapper .menu").html(buildCardIconDropdownOutput);
+                $('#add-card-item input').val('');
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function showEditCategory(categoryIDAndCategoryName) {
+    let categoryIDAndCategoryNameArray = categoryIDAndCategoryName.split("@");
+    let categoryID = categoryIDAndCategoryNameArray[0];
+    let categoryName = categoryIDAndCategoryNameArray[1];
+
+    let buildShowEditCategoryHTML = "<form class='editShowAllCategoryForm' id='edit-" + categoryName + "'-form'>";
+
+    buildShowEditCategoryHTML += "<div id='categoryUpdateInput'>";
+    buildShowEditCategoryHTML += "<input class='editShowAllInputText' type='text' name='category-name' placeholder='Category name' value='" + categoryName + "'>";
+    buildShowEditCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='category-id' placeholder='Category ID' value='" + categoryID + "'>";
+    buildShowEditCategoryHTML += "</div>"
+    buildShowEditCategoryHTML += "<div id='updateCancelCategory'>";
+    buildShowEditCategoryHTML += "<button id='updateCategory' class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditCategoryHTML += "<a id='cancelUpdateCategory' class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditCategoryHTML += "</div>";
+    buildShowEditCategoryHTML += "</form>";
+    $('#' + removeSpaces(categoryName) + '-cat h2').html(buildShowEditCategoryHTML);
+    $('.edit-delete-category').hide();
+}
+
+function showEditSubCategory(subCategoryIDAndSubCategoryName) {
+    let subCategoryIDAndSubCategoryNameArray = subCategoryIDAndSubCategoryName.split("@");
+    let subCategoryID = subCategoryIDAndSubCategoryNameArray[0];
+    let subCategoryName = subCategoryIDAndSubCategoryNameArray[1];
+
+    let buildShowEditSubCategoryHTML = "<form class='editShowAllSubCategoryForm' id='edit-" + subCategoryName + "'-form'>";
+    buildShowEditSubCategoryHTML += "<div id='subCategoryUpdateInput'>"
+    buildShowEditSubCategoryHTML += "<input class='editShowAllInputText' type='text' name='sub-category-name' placeholder='Sub-category name' value='" + subCategoryName + "'>";
+    buildShowEditSubCategoryHTML += "<input class='editShowAllInputHidden' type='hidden' name='sub-category-id' placeholder='Sub-category ID' value='" + subCategoryID + "'>";
+    buildShowEditSubCategoryHTML += "</div>"
+    buildShowEditSubCategoryHTML += "<div id='updateCancelSubCategory'>";
+    buildShowEditSubCategoryHTML += "<button id='updateSubCategory' class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditSubCategoryHTML += "<a id='cancelUpdateSubCategory'class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditSubCategoryHTML += "</div>";
+    buildShowEditSubCategoryHTML += "</form>";
+    $('#subcat-' + removeSpaces(subCategoryName) + ' h4').html(buildShowEditSubCategoryHTML);
+    $('.edit-delete-sub-category').hide();
+}
+
+function showEditItem(itemIDAndItemName) {
+    let itemIDAndItemNameArray = itemIDAndItemName.split("@");
+    let itemID = itemIDAndItemNameArray[0];
+    let itemName = itemIDAndItemNameArray[1];
+
+    let buildShowEditItemHTML = "<form class='editShowAllItemForm' id='edit-" + itemName + "'-form'>";
+    buildShowEditItemHTML += "<div id='itemUpdateInput'>"
+    buildShowEditItemHTML += "<input class='editShowAllInputText' type='text' name='item-name' placeholder='Item name' value='" + itemName + "'>";
+    buildShowEditItemHTML += "<input class='editShowAllInputHidden' type='hidden' name='item-id' placeholder='Item ID' value='" + itemID + "'>";
+    buildShowEditItemHTML += "</div>"
+    buildShowEditItemHTML += "<div id='updateCancelItem'>";
+    buildShowEditItemHTML += "<button id='updateItem' class='editShowAllInputButton' type='submit'>Update</button>";
+    buildShowEditItemHTML += "<a id='cancelUpdateItem' class='editShowAllInputButton' onclick=displayAll()>Cancel</a>";
+    buildShowEditItemHTML += "</div>";
+    buildShowEditItemHTML += "</form>";
+    $('#completed-card-' + removeSpaces(itemName) + ' h5').html(buildShowEditItemHTML);
+}
+
+function removeSpaces(inputString) {
+    return inputString.replace(/\s/g, '-');
+}
+
+function deleteCategory(categoryID) {
+    console.log(categoryID);
+    // check if there subcategories
+    $.ajax({
+            type: 'GET',
+            url: '/sub-category/get/' + categoryID,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (resultSubCategories) {
+            console.log(resultSubCategories);
+            if (resultSubCategories.length != 0) {
+                // delete the category
+                alert("Category has sub-categories and can't be deleted");
+            }
+            // check if there items
+            else {
+                $.ajax({
+                        type: 'GET',
+                        url: '/card-item/get-by-category/' + categoryID,
+                        dataType: 'json',
+                        contentType: 'application/json'
+                    })
+                    .done(function (resultItems) {
+                        console.log(resultItems);
+                        if (resultItems.length != 0) {
+                            // delete the category
+                            alert("Category has items and can't be deleted");
+                        } else {
+                            $.ajax({
+                                    type: 'DELETE',
+                                    url: '/delete-category/' + categoryID,
+                                    dataType: 'json',
+                                    contentType: 'application/json'
+                                })
+                                .done(function (result) {
+                                    displayAll();
+                                    alert('Category has been deleted');
+                                })
+                                .fail(function (jqXHR, error, errorThrown) {
+                                    console.log(jqXHR);
+                                    console.log(error);
+                                    console.log(errorThrown);
+                                });
+                        }
+                    })
+                    .fail(function (jqXHR, error, errorThrown) {
+                        console.log(jqXHR);
+                        console.log(error);
+                        console.log(errorThrown);
+                    });
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function deleteSubCategory(subCategoryID) {
+    console.log(subCategoryID);
+    // check if there subcategories
+
+    $.ajax({
+            type: 'GET',
+            url: '/card-item/get/' + subCategoryID,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (resultItems) {
+            console.log(resultItems);
+            if (resultItems.length != 0) {
+                // delete the category
+                alert("Sub-Category has items and can't be deleted");
+                //Add alert that asks user, "Are you sure you want to delete subCategory?
+                //button to cancel delete request that will go back to "displayAll
+            } else {
+                confirm('Are you sure you want to delete this sub-category?')
+
+                $.ajax({
+                        type: 'DELETE',
+                        url: '/delete-sub-category/' + subCategoryID,
+                        dataType: 'json',
+                        contentType: 'application/json'
+                    })
+                    .done(function (result) {
+                        displayAll();
+                        alert('Sub-Category has been deleted');
+                    })
+                    .fail(function (jqXHR, error, errorThrown) {
+                        console.log(jqXHR);
+                        console.log(error);
+                        console.log(errorThrown);
+                    });
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function deleteItem(itemID) {
+    let userConfirmation = confirm('Are you sure you want to delete this item?');
+    console.log(userConfirmation);
+    if (userConfirmation == true) {
+        displayAll();
+
+        $.ajax({
+                type: 'DELETE',
+                url: '/delete-item/' + itemID,
+                dataType: 'json',
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Item has been deleted');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+}
+
+
+
+// step 3. dynamically created layout to display home screen
+$(document).ready(function () {
+
+    $('.ui.dropdown').dropdown();
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    //hide the following once you set up login options
+    $('#nav-home, #nav-display-categories, #nav-add-new').show();
+    $('#header').show();
+    $('#site-info-wrapper').show();
+
+    //    hiding new-category, subCategory, card item, image input field
+    $('#add-category').hide();
+    $('#add-sub-category').hide();
+    $('#add-card-item').hide();
+    $('#example-image').hide();
+    $('#save-card-button').hide();
+    $('#add-card-main').hide();
+    displayCategoryDropdown();
+});
+
+//*****ALL NAV OPTION PAGES*****
+
+$(document).on("click", '#nav-about', function (event) {
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#site-info-wrapper').show();
+});
+
+$(document).on("click", '#nav-home', function (event) {
+    event.preventDefault();
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#home-page-icons').show();
+});
+
+$(document).on("submit", '.editShowAllCategoryForm', function (event) {
+    event.preventDefault();
+
+    const categoryName = $(this).find('.editShowAllInputText').val();
+    const categoryID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(categoryID, categoryName);
+    if (categoryName == "") {
+        alert('Please specify Category Name');
+    } else {
+        const updateCategoryObject = {
+            name: categoryName,
+            id: categoryID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-category/',
+                dataType: 'json',
+                data: JSON.stringify(updateCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Category ' + categoryName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+$(document).on("submit", '.editShowAllSubCategoryForm', function (event) {
+    event.preventDefault();
+
+    const subCategoryName = $(this).find('.editShowAllInputText').val();
+    const subCategoryID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(subCategoryID, subCategoryName);
+    if (subCategoryName == "") {
+        alert('Please specify Sub-category Name');
+    } else {
+        const updateSubCategoryObject = {
+            name: subCategoryName,
+            id: subCategoryID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-sub-category/',
+                dataType: 'json',
+                data: JSON.stringify(updateSubCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Sub-category ' + subCategoryName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+$(document).on("submit", '.editShowAllItemForm', function (event) {
+    event.preventDefault();
+
+    const itemName = $(this).find('.editShowAllInputText').val();
+    const itemID = $(this).find('.editShowAllInputHidden').val();
+
+    console.log(itemID, itemName);
+    if (itemName == "") {
+        alert('Please specify Item Name');
+    } else {
+        const updateItemObject = {
+            name: itemName,
+            id: itemID
+        };
+
+        $.ajax({
+                type: 'PUT',
+                url: '/update-item/',
+                dataType: 'json',
+                data: JSON.stringify(updateItemObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                displayAll();
+                alert('Item ' + itemName + ' has been updated');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    }
+});
+
+$(document).on("click", '#nav-display-categories', function (event) {
+    event.preventDefault();
+
+    displayAll();
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#category-display-wrapper').show();
+});
+
+$(document).on("click", '#nav-add-new', function (event) {
+    event.preventDefault();
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#add-card-main').show();
+    $('#add-card-wrapper-form').show();
+    $('#example-card-display-wrapper').show();
+    $('#save-card-button').show();
+    $('#select-cat').focus();
+});
+
+//*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
+$(document).on("change", '#select-cat', function (event) {
+    event.preventDefault();
+    let selectCategoryIDValue = $('#select-cat').val();
+    let addCategoryShow = $('#add-category').show();
+    let addCategoryHide = $('#add-category').hide();
+
+    if (selectCategoryIDValue == "addCategory") {
+        $('#add-category input').val("");
+        $('#add-category').show();
+        $('#add-category input').focus();
+    } else if (selectCategoryIDValue == "selectCategory") {
+        alert('Please make a selection');
+    } else {
+        globalSelectedCategory = selectCategoryIDValue
+        displaySubCategoryDropdown(selectCategoryIDValue);
+        $('#add-dropdown-categories').show();
+        displayNameByID(selectCategoryIDValue, "category");
+        $('#selectCategoryIDValue').val(selectCategoryIDValue);
+        $('#select-sub-cat').focus();
+    }
+    console.log(globalSelectedCategory);
+});
+
+function checkCategoryDuplicate(categoryName) {
+    $.ajax({
+            type: 'GET',
+            url: '/check-category-duplicate-by-name/' + categoryName,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            processCategoryDuplicate(result);
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function processCategoryDuplicate(result) {
+    return result;
+}
+//HELP, need validation if user is trying to add a category that already exists
+$(document).on("click", '#add-category-button', function (event) {
+    event.preventDefault();
+    let cardCategory = $('#add-category input').val();
+
+
+    let lowerName = cardCategory.toLowerCase();
+    let upperName = cardCategory.toUpperCase();
+        console.log(cardCategory, lowerName, upperName);
+console.log(processCategoryDuplicate(cardCategory));
+
+console.log(cardCategory);
+    if (cardCategory == "") {
+        alert("Please enter a category");
+    } else if (cardCategory == processCategoryDuplicate(cardCategory)) {
+        alert('Category already exists, please select from list');
+    } else if (cardCategory == processCategoryDuplicate(lowerName)) {
+        alert('Category already exists, please select from list');
+    } else if (cardCategory == processCategoryDuplicate(upperName)) {
+        alert('Category already exists, please select from list');
+    } else {
+        const newCategoryObject = {
+            name: cardCategory
+        };
+
+        $.ajax({
+                type: 'POST',
+                url: '/category/create',
+                dataType: 'json',
+                data: JSON.stringify(newCategoryObject),
+                contentType: 'application/json'
+            })
+            .done(function (result) {
+                console.log(result);
+                displayCategoryDropdown();
+                $('#add-category input').val('');
+                $('#select-cat').focus();
+
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
+});
+
 $(document).on("change", '#select-sub-cat', function (event) {
     event.preventDefault();
     let selectSubCategoryIDValue = $('#select-sub-cat').val();
@@ -820,7 +815,6 @@ $(document).on("change", '#select-sub-cat', function (event) {
     let addSubCategoryShow = $('#add-sub-category').show();
     let addSubCategoryHide = $('#add-sub-category').hide();
 
-    //    alert(selectSubCategoryIDValue);
     if ((selectSubCategoryIDValue == "addSubCategory") && (selectCategoryIDValue == "addCategory") || (selectCategoryIDValue == "selectCategory")) {
         alert('Please select a category');
 
@@ -834,11 +828,11 @@ $(document).on("change", '#select-sub-cat', function (event) {
     } else {
         globalSelectedSubCategory == selectSubCategoryIDValue;
         displayCardItemDropdown(selectSubCategoryIDValue)
-        $('#ex-card-category').show();
+        $('#example-card-category').show();
         $('#example-sub-cat-wrapper').show();
         $('#example-card-sub-cat').show();
         displayNameByID(selectSubCategoryIDValue, "subcategory");
-        $('#ex-card').show();
+        $('#example-card').show();
         $('#blank-image').show();
         $('#selectSubCategoryIDValue').val(selectSubCategoryIDValue);
         $('#select-card-item').focus();
@@ -890,86 +884,11 @@ $(document).on("click", '#add-sub-category-button', function (event) {
     };
 });
 
-function displayCardItemDropdown(subCategoryId) {
-    $.ajax({
-            type: 'GET',
-            url: '/card-item/get/' + subCategoryId,
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (result) {
-            console.log(result);
-            if ((!result) || (result != undefined) || (result != "")) {
-
-                $("#select-card-item").html('');
-                var buildCardItemDropdownOutput = "";
-                buildCardItemDropdownOutput += '<option value="selectCardItem">select or add item</option>';
-                buildCardItemDropdownOutput += '<option value="addCardItem">add item</option>';
-                $.each(result, function (resultKey, resultValue) {
-                    buildCardItemDropdownOutput += '<option value="' + resultValue._id + '">' + resultValue.name + '</option>';
-                });
-
-                //use the HTML output to show it in the index.html
-                $("#select-card-item").html(buildCardItemDropdownOutput);
-            }
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
-function displayCardIconsDropdown(cardId) {
-    let selectCardItemNameValue = $('#select-card-item').val();
-    let selectedIcon = displayNameByID(selectCardItemNameValue, "icon");
-    console.log(selectedIcon);
-    $.ajax({
-            type: 'GET',
-            url: '/card-icons/get/',
-            dataType: 'json',
-            contentType: 'application/json'
-        })
-        .done(function (result) {
-            console.log(result);
-            if ((!result) || (result != undefined) || (result != "")) {
-
-                $("#select-icon-wrapper .menu").html('');
-                var buildCardIconDropdownOutput = "";
-                //                buildCardIconDropdownOutput += '<div class="ui fluid search selection dropdown">';
-                //                buildCardIconDropdownOutput += '<input type="hidden" name="country">';
-                //                buildCardIconDropdownOutput += '<div class="default text">Select an image</div>';
-                //                buildCardIconDropdownOutput += '<div class="menu transition visible" tabindex="-1" style="display: block !important;">';
-
-                $.each(result, function (resultKey, resultValue) {
-                    buildCardIconDropdownOutput += '<div class="item" data-value="' + resultValue.url + '">';
-                    buildCardIconDropdownOutput += '<i class="af flag">';
-                    buildCardIconDropdownOutput += '<img id="' + resultValue.url + '" src="/icon-images/' + resultValue.url + '" alt="">';
-                    buildCardIconDropdownOutput += '</i>' + resultValue.name;
-                    buildCardIconDropdownOutput += '</div>';
-                });
-                //                buildCardIconDropdownOutput += '</div>';
-                //                buildCardIconDropdownOutput += '</div>';
-
-                //use the HTML output to show it in the index.html
-                $("#select-icon-wrapper .menu").html(buildCardIconDropdownOutput);
-                $('#add-card-item input').val('');
-            }
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-}
-
 $(document).on("click", '#select-icon-wrapper .item', function (event) {
     event.preventDefault();
     let cardIcon = $('input[name="country"]').val();
     $("#example-card-display-wrapper #blank-image").css('background-image', 'url(/icon-images/' + cardIcon + ')');
 });
-
-//modified select-card-item and below
 
 $(document).on("change", '#select-card-item', function (event) {
     event.preventDefault();
@@ -993,7 +912,6 @@ $(document).on("change", '#select-card-item', function (event) {
         console.log("addCardItem");
     } else if (selectCardItemNameValue == "addCardItem") {
         $('#add-card-item').show();
-        $('#select-image-wrapper').show();
         $('#add-card-item input').focus();
     } else if ((selectCardItemNameValue == "selectCardItem") && (selectSubCategoryIDValue == "selectSubCategory") || (selectSubCategoryIDValue == "addSubCategory")) {
         alert('Please select a subcategory');
@@ -1003,22 +921,10 @@ $(document).on("change", '#select-card-item', function (event) {
 
         $('#selectCardItemIDValue').val(selectCardItemNameValue);
 
-
         globalCardItem == selectCardItemNameValue;
         displayCardIconsDropdown(selectCardItemNameValue);
-
-
         $('.search').focus();
-        $('#add-dropdown-categories').show();
-        $('#cat-sub-cat-select').show();
-        $('#select-image-wrapper').show();
-
-        $('#example-card-display-wrapper').show();
-        $('#ex-card-category').show();
-        $('#example-sub-cat-wrapper').show();
-        $('#example-card-sub-cat').show();
-        $('#ex-card').show();
-        $('#blank-image').show();
+        $('#add-card-main').show();
         $('#selectCardItemNameValue').html('.search');
         displayNameByID(selectCardItemNameValue, "item");
     }
@@ -1063,16 +969,7 @@ $(document).on("click", '#add-card-item-button', function (event) {
                 console.log(result);
                 displayCardItemDropdown(cardSubCategory);
                 $('#add-card-item').hide();
-                $('#example-card-display-wrapper').show();
-                $('#ex-card-category').show();
-                $('#example-sub-cat-wrapper').show();
-                $('#example-card-sub-cat').show();
-                $('#ex-card').show();
-                $('#blank-image').show();
-                $('#cat-sub-cat-select').show();
-                $('#select-sub-cat').show();
                 displayNameByID(cardItem, "item");
-                $('#add-card-item input').val('');
                 $('#select-card-item').focus();
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -1085,9 +982,6 @@ $(document).on("click", '#add-card-item-button', function (event) {
 
 });
 
-
-
-//*****UPDATE CARD**********UPDATE CARD**********UPDATE CARD*****
 $(document).on("click", '#save-card-button', function (event) {
     event.preventDefault();
 
@@ -1135,15 +1029,9 @@ $(document).on("click", '#save-card-button', function (event) {
     displayCardIconsDropdown();
 });
 
-
-
-
-
-//*****how do you do this*****
 $(document).on("change", '#menu url', function (event) {
     event.preventDefault();
     let selectImageValue = $('#menu url').val();
-
     alert(selectImageValue);
     if (selectImageValue == ".default") {
         alert('Please make a selection');
@@ -1151,22 +1039,8 @@ $(document).on("change", '#menu url', function (event) {
         globalImage == selectImageValue;
         $('.hide-everything').hide();
         $('#navigation').show();
-        $('#logout-wrapper').show();
-        $('#add-dropdown-categories').hide();
-        $('#cat-sub-cat-select').show();
-        $('#add-card-item input').hide();
-
-        $('#example-card-display-wrapper').show();
-        $('#ex-card-category').show();
-        $('#example-sub-cat-wrapper').show();
-        $('#example-card-sub-cat').show();
-        $('#ex-card').show();
-        $('#ex-image').html(selectImageValue).hide();
+        $('#example-image').html(selectImageValue).hide();
     }
-});
-
-$(document).on("click", '#create-card button', function (event) {
-    event.preventDefault();
 });
 
 
@@ -1322,5 +1196,5 @@ $(document).on("click", '#create-card button', function (event) {
 //});
 
 $('#nav-logout').click(function () {
-    window.location.reload();
+    //    window.location.reload();
 });

@@ -258,7 +258,7 @@
     "url": "flower.png"
 } {
     "name": "food steamer",
-    "url": "food-steamer.png "
+    "url": "food-steamer.png"
 } {
     "name": "refrigerator",
     "url": "fridge-1.png"
@@ -1489,4 +1489,124 @@
 } {
     "name": "wrap",
     "url": "wrap.png"
+} {
+    "name": "yarn",
+    "url": "ball-of-wool.png"
+} {
+    "name": "blade",
+    "url": "blade.png"
+} {
+    "name": "bobbin",
+    "url": "bobbin.png"
+} {
+    "name": "buttons",
+    "url": "buttons.png"
+} {
+    "name": "blade",
+    "url": "cutter-1.png"
+} {
+    "name": "cutter",
+    "url": "cutter.png"
+} {
+    "name": "dress",
+    "url": "dress.png"
+} {
+    "name": "dress form",
+    "url": "dummy-1.png"
+} {
+    "name": "dummy",
+    "url": "dummy.png"
+} {
+    "name": "fabric",
+    "url": "fabric.png"
+} {
+    "name": "hanger",
+    "url": "hanger.png"
+} {
+    "name": "iron",
+    "url": "iron.png"
+} {
+    "name": "knitting needles",
+    "url": "knitting-neddles.png"
+} {
+    "name": "knitting",
+    "url": "knitting.png"
+} {
+    "name": "sewing needle",
+    "url": "needle-1.png"
+} {
+    "name": "needle",
+    "url": "needle.png"
+} {
+    "name": "pin cushion",
+    "url": "needles.png"
+} {
+    "name": "oil",
+    "url": "oil.png"
+} {
+    "name": "pattern",
+    "url": "pattern-1.png"
+} {
+    "name": "pattern",
+    "url": "pattern.png"
+} {
+    "name": "safety pin",
+    "url": "pin.png"
+} {
+    "name": "pins",
+    "url": "pins.png"
+} {
+    "name": "small scissors",
+    "url": "ripper-1.png"
+} {
+    "name": "seam ripper",
+    "url": "ripper.png"
+} {
+    "name": "measuring tape",
+    "url": "ruler.png"
+} {
+    "name": "scissors",
+    "url": "scissors-1.png"
+} {
+    "name": "gingher",
+    "url": "scissors.png"
+} {
+    "name": "sewing foot and needle",
+    "url": "sewing-machine-3.png"
+} {
+    "name": "sewing machine",
+    "url": "sewing-machine-2.png"
+} {
+    "name": "bobbin case",
+    "url": "shuttle.png"
+} {
+    "name": "leather",
+    "url": "skin.png"
+} {
+    "name": "thread",
+    "url": "spool-of-thread-1.png"
+} {
+    "name": "spool of thread",
+    "url": "spool-of-thread.png"
+} {
+    "name": "embroidery",
+    "url": "stitching.png"
+} {
+    "name": "thimble",
+    "url": "thimble.png"
+} {
+    "name": "needle threader",
+    "url": "threading.png"
+} {
+    "name": "swatch",
+    "url": "tissue.png"
+} {
+    "name": "ball of yarn",
+    "url": "yarn-ball.png"
+} {
+    "name": "skein of yarn",
+    "url": "yarn.png"
+} {
+    "name": "zipper",
+    "url": "zipper.png"
 }

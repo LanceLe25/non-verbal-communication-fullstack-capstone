@@ -87,8 +87,7 @@ h2 {
     font-size: 2.5rem;
 }
 
-h3,
-h5 {
+h3 {
     font-size: 1.75rem;
 }
 
@@ -96,40 +95,27 @@ h4 {
     font-size: 2rem;
 }
 
+h5 {
+    font-size: 1.25rem;
+}
+
 p {
     font-size: 1.3rem;
 }
 
-#flaticon-credit p {
-    font-size: .8rem;
-    text-align: center;
-}
 
-#login-register-wrapper label,
-#login-register button,
-#register-user-wrapper label,
-#register-account button,
-#cat-sub-cat-select select {
-    display: block;
-}
+#nav-options a {
 
-#nav-options a,
-#register-user-form a {
     color: #1d1d21;
     text-decoration: none;
+
 }
 
 
 #example-card-display-wrapper,
-#add-card-item button,
-#add-category button,
-#add-sub-category button,
-#create-card button,
-#add-card-item input,
-#add-category input,
-#add-sub-category input,
-#example-card-display-wrapper img,
-#home-page img,
+button,
+input,
+#home-page-icons img,
 #blank-image {
     border-radius: 5px;
 }
@@ -163,24 +149,24 @@ Header styles (Main Module)
 }
 
 #account-options {
-    margin-top: .75rem;
+    /*    margin-top: .75rem;*/
 }
 
 #account-options li {
-    display: inline-block;
+    /*    display: inline-block;*/
 }
 
 #nav-login {
-    padding: 0 .75rem;
+    /*    padding: 0 .75rem;*/
 }
 
-#home-page {
+#home-page-icons {
     width: 90%;
     margin: 0 auto;
 }
 
-#home-page img,
-#home-page div {
+#home-page-icons img,
+#home-page-icons div {
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -211,34 +197,42 @@ header span {
 #register-user,
 #login-register button,
 #register-account button {
-    border-radius: 5px;
+    /*    border-radius: 5px;*/
 }
 
 #login-register-form input,
 #register-user-form input {
+    /*
     text-align: center;
     padding: 1rem;
     margin: 1rem;
+*/
 }
 
 #login-register a,
 #register-account a {
+    /*
     padding-top: 1rem;
     padding-right: 1rem;
+*/
 }
 
 #account-options-form,
 #register-user {
+    /*
     border: 1px solid black;
     width: 20rem;
+*/
 }
 
 #login-register button,
 #register-account button {
+    /*
     width: 7rem;
     margin: .75rem auto;
     padding: .4rem 1rem;
     background-color: #88b4c1;
+*/
 }
 
 
@@ -292,13 +286,12 @@ Content styles (Main Module)
     float: right;
 }
 
-#flaticon-credit li {
-    list-style: none;
-    text-align: center;
-}
-
 
 /******CREATE CARD, EDIT, DELETE, ADD CATEGORY, SUBCATEGORY, ITEM******/
+
+#cat-sub-cat-select select {
+    display: block;
+}
 
 #add-card-item input,
 #add-category input,
@@ -314,7 +307,6 @@ Content styles (Main Module)
 #create-card button {
     padding: .5rem 1rem;
     margin-left: .5rem;
-    /*    background-color: #b72727;*/
     background-color: #1759bf;
     box-shadow: 1px 2px 2px grey;
 }
@@ -347,23 +339,15 @@ Content styles (Main Module)
     vertical-align: middle;
 }
 
-#blank-image {
-    margin: auto;
-    clear: both;
-    padding: .25rem;
-}
-
 img,
 #blank-image {
     width: 200px;
     height: 200px;
-    border-radius: 3px;
-    padding: .3rem;
-    /*    background: #e3efe3;*/
     background: white;
     background-size: cover;
     background-position: center center;
     border: 10px solid white;
+    margin: auto;
 }
 
 /******STYLES FOR DISPLAYING CARDS******/
@@ -437,6 +421,11 @@ img,
     text-shadow: 0px 2px 1px black;
     font-size: 1.2rem;
     cursor: default;
+    /*
+    border: 1.2px solid #5a5959;padding: .1rem .2rem;
+border-radius: 5px;
+box-shadow: 1px 1px 1px black;
+*/
 }
 
 
@@ -462,6 +451,7 @@ img,
 
 .edit-delete-card {
     padding-bottom: .4rem;
+    margin-bottom: .2rem;
 }
 
 .edit-delete-category a:first-child,
@@ -495,10 +485,6 @@ img,
     border-radius: 5px;
 }
 
-#itemUpdateInput Input {
-    padding-bottom: .4rem;
-}
-
 
 
 /* -------------------------------------
@@ -520,6 +506,20 @@ footer a {
 
 footer a:hover {
     color: aliceblue;
+}
+
+#flaticon-credit {
+    padding-top: 1rem;
+}
+
+#flaticon-credit p,
+#flaticon-credit a {
+    display: inline-block;
+    font-size: .8rem;
+}
+
+#flaticon-credit li {
+    list-style: none;
 }
 
 /* -------------------------------------

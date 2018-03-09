@@ -168,7 +168,6 @@ app.post('/category/create', (req, res) => {
     });
 });
 
-
 app.get('/category/get', function (req, res) {
     Category.find(
         function (err, item) {
@@ -183,6 +182,9 @@ app.get('/category/get', function (req, res) {
             }
         });
 });
+
+
+
 
 //*********************SUB-CATEGORY POST AND GET*************************
 app.post('/sub-category/create', (req, res) => {
@@ -206,7 +208,6 @@ app.post('/sub-category/create', (req, res) => {
     });
 });
 
-
 app.get('/sub-category/get/:categoryId', function (req, res) {
     //this returns only the SubCategories that are connected with the specific category id
     SubCategory.find({
@@ -225,6 +226,10 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
             }
         });
 });
+
+
+
+
 
 //*********************CARD ITEM POST AND GET*************************
 app.post('/card-item/create', (req, res) => {
@@ -251,7 +256,6 @@ app.post('/card-item/create', (req, res) => {
 
     });
 });
-
 
 app.get('/card-item/get/:subCategoryId', function (req, res) {
     //this returns only the SubCategories that are connected with the specific category id
@@ -284,6 +288,10 @@ app.get('/card-item/get-by-category/:categoryId', function (req, res) {
             }
         });
 });
+
+
+
+
 
 //*********************CARD SAVE POST AND GET*************************
 app.post('/save-card/create', (req, res) => {
@@ -334,7 +342,6 @@ app.put('/save-card/update', (req, res) => {
 
 
 
-
 /*display name by id api end points*/
 
 app.get('/get-category-name-by-id/:id', function (req, res) {
@@ -352,6 +359,22 @@ app.get('/get-category-name-by-id/:id', function (req, res) {
         });
 });
 
+app.get('/check-category-duplicate-by-name/:name', function (req, res) {
+
+    Category.find({
+            name: req.params.name
+        },
+        function (err, item) {
+            console.log(item);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item.length);
+            }
+        });
+});
 
 app.get('/get-subcategory-name-by-id/:id', function (req, res) {
     SubCategory.find({
