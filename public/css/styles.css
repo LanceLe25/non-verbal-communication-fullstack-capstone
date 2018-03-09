@@ -148,18 +148,6 @@ Header styles (Main Module)
     padding-right: .75rem;
 }
 
-#account-options {
-    /*    margin-top: .75rem;*/
-}
-
-#account-options li {
-    /*    display: inline-block;*/
-}
-
-#nav-login {
-    /*    padding: 0 .75rem;*/
-}
-
 #home-page-icons {
     width: 90%;
     margin: 0 auto;
@@ -188,53 +176,6 @@ header span {
     font-size: 2.5rem;
     color: #f58048;
 }
-
-/***************REGISTER, LOGIN, LOGOUT FEATURES*********************/
-
-#login-register-form input,
-#register-user-form input,
-#account-options-form,
-#register-user,
-#login-register button,
-#register-account button {
-    /*    border-radius: 5px;*/
-}
-
-#login-register-form input,
-#register-user-form input {
-    /*
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem;
-*/
-}
-
-#login-register a,
-#register-account a {
-    /*
-    padding-top: 1rem;
-    padding-right: 1rem;
-*/
-}
-
-#account-options-form,
-#register-user {
-    /*
-    border: 1px solid black;
-    width: 20rem;
-*/
-}
-
-#login-register button,
-#register-account button {
-    /*
-    width: 7rem;
-    margin: .75rem auto;
-    padding: .4rem 1rem;
-    background-color: #88b4c1;
-*/
-}
-
 
 /* -------------------------------------
 Content styles (Main Module)
@@ -419,13 +360,12 @@ img,
 #cancelUpdateItem {
     color: aliceblue;
     text-shadow: 0px 2px 1px black;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: default;
-    /*
-    border: 1.2px solid #5a5959;padding: .1rem .2rem;
-border-radius: 5px;
-box-shadow: 1px 1px 1px black;
-*/
+    background-color: #48484f;
+    padding: .1rem .4rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px grey;
 }
 
 
@@ -445,7 +385,6 @@ box-shadow: 1px 1px 1px black;
 #updateItem:hover,
 #cancelUpdateItem:hover {
     color: #afdc8d;
-    text-decoration: underline;
 }
 
 
@@ -464,16 +403,11 @@ box-shadow: 1px 1px 1px black;
 }
 
 #updateItem {
-    background-color: #c35d2c;
+    background-color: #48484f;
 }
 
-#updateCategory,
-#updateSubCategory {
-    background-color: #8aa3b9;
-}
-
-#updateCancelCategory {
-    margin-top: -2rem;
+#updateCancelItem {
+    margin-top: .25rem;
 }
 
 #categoryUpdateInput Input,
@@ -508,8 +442,7 @@ footer a:hover {
     color: aliceblue;
 }
 
-#flaticon-credit {
-    padding-top: 1rem;
+#flaticon-credit {padding-top: 1rem;
 }
 
 #flaticon-credit p,
@@ -553,9 +486,4 @@ place all the mobile tables styles below this line
 
     #nav-options li:last-child {
         padding-right: .75rem;
-    }
-
-    #account-options {
-        float: right;
-        margin: 0;
     }

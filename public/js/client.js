@@ -445,6 +445,7 @@ function deleteCategory(categoryID) {
             }
             // check if there items
             else {
+
                 $.ajax({
                         type: 'GET',
                         url: '/card-item/get-by-category/' + categoryID,
@@ -457,21 +458,25 @@ function deleteCategory(categoryID) {
                             // delete the category
                             alert("Category has items and can't be deleted");
                         } else {
-                            $.ajax({
-                                    type: 'DELETE',
-                                    url: '/delete-category/' + categoryID,
-                                    dataType: 'json',
-                                    contentType: 'application/json'
-                                })
-                                .done(function (result) {
-                                    displayAll();
-                                    alert('Category has been deleted');
-                                })
-                                .fail(function (jqXHR, error, errorThrown) {
-                                    console.log(jqXHR);
-                                    console.log(error);
-                                    console.log(errorThrown);
-                                });
+                            let userConfirmation = confirm('Are you sure you want to delete this Sub-category?');
+                            console.log(userConfirmation);
+                            if (userConfirmation == true) {
+                                $.ajax({
+                                        type: 'DELETE',
+                                        url: '/delete-category/' + categoryID,
+                                        dataType: 'json',
+                                        contentType: 'application/json'
+                                    })
+                                    .done(function (result) {
+                                        displayAll();
+                                        alert('Category has been deleted');
+                                    })
+                                    .fail(function (jqXHR, error, errorThrown) {
+                                        console.log(jqXHR);
+                                        console.log(error);
+                                        console.log(errorThrown);
+                                    });
+                            }
                         }
                     })
                     .fail(function (jqXHR, error, errorThrown) {
@@ -503,26 +508,27 @@ function deleteSubCategory(subCategoryID) {
             if (resultItems.length != 0) {
                 // delete the category
                 alert("Sub-Category has items and can't be deleted");
-                //Add alert that asks user, "Are you sure you want to delete subCategory?
-                //button to cancel delete request that will go back to "displayAll
             } else {
-                confirm('Are you sure you want to delete this sub-category?')
+                let userConfirmation = confirm('Are you sure you want to delete this Sub-category?');
+                console.log(userConfirmation);
+                if (userConfirmation == true) {
 
-                $.ajax({
-                        type: 'DELETE',
-                        url: '/delete-sub-category/' + subCategoryID,
-                        dataType: 'json',
-                        contentType: 'application/json'
-                    })
-                    .done(function (result) {
-                        displayAll();
-                        alert('Sub-Category has been deleted');
-                    })
-                    .fail(function (jqXHR, error, errorThrown) {
-                        console.log(jqXHR);
-                        console.log(error);
-                        console.log(errorThrown);
-                    });
+                    $.ajax({
+                            type: 'DELETE',
+                            url: '/delete-sub-category/' + subCategoryID,
+                            dataType: 'json',
+                            contentType: 'application/json'
+                        })
+                        .done(function (result) {
+                            displayAll();
+                            alert('Sub-Category has been deleted');
+                        })
+                        .fail(function (jqXHR, error, errorThrown) {
+                            console.log(jqXHR);
+                            console.log(error);
+                            console.log(errorThrown);
+                        });
+                }
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -536,7 +542,6 @@ function deleteItem(itemID) {
     let userConfirmation = confirm('Are you sure you want to delete this item?');
     console.log(userConfirmation);
     if (userConfirmation == true) {
-        displayAll();
 
         $.ajax({
                 type: 'DELETE',
@@ -763,7 +768,7 @@ function checkCategoryDuplicate(categoryName) {
 function processCategoryDuplicate(result) {
     return result;
 }
-//HELP, need validation if user is trying to add a category that already exists
+
 $(document).on("click", '#add-category-button', function (event) {
     event.preventDefault();
     let cardCategory = $('#add-category input').val();
@@ -969,7 +974,7 @@ $(document).on("change", '#select-card-item', function (event) {
 function checkItemDuplicate(ItemName) {
     $.ajax({
             type: 'GET',
-            url: '/check - item - duplicate - by - name/' + ItemName,
+            url: '/check-item-duplicate-by-name/' + ItemName,
             dataType: 'json',
             contentType: 'application/json'
         })
