@@ -376,6 +376,23 @@ app.get('/check-category-duplicate-by-name/:name', function (req, res) {
         });
 });
 
+app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
+
+    SubCategory.find({
+            name: req.params.name
+        },
+        function (err, item) {
+            console.log(item);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item.length);
+            }
+        });
+});
+
 app.get('/get-subcategory-name-by-id/:id', function (req, res) {
     SubCategory.find({
             _id: req.params.id

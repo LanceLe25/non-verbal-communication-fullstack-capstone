@@ -579,6 +579,38 @@ $(document).ready(function () {
     displayCategoryDropdown();
 });
 
+
+//****ALL LOGIN REGISTER PAGES*****
+$(document).on("click", '#nav-login', function (event) {
+    event.preventDefault();
+    //    $('#account-options').hide();
+    //    $('#login-register-wrapper').show();
+    //    $('#site-info-wrapper').hide();
+});
+$(document).on("click", '#nav-register', function (event) {
+    //    event.preventDefault();
+    //    $('#account-options').hide();
+    //    $('#register-user-wrapper').show();
+    //    $('#site-info-wrapper').hide();
+});
+$(document).on("submit", '#register-account-button', function (event) {
+    event.preventDefault();
+    //    $('#login-register-form').show();
+});
+$(document).on("submit", '#go-to-login-page', function (event) {
+    //    event.preventDefault();
+    //    $('#login-register-wrapper').show();
+});
+$(document).on("submit", '#login-account-button', function (event) {
+    //    event.preventDefault();
+    //    $('#nav-home, #nav-display-categories, #nav-add-new').show();
+    //    $('#logout').show();
+});
+$(document).on("submit", '#go-to-register-page-button', function (event) {
+    //    event.preventDefault();//    $('#register-user-wrapper').show();
+});
+
+
 //*****ALL NAV OPTION PAGES*****
 
 $(document).on("click", '#nav-about', function (event) {
@@ -724,6 +756,7 @@ $(document).on("change", '#select-cat', function (event) {
     let addCategoryShow = $('#add-category').show();
     let addCategoryHide = $('#add-category').hide();
 
+    //    alert(selectCategoryIDValue);
     if (selectCategoryIDValue == "addCategory") {
         $('#add-category input').val("");
         $('#add-category').show();
@@ -769,10 +802,10 @@ $(document).on("click", '#add-category-button', function (event) {
 
     let lowerName = cardCategory.toLowerCase();
     let upperName = cardCategory.toUpperCase();
-        console.log(cardCategory, lowerName, upperName);
-console.log(processCategoryDuplicate(cardCategory));
+    console.log(cardCategory, lowerName, upperName);
+    console.log(processCategoryDuplicate(cardCategory));
 
-console.log(cardCategory);
+    console.log(cardCategory);
     if (cardCategory == "") {
         alert("Please enter a category");
     } else if (cardCategory == processCategoryDuplicate(cardCategory)) {
@@ -839,6 +872,27 @@ $(document).on("change", '#select-sub-cat', function (event) {
     }
 });
 
+function checkSubCategoryDuplicate(subCategoryName) {
+    $.ajax({
+            type: 'GET',
+            url: '/check-sub-category-duplicate-by-name/' + subCategoryName,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            processSubCategoryDuplicate(result);
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function processSubCategoryDuplicate(result) {
+    return result;
+}
+
 $(document).on("click", '#add-sub-category-button', function (event) {
     event.preventDefault();
     let cardCategory = $('#add-category input').val();
@@ -847,10 +901,23 @@ $(document).on("click", '#add-sub-category-button', function (event) {
     }
 
     let cardSubCategory = $('#add-sub-category input').val();
+
+    let lowerName = cardSubCategory.toLowerCase();
+    let upperName = cardSubCategory.toUpperCase();
+    console.log(cardSubCategory, lowerName, upperName);
+    console.log(processSubCategoryDuplicate(cardSubCategory));
+    console.log(cardSubCategory);
+
     if (cardCategory == "") {
         alert("Please select a category");
     } else if (cardSubCategory == "") {
         alert("Please enter a sub category");
+    } else if (cardSubCategory == processSubCategoryDuplicate(cardSubCategory)) {
+        alert('Sub-category already exists, please select from list');
+    } else if (cardSubCategory == processSubCategoryDuplicate(lowerName)) {
+        alert('Sub-category already exists, please select from list');
+    } else if (cardSubCategory == processSubCategoryDuplicate(upperName)) {
+        alert('Sub-category already exists, please select from list');
     } else {
         const newSubCategoryObject = {
             name: cardSubCategory,
@@ -1041,160 +1108,4 @@ $(document).on("change", '#menu url', function (event) {
         $('#navigation').show();
         $('#example-image').html(selectImageValue).hide();
     }
-});
-
-
-
-
-
-
-//$('.login-account').click(function () {
-//
-//    const inputUname = $('.signin-username').val();
-//    const inputPw = $('.signin-password').val();
-//
-//    if ((!inputUname) || (inputUname.length < 1) || (inputUname.indexOf(' ') > 0)) {
-//        alert('Please enter a valid username');
-//    } else if ((!inputPw) || (inputPw.length < 1) || (inputPw.indexOf(' ') > 0)) {
-//        alert('Invalid password');
-//    } else {
-//        const unamePwObject = {
-//            username: inputUname,
-//            password: inputPw
-//        };
-//        user = inputUname;
-//        $.ajax({
-//                type: "POST",
-//                url: "/users/signin",
-//                dataType: 'json',
-//                data: JSON.stringify(unamePwObject),
-//                contentType: 'application/json'
-//            })
-//            .done(function (result) {
-//                loggedInUser = result;
-//                $('.hide-everything').hide();
-//                $('.logout-account').show();
-//                $('#finalLoggedinUser').val(loggedInUser);
-//
-//
-//
-//
-//                $.ajax({
-//                        type: 'GET',
-//                        url: '/statements/' + loggedInUser,
-//                        dataType: 'json',
-//                        contentType: 'application/json'
-//                    })
-//                    .done(function (result) {
-//                        let retrieveUserSop = {};
-//                        if ((!result) || (result != undefined) || (result != "")) {
-//                            retrieveUserSop = result;
-//                        }
-//
-//                        if (retrieveUserSop != "") {
-//                            //display final page with statement
-//
-//                            $('.create-text').html(retrieveUserSop.body);
-//                            $('.updated-sop-id').val(retrieveUserSop._id);
-//                            $('.purpose p').html(retrieveUserSop.body);
-//                            $('.my-goals').html(retrieveUserSop.goals);
-//
-//                            let valuesArray = retrieveUserSop.values.split(",");
-//                            $('.values ul').html("");
-//                            for (let i = 0; i < valuesArray.length; i++) {
-//                                $('.values ul').append("<li>" + valuesArray[i] + "</li>");
-//                            }
-//
-//                            let beliefsArray = retrieveUserSop.beliefs.split(",");
-//                            $('.beliefs ul').html("");
-//                            for (let j = 0; j < beliefsArray.length; j++) {
-//                                $('.beliefs ul').append("<li>" + beliefsArray[j] + "</li>");
-//                            }
-//
-//                            let goalsArray = retrieveUserSop.goals.split(",");
-//                            $('.goals ul').html("");
-//                            for (let k = 0; k < goalsArray.length; k++) {
-//                                $('.goals ul').append("<li>" + goalsArray[k] + "</li>");
-//                            }
-//
-//                            $('.navigate-options').show();
-//                            $('.hide-nav-create').hide();
-//                            $('.hide-nav-review').hide();
-//                            $('.hide-nav-revise').show();
-//                            $('.logout-account').show();
-//                            $('#completed-sop').show();
-//                            $('#values-beliefs-goals').show();
-//                            $('.hide-review-answers').hide();
-//                            $('.hide-questions').hide();
-//                            $('.template-sop').hide();
-//
-//                        } else {
-//                            $('#sop-description-info').show();
-//                            $('.hide-nav-review').show();
-//                            $('.hide-nav-revise').hide();
-//                        }
-//                    })
-//                    .fail(function (jqXHR, error, errorThrown) {
-//                        console.log(jqXHR);
-//                        console.log(error);
-//                        console.log(errorThrown);
-//                    });
-//            })
-//            .fail(function (jqXHR, error, errorThrown) {
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//                alert('Invalid username and password combination. Please check your username and password and try again.');
-//            });
-//    };
-//});
-
-
-
-
-
-
-//
-//$('.register-account').click(function (event) {
-//    event.preventDefault();
-//
-//    const uname = $('.register-username').val();
-//    const pw = $('.register-password').val();
-//    const confirmPw = $('.register-confirm-password').val();
-//
-//    if (uname == "") {
-//        alert('Please specify username');
-//    } else if ((pw !== confirmPw) || (pw == "")) {
-//        alert('Passwords must match and not be empty!');
-//    } else {
-//        const newUserObject = {
-//            username: uname,
-//            password: pw
-//        };
-//
-//        $.ajax({
-//                type: 'POST',
-//                url: '/users/create',
-//                dataType: 'json',
-//                data: JSON.stringify(newUserObject),
-//                contentType: 'application/json'
-//            })
-//            .done(function (result) {
-//                alert('Thanks for signing up! You may now sign in with your username and password.');
-//
-//                $('.hide-everything').hide();
-//                $('#sop-description-info').show();
-//                $('#login-sop').show();
-//            })
-//            .fail(function (jqXHR, error, errorThrown) {
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//            });
-//    };
-//
-//});
-
-$('#nav-logout').click(function () {
-    //    window.location.reload();
 });
