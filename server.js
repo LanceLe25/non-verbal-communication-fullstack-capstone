@@ -198,20 +198,35 @@ app.get('/get-category-name-by-id/:id', function (req, res) {
         });
 });
 
-app.get('/check-category-duplicate-by-name/:name', function (req, res) {
 
-    Category.find({
-            name: req.params.name
-        },
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+app.get('/check-category-duplicate-by-name/:name', function (req, res) {
+    let inputCategoryName = req.params.name;
+    let lowerName = inputCategoryName.toLowerCase();
+    let upperName = inputCategoryName.toUpperCase();
+    let titleName = toTitleCase(inputCategoryName);
+
+    Category.find({},
         function (err, item) {
-            console.log(item);
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item.length);
+            let categoryFound = 0;
+            for (let key in item) {
+                //                console.log("compare ", item[key].name, " with ", inputCategoryName, " or with ", lowerName, " or with ", upperName, " or with ", titleName);
+                //console.log(`${item[key].name}`);
+                if (item[key].name == lowerName) {
+                    categoryFound++;
+                } else if (item[key].name == upperName) {
+                    categoryFound++;
+                } else if (item[key].name == titleName) {
+                    categoryFound++;
+                } else if (item[key].name == inputCategoryName) {
+                    categoryFound++;
+                }
             }
+            res.status(200).json(categoryFound);
         });
 });
 
@@ -290,20 +305,30 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
         });
 });
 
-app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
 
-    SubCategory.find({
-            name: req.params.name
-        },
+app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
+    let inputSubCategoryName = req.params.name;
+    let lowerName = inputSubCategoryName.toLowerCase();
+    let upperName = inputSubCategoryName.toUpperCase();
+    let titleName = toTitleCase(inputSubCategoryName);
+
+    SubCategory.find({},
         function (err, item) {
-            console.log(item);
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item.length);
+            let subCategoryFound = 0;
+            for (let key in item) {
+                //                console.log("compare ", item[key].name, " with ", inputCategoryName, " or with ", lowerName, " or with ", upperName, " or with ", titleName);
+                //console.log(`${item[key].name}`);
+                if (item[key].name == lowerName) {
+                    subCategoryFound++;
+                } else if (item[key].name == upperName) {
+                    subCategoryFound++;
+                } else if (item[key].name == titleName) {
+                    subCategoryFound++;
+                } else if (item[key].name == inputSubCategoryName) {
+                    subCategoryFound++;
+                }
             }
+            res.status(200).json(subCategoryFound);
         });
 });
 
@@ -460,22 +485,35 @@ app.delete('/delete-item/:itemId', function (req, res) {
     });
 });
 
-app.get('/check-item-duplicate-by-name/:name', function (req, res) {
 
-    CardItem.find({
-            name: req.params.name
-        },
+app.get('/check-item-duplicate-by-name/:name', function (req, res) {
+    let inputItemName = req.params.name;
+    let lowerName = inputItemName.toLowerCase();
+    let upperName = inputItemName.toUpperCase();
+    let titleName = toTitleCase(inputItemName);
+
+    CardItem.find({},
         function (err, item) {
-            console.log(item);
-            if (err) {
-                return res.status(500).json({
-                    message: 'Internal Server Error'
-                });
-            } else {
-                res.status(200).json(item.length);
+            let itemFound = 0;
+            for (let key in item) {
+                //                console.log("compare ", item[key].name, " with ", inputCategoryName, " or with ", lowerName, " or with ", upperName, " or with ", titleName);
+                //console.log(`${item[key].name}`);
+                if (item[key].name == lowerName) {
+                    itemFound++;
+                } else if (item[key].name == upperName) {
+                    itemFound++;
+                } else if (item[key].name == titleName) {
+                    itemFound++;
+                } else if (item[key].name == inputItemName) {
+                    itemFound++;
+                }
             }
+            res.status(200).json(itemFound);
         });
 });
+
+
+
 
 
 //*********************CARD SAVE POST AND GET*************************
