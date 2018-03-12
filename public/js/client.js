@@ -772,6 +772,8 @@ $(document).on("click", '#add-category-button', function (event) {
                 console.log(result);
                 if (result != 0) {
                     alert('Category already exists, please select from list');
+                    $("#add-category input").val('');
+                    $("#add-category input").focus();
                 } else {
                     const newCategoryObject = {
                         name: cardCategory
@@ -839,7 +841,6 @@ $(document).on("change", '#select-sub-cat', function (event) {
     }
 });
 
-
 $(document).on("click", '#add-sub-category-button', function (event) {
     event.preventDefault();
     let cardCategory = $('#add-category input').val();
@@ -866,6 +867,8 @@ $(document).on("click", '#add-sub-category-button', function (event) {
                 console.log(result);
                 if (result != 0) {
                     alert('Sub-category already exists, please select from list');
+                    $("#add-sub-category input").val('');
+                    $("#add-sub-category input").focus();
                 } else {
                     const newSubCategoryObject = {
                         name: cardSubCategory,
@@ -907,7 +910,6 @@ $(document).on("click", '#add-sub-category-button', function (event) {
     }
 
 });
-
 
 $(document).on("click", '#select-icon-wrapper .item', function (event) {
     event.preventDefault();
@@ -955,8 +957,6 @@ $(document).on("change", '#select-card-item', function (event) {
     }
 });
 
-
-
 $(document).on("click", '#add-card-item-button', function (event) {
     event.preventDefault();
 
@@ -990,6 +990,8 @@ $(document).on("click", '#add-card-item-button', function (event) {
                 console.log(result);
                 if (result != 0) {
                     alert('Item already exists, please select from list');
+                    $('#add-card-item input').val('');
+                    $('#add-card-item input').focus();
                 } else {
                     const newCardItemObject = {
                         name: cardItem,
