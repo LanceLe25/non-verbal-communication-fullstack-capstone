@@ -570,7 +570,7 @@ $(document).ready(function () {
     $('.hide-everything').hide();
     $('#navigation').show();
     //hide the following once you set up login options
-    $('#nav-home, #nav-display-categories, #nav-add-new').show();
+    $('#nav-display-categories, #nav-add-new').show();
     $('#header').show();
     $('#site-info-wrapper').show();
 
@@ -587,17 +587,10 @@ $(document).ready(function () {
 
 //*****ALL NAV OPTION PAGES*****
 
-$(document).on("click", '#nav-about', function (event) {
+$(document).on("click", '#nav-home', function (event) {
     $('.hide-everything').hide();
     $('#navigation').show();
     $('#site-info-wrapper').show();
-});
-
-$(document).on("click", '#nav-home', function (event) {
-    event.preventDefault();
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#home-page-icons').show();
 });
 
 $(document).on("submit", '.editShowAllCategoryForm', function (event) {
