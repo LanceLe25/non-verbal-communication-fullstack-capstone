@@ -135,5 +135,7 @@ Step 9. Displays all categories as clickable buttons to enter that category.
 
 ### Version 1.1
  *Add login feature so user can save their own collections of cards
- *Give theme options so user can change the background and card colors
+ *Add feature that will allow user to click a card and temporarily save it to a side bar in order to better communicate what the user wants or needs
+ *Add button at the top of the show all page that will show all edit buttons, otherwise hide all edit buttons
  *Allow users to capture their own images and add to app
+  *Give options for user to change the background and card colors

@@ -305,7 +305,6 @@ app.get('/sub-category/get/:categoryId', function (req, res) {
         });
 });
 
-
 app.get('/check-sub-category-duplicate-by-name/:name', function (req, res) {
     let inputSubCategoryName = req.params.name;
     let lowerName = inputSubCategoryName.toLowerCase();
@@ -485,7 +484,6 @@ app.delete('/delete-item/:itemId', function (req, res) {
     });
 });
 
-
 app.get('/check-item-duplicate-by-name/:name', function (req, res) {
     let inputItemName = req.params.name;
     let lowerName = inputItemName.toLowerCase();
@@ -578,7 +576,7 @@ app.get('/card-icons/get/', function (req, res) {
     });
 });
 
-app.get('/get - item - icon - by - id/:id', function (req, res) {
+app.get('/get-item-icon-by-id/:id', function (req, res) {
     CardItem.find({
             _id: req.params.id
         },

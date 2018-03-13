@@ -330,7 +330,7 @@ function displayCardItemDropdown(subCategoryId) {
         });
 }
 
-function displayCardIconsDropdown(cardId) {
+function displayCardIconsDropdown() {
     let selectCardItemNameValue = $('#select-card-item').val();
     let selectedIcon = displayNameByID(selectCardItemNameValue, "icon");
     console.log(selectedIcon);
@@ -748,8 +748,6 @@ $(document).on("change", '#select-cat', function (event) {
     console.log(globalSelectedCategory);
 });
 
-
-
 $(document).on("click", '#add-category-button', function (event) {
     event.preventDefault();
     let cardCategory = $('#add-category input').val();
@@ -949,10 +947,10 @@ $(document).on("change", '#select-card-item', function (event) {
         $('#selectCardItemIDValue').val(selectCardItemNameValue);
 
         globalCardItem == selectCardItemNameValue;
-        displayCardIconsDropdown(selectCardItemNameValue);
+        displayCardIconsDropdown();
         $('.search').focus();
         $('#add-card-main').show();
-        $('#selectCardItemNameValue').html('.search');
+        //        $('#selectCardItemNameValue').html('.search');
         displayNameByID(selectCardItemNameValue, "item");
     }
 });
@@ -1032,68 +1030,6 @@ $(document).on("click", '#add-card-item-button', function (event) {
 
 });
 
-//$(document).on("click", '#add-card-item-button', function (event) {
-//    event.preventDefault();
-//
-//    let cardCategory = $('#add-category input').val();
-//    if (cardCategory == "") {
-//        cardCategory = $('#selectCategoryIDValue').val();
-//    }
-//
-//    let cardSubCategory = $('#add-sub-category input').val();
-//    if (cardSubCategory == "") {
-//        cardSubCategory = $('#selectSubCategoryIDValue').val();
-//    }
-//
-//    let cardItem = $('#add-card-item input').val();
-//
-//    let lowerName = cardItem.toLowerCase();
-//    let upperName = cardItem.toUpperCase();
-//    console.log(cardItem, lowerName, upperName);
-//    console.log(checkItemDuplicate(cardItem));
-//    console.log(cardItem);
-//
-//    if (cardItem == "") {
-//        alert("Please enter an item");
-//    } else if (cardItem == checkItemDuplicate(cardItem)) {
-//        alert('Item already exists, please select from list');
-//    } else if (cardItem == checkItemDuplicate(lowerName)) {
-//        alert('Item already exists, please select from list');
-//    } else if (cardItem == checkItemDuplicate(upperName)) {
-//        alert('Item already exists, please select from list');
-//    } else {
-//        const newCardItemObject = {
-//            name: cardItem,
-//            icon: "",
-//            categoryId: cardCategory,
-//            subCategoryId: cardSubCategory
-//        };
-//        console.log(newCardItemObject);
-//
-//        $.ajax({
-//                type: 'POST',
-//                url: '/card-item/create',
-//                dataType: 'json',
-//                data: JSON.stringify(newCardItemObject),
-//                contentType: 'application/json'
-//            })
-//            .done(function (result) {
-//                console.log(result);
-//                displayCardItemDropdown(cardSubCategory);
-//                $('#add-card-item').hide();
-//                displayNameByID(cardItem, "item");
-//                $('#select-card-item').focus();
-//            })
-//            .fail(function (jqXHR, error, errorThrown) {
-//                console.log(jqXHR);
-//                console.log(error);
-//                console.log(errorThrown);
-//            });
-//    }
-//
-//
-//});
-
 $(document).on("click", '#save-card-button', function (event) {
     event.preventDefault();
 
@@ -1151,6 +1087,6 @@ $(document).on("change", '#menu url', function (event) {
         globalImage == selectImageValue;
         $('.hide-everything').hide();
         $('#navigation').show();
-        $('#example-image').html(selectImageValue).hide();
+        //        $('#example-image').html(selectImageValue).hide();
     }
 });
