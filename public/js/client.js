@@ -924,7 +924,7 @@ $(document).on("change", '#select-card-item', function (event) {
     let addCardItemShow = $('#add-card-item').show();
     let addCardItemHide = $('#add-card-item').hide();
     let selectSubCategoryIDValue = $('#select-sub-cat').val();
-    //    let cardItemNameValue =
+    //    let cardItemInput = $('#add-card-item').val();
 
     console.log("selectCardItemNameValue = ", selectCardItemNameValue)
 
@@ -950,7 +950,7 @@ $(document).on("change", '#select-card-item', function (event) {
         displayCardIconsDropdown();
         $('.search').focus();
         $('#add-card-main').show();
-        //        $('#selectCardItemNameValue').html('.search');
+        selectCardItemNameValue.append('.search');
         displayNameByID(selectCardItemNameValue, "item");
     }
 });

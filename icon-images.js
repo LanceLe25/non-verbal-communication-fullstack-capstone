@@ -1127,10 +1127,10 @@
     "name": "chocolate ice cream bar",
     "url": "ice-cream.png"
 } {
-    "name": " strawberry  jelly",
+    "name": " strawberry  jam",
     "url": "jam-1.png"
 } {
-    "name": " grape  jelly",
+    "name": " grape  jam",
     "url": "jam.png"
 } {
     "name": "sucker",

@@ -278,6 +278,10 @@ Content styles (Main Module)
     vertical-align: middle;
 }
 
+.text {
+    margin-top: 1rem;
+}
+
 img,
 #blank-image {
     width: 200px;
