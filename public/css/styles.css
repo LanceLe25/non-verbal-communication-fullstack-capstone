@@ -66,11 +66,6 @@ body {
     background-color: #48484f
 }
 
-#navigation {
-    background-color: #8aa3b9;
-    margin-top: 1rem;
-}
-
 #nav-options a:hover {
     color: aliceblue;
 }
@@ -139,6 +134,8 @@ Header styles (Main Module)
 }
 
 #app-navigation {
+    background-color: #8aa3b9;
+    width: 100%;
     padding-bottom: .5rem;
 }
 
@@ -188,8 +185,8 @@ Content styles (Main Module)
     background: white;
     color: black;
     text-align: left;
-    padding: .25rem;
-    border-radius: 5px;
+    padding: .5rem;
+    border-radius: 2px;
 }
 
 #site-info-wrapper div {
@@ -210,8 +207,8 @@ Content styles (Main Module)
 
 #site-info-para1 img,
 #site-info-para3 img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border: 5px solid #48484f;
     border-radius: 3px;
     margin: 0 .21rem;
@@ -420,7 +417,22 @@ img,
     border-radius: 5px;
 }
 
+/******STYLES FOR HELP PAGE******/
 
+#help-page-wrapper {
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    padding: .5rem;
+}
+
+#help-page-wrapper div {
+    border-bottom: 1px solid #8aa3b9;
+}
+
+#help-page-wrapper p {
+    padding: .5rem 0;
+}
 
 /* -------------------------------------
 Footer styles (Main Module)

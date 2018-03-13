@@ -593,6 +593,34 @@ $(document).on("click", '#nav-home', function (event) {
     $('#site-info-wrapper').show();
 });
 
+$(document).on("click", '#nav-display-categories', function (event) {
+    event.preventDefault();
+
+    displayAll();
+
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#category-display-wrapper').show();
+});
+
+$(document).on("click", '#nav-add-new', function (event) {
+    event.preventDefault();
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#add-card-main').show();
+    $('#add-card-wrapper-form').show();
+    $('#example-card-display-wrapper').show();
+    $('#save-card-button').show();
+    $('#select-cat').focus();
+});
+
+$(document).on("click", '#nav-help', function (event) {
+    event.preventDefault();
+    $('.hide-everything').hide();
+    $('#navigation').show();
+    $('#help-page-wrapper').show();
+});
+
 $(document).on("submit", '.editShowAllCategoryForm', function (event) {
     event.preventDefault();
 
@@ -695,26 +723,7 @@ $(document).on("submit", '.editShowAllItemForm', function (event) {
     }
 });
 
-$(document).on("click", '#nav-display-categories', function (event) {
-    event.preventDefault();
 
-    displayAll();
-
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#category-display-wrapper').show();
-});
-
-$(document).on("click", '#nav-add-new', function (event) {
-    event.preventDefault();
-    $('.hide-everything').hide();
-    $('#navigation').show();
-    $('#add-card-main').show();
-    $('#add-card-wrapper-form').show();
-    $('#example-card-display-wrapper').show();
-    $('#save-card-button').show();
-    $('#select-cat').focus();
-});
 
 //*****ADD NEW CARD PAGE WITH CAT/SUBCAT/CARD ITEM/IMAGE SELECTIONS*****
 $(document).on("change", '#select-cat', function (event) {
