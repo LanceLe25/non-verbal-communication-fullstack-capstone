@@ -11,23 +11,29 @@ My mother is a stroke survivor. She can read and she understands what people are
 
 
 # Screenshots
-![image1](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/landing-page.png)
+![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/landing-page.png)
 
-![image2](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/register-new-user-page.png)
+![image2](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-new-page.png)
 
-![image3](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/questions-page.png)
+![image3](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/select-category-page.png)
 
-![image4](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/instructions-to-create-sop.png)
+![image4](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-category-input-page.png)
 
-![image5](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/create-sop-freestyle-page.png)
+![image5](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-subcategory-dropdown-page.png)
 
-![image6](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/create-sop-template-page.png)
+![image6](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-sub-category-input-page.png)
 
-![image7](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/set-goals-page.png)
+![image7](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-item-dropdown-page.png)
 
-![image8](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/sop-values-beliefs-goals-final-page.png)
+![image8](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/add-item-input-page.png)
 
-![image9](https://github.com/kimcheru18/define-statement-of-purpose-node-capstone/blob/master/github-images/revise-sop-page.png)
+![image9](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/select-icon-from-dropdown-page.png)
+
+![image10](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/select-icon-page.png)
+
+![image11](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/show-all-page.png)
+
+![image12](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/help-page.png)
 
 
 # User Stories & Initial UX
