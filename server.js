@@ -14,9 +14,11 @@ const BasicStrategy = require('passport-http').BasicStrategy;
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use(express.static('public'));
+app.use(cors());
 
 mongoose.Promise = global.Promise;
 
