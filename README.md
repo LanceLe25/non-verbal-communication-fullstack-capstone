@@ -36,14 +36,6 @@ My mother is a stroke survivor. She can read and she understands what people are
 Step 1. Initial landing page explains what app is for.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/site-info-page.png)
 
-**Login Page**
-Step 2. User will login to their account here.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/login-page.png)
-
-**Register Page**
-Step 3. User registers for account.
-![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/register-page.png)
-
 **Add New Card Page**
 Step 4. User clicks "NEW" from navigation section. All options are displayed except icon selection. A mock card is also displayed that will update as user selects or adds content.
 ![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/add-card-page.png)
