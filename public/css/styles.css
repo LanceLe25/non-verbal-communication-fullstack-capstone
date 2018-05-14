@@ -129,6 +129,8 @@ Header styles (Main Module)
 /******NAVIGATION STYLES******/
 
 #nav-options li {
+    display: inline-block;
+    margin-right: 1rem;
     padding-top: .5rem;
     font-size: 1.3rem;
 }
@@ -140,7 +142,11 @@ Header styles (Main Module)
 }
 
 #app-navigation li {
-    padding-right: .75rem;
+/*    padding-right: .75rem;*/
+}
+
+#app-navigation li:first-child {
+    padding-left: 1rem;
 }
 
 #home-page-icons {
@@ -163,8 +169,8 @@ Header styles (Main Module)
     background: #48484f;
     clear: both;
     font-size: 2rem;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+    padding: .5rem 0;
+    margin-bottom: 1rem;
 }
 
 header span {
@@ -209,8 +215,6 @@ Content styles (Main Module)
 #site-info-para3 img {
     width: 75px;
     height: 75px;
-    border: 5px solid #48484f;
-    border-radius: 3px;
     margin: 0 .21rem;
 }
 
@@ -477,9 +481,6 @@ place all the mobile tables styles below this line
 */
 
 @media only screen and (min-width: 800px) {
-    #navigation {
-        margin-top: 1rem;
-    }
     #app-navigation {
         float: left;
     }
